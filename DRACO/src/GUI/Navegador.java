@@ -6,6 +6,7 @@
 package GUI;
 
  
+import DracoScript.Gramatica.Analizador.anlzDracoScript;
 import GUI.Elements.crearTab;
 import GUI.Elements.newTab;
 import GUI.Elements.xForm;
@@ -27,8 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-
+import javafx.scene.layout.VBox; 
 /**
  * FXML Controller class
  *
@@ -56,12 +56,18 @@ public class Navegador implements Initializable {
     @FXML
     private Button btnBoton1;
 
+     
+
+    @FXML
+    void btnManual(ActionEvent event) {
+
+    }
+    
+     
+    
     @FXML
     void btnIr(ActionEvent event) { 
-         
-
-        Button hol = new Button();
-        hol.setId("hoa");
+          
 
     }
 

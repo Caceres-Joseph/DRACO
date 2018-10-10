@@ -7,6 +7,8 @@ package GUI.Elements;
 
 import Analyzer.Javacc.parser;
 import Analyzer.Tree.tree;
+import DracoScript.Estructuras.Elementos.elementoGlobal;
+import DracoScript.Gramatica.Analizador.anlzDracoScript;
 import GUI.Principal;
 import form_usac.FORM_USAC;
 import java.io.ByteArrayInputStream;
@@ -63,14 +65,23 @@ public class xForm extends newTab {
     @Override
     public void accLeer() {
 
-        InputStream stream = new ByteArrayInputStream(this.entrada.getText().getBytes(StandardCharsets.UTF_8));
-        parser par = new parser();
-        par.arbol.tablaSimbolos.tablaErrores = this.tablaErrores;
-        par.inicializar(stream);
-
-        //this.tablaErrores.concat(par.raiz.tablaSimbolos.tablaErrores);
-        this.showTableErrors();
-        this.arbol = par.arbol;
+        elementoGlobal elmento=new elementoGlobal();
+        
+        String salida = (String ) webview.getEngine().executeScript("editor.getValue();");
+        //System.out.println(salida);
+        anlzDracoScript dra=new anlzDracoScript(salida, nombreArchivo, elmento);
+        dra.analizar();
+        
+        
+        
+//        InputStream stream = new ByteArrayInputStream(this.entrada.getText().getBytes(StandardCharsets.UTF_8));
+//        parser par = new parser();
+//        par.arbol.tablaSimbolos.tablaErrores = this.tablaErrores;
+//        par.inicializar(stream);
+//
+//        //this.tablaErrores.concat(par.raiz.tablaSimbolos.tablaErrores);
+//        this.showTableErrors();
+//        this.arbol = par.arbol;
     }
 
     @Override
@@ -81,6 +92,9 @@ public class xForm extends newTab {
         this.setTextCode(tree.salida);
         
         tree.imprimirListas();
+       
+        
         //tree.imprimirVariables();
     }
+    
 }

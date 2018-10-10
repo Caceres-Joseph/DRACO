@@ -7,16 +7,13 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="541.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Navegador">
    <children>
-      <TabPane fx:id="tabSuprema" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
+      <TabPane fx:id="tabSuprema" layoutY="28.0" prefHeight="493.0" prefWidth="935.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
         <tabs>
             <Tab text="Home">
               <content>
@@ -32,7 +29,7 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <ScrollBar layoutX="872.0" layoutY="14.0" orientation="VERTICAL" prefHeight="150.0" prefWidth="17.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                    <Label layoutX="327.0" layoutY="27.0" text="Bienvenidos al Home">
+                                    <Label layoutX="327.0" layoutY="27.0" text="Bienvenido a Draco1">
                                        <font>
                                           <Font size="28.0" />
                                        </font>
@@ -40,11 +37,7 @@
                                     <Button layoutX="439.0" layoutY="81.0" mnemonicParsing="false" text="Navegar" />
                                  </children>
                               </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                  
-                                 </children>
-                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                           </items>
                         </SplitPane>
                         <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="21.0" text="Rec" />
@@ -55,13 +48,8 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="btnIr" layoutX="602.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnIr" text="Ir" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="34.0" />
-      <Button layoutX="133.0" layoutY="34.0" mnemonicParsing="false" text="Guardar" />
-      <Button layoutX="216.0" layoutY="34.0" mnemonicParsing="false" text="Ejecutar" />
-      <Button layoutX="309.0" layoutY="34.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="28.0" text="Salir" />
-      <Button layoutX="38.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnPrueba" text="Nuevo" />
-      <Button layoutX="355.0" layoutY="34.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="28.0" text="Salir" />
-      <Label layoutX="431.0" layoutY="17.0" text="FORM USAC ">
+      <Button layoutX="45.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnPrueba" text="Nuevo" />
+      <Label layoutX="467.0" layoutY="-3.0" text="DRACO ">
          <font>
             <Font size="28.0" />
          </font>

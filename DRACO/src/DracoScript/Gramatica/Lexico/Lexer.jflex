@@ -1,14 +1,13 @@
-package  Analizadores.A_cjs;
+package  DracoScript.Gramatica.Lexico;
 
+import DracoScript.Gramatica.Sintactico.*;
 import java_cup.runtime.*;
 import java.io.*;
 
 %%
 
-%class LexerCjs
-
-
-
+%class LexerDracoScript 
+%public
 
 
 %unicode
@@ -38,13 +37,14 @@ import java.io.*;
     LineTerminator = \r|\n|\r\n
     InputCharacter = [^\r\n]
     WhiteSpace     = {LineTerminator} | [ \t\f]
-    TraditionalComment   = "'/" [^*] ~"/'" | "'/" "/"+ "'"
-    EndOfLineComment     = "'" {InputCharacter}* {LineTerminator}?
+    TraditionalComment   = "$*" [^*] ~"*$" | "$*" "*"+ "$"
+    EndOfLineComment     = "$$" {InputCharacter}* {LineTerminator}?
     Comment = {TraditionalComment} | {EndOfLineComment} /*| {DocumentationComment}*/
     Identifier = [:jletter:] [:jletterdigit:]*
     DecIntegerLiteral = 0 | [1-9][0-9]*
     Double          =[0-9]+\.[0-9]+
 
+    If2 ="if" {WhiteSpace}+ "not" 
     
 %state STRING
 %state TITULO
@@ -53,88 +53,86 @@ import java.io.*;
 
     /*Simbolos*/
     <YYINITIAL> {
- 
+        {If2}                       {return symbol(sym.tIf2, yytext());}
 
-        ";"                         {return symbol(sym.tPuntoComa, yytext());}
-        ":"                         {return symbol(sym.tDosPuntos, yytext());}
+        ";"                         {return symbol(sym.sPuntoComa, yytext());}
+        ":"                         {return symbol(sym.sDosPuntos, yytext());}
         
-        "."                         {return symbol(sym.tPunto,yytext());} 
-        ","                         {return symbol(sym.tComa,yytext());}  
-        "="                         {return symbol(sym.tIgual,yytext());}  
+        "."                         {return symbol(sym.sPunto,yytext());} 
+        ","                         {return symbol(sym.sComa,yytext());}  
+        ":=:"                       {return symbol(sym.sIgual,yytext());}  
 
-        "=="                        {return symbol(sym.tIgualacion,yytext());}  
-        "!="                        {return symbol(sym.tDiferenciacion,yytext());}  
-        "<"                         {return symbol(sym.tMenor,yytext());}  
-        "<="                        {return symbol(sym.tMenorIgual,yytext());}  
-        ">"                         {return symbol(sym.tMayor,yytext());}  
-        ">="                        {return symbol(sym.tMayorIgual,yytext());}  
+        "=="                        {return symbol(sym.sIgualacion,yytext());}  
+        "!="                        {return symbol(sym.sDiferenciacion,yytext());}  
+        "<"                         {return symbol(sym.sMenor,yytext());}  
+        "<="                        {return symbol(sym.sMenorIgual,yytext());}  
+        ">"                         {return symbol(sym.sMayor,yytext());}  
+        ">="                        {return symbol(sym.sMayorIgual,yytext());}  
 
-        "&&"                        {return symbol(sym.tAnd,yytext());}  
-        "||"                        {return symbol(sym.tOr,yytext());}  
-        "!"                         {return symbol(sym.tNot,yytext());}  
+        "&&"                        {return symbol(sym.sAnd,yytext());}  
+        "||"                        {return symbol(sym.sOr,yytext());}  
+        "!"                         {return symbol(sym.sNot,yytext());}  
        
        
         
-        "("                         {return symbol(sym.tAbreParent, yytext());}
-        ")"                         {return symbol(sym.tCierraParent, yytext());}
-        "["                         {return symbol(sym.tAbreCorchete, yytext());}
-        "]"                         {return symbol(sym.tCierraCorchete, yytext());}
-        "{"                         {return symbol(sym.tAbreLlaves, yytext());}
-        "}"                         {return symbol(sym.tCierraLlaves, yytext());}
+        "("                         {return symbol(sym.sAbreParent, yytext());}
+        ")"                         {return symbol(sym.sCierraParent, yytext());}
+        "["                         {return symbol(sym.sAbreCorchete, yytext());}
+        "]"                         {return symbol(sym.sCierraCorchete, yytext());}
+        "{"                         {return symbol(sym.sAbreLlaves, yytext());}
+        "}"                         {return symbol(sym.sCierraLlaves, yytext());}
         
 
-        "^"                         {return symbol(sym.tPot, yytext());}
-        "%"                         {return symbol(sym.tModulo, yytext());}
+        "^"                         {return symbol(sym.sPot, yytext());}
+        "%"                         {return symbol(sym.sModulo, yytext());}
             
-        "*"                         {return symbol(sym.tPor, yytext());}
-        "+"                         {return symbol(sym.tMas, yytext());}
-        "/"                         {return symbol(sym.tDiv, yytext());}
-        "-"                         {return symbol(sym.tMenos, yytext());}
+        "*"                         {return symbol(sym.sPor, yytext());}
+        "+"                         {return symbol(sym.sMas, yytext());}
+        "/"                         {return symbol(sym.sDiv, yytext());}
+        "-"                         {return symbol(sym.sMenos, yytext());}
 
-        "++"                         {return symbol(sym.tDobleMas, yytext()); }
-        "--"                         {return symbol(sym.tDobleMenos, yytext());}
+        "++"                         {return symbol(sym.sDobleMas, yytext()); }
+        "--"                         {return symbol(sym.sDobleMenos, yytext());}
 
     }
 
     /*Palabras*/
     <YYINITIAL>{
-        "dimV"                      {return symbol(sym.tDimV, yytext());}
+        "var"                       {return symbol(sym.tVar, yytext());}
         
-        "funcion"                   {return symbol(sym.tFuncion, yytext());}
+        "smash"                     {return symbol(sym.tSmash, yytext());}
 
-        "retornar"                  {return symbol(sym.tRetornar, yytext());}
-        "detener"                   {return symbol(sym.tDetener, yytext());}
+        "if"                        {return symbol(sym.tIf, yytext());}
+        "elif"                      {return symbol(sym.tElif, yytext());}
         
-        "mensaje"                   {return symbol(sym.tMensaje, yytext());}
-        "imprimir"                  {return symbol(sym.tImprimir, yytext());}
 
-        "mientras"                  {return symbol(sym.tMientras, yytext());}
-        "Para"                      {return symbol(sym.tPara, yytext());}
+        //"not"                       {return symbol(sym.tNot, yytext());}
+        "while"                     {return symbol(sym.tWhile, yytext());}
 
-        "defecto"                   {return symbol(sym.tDefecto, yytext());}
-        "caso"                      {return symbol(sym.tCaso, yytext());}
-        "selecciona"                {return symbol(sym.tSelecciona, yytext());}
-        "sino"                      {return symbol(sym.tSino, yytext());}
-        "si"                        {return symbol(sym.tSi, yytext());}
+        "for"                       {return symbol(sym.tFor, yytext());}
+        "print"                     {return symbol(sym.tPrint, yytext());}
+
+        "runmultdasm"               {return symbol(sym.tRunMultDasm, yytext());}
+
+        "rundasm"                   {return symbol(sym.tRunDasm, yytext());}
         
-        "documento"                 {return symbol(sym.tDocumento, yytext());}
-        "obtener"                   {return symbol(sym.tObetener, yytext());}
-        "observador"                {return symbol(sym.tObservador, yytext());}
-        "setElemento"               {return symbol(sym.tSetElemento, yytext());}
+        "point"                     {return symbol(sym.tPoint, yytext());}
+        "quadrate"                  {return symbol(sym.tQuadrate, yytext());}
+        "oval"                      {return symbol(sym.tOval, yytext());}
+        "string"                    {return symbol(sym.tString, yytext());}
         
-        "conteo"                    {return symbol(sym.tConteo, yytext());}
-        "aTexto"                    {return symbol(sym.tATexto, yytext());}
+        "line"                      {return symbol(sym.tLine, yytext());}
         
-        "true"                      {return symbol(sym.tTrue, yytext());}
-        "false"                     {return symbol(sym.tFalse, yytext());}
+        "true"                      {return symbol(sym.valTrue, yytext());}
+        "false"                     {return symbol(sym.valFalse, yytext());}
     }
 
 
     <YYINITIAL>{
-        {Identifier}                {return symbol(sym.tIdentificador,yytext());}
+        {Identifier}                {return symbol(sym.valId,yytext());}
         \"                          { string.setLength(0); yybegin(STRING);}//tCAdena
-        {DecIntegerLiteral}         { return symbol(sym.tEntero,yytext())   ;}
-        {Double}                    { return symbol(sym.tDecimal,yytext());}
+        {DecIntegerLiteral}         { return symbol(sym.valEntero,yytext())   ;}
+        {Double}                    { return symbol(sym.valDecimal,yytext());}
     }
 
 
@@ -150,7 +148,7 @@ import java.io.*;
 
     <STRING> {
       \"                             { yybegin(YYINITIAL); /*System.out.println("AbreComilla"+ yytext());*/
-                                       return symbol(sym.tCadena, 
+                                       return symbol(sym.valCadena, 
                                        string.toString()); }
       [^\n\r\"\\]+                   { string.append( yytext() ); /*System.out.println("CierraComilla6"+ yytext());*/}
       \\t                            { string.append('\t'); }
