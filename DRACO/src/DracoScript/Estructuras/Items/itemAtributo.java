@@ -17,8 +17,13 @@ public class itemAtributo {
     public String valor="";
     
     
-     /**
-      * 
+    /**
+     * Sirve para los niveles del nodo, o para saber en que produccción estoy 
+     */
+    public int nivelProduccion=-1;
+    
+    
+     /** 
       * @param nombreToken Es el nombre que tiene el token
       * @param valor Valor que se reconoce al momento de leer
       * @param columna La columna donde está ubicado el token
@@ -60,16 +65,22 @@ public class itemAtributo {
       * Este contructor sirve para los nodos NO TERMINALES al momento de crear los nodos
       * @param nombreToken Es el nombre que tiene el token  
       * @param nombreArchivo El nombre del archivo del cual proviene el token
+     * @param nivelProduccion Es el nivel para diferenciar, en que producción me encuentro
       */
-    public itemAtributo (String nombreToken, String nombreArchivo){
+    public itemAtributo (String nombreToken, String nombreArchivo,int nivelProduccion){
         
         this.linea=-1;
         this.columna=-1;
         this.nombreToken=nombreToken;
         this.nombreArchivo=nombreArchivo;
         this.valor="";
+        this.nivelProduccion=nivelProduccion;
          
     }
+    
+     
+    
+    
     
     /**
      * Imprime el token actual

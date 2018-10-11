@@ -40,7 +40,7 @@ public class nodoModelo {
     /**
      * @param mensaje Imprime el mensaje con el nombre de la clase para ubicarlo de forma fácil
      */
-    public void printl(String mensaje){
+    public void println(String mensaje){
         System.out.println("["+atributo.nombreToken+"]"+mensaje);
     }
     
@@ -60,6 +60,16 @@ public class nodoModelo {
      */
     public itemRetorno ejecutar(elementoEntorno entorno){
         return listaHijos.ejecutar(entorno);
+    }
+    
+    
+    /**
+     * Para detectar si hay errores semanticos
+     * @return  Retorna un boolean para indicar si hubieron errores
+     */
+    public boolean hayErrores(){
+        return !simbolo.tablaErrores.tablaError.isEmpty();
+         
     }
     
 }

@@ -2,7 +2,7 @@ package  DracoScript.Gramatica.Lexico;
 
 import DracoScript.Gramatica.Sintactico.*;
 import java_cup.runtime.*;
-import java.io.*;
+import DracoScript.Estructuras.Elementos.elementoGlobal;
 
 %%
 
@@ -28,6 +28,13 @@ import java.io.*;
     private Symbol symbol(int type, Object value) {
         return new Symbol(type, yyline, yycolumn, value);
     }
+
+    public elementoGlobal simbolo;
+    public String nombreArchivo ="";
+    public void iniciar(elementoGlobal simbolo, String nombreArchivo){
+        this.simbolo=simbolo;
+        this.nombreArchivo=nombreArchivo;
+    }
 %}
 
 /*
@@ -45,7 +52,9 @@ import java.io.*;
     Double          =[0-9]+\.[0-9]+
 
     If2 ="if" {WhiteSpace}+ "not" 
-    
+
+    Char = "'"[^]"'"
+
 %state STRING
 %state TITULO
 
@@ -133,6 +142,7 @@ import java.io.*;
         \"                          { string.setLength(0); yybegin(STRING);}//tCAdena
         {DecIntegerLiteral}         { return symbol(sym.valEntero,yytext())   ;}
         {Double}                    { return symbol(sym.valDecimal,yytext());}
+        {Char}                      { return symbol(sym.valChar,yytext());}
     }
 
 
@@ -161,4 +171,7 @@ import java.io.*;
     
 
     /* error fallback */
-    [^]                              { System.out.println("Error |token:" + yytext()+"| linea :"+yyline+ "| columna:"+ yycolumn);}
+    [^]                              { 
+                                        //System.out.println("Error Lexico|token:" + yytext()+"| linea :"+yyline+ "| columna:"+ yycolumn);
+                                        simbolo.tablaErrores.insertErrorLexical(nombreArchivo,yyline+1, yycolumn+1, "no se reconoce el token : "+yytext());
+                                    }

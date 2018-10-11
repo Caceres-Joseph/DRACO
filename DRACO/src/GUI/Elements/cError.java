@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package GUI.Elements;
-
-import Analyzer.Tree.Tablas.elementoError;
-import Analyzer.Tree.Tablas.tablaErrores; 
+ 
+import DracoScript.Estructuras.Elementos.elementoError;
+import DracoScript.Estructuras.Elementos.elementoGlobal;
+import DracoScript.Estructuras.Tablas.tablaErrores;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,8 +28,8 @@ public class cError {
     AnchorPane padre=new AnchorPane();
 
     
-    public cError(tablaErrores tabl){
-        this.tablaErrores =tabl;
+    public cError(elementoGlobal simbolo){
+        this.tablaErrores =simbolo.tablaErrores;
         padre=new AnchorPane();
         
     }

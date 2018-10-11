@@ -29,7 +29,7 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <ScrollBar layoutX="872.0" layoutY="14.0" orientation="VERTICAL" prefHeight="150.0" prefWidth="17.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                    <Label layoutX="327.0" layoutY="27.0" text="Bienvenido a Draco1">
+                                    <Label layoutX="327.0" layoutY="27.0" text="Bienvenido a Draco ">
                                        <font>
                                           <Font size="28.0" />
                                        </font>

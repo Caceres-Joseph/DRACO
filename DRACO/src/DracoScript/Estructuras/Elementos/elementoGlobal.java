@@ -15,7 +15,7 @@ import DracoScript.Estructuras.Tablas.tablaErrores;
 public class elementoGlobal {
     
     public tablaErrores tablaErrores = new tablaErrores();
-    
+    public String txtConsola="";
     
     /**
      * Elemento

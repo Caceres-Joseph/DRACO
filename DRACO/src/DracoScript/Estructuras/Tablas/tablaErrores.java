@@ -6,6 +6,7 @@
 package DracoScript.Estructuras.Tablas;
  
 import DracoScript.Estructuras.Elementos.elementoError;
+import DracoScript.Estructuras.Items.itemAtributo;
 import java.util.ArrayList; 
 import java.util.List;
 
@@ -70,6 +71,67 @@ public class tablaErrores {
         println("[Error]Semantico-> "+mensaje);
  
     }
+    
+    /**
+     * <br>|--------------------------------------------------------------------------
+     * <br>| Mostrando los erroes
+     * <br>|--------------------------------------------------------------------------
+     * <br>| Para enviar el token, y el mensaje
+     */
+
+    
+    /**
+     * Mostrando un error sintactico 
+     * @param atrib El atributo, que contiene el nombre del archivo, linea, columna
+     * @param mensaje Mensaje del error
+     */
+    
+    public void insertErrorSyntax(itemAtributo atrib, String mensaje){
+        elementoError elem=new elementoError();
+        elem.ambito=atrib.nombreArchivo;
+        elem.tipo="Sintactico";
+        elem.linea=String.valueOf(atrib.linea);
+        elem.columna=String.valueOf(atrib.columna);
+        elem.descripcion=mensaje; 
+        this.tablaError.add(elem);
+        println("[Error]Sintactico-> "+mensaje);
+    }
+    
+    
+    /**
+     * Mostrando un error lexico 
+     * @param atrib El atributo, que contiene el nombre del archivo, linea, columna
+     * @param mensaje Mensaje del error
+     */
+    
+    public void insertErrorLexical(itemAtributo atrib, String mensaje){
+        elementoError elem=new elementoError();
+        elem.ambito=atrib.nombreArchivo;
+        elem.tipo="Lexico";
+        elem.linea=String.valueOf(atrib.linea);
+        elem.columna=String.valueOf(atrib.columna);
+        elem.descripcion=mensaje; 
+        this.tablaError.add(elem);
+        println("[Error]Lexico-> "+mensaje);
+    }
+     
+    
+    /**
+     * Mostrando un error lexico 
+     * @param atrib El atributo, que contiene el nombre del archivo, linea, columna
+     * @param mensaje Mensaje del error
+     */
+    
+    public void insertErrorSemantic(itemAtributo atrib, String mensaje){
+        elementoError elem=new elementoError();
+        elem.ambito=atrib.nombreArchivo;
+        elem.tipo="Semantico";
+        elem.linea=String.valueOf(atrib.linea);
+        elem.columna=String.valueOf(atrib.columna);
+        elem.descripcion=mensaje; 
+        this.tablaError.add(elem);
+        println("[Error]Semantico-> "+mensaje);
+    } 
     
     
     public void concat(tablaErrores tab){

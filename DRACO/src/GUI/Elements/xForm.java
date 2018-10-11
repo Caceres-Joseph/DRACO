@@ -4,33 +4,24 @@
  * and open the template in the editor.
  */
 package GUI.Elements;
-
-import Analyzer.Javacc.parser;
-import Analyzer.Tree.tree;
+ 
+import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Gramatica.Analizador.anlzDracoScript;
-import GUI.Principal;
-import form_usac.FORM_USAC;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import DracoScript.Nodos.nodoModelo;
+import GUI.Principal; 
+import java.io.File; 
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.stage.FileChooser;
-import readExcel.readExcel;
+import java.io.IOException; 
+import javafx.stage.FileChooser; 
 
 /**
  *
  * @author joseph
  */
 public class xForm extends newTab {
-
-    public tree arbol = new tree();
+ 
+    public nodoModelo raiz;
 
     public xForm() {
 
@@ -53,7 +44,7 @@ public class xForm extends newTab {
                 /*guardamos el archivo y le damos el formato directamente,
     *           si queremos que se guarde en formato doc lo definimos como .doc*/
                 FileWriter save = new FileWriter(guarda + ".xform");
-                save.write(tree.salida);
+//                save.write(tree.salida);
                 save.close();
                 System.out.println("Guardado exitosamente");
             }
@@ -71,6 +62,19 @@ public class xForm extends newTab {
         //System.out.println(salida);
         anlzDracoScript dra=new anlzDracoScript(salida, nombreArchivo, elmento);
         dra.analizar();
+        raiz=dra.raiz;
+        
+        elementoEntorno entornoGlobal=new elementoEntorno(null, "global", elmento);
+        
+        if(raiz!=null){
+            raiz.ejecutar(entornoGlobal);
+        }else{
+            println("Raiz nula");
+        }
+        
+        this.setTextTabExcel(elmento.txtConsola);
+        this.showTableErrors(elmento);
+        
         
         
         
@@ -86,15 +90,19 @@ public class xForm extends newTab {
 
     @Override
     public void accGenerar() {
-        tree.resetVariables();
-        arbol.raiz.execute();
-        this.showTableErrors();
-        this.setTextCode(tree.salida);
-        
-        tree.imprimirListas();
+//        tree.resetVariables();
+//        arbol.raiz.execute();
+////        this.showTableErrors();
+//        this.setTextCode(tree.salida);
+//        
+//        tree.imprimirListas();
        
         
         //tree.imprimirVariables();
     }
+    @Override
+     public void println(String mensaje){
+         System.out.println("[xForm]"+mensaje);
+     }
     
 }

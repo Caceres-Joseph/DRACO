@@ -5,8 +5,12 @@
  */
 package DracoScript.Nodos.Nativas;
 
+import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
+import DracoScript.Estructuras.Items.itemRetorno; 
+import DracoScript.Estructuras.Items.itemValor;
+import DracoScript.Nodos.Valor._VALOR;
 import DracoScript.Nodos.nodoModelo;
 
 
@@ -33,6 +37,45 @@ public class _PRINT extends nodoModelo {
     public _PRINT(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
     }
+    
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+     */
+    /**
+     * Metodo de ejecución final
+     *
+     * @param entorno Es la tabla que contiene las variables
+     * @return
+     */
+    @Override
+    public itemRetorno ejecutar(elementoEntorno entorno) {
+        itemRetorno retorno = new itemRetorno();
+        if (hayErrores()) {
+            return retorno;
+        }
+
+        if (atributo.nivelProduccion == 0) { 
+            _VALOR nod = (_VALOR) listaHijos.lstHijos.get(0);
+            itemValor tel= nod.getValor(entorno);
+            Object ret= tel.getValorParseado("cadena", atributo);
+            
+            if(ret!=null){
+                
+                simbolo.txtConsola+="\n"+ret;
+            }
+            
+            
+        } else {
+            
+        }
+
+        return retorno;
+    }
+
      
     
 }

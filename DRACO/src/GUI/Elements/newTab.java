@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package GUI.Elements;
-
-import Analyzer.Tree.Tablas.tablaErrores;
+ 
+import DracoScript.Estructuras.Elementos.elementoGlobal;
 import GUI.Principal;
 import java.io.BufferedReader;
 
@@ -14,21 +14,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Timer;
-import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.TimerTask; 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
+import javafx.event.ActionEvent; 
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.AnchorPane; 
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 //import javafx.stage.FileChooser;
@@ -47,7 +46,7 @@ public class newTab {
     public Button btnLeer;
     public Button btnGenerar;
 
-    public tablaErrores tablaErrores;
+//    public tablaErrores tablaErrores;
 
     public TextArea entrada = new TextArea("");//tengo que abrir el archivo 
 
@@ -74,7 +73,7 @@ public class newTab {
         
     public newTab() {
 
-        tablaErrores = new tablaErrores();
+//        tablaErrores = new tablaErrores();
 
     }
 
@@ -88,7 +87,7 @@ public class newTab {
 //        setTabCJS("Consola Error");
         crearNavegacion();
         setTabErroes();
-        setTabTerminal();
+        //setTabTerminal();
         setTabExcel();
 //        setTabCHMTL("hola.jpg");
         return tab;
@@ -102,7 +101,7 @@ public class newTab {
     }
 
     public void setTabExcel() {
-        tabExcel = new Tab(".xls");
+        tabExcel = new Tab("Consola");
         AnchorPane paneConsolaError = new AnchorPane();
         tabExcel.setContent(paneConsolaError);
         tabConsola.getTabs().add(tabExcel);
@@ -245,6 +244,8 @@ public class newTab {
         AnchorPane areaConsola = new AnchorPane();
 
         tabConsola = new TabPane();
+        tabConsola.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
+        
         AnchorPane.setBottomAnchor(tabConsola, 0.0);
         AnchorPane.setLeftAnchor(tabConsola, 0.0);
         AnchorPane.setRightAnchor(tabConsola, 0.0);
@@ -336,6 +337,8 @@ public class newTab {
     public void setTextTabExcel(String texto) {
 
         entrada.setText(texto);
+      
+        entrada.setStyle("-fx-control-inner-background: black; -fx-text-fill: white;"); 
 //        TextArea lineas2 = new TextArea();
         String numeros = "";
         for (int i = 0; i < 999; i++) {
@@ -501,18 +504,18 @@ public class newTab {
 
     }
 
-    public tablaErrores getTablaErrores() {
-        return tablaErrores;
-    }
+//    public tablaErrores getTablaErrores() {
+////        return tablaErrores;
+//    }
 
     /*
     |--------------------------------------------------------------------------
     | Pintar la tabla de errores prro
     |-------------------------------------------------------------------------- 
      */
-    public void showTableErrors() {
+    public void showTableErrors(elementoGlobal simbolo) {
         //this.tablaErrores.imprimir();
-        cError consolaErr = new cError(this.tablaErrores);
+        cError consolaErr = new cError(simbolo);
         tabErro.setContent(consolaErr.retornarTabla());
 
     }

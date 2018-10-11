@@ -5,9 +5,7 @@
  */
 package DracoScript.Estructuras.Elementos;
 
-import DracoScript.Estructuras.Items.itemEntorno;
-import java.util.LinkedHashMap;
-import java.util.Map; 
+import DracoScript.Estructuras.Items.itemEntorno; 
 
 /**
  *
@@ -20,7 +18,7 @@ public class elementoEntorno {
     public elementoEntorno anterior;
     public elementoGlobal simbolo;
     public String nombre;
-    public Map<String, itemEntorno> lstVariables ;
+    public itemEntorno lstVariables ;
     
     /**
      * 
@@ -32,21 +30,6 @@ public class elementoEntorno {
         this.anterior=anterior;
         this.simbolo=simbolo;
         this.nombre=nombre;
-        this.lstVariables=new LinkedHashMap<>();
-        
+        this.lstVariables=new itemEntorno(simbolo);
     }
-    
-    
-    /**
-     * Es el metodo para ingresar las nuevas varaibles al ambito
-     * @param nombreVar Es el nombre de la nueva variable.
-     * @param var Varaible nueva que va ser ingresada.
-     */
-    public void insertarVariable(String nombreVar, itemEntorno var){
-        lstVariables.put(nombreVar, var);
-    }
-    
-    
-    
-    
 }

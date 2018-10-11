@@ -36,6 +36,7 @@ parser code {:
     public tablaDeSimbolos tablaSimbolos; */
     public elementoGlobal simbolo;
     public String nombreArchivo="";
+    public nodoModelo raiz;
     public void iniciar(elementoGlobal simbolo, String nombreArchivo){
         this.simbolo=simbolo;
         this.nombreArchivo= nombreArchivo;
@@ -90,7 +91,7 @@ terminal String tVar            , tSmash,
                 tLine      ;
 
 
-terminal  String  valTrue         , valFalse,
+terminal  String  valTrue         , valFalse, valChar,
                 valId           , valEntero , valCadena , valDecimal;
 
 
@@ -177,11 +178,11 @@ start with S;
  
 S               ::= LST_CUERPO:h1
                         {:
-                            itemAtributo atrib1=new itemAtributo("S", parser.nombreArchivo); 
+                            itemAtributo atrib1=new itemAtributo("S", parser.nombreArchivo, 0); 
                             _S padre =new _S(atrib1 , parser.simbolo);
                             
                                 padre.listaHijos.insertar(h1,h1left, h1right); 
-
+                            parser.raiz=padre;
                             RESULT= padre;
                         :}
                     ;
@@ -189,7 +190,7 @@ S               ::= LST_CUERPO:h1
 
 LST_CUERPO      ::= LST_CUERPO:h1 CUERPO:h2
                         {:
-                            itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo); 
+                            itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 0); 
                             _LST_CUERPO padre =new _LST_CUERPO(atrib1 , parser.simbolo);
                             
                                 padre.listaHijos.insertar(h1,h1left, h1right);
@@ -200,7 +201,7 @@ LST_CUERPO      ::= LST_CUERPO:h1 CUERPO:h2
 
                 |   CUERPO:h1
                     {:
-                        itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 1); 
                         _LST_CUERPO padre =new _LST_CUERPO(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -211,7 +212,7 @@ LST_CUERPO      ::= LST_CUERPO:h1 CUERPO:h2
 
 CUERPO          ::= DECLARAR_VAR:h1 sPuntoComa
                     {:
-                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 0); 
                         _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -219,7 +220,7 @@ CUERPO          ::= DECLARAR_VAR:h1 sPuntoComa
                     :}
                 |   ASIGNAR_VAL:h1 sPuntoComa
                     {:
-                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 1); 
                         _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);;
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -228,7 +229,7 @@ CUERPO          ::= DECLARAR_VAR:h1 sPuntoComa
                 |   SENTENCIAS:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 2); 
                         _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -237,7 +238,7 @@ CUERPO          ::= DECLARAR_VAR:h1 sPuntoComa
                 |   ROMPER:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 3); 
                         _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -246,7 +247,7 @@ CUERPO          ::= DECLARAR_VAR:h1 sPuntoComa
                 |   FUNCIONES_NATIVAS:h1  sPuntoComa
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 4); 
                         _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -266,7 +267,7 @@ CUERPO          ::= DECLARAR_VAR:h1 sPuntoComa
 ASIGNAR_VAL     ::= ASGIN_VAR:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo, 0); 
                         _ASIGNAR_VAL padre =new _ASIGNAR_VAL(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -277,7 +278,7 @@ ASIGNAR_VAL     ::= ASGIN_VAR:h1
                 |   valId sDobleMas
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo, 1); 
                         _ASIGNAR_VAL padre =new _ASIGNAR_VAL(atrib1 , parser.simbolo);
                         
 
@@ -286,7 +287,7 @@ ASIGNAR_VAL     ::= ASGIN_VAR:h1
                 |   valId sDobleMenos
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo, 2); 
                         _ASIGNAR_VAL padre =new _ASIGNAR_VAL(atrib1 , parser.simbolo);
                         
 
@@ -298,7 +299,7 @@ ASIGNAR_VAL     ::= ASGIN_VAR:h1
 DECLARAR_VAR    ::=tVar LST_DECLARAR_VAR:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("DECLARAR_VAR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("DECLARAR_VAR", parser.nombreArchivo, 0); 
                         _DECLARAR_VAR padre =new _DECLARAR_VAR(atrib1 , parser.simbolo);
 
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -310,7 +311,7 @@ DECLARAR_VAR    ::=tVar LST_DECLARAR_VAR:h1
 LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo, 0); 
                         _LST_DECLARAR_VAR padre =new _LST_DECLARAR_VAR(atrib1 , parser.simbolo);
 
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -320,7 +321,7 @@ LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
                 |   LST_DECLARAR_VAR:h1 sComa ASGIN_VAR:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo, 1); 
                         _LST_DECLARAR_VAR padre =new _LST_DECLARAR_VAR(atrib1 , parser.simbolo);
                             
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -331,7 +332,7 @@ LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
                 |   valId
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo, 2); 
                         _LST_DECLARAR_VAR padre =new _LST_DECLARAR_VAR(atrib1 , parser.simbolo);
 
                           
@@ -342,7 +343,7 @@ LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
                 
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo, 3); 
                         _LST_DECLARAR_VAR padre =new _LST_DECLARAR_VAR(atrib1 , parser.simbolo);
                             
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -355,7 +356,7 @@ LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
 ASGIN_VAR       ::=valId sIgual VALOR:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ASGIN_VAR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ASGIN_VAR", parser.nombreArchivo, 0); 
                         _ASGIN_VAR padre =new _ASGIN_VAR(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -366,7 +367,7 @@ ASGIN_VAR       ::=valId sIgual VALOR:h1
 LST_VALOR       ::= LST_VALOR:h1 sComa VALOR:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LST_VALOR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_VALOR", parser.nombreArchivo, 0); 
                         _LST_VALOR padre =new _LST_VALOR(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
                             padre.listaHijos.insertar(h2,h2left, h2right);
@@ -376,7 +377,7 @@ LST_VALOR       ::= LST_VALOR:h1 sComa VALOR:h2
                 |   VALOR:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LST_VALOR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LST_VALOR", parser.nombreArchivo, 1); 
                         _LST_VALOR padre =new _LST_VALOR(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -394,7 +395,7 @@ LST_VALOR       ::= LST_VALOR:h1 sComa VALOR:h2
 SENTENCIAS      ::=  IF:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("SENTENCIAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("SENTENCIAS", parser.nombreArchivo, 0); 
                         _SENTENCIAS padre =new _SENTENCIAS(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right); 
 
@@ -403,7 +404,7 @@ SENTENCIAS      ::=  IF:h1
                 |   WHILE:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("SENTENCIAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("SENTENCIAS", parser.nombreArchivo, 1); 
                         _SENTENCIAS padre =new _SENTENCIAS(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -412,7 +413,7 @@ SENTENCIAS      ::=  IF:h1
                 |   FOR:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("SENTENCIAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("SENTENCIAS", parser.nombreArchivo, 2); 
                         _SENTENCIAS padre =new _SENTENCIAS(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
 
@@ -430,7 +431,7 @@ SENTENCIAS      ::=  IF:h1
 ROMPER          ::=tSmash sPuntoComa
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ROMPER", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ROMPER", parser.nombreArchivo, 0); 
                         _ROMPER padre =new _ROMPER(atrib1 , parser.simbolo);
                         
 
@@ -449,7 +450,7 @@ ROMPER          ::=tSmash sPuntoComa
 IF              ::= tIf sAbreParent VALOR:h1 sCierraParent sAbreLlaves LST_CUERPO:h2  sCierraLlaves
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("IF", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("IF", parser.nombreArchivo, 0); 
                         _IF padre =new _IF(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
                             padre.listaHijos.insertar(h2,h2left, h2right);
@@ -461,7 +462,7 @@ IF              ::= tIf sAbreParent VALOR:h1 sCierraParent sAbreLlaves LST_CUERP
                 |   tIf sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST_CUERPO:h2 sCierraLlaves ELIF:h3
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("IF", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("IF", parser.nombreArchivo, 1); 
                         _IF padre =new _IF(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -473,7 +474,7 @@ IF              ::= tIf sAbreParent VALOR:h1 sCierraParent sAbreLlaves LST_CUERP
                 |   tIf sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST_CUERPO:h2 sCierraLlaves IF_NOT:h3
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("IF", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("IF", parser.nombreArchivo, 2); 
                         _IF padre =new _IF(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -487,7 +488,7 @@ IF              ::= tIf sAbreParent VALOR:h1 sCierraParent sAbreLlaves LST_CUERP
 ELIF            ::= tElif sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST_CUERPO:h2 sCierraLlaves
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ELIF", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ELIF", parser.nombreArchivo, 0); 
                         _ELIF padre =new _ELIF(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -498,7 +499,7 @@ ELIF            ::= tElif sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST
                 |   tElif sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST_CUERPO:h2 sCierraLlaves ELIF:h3
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ELIF", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ELIF", parser.nombreArchivo, 1); 
                         _ELIF padre =new _ELIF(atrib1 , parser.simbolo);
                         
 
@@ -511,7 +512,7 @@ ELIF            ::= tElif sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST
                 |   tElif sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST_CUERPO:h2 sCierraLlaves IF_NOT:h3
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("ELIF", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("ELIF", parser.nombreArchivo, 2); 
                         _ELIF padre =new _ELIF(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -525,7 +526,7 @@ ELIF            ::= tElif sAbreParent  VALOR:h1  sCierraParent  sAbreLlaves  LST
 IF_NOT          ::= tIf2  sAbreLlaves  LST_CUERPO:h1 sCierraLlaves
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("IF_NOT", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("IF_NOT", parser.nombreArchivo, 0); 
                         _IF_NOT padre =new _IF_NOT(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -542,7 +543,7 @@ IF_NOT          ::= tIf2  sAbreLlaves  LST_CUERPO:h1 sCierraLlaves
 WHILE           ::=tWhile sAbreParent VALOR:h1 sCierraParent sAbreLlaves LST_CUERPO:h2  sCierraLlaves
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("WHILE", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("WHILE", parser.nombreArchivo, 0); 
                         _WHILE padre =new _WHILE(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -560,7 +561,7 @@ WHILE           ::=tWhile sAbreParent VALOR:h1 sCierraParent sAbreLlaves LST_CUE
 FOR             ::= tFor sAbreParent DECLARAR_VAR:h1 sPuntoComa VALOR:h2 sPuntoComa ASIGNAR_VAL:h3 sCierraParent sAbreLlaves LST_CUERPO:h4  sCierraLlaves
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FOR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FOR", parser.nombreArchivo, 0); 
                         _FOR padre =new _FOR(atrib1 , parser.simbolo);
 
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -573,7 +574,7 @@ FOR             ::= tFor sAbreParent DECLARAR_VAR:h1 sPuntoComa VALOR:h2 sPuntoC
                 |   tFor sAbreParent ASIGNAR_VAL:h1  sPuntoComa VALOR:h2 sPuntoComa ASIGNAR_VAL:h3 sCierraParent sAbreLlaves LST_CUERPO:h4  sCierraLlaves
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FOR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FOR", parser.nombreArchivo, 1); 
                         _FOR padre =new _FOR(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -594,7 +595,7 @@ FOR             ::= tFor sAbreParent DECLARAR_VAR:h1 sPuntoComa VALOR:h2 sPuntoC
 FUNCIONES_NATIVAS   ::= PRINT:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 0); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
 
                             padre.listaHijos.insertar(h1,h1left, h1right);                        
@@ -604,7 +605,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
                     |   RUNMULTDASM:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 1); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -615,7 +616,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
                     |   POINT:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 2); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -625,7 +626,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
                     |   QUADRATE:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 3); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -635,7 +636,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
                     |   OVAL:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 4); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -646,7 +647,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
                     |   STRING:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 5); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -656,7 +657,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
                     |   LINE:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("FUNCIONES_NATIVAS", parser.nombreArchivo, 6); 
                         _FUNCIONES_NATIVAS padre =new _FUNCIONES_NATIVAS(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -668,7 +669,7 @@ FUNCIONES_NATIVAS   ::= PRINT:h1
 PRINT           ::= tPrint sAbreParent VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("PRINT", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("PRINT", parser.nombreArchivo, 0); 
                         _PRINT padre =new _PRINT(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -678,7 +679,7 @@ PRINT           ::= tPrint sAbreParent VALOR:h1 sCierraParent
                 |   tPrint sAbreParent  sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("PRINT", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("PRINT", parser.nombreArchivo, 1); 
                         _PRINT padre =new _PRINT(atrib1 , parser.simbolo);
                         
 
@@ -690,7 +691,7 @@ PRINT           ::= tPrint sAbreParent VALOR:h1 sCierraParent
 RUNMULTDASM     ::= tRunMultDasm sAbreParent VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo, 0); 
                         _RUNMULTDASM padre =new _RUNMULTDASM(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -700,7 +701,7 @@ RUNMULTDASM     ::= tRunMultDasm sAbreParent VALOR:h1 sCierraParent
                 |   tRunMultDasm sAbreParent  sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo, 1); 
                         _RUNMULTDASM padre =new _RUNMULTDASM(atrib1 , parser.simbolo);
                         
 
@@ -709,7 +710,7 @@ RUNMULTDASM     ::= tRunMultDasm sAbreParent VALOR:h1 sCierraParent
                 |   tRunDasm sAbreParent VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo, 2); 
                         _RUNMULTDASM padre =new _RUNMULTDASM(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -719,7 +720,7 @@ RUNMULTDASM     ::= tRunMultDasm sAbreParent VALOR:h1 sCierraParent
                 |   tRunDasm sAbreParent  sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("RUNMULTDASM", parser.nombreArchivo, 3); 
                         _RUNMULTDASM padre =new _RUNMULTDASM(atrib1 , parser.simbolo);
                         
 
@@ -729,7 +730,7 @@ RUNMULTDASM     ::= tRunMultDasm sAbreParent VALOR:h1 sCierraParent
 POINT           ::= tPoint sAbreParent LST_VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("POINT", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("POINT", parser.nombreArchivo, 0); 
                         _POINT padre =new _POINT(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -741,7 +742,7 @@ POINT           ::= tPoint sAbreParent LST_VALOR:h1 sCierraParent
 QUADRATE        ::= tQuadrate sAbreParent LST_VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("QUADRATE", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("QUADRATE", parser.nombreArchivo, 0); 
                         _QUADRATE padre =new _QUADRATE(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -754,7 +755,7 @@ QUADRATE        ::= tQuadrate sAbreParent LST_VALOR:h1 sCierraParent
 OVAL            ::= tOval sAbreParent LST_VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("OVAL", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("OVAL", parser.nombreArchivo, 0); 
                         _OVAL padre =new _OVAL(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -766,7 +767,7 @@ OVAL            ::= tOval sAbreParent LST_VALOR:h1 sCierraParent
 STRING          ::= tString sAbreParent LST_VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("STRING", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("STRING", parser.nombreArchivo, 0); 
                         _STRING padre =new _STRING(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -778,7 +779,7 @@ STRING          ::= tString sAbreParent LST_VALOR:h1 sCierraParent
 LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("LINE", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("LINE", parser.nombreArchivo, 0); 
                         _LINE padre =new _LINE(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -797,7 +798,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
  VALOR          ::= E:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("VALOR", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("VALOR", parser.nombreArchivo, 0); 
                         _VALOR padre =new _VALOR(atrib1 , parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right); 
@@ -808,7 +809,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
  E              ::= sMenos:d1  E:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 0); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -825,7 +826,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sPot:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 1); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -840,7 +841,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sDiv:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 2); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -855,7 +856,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sPor:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 3); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -869,8 +870,8 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                     :}
                 | E:h1  sMas:d1  E:h2
                     {:
-
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+ 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 4); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -886,7 +887,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sMenos:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 5); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -901,7 +902,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sModulo:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 6); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -919,7 +920,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sIgualacion:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 7); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -934,7 +935,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sDiferenciacion:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 8); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
 
@@ -947,7 +948,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sMenor:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 9); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -962,7 +963,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sMenorIgual:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 10); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -978,7 +979,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sMayor:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 11); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -993,7 +994,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sMayorIgual:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 12); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -1011,7 +1012,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sAnd:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 13); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
 
@@ -1027,7 +1028,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | E:h1  sOr:d1  E:h2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 14); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -1041,7 +1042,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | sNot:d1  E:h1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 15); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -1055,7 +1056,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | sAbreParent:d1  E:h1  sCierraParent:d2
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 16); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             padre.listaHijos.insertar(h1,h1left, h1right);
@@ -1071,7 +1072,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
 
                 | valId:d1  //validar que si viene func() tiene que retornar algo obligatoriamente prro
                     {:
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 17); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
@@ -1082,7 +1083,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | valTrue:d1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 18); 
                         _E padre =new _E(atrib1, parser.simbolo);
                           
                             itemAtributo at1=new itemAtributo("valTrue",d1, d1right, d1left,parser.nombreArchivo); 
@@ -1093,7 +1094,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | valFalse:d1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 19); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             itemAtributo at1=new itemAtributo("valFalse",d1, d1right, d1left,parser.nombreArchivo); 
@@ -1104,7 +1105,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | valCadena :d1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 20); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             itemAtributo at1=new itemAtributo("valCadena",d1, d1right, d1left,parser.nombreArchivo); 
@@ -1115,7 +1116,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | valDecimal:d1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 21); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             itemAtributo at1=new itemAtributo("valCadena",d1, d1right, d1left,parser.nombreArchivo); 
@@ -1126,12 +1127,23 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                 | valEntero :d1
                     {:
 
-                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo); 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 22); 
                         _E padre =new _E(atrib1, parser.simbolo);
                         
                             itemAtributo at1=new itemAtributo("valEntero",d1, d1right, d1left,parser.nombreArchivo); 
                             padre.listaAtributos.insertar(at1);
+                            //System.out.println("insertando en el nivel 22");
+                        RESULT= padre;
+                    :}
+                | valChar :d1
+                    {:
 
+                        itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 23); 
+                        _E padre =new _E(atrib1, parser.simbolo);
+                        
+                            itemAtributo at1=new itemAtributo("valChar",d1, d1right, d1left,parser.nombreArchivo); 
+                            padre.listaAtributos.insertar(at1);
+                            //System.out.println("insertando en el nivel 22");
                         RESULT= padre;
                     :}
 

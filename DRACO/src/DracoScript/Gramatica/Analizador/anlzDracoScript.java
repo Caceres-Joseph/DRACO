@@ -12,6 +12,7 @@ import java.io.FileReader;
 
 import DracoScript.Gramatica.Lexico.*;
 import DracoScript.Gramatica.Sintactico.parser;
+import DracoScript.Nodos.nodoModelo;
 import java.io.Reader;
 import java.io.StringReader;
 
@@ -25,6 +26,7 @@ public class anlzDracoScript {
     public String nombreArchivo;
     public elementoGlobal simbolo;
     
+    public nodoModelo raiz;
     /**
      * 
      * @param cadena La cadena que se va analizar
@@ -44,19 +46,29 @@ public class anlzDracoScript {
 //            FileReader fr = new FileReader(file);
         Reader reader = new StringReader(this.entrada);
         LexerDracoScript lex;
+        
         lex = new LexerDracoScript(reader);
+        lex.iniciar(simbolo, nombreArchivo) ;
         parser p = new parser(lex);
-        p.iniciar(simbolo, entrada);
+        p.iniciar(simbolo, nombreArchivo);
+        
+            System.out.println("+------------------------------------------------+");
         try {
             p.parse();
-            println("[DracoScript]Build successful");
+            raiz= p.raiz; 
+            println("[DracoScript]Build successful |");
         } catch (Exception e) {
             println("Error :(");
+            raiz=null;
         }
+        
+            System.out.println("+------------------------------------------------+");
+        
+        
 
     }
 
     public void println(String mensaje) {
-        System.out.println("[anlzDracoScript]" + mensaje);
+        System.out.println("| [anlzDracoScript]" + mensaje);
     }
 }
