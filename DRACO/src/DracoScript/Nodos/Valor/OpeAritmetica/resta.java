@@ -8,19 +8,20 @@ package DracoScript.Nodos.Valor.OpeAritmetica;
 import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
-import DracoScript.Estructuras.Items.itemValor; 
+import DracoScript.Estructuras.Items.itemValor;
+
 /**
  *
  * @author joseph
  */
-public class suma {
+public class resta {
     
     itemAtributo val1;
     itemAtributo val2;
     elementoGlobal simbolo;
     itemAtributo atrib;
     String signo;
-    public suma(elementoGlobal simbolo, itemAtributo atrib, String signo){
+    public resta(elementoGlobal simbolo, itemAtributo atrib, String signo){
         this.simbolo=simbolo;
         this.atrib=atrib;
         this.signo=signo;
@@ -34,7 +35,7 @@ public class suma {
     |
      */
     /**
-     * Metodo que retorna el valor al operar la suma
+     * Metodo que retorna el valor al operar la Resta
      *
      * @param val1 Valor del lado izquierdo
      * @param val2 Valor del lado derecho
@@ -47,7 +48,7 @@ public class suma {
        itemValor retorno=new itemValor(simbolo);
        
         if(val1.isTypeNulo()||val2.isTypeNulo()){
-            simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede sumar con un valor de tipo nulo");
+            simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede restar con un valor nulo");
             return retorno;
         }
         
@@ -58,18 +59,12 @@ public class suma {
         */
         
         /*
-         *Booleano + Booleano = Booleano
+         *Booleano - Booleano = Booleano
          */
-        else if (val1.isTypeBooleano() && val2.isTypeBooleano()) {
-
-            boolean reto = val1.getBooleano() || val2.getBooleano();
-
-            retorno.setValor(reto);
-            return retorno;
-        }
+       
 
         /*
-         *Booleano + Numero = Numero
+         *Booleano - Numero = Numero
          */
         else if (val1.isTypeBooleano() && val2.isTypeNumero()) {
 
@@ -81,34 +76,20 @@ public class suma {
                 return retorno;
             }
 
-            double resul = (double) ob1 + (double) ob2;
+            double resul = (double) ob1 - (double) ob2;
             retorno.setValor(resul);
             return retorno;
         }
 
 
         /*
-         *Booleano + Cadena = Cadena
+         *Booleano - Cadena = Cadena
          */
-        else if (val1.isTypeBooleano() && val2.isTypeCadena()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-
-        }
+     
 
 
         /*
-         *Booleano + Char = Cadena
+         *Booleano - Char = Cadena
          */
         else if (val1.isTypeBooleano() && val2.isTypeChar()) {
 
@@ -120,7 +101,7 @@ public class suma {
                 return retorno;
             }
 
-            double resul = (double) ob1 + (double) ob2;
+            double resul = (double) ob1 - (double) ob2;
             retorno.setValor(resul);
             return retorno;
 
@@ -134,7 +115,7 @@ public class suma {
         */
         
         /*
-         *Numero + Booleano = Numero
+         *Numero - Booleano = Numero
          */
         else if (val1.isTypeNumero() && val2.isTypeBooleano()) {
 
@@ -146,45 +127,30 @@ public class suma {
                 return retorno;
             }
 
-            double resul = (double) ob1 + (double) ob2;
+            double resul = (double) ob1 - (double) ob2;
             retorno.setValor(resul);
             return retorno;
         }
 
         /*
-         *Numero + Numero = Numero
+         *Numero - Numero = Numero
          */
 
         else if (val1.isTypeNumero() && val2.isTypeNumero()) {
 
-            double resul = val1.getNumero() + val2.getNumero();
+            double resul = val1.getNumero() - val2.getNumero();
             retorno.setValor(resul);
             return retorno;
         }
 
 
         /*
-         *Numero + Cadena = Cadena
+         *Numero - Cadena = Cadena
          */
-        else if (val1.isTypeNumero() && val2.isTypeCadena()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-
-        }
+  
  
         /*
-         *Numero + Char = Numero
+         *Numero - Char = Numero
          */
 
         else if (val1.isTypeNumero() && val2.isTypeChar()) {
@@ -198,7 +164,7 @@ public class suma {
                 return retorno;
             }
 
-            double resul = (double) ob1 + (double) ob2;
+            double resul = (double) ob1 - (double) ob2;
             retorno.setValor(resul);
             return retorno;
         }
@@ -210,82 +176,25 @@ public class suma {
         */
         
         /*
-         *Cadena + Booleano = Numero
-         */
-        else if (val1.isTypeCadena() && val2.isTypeBooleano()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-        }
-
-        /*
-         *Cadena + Numero = Numero
-         */
-        else if (val1.isTypeCadena() && val2.isTypeNumero()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-        }
-
-        /*
-         *Cadena + Cadena = Cadena
+         *Cadena - Booleano = Numero
          */
         
-        else if (val1.isTypeCadena() && val2.isTypeCadena()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
+        /*
+         *Cadena - Numero = Numero
+         */
+     
 
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-
-        }
+        /*
+         *Cadena - Cadena = Cadena
+         */
+        
+     
  
         /*
-         *Cadena + Char = Numero
+         *Cadena - Char = Numero
          */
-        else if (val1.isTypeCadena() && val2.isTypeChar()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-        }
+    
         
         /*
         |--------------------------------------------------------------------------
@@ -294,7 +203,7 @@ public class suma {
         */
         
         /*
-         *Char + Booleano = Numero
+         *Char - Booleano = Numero
          */
         else if (val1.isTypeChar()&& val2.isTypeBooleano()) {
 
@@ -307,13 +216,13 @@ public class suma {
                 return retorno;
             }
 
-            double resul = (double) ob1 + (double) ob2;
+            double resul = (double) ob1 - (double) ob2;
             retorno.setValor(resul);
             return retorno;
         }
 
         /*
-         *Char + Numero = Numero
+         *Char - Numero = Numero
          */
 
         else if (val1.isTypeChar() && val2.isTypeNumero()) {
@@ -327,54 +236,24 @@ public class suma {
                 return retorno;
             }
 
-            double resul = (double) ob1 + (double) ob2;
+            double resul = (double) ob1 - (double) ob2;
             retorno.setValor(resul);
             return retorno;
         }
 
         /*
-         *Char + Cadena = Cadena
+         *Char - Cadena = Cadena
          */
-        
-        else if (val1.isTypeChar() && val2.isTypeCadena()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-
-        }
+ 
  
         /*
-         *Char + Char = Numero
+         *Char - Char = Numero
          */
-        else if (val1.isTypeChar() && val2.isTypeChar()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-        } else {
+        else {
             simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
             return retorno;
         }
           
     }
    
-    
 }

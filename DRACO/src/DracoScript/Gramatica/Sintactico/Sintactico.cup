@@ -939,6 +939,9 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
                         _E padre =new _E(atrib1, parser.simbolo);
                         
 
+                            padre.listaHijos.insertar(h1,h1left, h1right);
+                            padre.listaHijos.insertar(h2,h2left, h2right);
+                            
                             itemAtributo at1=new itemAtributo("sDiferenciacion",d1, d1right, d1left,parser.nombreArchivo); 
                             padre.listaAtributos.insertar(at1);
 

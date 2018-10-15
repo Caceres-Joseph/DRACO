@@ -231,6 +231,7 @@ public class itemValor {
      */
     /**
      * 
+     * @param aConvertir String que se desea sea el tipo final 
      * @param atrib Sirve para indicar la linea del error
      * @return 
      */
@@ -323,13 +324,15 @@ public class itemValor {
                 switch (tipo) {
                     case "cadena":
 
-                        try { 
-                            return Boolean.parseBoolean(getCadena());
-                        } catch (Exception e) {
-                            println("[getValorParseado]" + e.getMessage());
+                        if (getCadena().toLowerCase().replace(" ", "").contains("true")) {
+                            return true;
+                        } else if (getCadena().toLowerCase().replace(" ", "").contains("false")) {
+                            return false;
+                        } else {
                             simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede parsear " + getCadena() + " a tipo Boolean");
                             return null;
                         }
+
                     case "numero":
                         if (getNumero().intValue() == 0) {
                             return false;

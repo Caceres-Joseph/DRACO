@@ -9,9 +9,22 @@ import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemRetorno;
-import DracoScript.Estructuras.Items.itemValor; 
-import DracoScript.Estructuras.Listas.lstAtributos;
+import DracoScript.Estructuras.Items.itemValor;  
+import DracoScript.Nodos.Valor.OpeAritmetica.division;
+import DracoScript.Nodos.Valor.OpeAritmetica.modulo;
+import DracoScript.Nodos.Valor.OpeAritmetica.multiplicacion;
+import DracoScript.Nodos.Valor.OpeAritmetica.potencia;
+import DracoScript.Nodos.Valor.OpeAritmetica.resta;
 import DracoScript.Nodos.Valor.OpeAritmetica.suma;
+import DracoScript.Nodos.Valor.OpeLogico.and;
+import DracoScript.Nodos.Valor.OpeLogico.not;
+import DracoScript.Nodos.Valor.OpeLogico.or;
+import DracoScript.Nodos.Valor.OpeRelacional.MenorIgual;
+import DracoScript.Nodos.Valor.OpeRelacional.diferenciacion;
+import DracoScript.Nodos.Valor.OpeRelacional.igualacion;
+import DracoScript.Nodos.Valor.OpeRelacional.mayor;
+import DracoScript.Nodos.Valor.OpeRelacional.mayorIgual;
+import DracoScript.Nodos.Valor.OpeRelacional.menor;
 import DracoScript.Nodos.nodoModelo;
 
 /**
@@ -118,6 +131,8 @@ public class _E extends nodoModelo {
      * @param entorno
      * @return Retorno para revisión de break
      */
+    
+    
     public itemValor iniciar(elementoEntorno entorno) {
         itemValor retorno=new itemValor(simbolo);
              
@@ -127,59 +142,88 @@ public class _E extends nodoModelo {
         switch (atributo.nivelProduccion) {
 
             case 0:
-
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
                 if(hayErrores())
                     return retorno;
                 
-                return case_4(entorno); 
+                return case_0(entorno); 
+ 
+            case 1:
+                if(hayErrores())
+                    return retorno;
                 
+                return case_1(entorno); 
+ 
+            case 2:
+                if(hayErrores())
+                    return retorno;
+                
+                return case_2(entorno); 
+            case 3:
+                if(hayErrores())
+                    return retorno; 
+                return case_3(entorno); 
+            case 4:
+                if(hayErrores())
+                    return retorno; 
+                return case_4(entorno);  
             case 5:
-
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_5(entorno);  
             case 6:
-
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_6(entorno); 
             case 7:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_7(entorno);  
             case 8:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_8(entorno);  
             case 9:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_9(entorno);  
             case 10:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_10(entorno);  
             case 11:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_11(entorno);  
             case 12:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_12(entorno);  
             case 13:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_13(entorno);  
             case 14:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_14(entorno);  
             case 15:
 
-                break;
+                if(hayErrores())
+                    return retorno; 
+                return case_15(entorno);  
             case 16:
-
-                break;
+                if(hayErrores())
+                    return retorno;
+                
+                return case_16(entorno);  
             case 17:
                 
                 break;
@@ -234,16 +278,78 @@ public class _E extends nodoModelo {
      */
     public itemValor case_0(elementoEntorno entorno) {
         itemValor retorno = new itemValor(simbolo);
+        _E nod = (_E) listaHijos.lstHijos.get(0);
 
-        return retorno;
+        itemValor le = nod.getValor(entorno);
+        Object tel = le.getNumero();
+        if (tel != null) {
+            double el = (double) tel;
+            retorno.setValor((-1) * el);
+            return retorno;
+        } else {
+            simbolo.tablaErrores.insertErrorSemantic(atributo, "No se puede convertir a negativo el tipo " + le.tipo);
+            return retorno;
+        }
     }
 
+    /**
+     * <br> +----------------
+     * <br> | Operación POTENCIA
+     * <br> +---------------- 
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_1(elementoEntorno entorno) {  
+        potencia sum=new potencia(simbolo, listaAtributos.getAtributo(0), "POTENCIA");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación de la DIVISIÓN
+     * <br> +---------------- 
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_2(elementoEntorno entorno) {  
+        division sum=new division(simbolo, listaAtributos.getAtributo(0), "DIV");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación de la MULTIPLICACIÓN
+     * <br> +---------------- 
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_3(elementoEntorno entorno) {  
+        multiplicacion sum=new multiplicacion(simbolo, listaAtributos.getAtributo(0), "MULTIPLICACIÓN");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
     
     /**
      * <br> +----------------
      * <br> | Operación de la suma
-     * <br> +----------------
-     * <br> | Producción para reconocer los booleanos
+     * <br> +---------------- 
      *
      * Se inserta un valor
      * @param entorno Es el ambito que recibe
@@ -255,10 +361,251 @@ public class _E extends nodoModelo {
 //        println(atributo.nombreArchivo);
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
-        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);
-                 
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
     }
     
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación de la Resta
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_5(elementoEntorno entorno) {  
+        resta sum=new resta(simbolo, listaAtributos.getAtributo(0), "RESTA");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno); 
+    }
+    
+    
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación MODULO
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_6(elementoEntorno entorno) {  
+        modulo sum=new modulo(simbolo, listaAtributos.getAtributo(0), "MODULO");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    /**
+     * <br> +----------------
+     * <br> | Operación IGUALACIÓN
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_7(elementoEntorno entorno) {  
+        igualacion sum=new igualacion(simbolo, listaAtributos.getAtributo(0), "IGUALACIÓN");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación DIFERENCIACIÓN
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_8(elementoEntorno entorno) {  
+        diferenciacion sum=new diferenciacion(simbolo, listaAtributos.getAtributo(0), "DIFERENCIACIÓN");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación MENOR
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_9(elementoEntorno entorno) {  
+        menor sum=new menor(simbolo, listaAtributos.getAtributo(0), "MENOR");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación MENOR IGUAL QUE
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_10(elementoEntorno entorno) {  
+        MenorIgual sum=new MenorIgual(simbolo, listaAtributos.getAtributo(0), "MENOR IGUAL QUE");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación MAYOR
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_11(elementoEntorno entorno) {  
+        mayor sum=new mayor(simbolo, listaAtributos.getAtributo(0), "MAYOR");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    }
+    /**
+     * <br> +----------------
+     * <br> | Operación MAYOR IGUAL QUE
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_12(elementoEntorno entorno) {  
+        mayorIgual sum=new mayorIgual(simbolo, listaAtributos.getAtributo(0), "MAYOR IGUAL QUE");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    } 
+    /**
+     * <br> +----------------
+     * <br> | Operación AND
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_13(elementoEntorno entorno) {  
+        and sum=new and(simbolo, listaAtributos.getAtributo(0), "AND");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    } 
+    /**
+     * <br> +----------------
+     * <br> | Operación OR
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_14(elementoEntorno entorno) {  
+        or sum=new or(simbolo, listaAtributos.getAtributo(0), "OR");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+         
+        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);     
+    } 
+    /**
+     * <br> +----------------
+     * <br> | Operación NOT
+     * <br> +----------------
+     * <br> | Producción para reconocer los booleanos
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_15(elementoEntorno entorno) {  
+        not sum=new not(simbolo, listaAtributos.getAtributo(0), "NOT");
+//        println(atributo.nombreArchivo);
+        _E e1 = (_E) listaHijos.lstHijos.get(0); 
+        
+         
+        return sum.getValor(e1.getValor(entorno), entorno);     
+    } 
+    
+    
+    /**
+     * <br> +----------------
+     * <br> | Operación Parentesis
+     * <br> +----------------
+     * <br> | Producción para reconocer cuando vienene parentesis
+     *
+     * Se inserta un valor
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_16(elementoEntorno entorno) {  
+          
+        _E e1 = (_E) listaHijos.lstHijos.get(0); 
+        
+        return  e1.getValor(entorno);     
+    } 
+    
+     
     /**
      * <br> +----------------
      * <br> | valFalse y ValTrue
@@ -319,7 +666,7 @@ public class _E extends nodoModelo {
      * <br> | valEntero
      * <br> +----------------
      * <br> | Producción para reconocer los numeros
-     *
+     * <br>
      * Se inserta un valor
      * @param entorno Es el ambito que recibe
      * @return Retorna para revisión de break
