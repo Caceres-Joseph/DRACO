@@ -275,21 +275,26 @@ ASIGNAR_VAL     ::= ASGIN_VAR:h1
 
                         RESULT= padre;
                     :}
-                |   valId sDobleMas
+                |   valId:d1 sDobleMas
                     {:
 
                         itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo, 1); 
                         _ASIGNAR_VAL padre =new _ASIGNAR_VAL(atrib1 , parser.simbolo);
                         
+                            itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                            padre.listaAtributos.insertar(at1);
+
 
                         RESULT= padre;
                     :}
-                |   valId sDobleMenos
+                |   valId:d1 sDobleMenos
                     {:
 
                         itemAtributo atrib1=new itemAtributo("ASIGNAR_VAL", parser.nombreArchivo, 2); 
                         _ASIGNAR_VAL padre =new _ASIGNAR_VAL(atrib1 , parser.simbolo);
                         
+                            itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                            padre.listaAtributos.insertar(at1);
 
                         RESULT= padre;
                     :}
@@ -308,13 +313,16 @@ DECLARAR_VAR    ::=tVar LST_DECLARAR_VAR:h1
                     :}
                 ;
 
-LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
+LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId:d1
                     {:
 
                         itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo, 0); 
                         _LST_DECLARAR_VAR padre =new _LST_DECLARAR_VAR(atrib1 , parser.simbolo);
 
                             padre.listaHijos.insertar(h1,h1left, h1right);
+
+                            itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                            padre.listaAtributos.insertar(at1);  
 
                         RESULT= padre;
                     :}
@@ -329,13 +337,15 @@ LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
 
                         RESULT= padre;
                     :}
-                |   valId
+                |   valId:d1
                     {:
 
                         itemAtributo atrib1=new itemAtributo("LST_DECLARAR_VAR", parser.nombreArchivo, 2); 
                         _LST_DECLARAR_VAR padre =new _LST_DECLARAR_VAR(atrib1 , parser.simbolo);
 
-                          
+                           
+                        itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                        padre.listaAtributos.insertar(at1);                 
 
                         RESULT= padre;
                     :}
@@ -353,12 +363,15 @@ LST_DECLARAR_VAR::= LST_DECLARAR_VAR:h1 sComa  valId
                     ;
 
 
-ASGIN_VAR       ::=valId sIgual VALOR:h1
+ASGIN_VAR       ::=valId:d1 sIgual VALOR:h1
                     {:
 
                         itemAtributo atrib1=new itemAtributo("ASGIN_VAR", parser.nombreArchivo, 0); 
                         _ASGIN_VAR padre =new _ASGIN_VAR(atrib1 , parser.simbolo);
                             padre.listaHijos.insertar(h1,h1left, h1right);
+                            
+                            itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                            padre.listaAtributos.insertar(at1);  
 
                         RESULT= padre;
                     :}
@@ -941,7 +954,7 @@ LINE            ::= tLine sAbreParent LST_VALOR:h1 sCierraParent
 
                             padre.listaHijos.insertar(h1,h1left, h1right);
                             padre.listaHijos.insertar(h2,h2left, h2right);
-                            
+
                             itemAtributo at1=new itemAtributo("sDiferenciacion",d1, d1right, d1left,parser.nombreArchivo); 
                             padre.listaAtributos.insertar(at1);
 

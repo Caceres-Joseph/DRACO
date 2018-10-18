@@ -25,8 +25,8 @@ public class tablaErrores {
     
     public void println(Object str){
         String mensaje=String.valueOf(str);
-        System.out.print(mensaje);
-        System.out.print("\n>");
+        System.out.println(mensaje);
+//        System.out.print("\n>");
     }
     
     

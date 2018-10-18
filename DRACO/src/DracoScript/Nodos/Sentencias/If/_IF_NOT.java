@@ -5,8 +5,11 @@
  */
 package DracoScript.Nodos.Sentencias.If;
 
+import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
+import DracoScript.Estructuras.Items.itemRetorno;
+import DracoScript.Nodos.Inicio._LST_CUERPO;
 import DracoScript.Nodos.nodoModelo;
 
 
@@ -32,6 +35,31 @@ public class _IF_NOT extends nodoModelo{
     public _IF_NOT(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
     }
-     
+      
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
+    /**
+     * Metodo de ejecución final
+     * tIf2  sAbreLlaves  LST_CUERPO sCierraLlaves;
+     * @param entorno Es la tabla que contiene las variables
+     * @return 
+     */
+       @Override
+    public itemRetorno ejecutar(elementoEntorno entorno) {
+        itemRetorno ret = new itemRetorno();
+        if (hayErrores()) {
+            return ret;
+        } 
+        
+        
+        elementoEntorno entornoIf = new elementoEntorno(entorno, "if_not", simbolo);
+        _LST_CUERPO nodoLstCuerpo = (_LST_CUERPO) listaHijos.lstHijos.get(0);
+        return nodoLstCuerpo.ejecutar(entornoIf); 
+    }
     
 }

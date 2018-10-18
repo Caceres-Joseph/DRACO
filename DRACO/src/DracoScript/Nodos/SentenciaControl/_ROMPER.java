@@ -5,8 +5,10 @@
  */
 package DracoScript.Nodos.SentenciaControl;
 
+import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
+import DracoScript.Estructuras.Items.itemRetorno; 
 import DracoScript.Nodos.nodoModelo;
 
 
@@ -31,6 +33,24 @@ public class _ROMPER extends nodoModelo{
     public _ROMPER(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
     }
-     
     
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
+    /**
+     * Metodo de ejecución final 
+     * @param entorno Es la tabla que contiene las variables
+     * @return 
+     */
+       @Override
+    public itemRetorno ejecutar(elementoEntorno entorno) {
+        itemRetorno ret = new itemRetorno(); 
+        ret.setBreak();
+        return ret; 
+    } 
 }

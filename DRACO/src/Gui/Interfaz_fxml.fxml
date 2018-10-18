@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.Interfaz_fxml">
+   <children>
+      <JFXTabPane fx:id="tabProductos" layoutX="397.0" layoutY="87.0" prefHeight="216.0" prefWidth="350.0" stylesheets="@Estilos/tabPaginationProductos.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <JFXTabPane fx:id="tabBusqueda" layoutX="61.0" layoutY="232.0" onMouseClicked="#clickTabBuscar" prefHeight="253.0" prefWidth="300.0" style="-fx-background-color: #f9f9f9;" stylesheets="@Estilos/tabBusquedaCaja.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0">
+                     <image>
+                        <Image url="@../../../../../Venta_3/Venta_1/src/img/barcode-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <content>
+                  <AnchorPane fx:id="txtBuscarCodigo" minHeight="0.0" minWidth="0.0" onKeyPressed="#enterBuscarCodigo" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="txtBuscarCode" labelFloat="true" layoutX="33.0" layoutY="86.0" maxWidth="239.0" minWidth="208.0" onMouseClicked="#clickBuscarCodigo" prefHeight="40.0" prefWidth="210.0" promptText="Buscar por código" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0">
+                     <image>
+                        <Image url="@../../../../../Venta_3/Venta_1/src/img/air_play-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="300.0">
+                     <children>
+                        <JFXTextField fx:id="txtBuscarComercial" labelFloat="true" maxWidth="239.0" minWidth="208.0" onKeyReleased="#teclaBuscarComercial" onMouseClicked="#clickBuscarComercial" prefHeight="40.0" prefWidth="210.0" promptText="Buscar por nombre comercial" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtBuscarGenerico" labelFloat="true" maxWidth="239.0" minWidth="208.0" onKeyReleased="#teclaBuscarGenerico" onMouseClicked="#clickBuscarGenerico" prefHeight="40.0" prefWidth="210.0" promptText="Buscar por nombre genérico" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="93.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtBuscarDescripcion" labelFloat="true" maxWidth="239.0" minWidth="208.0" onKeyReleased="#teclaBuscarDescripcion" onMouseClicked="#clickBuscarDescripcion" prefHeight="40.0" prefWidth="210.0" promptText="Buscar por descripción" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="155.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0">
+                     <image>
+                        <Image url="@../../../../../Venta_3/Venta_1/src/img/3d_touch-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="txtBuscarCategoria" onAction="#onActionBuscarCategoria" onMouseEntered="#mouseBuscarCategoria" onMousePressed="#llenarBuscarCategoria" onMouseReleased="#realseBuscarCategoria" prefHeight="38.0" prefWidth="374.0" promptText="Categoría" stylesheets="@../../../../../Venta_3/Venta_1/src/Css/comboBox.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0" />
+                        <ComboBox fx:id="txtBuscarUbicacion" onMousePressed="#llenarBuscarUbicacion" prefHeight="38.0" prefWidth="374.0" promptText="Ubicación" stylesheets="@../../../../../Venta_3/Venta_1/src/Css/comboBox.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <TableView fx:id="tablaCuenta" editable="true" layoutX="61.0" layoutY="24.0" onMouseClicked="#clickTablaCuenta" prefHeight="200.0" prefWidth="200.0" stylesheets="@Estilos/tableCuentaCaja.css" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="clId" prefWidth="33.000030517578125" text="id" visible="false" />
+            <TableColumn fx:id="clCantidad" minWidth="5.999969482421875" prefWidth="111.0" text="Cantidad" />
+            <TableColumn fx:id="clComercial" prefWidth="249.0" text="N. Comercial" />
+            <TableColumn fx:id="clGenerico" prefWidth="171.0" text="N. Genérico" visible="false" />
+            <TableColumn fx:id="clDescripcion" prefWidth="125.0" text="Descripción" visible="false" />
+            <TableColumn fx:id="clDescuento" prefWidth="239.0" text="Descuento" />
+            <TableColumn fx:id="clPrecio" minWidth="0.0" prefWidth="157.0" text="Precio" />
+            <TableColumn fx:id="clTotal" prefWidth="161.0" text="Total" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -15,6 +15,7 @@ public class itemAtributo {
     public String nombreToken="";
     public String nombreArchivo="";
     public String valor="";
+    public String valLower="";
     
     
     /**
@@ -38,7 +39,7 @@ public class itemAtributo {
         this.nombreToken=nombreToken;
         this.nombreArchivo=nombreArchivo;
         this.valor=valor;
-         
+        this.valLower=valor.toLowerCase();
     }
     
     
@@ -56,7 +57,7 @@ public class itemAtributo {
         this.nombreToken=nombreToken;
         this.nombreArchivo=nombreArchivo;
         this.valor="";
-         
+        this.valLower="";
     }
     
     
@@ -74,6 +75,7 @@ public class itemAtributo {
         this.nombreToken=nombreToken;
         this.nombreArchivo=nombreArchivo;
         this.valor="";
+        this.valLower="";
         this.nivelProduccion=nivelProduccion;
          
     }
@@ -92,6 +94,7 @@ public class itemAtributo {
         println("nombreToken->"+nombreToken); 
         println("nombreArchivo->"+nombreArchivo); 
         println("valor->"+valor);
+        println("valor->"+valLower);
     }
     
     

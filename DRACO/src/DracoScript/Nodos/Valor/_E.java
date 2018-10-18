@@ -10,6 +10,7 @@ import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Estructuras.Items.itemValor;  
+import DracoScript.Estructuras.Listas.lstAtributos;
 import DracoScript.Nodos.Valor.OpeAritmetica.division;
 import DracoScript.Nodos.Valor.OpeAritmetica.modulo;
 import DracoScript.Nodos.Valor.OpeAritmetica.multiplicacion;
@@ -225,8 +226,10 @@ public class _E extends nodoModelo {
                 
                 return case_16(entorno);  
             case 17:
+                if(hayErrores())
+                    return retorno;
                 
-                break;
+                return case_17(entorno);
             case 18:
                 if(hayErrores())
                     return retorno;
@@ -252,19 +255,21 @@ public class _E extends nodoModelo {
                 
                 if(hayErrores())
                     return retorno;
-                
+
                 return case_22(entorno);
             case 23:
-                
-                if(hayErrores())
+
+                if (hayErrores()) {
                     return retorno;
-                
+                }
+
                 return case_23(entorno);
-                
-                
+
+            default:
+                return new itemValor(simbolo);
         }
 
-        return new itemValor(simbolo);
+        //return new itemValor(simbolo);
     }
 
     /**
@@ -604,6 +609,22 @@ public class _E extends nodoModelo {
         
         return  e1.getValor(entorno);     
     } 
+    
+    
+    
+    /**
+     * <br> +----------------
+     * <br> | valId
+     * <br> +----------------
+     * <br> | Producción para reconocer cuando viene un Id
+     * <br> | Hay que buscarlo dentro de la tabla de entornos, jejejejejeje
+     * @param entorno Es el ambito que recibe
+     * @return Retorna para revisión de break
+     */
+    
+    public itemValor case_17(elementoEntorno entorno) {
+        return entorno.getValVariable(listaAtributos.getAtributo(0)); 
+    }
     
      
     /**

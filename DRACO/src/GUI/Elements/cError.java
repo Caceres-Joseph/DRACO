@@ -33,6 +33,7 @@ public class cError {
         padre=new AnchorPane();
         
     }
+    
     public void refrescarTabla() {
 //        ObservableList<elementoTabla> retorno = FXCollections.observableArrayList();
 //        retorno.add(new elementoTabla("44343","ad","adf","adsf","afd"));

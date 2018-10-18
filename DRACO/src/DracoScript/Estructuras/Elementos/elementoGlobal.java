@@ -6,6 +6,13 @@
 package DracoScript.Estructuras.Elementos;
  
 import DracoScript.Estructuras.Tablas.tablaErrores;
+import Gui.Elementos.elementoHilo;
+import Gui.Elementos.elementoMensaje;
+import Gui.Listas.lstTabClase;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.scene.control.TextArea;
+import javafx.util.Duration;
 
 
 /**
@@ -13,18 +20,49 @@ import DracoScript.Estructuras.Tablas.tablaErrores;
  * @author joseph
  */
 public class elementoGlobal {
+    /**
+     * DRACO SCRIPT
+     */
     
     public tablaErrores tablaErrores = new tablaErrores();
-    public String txtConsola="";
+    public TextArea txtConsola;
+     
+//    public elementoGlobal(){
+//        
+//    }
     
     /**
-     * Elemento
+     * GUI
      * 
      */
     
-    public elementoGlobal(){
+    public elementoMensaje mensaje;
+    public lstTabClase listaTabsClases;
+    public elementoHilo hiloEjecucion;
+    public Timeline clock;
+    public String prueba="";
+    
+    public elementoGlobal(elementoMensaje mensaje,lstTabClase listaTabsClases, TextArea txtConsola){
+        this.txtConsola=txtConsola;
+        this.mensaje=mensaje;
+        this.listaTabsClases=listaTabsClases;
+        this.hiloEjecucion=new elementoHilo(this);
         
+        
+                
     }
+    
+    public void setConsola(String contenido){
+        txtConsola.setText(txtConsola.getText()+contenido);
+    }
+
+    
+    
+    
+
+    
+    
+    
     
     
     

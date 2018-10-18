@@ -243,7 +243,13 @@ public class itemValor {
                     case "cadena":
                         return valor;
                     case "numero":
-                        return String.valueOf(getNumero());
+                        double del = getNumero();
+                        if(del%1==0){
+                            int entero=(int)del;
+                            return String.valueOf(entero);
+                        }else{
+                            return String.valueOf(del);
+                        } 
                     case "char":
                         return String.valueOf(getChar());
                     case "booleano":

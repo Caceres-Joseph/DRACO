@@ -25,9 +25,14 @@ public class Principal extends Application {
     @Override
     public void start(Stage stage) throws IOException {
          
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Navegador.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Navegador.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/Gui/Interfaz_fxml.fxml"));
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Gui/Ide.fxml"));
+
+//        Parent root = FXMLLoader.load(getClass().getResource("/Gui/resources/fxml/Screen0.fxml"));
 //        Parent root= FXMLLoader.load();
-         
+        stage.setTitle("Draco_201513696");
         Scene scene = new Scene(root); 
         stage.setScene(scene);
         stage.show();

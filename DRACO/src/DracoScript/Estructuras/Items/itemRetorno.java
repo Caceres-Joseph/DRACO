@@ -40,5 +40,31 @@ public class itemRetorno {
     public void setBreak() {
         this.tipoRetorno = 1;
     }
+    
+    
+    
+    /**
+     * Es un retorno normal
+     * @return Booleano para verificar si no hay smash
+     */
+    public boolean ifNormal() {
+        if(this.tipoRetorno==0){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 
+    /**
+     * Es un braek
+     * @return Booleano para confirmar si hay smash
+     */
+    public boolean ifBreak() {
+        if(this.tipoRetorno==1){
+            return true;
+        }else{
+            return false;
+        }
+    } 
 }

@@ -30,7 +30,7 @@ public class lstAtributos {
             return lstAtributos.get(i);
         }else{
             println("[ERROR][getAtributo i]Indice excedido");
-            itemAtributo ite=new itemAtributo("---", "----", -1);
+            itemAtributo ite=new itemAtributo("---", "[ERROR][getAtributo i]Indice excedido", -1);
             return ite;
         }
     }

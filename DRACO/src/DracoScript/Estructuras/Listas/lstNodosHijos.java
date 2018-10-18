@@ -62,7 +62,11 @@ public class lstNodosHijos {
         retorno.setNormal();
         
         for (nodoModelo lstHijo : lstHijos) {
-            lstHijo.ejecutar(entorno);
+            
+            itemRetorno ret= lstHijo.ejecutar(entorno);
+            if(ret.ifBreak()){
+                return ret;
+            }
         }
         
         return retorno;

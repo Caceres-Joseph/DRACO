@@ -56,24 +56,24 @@ public class xForm extends newTab {
     @Override
     public void accLeer() {
 
-        elementoGlobal elmento=new elementoGlobal();
+//        elementoGlobal elmento=new elementoGlobal();
         
-        String salida = (String ) webview.getEngine().executeScript("editor.getValue();");
-        //System.out.println(salida);
-        anlzDracoScript dra=new anlzDracoScript(salida, nombreArchivo, elmento);
-        dra.analizar();
-        raiz=dra.raiz;
-        
-        elementoEntorno entornoGlobal=new elementoEntorno(null, "global", elmento);
-        
-        if(raiz!=null){
-            raiz.ejecutar(entornoGlobal);
-        }else{
-            println("Raiz nula");
-        }
-        
-        this.setTextTabExcel(elmento.txtConsola);
-        this.showTableErrors(elmento);
+//        String salida = (String ) webview.getEngine().executeScript("editor.getValue();");
+//        //System.out.println(salida);
+//        anlzDracoScript dra=new anlzDracoScript(salida, nombreArchivo, elmento);
+//        dra.analizar();
+//        raiz=dra.raiz;
+//        
+//        elementoEntorno entornoGlobal=new elementoEntorno(null, "global", elmento);
+//        
+//        if(raiz!=null){
+//            raiz.ejecutar(entornoGlobal);
+//        }else{
+//            println("Raiz nula");
+//        }
+//        
+////        this.setTextTabExcel(elmento.txtConsola);
+//        this.showTableErrors(elmento);
         
         
         

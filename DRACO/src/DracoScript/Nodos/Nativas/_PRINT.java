@@ -51,9 +51,12 @@ public class _PRINT extends nodoModelo {
      * @param entorno Es la tabla que contiene las variables
      * @return
      */
+    
     @Override
     public itemRetorno ejecutar(elementoEntorno entorno) {
+        
         itemRetorno retorno = new itemRetorno();
+        
         if (hayErrores()) {
             return retorno;
         }
@@ -64,8 +67,11 @@ public class _PRINT extends nodoModelo {
             Object ret= tel.getValorParseado("cadena", atributo);
             
             if(ret!=null){
-                
-                simbolo.txtConsola+="\n"+ret;
+                simbolo.setConsola("\n"+ret);
+//                simbolo.txtConsola+="\n"+ret;
+            }else{
+                simbolo.setConsola("\nnull");
+//                simbolo.txtConsola+="\nnull";
             }
             
             
