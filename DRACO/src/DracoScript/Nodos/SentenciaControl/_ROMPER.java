@@ -49,7 +49,12 @@ public class _ROMPER extends nodoModelo{
      */
        @Override
     public itemRetorno ejecutar(elementoEntorno entorno) {
-        itemRetorno ret = new itemRetorno(); 
+        itemRetorno ret = new itemRetorno();
+        if (hayErrores()) 
+            return ret;
+        validandoDebug();
+        
+        
         ret.setBreak();
         return ret; 
     } 

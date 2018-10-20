@@ -12,10 +12,9 @@ import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Estructuras.Items.itemValor;
 import DracoScript.Nodos.AsignarValor._ASIGNAR_VAL;
 import DracoScript.Nodos.AsignarValor._DECLARAR_VAR;
-import DracoScript.Nodos.Inicio._LST_CUERPO;
-import DracoScript.Nodos.Sentencias.If._ELIF;
+import DracoScript.Nodos.Inicio._LST_CUERPO; 
 import DracoScript.Nodos.Valor._VALOR;
-import DracoScript.Nodos.nodoModelo;
+import DracoScript.Nodos.nodoModelo; 
 
 
 /**
@@ -61,6 +60,11 @@ public class _FOR extends nodoModelo{
      */
         @Override
     public itemRetorno ejecutar(elementoEntorno entorno) {
+        itemRetorno ret = new itemRetorno();
+        if (hayErrores()) 
+            return ret;
+        validandoDebug();
+        
         return execute(entorno);
     }
 
@@ -210,10 +214,8 @@ public class _FOR extends nodoModelo{
             return false;
         }
 
-        boolean condicion = (boolean) objCondicion;
-
-        return condicion;
-
+        boolean condicion = (boolean) objCondicion; 
+        return condicion; 
     }
     
      

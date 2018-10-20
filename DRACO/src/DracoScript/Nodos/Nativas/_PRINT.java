@@ -12,6 +12,7 @@ import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Estructuras.Items.itemValor;
 import DracoScript.Nodos.Valor._VALOR;
 import DracoScript.Nodos.nodoModelo;
+import javafx.application.Platform;
 
 
 /**
@@ -54,29 +55,35 @@ public class _PRINT extends nodoModelo {
     
     @Override
     public itemRetorno ejecutar(elementoEntorno entorno) {
-        
         itemRetorno retorno = new itemRetorno();
-        
-        if (hayErrores()) {
+        if (hayErrores()) 
             return retorno;
-        }
-
-        if (atributo.nivelProduccion == 0) { 
+        validandoDebug();
+        
+        
+        
+        if (atributo.nivelProduccion == 0) {
             _VALOR nod = (_VALOR) listaHijos.lstHijos.get(0);
-            itemValor tel= nod.getValor(entorno);
-            Object ret= tel.getValorParseado("cadena", atributo);
-            
-            if(ret!=null){
-                simbolo.setConsola("\n"+ret);
-//                simbolo.txtConsola+="\n"+ret;
-            }else{
-                simbolo.setConsola("\nnull");
-//                simbolo.txtConsola+="\nnull";
+            itemValor tel = nod.getValor(entorno);
+            Object ret = tel.getValorParseado("cadena", atributo);
+
+            if (ret != null) {
+
+                Platform.runLater(() -> {
+                    simbolo.setConsola("\n" + ret);
+                    //                simbolo.txtConsola+="\n"+ret;
+                });
+            } else {
+                
+                Platform.runLater(() -> {
+                    simbolo.setConsola("\nnull");
+                    //                simbolo.txtConsola+="\n"+ret;
+                });
+                //                simbolo.txtConsola+="\nnull";
             }
-            
-            
+
         } else {
-            
+
         }
 
         return retorno;

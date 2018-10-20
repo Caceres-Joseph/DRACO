@@ -1,5 +1,4 @@
 
-
 print("    +----------------"); 
 print("    | DECLARAR VARIABLE"); 
 print("    +----------------"); 
@@ -15,7 +14,11 @@ var12 :=: 52;
 var21 :=: true;
 var21++;
 
-
 print(var12);
+print("deteniendo1");
+print(var12);
+print(var12);
+print("deteniendo2");
 print(var21);
 print(var31);
+

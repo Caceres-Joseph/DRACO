@@ -54,6 +54,7 @@ public class _ASGIN_VAR extends nodoModelo
         itemRetorno ret = new itemRetorno();
         if (hayErrores()) 
             return ret;
+        validandoDebug();
             
             
         _VALOR nodoVal = (_VALOR) listaHijos.lstHijos.get(0);

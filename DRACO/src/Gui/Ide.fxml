@@ -164,7 +164,9 @@
                                 <Menu mnemonicParsing="false" text="Depurador">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#clckDepurar" text="Depurar" />
-                              <MenuItem mnemonicParsing="false" onAction="#clckSiguienteLinea" text="SIguiente Linea" />
+                              <MenuItem mnemonicParsing="false" onAction="#clckSiguienteLinea" text="SIguiente Paso" />
+                              <MenuItem mnemonicParsing="false" onAction="#clckTerminarTodo" text="Terminar Todo" />
+                              <MenuItem mnemonicParsing="false" onAction="#clckContinuar" text="Continuar" />
                                     </items>
                                 </Menu>
                                 <Menu mnemonicParsing="false" text="Ejecutar">
@@ -172,6 +174,11 @@
                               <MenuItem mnemonicParsing="false" onAction="#clckEjecutar" text="Ejecutar" />
                            </items></Menu>
                                 <Menu mnemonicParsing="false" onShowing="#clckAcercaDe" text="Acerca" />
+                        <Menu mnemonicParsing="false" onShowing="#clckAcercaDe" text="Ayuda">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#clckEstadoEjecucion" text="Estado Ejecucion" />
+                           </items>
+                        </Menu>
                             </menus>
                         </MenuBar>
                     </children>

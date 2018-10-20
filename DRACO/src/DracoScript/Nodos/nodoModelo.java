@@ -59,9 +59,33 @@ public class nodoModelo {
      * @return El retorno es cuando viene un break
      */
     public itemRetorno ejecutar(elementoEntorno entorno){
+//        validandoDebug();
+        
+        
         return listaHijos.ejecutar(entorno);
     }
     
+    
+    public void validandoDebug(){
+        simbolo.listaTabsClases.despintarLineas();
+        
+        if(simbolo.modoDebug){
+            if(simbolo.debug.siguienteInstruccion){
+                
+                    simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1); 
+                    simbolo.debug.pausar(); 
+                    
+            }else{
+                //reviso si esta linea esta dentro del debug
+                if(simbolo.debug.puntosDeInterrupcion.esPuntoDeInterrupcion(atributo)){
+                    println("deteniendo hilo");
+                    simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1);
+                    simbolo.debug.pausar();
+                }
+            }
+                
+        }  
+    }
     
     /**
      * Para detectar si hay errores semanticos

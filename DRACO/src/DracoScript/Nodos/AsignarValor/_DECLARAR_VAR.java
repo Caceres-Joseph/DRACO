@@ -47,9 +47,9 @@ public class _DECLARAR_VAR extends nodoModelo{
      * @param entorno Es la tabla que contiene las variables
      * @return  
      */
-        @Override
-    public itemRetorno ejecutar(elementoEntorno entorno) { 
-         return listaHijos.ejecutar(entorno); 
-    }
+//        @Override
+//    public itemRetorno ejecutar(elementoEntorno entorno) { 
+//         return listaHijos.ejecutar(entorno); 
+//    }
     
 }

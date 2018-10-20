@@ -55,11 +55,12 @@ public class _LST_DECLARAR_VAR extends nodoModelo {
      */
         @Override
     public itemRetorno ejecutar(elementoEntorno entorno) {
-
         itemRetorno ret = new itemRetorno();
-        if (hayErrores()) {
+        if (hayErrores()) 
             return ret;
-        }
+        validandoDebug();
+        
+        
         // return listaHijos.ejecutar(entorno);
         execute(entorno);
         return ret;

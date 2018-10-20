@@ -12,7 +12,7 @@ import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Estructuras.Items.itemValor;
 import DracoScript.Nodos.Inicio._LST_CUERPO;
 import DracoScript.Nodos.Valor._VALOR;
-import DracoScript.Nodos.nodoModelo;
+import DracoScript.Nodos.nodoModelo; 
 
 
 /**
@@ -54,12 +54,18 @@ public class _WHILE extends nodoModelo{
      * @param entorno Es la tabla que contiene las variables
      * @return 
      */
-    
     @Override
     public itemRetorno ejecutar(elementoEntorno entorno) {
-        simbolo.clock.stop();
-        println("[ejecutar]Deteniendo hilo"+simbolo.prueba);
-        
+        itemRetorno ret = new itemRetorno();
+        if (hayErrores()) 
+            return ret;
+        validandoDebug();
+
+        return execute(entorno);
+
+    }
+    
+    public itemRetorno execute(elementoEntorno entorno) {
         
         itemRetorno ret = new itemRetorno();
         boolean condicion = condicion(entorno);

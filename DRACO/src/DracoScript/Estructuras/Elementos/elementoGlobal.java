@@ -5,14 +5,11 @@
  */
 package DracoScript.Estructuras.Elementos;
  
-import DracoScript.Estructuras.Tablas.tablaErrores;
-import Gui.Elementos.elementoHilo;
+import DracoScript.Estructuras.Tablas.tablaErrores; 
+import Gui.Elementos.elementoDebug;
 import Gui.Elementos.elementoMensaje;
-import Gui.Listas.lstTabClase;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.scene.control.TextArea;
-import javafx.util.Duration;
+import Gui.Listas.lstTabClase; 
+import javafx.scene.control.TextArea; 
 
 
 /**
@@ -37,33 +34,35 @@ public class elementoGlobal {
      */
     
     public elementoMensaje mensaje;
-    public lstTabClase listaTabsClases;
-    public elementoHilo hiloEjecucion;
-    public Timeline clock;
-    public String prueba="";
+    public lstTabClase listaTabsClases; 
+    public elementoDebug debug;
+    
+    /**
+     * Para el debug
+     */
+    
+    public boolean modoDebug=false;
+    
+    
+    /**
+     * 
+     * @param mensaje
+     * @param listaTabsClases
+     * @param txtConsola 
+     */
     
     public elementoGlobal(elementoMensaje mensaje,lstTabClase listaTabsClases, TextArea txtConsola){
         this.txtConsola=txtConsola;
         this.mensaje=mensaje;
-        this.listaTabsClases=listaTabsClases;
-        this.hiloEjecucion=new elementoHilo(this);
+        this.listaTabsClases=listaTabsClases; 
         
-        
-                
+//        this.hiloEjecucion=new elementoHilo(this); 
+
     }
     
     public void setConsola(String contenido){
         txtConsola.setText(txtConsola.getText()+contenido);
     }
 
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
+     
 }

@@ -9,6 +9,8 @@ import DracoScript.Estructuras.Elementos.elementoGlobal;
 import Gui.Nodos.nodoTabClase; 
 import com.jfoenix.controls.JFXTabPane;
 import java.util.ArrayList; 
+import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.Tab;
 
 /**
  *
@@ -23,6 +25,7 @@ public class lstTabClase {
         this.tabClases=tabClases;
         this.simbolo=simbolo;
         listaTabs=new ArrayList<>();
+        
     }
     
     public void insertarTab(nodoTabClase nuevaTab){
@@ -61,13 +64,53 @@ public class lstTabClase {
     } 
     
     
+    
+    public void cargarPuntosDeInterrupcion(){
+        lstPuntosDeInterrupcion retorno=new lstPuntosDeInterrupcion();
+        for (nodoTabClase listaTab : listaTabs) {
+            retorno.concat(listaTab.getPuntosDeInterrupcion());
+        }
+        if(simbolo.debug!=null){
+            
+            simbolo.debug.puntosDeInterrupcion=retorno; 
+        }else{
+            println("[cargarPuntosDeInterrupcion]El debug es nulo");
+        }
+    }
+    
+    
     public void ejecutarNodo(int i){
-//        println("[ejecutarNodo]Ejecutando nodo"+String.valueOf(i));
+        
+         
         if(listaTabs.size()>i){
             nodoTabClase temp= listaTabs.get(i);
             temp.ejecutar();
         }else{
             println("[ejecutarNodo]Se sobrepaso el indice del arreglo");
+        }
+    }
+    
+    
+    
+    public void pintarLinea(String nombreArchivo, int linea){
+        for (nodoTabClase listaTab : listaTabs) {
+            if(listaTab.nombre.equals(nombreArchivo)){
+                listaTab.pintarLinea(linea);
+                
+                
+                //seleccionando la pestaña del debug
+                SingleSelectionModel<Tab> selectionModel = tabClases.getSelectionModel();
+                selectionModel.select(listaTab.getNuevaTab());
+                
+                return;
+            }
+        }
+    }
+    
+    public void despintarLineas() {
+
+        for (nodoTabClase listaTab : listaTabs) {
+            listaTab.removerLineasPintadas();
         }
     }
     

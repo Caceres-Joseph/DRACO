@@ -8,6 +8,7 @@ package Gui.Elementos;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import javafx.application.Platform;
 import javafx.event.ActionEvent; 
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -23,20 +24,22 @@ public class elementoMensaje {
         this.stackPadre=stackPadre;
     }
     
-    
     public void informacion(String titulo, String mensaje) {
-        JFXDialogLayout content = new JFXDialogLayout();
-        content.setHeading(new Text(titulo));
-        content.setBody(new Text(mensaje));
 
-        JFXDialog dialog = new JFXDialog(stackPadre, content, JFXDialog.DialogTransition.CENTER);
-        JFXButton button = new JFXButton("Aceptar");
+        Platform.runLater(() -> {
+            JFXDialogLayout content = new JFXDialogLayout();
+            content.setHeading(new Text(titulo));
+            content.setBody(new Text(mensaje));
 
-        button.setStyle("-fx-background-color:  #37474F; -fx-alignment: CENTER;-fx-text-fill: white;");
-        button.setOnAction((ActionEvent event) -> {
-            dialog.close();
+            JFXDialog dialog = new JFXDialog(stackPadre, content, JFXDialog.DialogTransition.CENTER);
+            JFXButton button = new JFXButton("Aceptar");
+
+            button.setStyle("-fx-background-color:  #37474F; -fx-alignment: CENTER;-fx-text-fill: white;");
+            button.setOnAction((ActionEvent event) -> {
+                dialog.close();
+            });
+            content.setActions(button);
+            dialog.show();
         });
-        content.setActions(button);
-        dialog.show();
     }
 }

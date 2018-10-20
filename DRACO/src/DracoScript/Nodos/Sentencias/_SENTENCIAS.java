@@ -5,9 +5,15 @@
  */
 package DracoScript.Nodos.Sentencias;
 
+import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
+import DracoScript.Estructuras.Items.itemRetorno;
+import DracoScript.Estructuras.Items.itemValor;
+import DracoScript.Nodos.Valor._VALOR;
 import DracoScript.Nodos.nodoModelo;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 
 
 /**
@@ -32,8 +38,28 @@ public class _SENTENCIAS extends nodoModelo{
      */
 
     public _SENTENCIAS(itemAtributo atrib, elementoGlobal simbolo) {
-        super(atrib, simbolo);
+        super(atrib, simbolo); 
     }
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+     */
+    /**
+     * Metodo de ejecución final
+     *
+     * @param entorno Es la tabla que contiene las variables
+     * @return
+     */
+    
+//    @Override
+//    public itemRetorno ejecutar(elementoEntorno entorno) {
+//        
+//         
+//        return listaHijos.ejecutar(entorno);
+//    }
      
     
 }

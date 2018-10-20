@@ -101,12 +101,12 @@ public class _E extends nodoModelo {
      * @param entorno Es la tabla que contiene las variables
      * @return
      */
-    @Override
-    public itemRetorno ejecutar(elementoEntorno entorno) {
-        return listaHijos.ejecutar(entorno);
-
-//        return iniciar(entorno);
-    }
+//    @Override
+//    public itemRetorno ejecutar(elementoEntorno entorno) {
+//        return listaHijos.ejecutar(entorno);
+//
+////        return iniciar(entorno);
+//    }
     
     /*
     |-------------------------------------------------------------------------------------------------------------------

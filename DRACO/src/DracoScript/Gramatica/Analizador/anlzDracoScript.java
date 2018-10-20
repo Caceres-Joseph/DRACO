@@ -52,23 +52,23 @@ public class anlzDracoScript {
         parser p = new parser(lex);
         p.iniciar(simbolo, nombreArchivo);
         
-            System.out.println("+------------------------------------------------+");
+//            System.out.println("+------------------------------------------------+");
         try {
             p.parse();
             raiz= p.raiz; 
-            println("[DracoScript]Build successful |");
+            println("[DracoScript]Build successful ");
         } catch (Exception e) {
             println("Error :(");
             raiz=null;
         }
         
-            System.out.println("+------------------------------------------------+");
+//            System.out.println("+------------------------------------------------+");
         
         
 
     }
 
     public void println(String mensaje) {
-        System.out.println("| [anlzDracoScript]" + mensaje);
+        System.out.println("[anlzDracoScript]" + mensaje);
     }
 }

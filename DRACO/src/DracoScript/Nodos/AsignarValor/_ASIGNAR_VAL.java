@@ -53,12 +53,14 @@ public class _ASIGNAR_VAL extends nodoModelo{
      * @return 
      */
         @Override
-    public itemRetorno ejecutar(elementoEntorno entorno) { 
-         
+    public itemRetorno ejecutar(elementoEntorno entorno) {
         itemRetorno ret = new itemRetorno();
-        if (hayErrores()) {
+        if (hayErrores()) 
             return ret;
-        }
+        validandoDebug();
+        
+        
+        
         // return listaHijos.ejecutar(entorno);
         execute(entorno);
         return ret;

@@ -5,9 +5,12 @@
  */
 package DracoScript.Nodos.Inicio;
 
+import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
+import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Nodos.nodoModelo;
+import Gui.Ide;
 
 
 /**
@@ -34,6 +37,6 @@ public class _S extends nodoModelo{
         super(atrib, simbolo);
     }
      
-    
+     
     
 }

@@ -48,10 +48,10 @@ public class _VALOR extends nodoModelo {
      * @param entorno Es la tabla que contiene las variables
      * @return
      */
-    @Override
-    public itemRetorno ejecutar(elementoEntorno entorno) {
-        return new itemRetorno();
-    }
+//    @Override
+//    public itemRetorno ejecutar(elementoEntorno entorno) {
+//        return new itemRetorno();
+//    }
 
     /*
     |-------------------------------------------------------------------------------------------------------------------

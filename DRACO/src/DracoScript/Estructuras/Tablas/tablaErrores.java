@@ -35,19 +35,19 @@ public class tablaErrores {
         System.out.print(mensaje);
     }
     
-    
-    public void insertErrorSyntax(String ambito,int linea, int columna, String mensaje){
-        elementoError elem=new elementoError();
-        elem.ambito=ambito;
-        elem.tipo="Sintactico";
-        elem.linea=String.valueOf(linea+1);
-        elem.columna=String.valueOf(columna+1);
-        elem.descripcion=mensaje;
-        
-        this.tablaError.add(elem);
-        println("[Error]Sintactico-> "+mensaje);
-    }
-    
+//    
+//    public void insertErrorSyntax(String ambito,int linea, int columna, String mensaje){
+//        elementoError elem=new elementoError();
+//        elem.ambito=ambito;
+//        elem.tipo="Sintactico";
+//        elem.linea=String.valueOf(linea+1);
+//        elem.columna=String.valueOf(columna+1);
+//        elem.descripcion=mensaje;
+//        
+//        this.tablaError.add(elem);
+//        println("[Error]Sintactico-> "+mensaje);
+//    }
+//    
     public void insertErrorLexical(String ambito,int linea, int columna,String mensaje){
         elementoError elem=new elementoError();
         elem.ambito=ambito;
@@ -58,20 +58,20 @@ public class tablaErrores {
         this.tablaError.add(elem);
         println("[Error]Lexico-> "+mensaje);
     }
-    
-    public void insertErrorSemantic(String  ambito, int linea, int columna, String mensaje){
-        
-        elementoError elem=new elementoError();
-        elem.ambito= ambito;
-        elem.tipo="Semantico";
-        elem.linea=String.valueOf(linea+1);
-        elem.columna=String.valueOf(columna+1);
-        elem.descripcion=mensaje;
-        this.tablaError.add(elem);
-        println("[Error]Semantico-> "+mensaje);
- 
-    }
-    
+//    
+//    public void insertErrorSemantic(String  ambito, int linea, int columna, String mensaje){
+//        
+//        elementoError elem=new elementoError();
+//        elem.ambito= ambito;
+//        elem.tipo="Semantico";
+//        elem.linea=String.valueOf(linea+1);
+//        elem.columna=String.valueOf(columna+1);
+//        elem.descripcion=mensaje;
+//        this.tablaError.add(elem);
+//        println("[Error]Semantico-> "+mensaje);
+// 
+//    }
+//    
     /**
      * <br>|--------------------------------------------------------------------------
      * <br>| Mostrando los erroes

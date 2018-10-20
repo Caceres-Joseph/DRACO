@@ -4,17 +4,22 @@
  * and open the template in the editor.
  */
 package Gui.Nodos;
- 
-import DracoScript.Estructuras.Elementos.elementoEntorno;
+  
 import DracoScript.Estructuras.Elementos.elementoGlobal;
-import DracoScript.Gramatica.Analizador.anlzDracoScript;
-import DracoScript.Nodos.nodoModelo;
+import Gui.Elementos.elementoDebug;  
+import Gui.Listas.lstPuntosDeInterrupcion;
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Paths; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.web.WebView;
+import javafx.scene.web.WebView; 
 
 /**
  *
@@ -32,7 +37,7 @@ public class nodoTabClase {
     public String extension="";
     public String contenidoArchivo="";
     
-    public nodoModelo raiz;
+    
     public nodoTabClase(String ruta, String nombre,String extension, elementoGlobal simbolo){
         this.ruta=ruta;
         this.simbolo=simbolo;
@@ -60,94 +65,19 @@ public class nodoTabClase {
     
     /**
      * Metodo que crea el edito de texto 
+     * Se lee el archivo nodoEditor.html que contiene el codigo js del editor
      */
     public void crearEditor(){
         
-        String editingCode = contenidoArchivo;
-        String editingTemplate
-                = "<!doctype html>"
-                + "<html>"
-                + "<head>"
-                + "  <link rel=\"stylesheet\" href=\"http://localhost:400/lib/codemirror.css\">"
-                + "  <script src=\"http://localhost:400/lib/codemirror.js\"></script>"
-                + "  <script src=\"http://localhost:400/lib/jquery.js\"></script>"
-                
-                + "  <link rel=\"stylesheet\" href=\"http://localhost:400/theme/base16-light.css\">"
-                + "  <link rel=\"stylesheet\" href=\"http://localhost:400/theme/idea.css\">"
-                + "  <link rel=\"stylesheet\" href=\"http://localhost:400/theme/eclipse.css\">"
-                + "  <link rel=\"stylesheet\" href=\"http://localhost:400/theme/tomorrow-night-eighties.css\">"
-                + "  <link rel=\"stylesheet\" href=\"http://localhost:400/theme/darcula.css\">"
-                
-                
-                + "  <script src=\"http://localhost:400/mode/clike/clike.js\"></script>"
-                + "  <script src=\"http://localhost:400/mode/javascript/javascript.js\"></script>"
-                + "  <script src=\"http://localhost:400/addon/selection/active-line.js\"></script>"
-                + "  <script src=\"http://localhost:400/addon/edit/matchbrackets.js\"></script>"
-                + "  <script src=\"http://localhost:400/addon/selection/mark-selection.js\"></script>"
-                + "  <script src=\"http://localhost:400/addon/search/searchcursor.js\"></script>"
-                + //    "  <script src=\"http://localhost:400/addon/edit/closetag.js\"></script>" +
-                "  <script src=\"http://localhost:400/addon/selection/selection-pointer.js\"></script>"
-                + "<style>\n"
-//                + "      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}\n"
-//                + "      .CodeMirror-selected  { background-color: blue !important; }\n"
-                + "      .CodeMirror-selectedtext { color: white; }\n"
-//                + "      .styled-background { background-color: #ff7; }\n"
-                + "      .breakpoints {width: .13em;}\n"
-                + "      .breakpoint { color: #822; }\n"
-                + "      .CodeMirror {border: 0px solid #aaa;height: auto;}"
-                + "    </style>"
-                + "<script>"
-                + "var   i=1;"
-                + "function mostrar() {\n"
-                + "  i++;\n"
-//                + "  editor.addLineClass(i, 'wrap', 'CodeMirror-activeline-error');"
-                + "  alert(\"hola prros\");\n"
-                + "  editor.markText({line: 3, ch: 2}, {line: 3, ch: 7}, {className: \"styled-background\"});"
-                + "   return \"hola viejo\";"
-                + //"   editor.setLineClass(2, 'background', 'line-error');"+
-                "}"
-                + "</script>"
-                + "</head>"
-                + "<body onload=\"mostrar();\">"
-                + "<form><textarea id=\"code\" name=\"code\">\n"
-                + "${code}"
-                + "</textarea></form>"
-                + "<script>"
-                + "  var editor = CodeMirror.fromTextArea(document.getElementById(\"code\"), {"
-                + "    lineNumbers: true,"
-                + "    matchBrackets: true,"
-                + "    viewportMargin: Infinity,"
-                
-//                + "    mode: \"text/x-java\","
-                + "    mode: \"text/javascript\","
-                + "    theme: \"eclipse\"," 
-//                + "    theme: \"darcula\","
-//                +    "    theme: \"base16-light\","
-                //    "    theme: \"tomorrow-night-eighties\","+
-                + "    indentWithTabs:true, "
-                + "    lineWrapping: true, "
-                
-                + "    tabSize: 4, "
-                + "    gutters: [\"CodeMirror-linenumbers\", \"breakpoints\"], "
-                + "    styleSelectedText: true, "
-                + "    styleActiveLine: true "
-                + "  });"
-                + "editor.on(\"gutterClick\", function(cm, n) {\n"
-                + "  i++;\n"
-                + "  var info = cm.lineInfo(n);\n"
-                + "  cm.setGutterMarker(n, \"breakpoints\", info.gutterMarkers ? null : makeMarker());\n"
-                + "});\n"
-                + "\n"
-                + "function makeMarker() {\n"
-                + "  var marker = document.createElement(\"div\");\n"
-                + "  marker.style.color = \"#822\";\n"
-                + "  marker.innerHTML = \"●\";\n"
-                + "  return marker;\n"
-                + "}"
-                + "</script>"
-                + "</body>"
-                + "</html>";
-        
+        String editingCode = contenidoArchivo; 
+        String editingTemplate="";
+
+        try {            
+            editingTemplate=contenidoArchivo = new String(Files.readAllBytes(Paths.get("src/Gui/Nodos/nodoEditor.html")));
+        } catch (IOException ex) {
+            println("[crearEditor][Error]"+ex.getMessage());
+        }
+         
         editingTemplate=  editingTemplate.replace("${code}", editingCode);
         areaWeb.getEngine().loadContent(editingTemplate);
         
@@ -159,31 +89,90 @@ public class nodoTabClase {
         panelPadre.getChildren().setAll(areaWeb);
         
     }
-
-    public void ejecutar(){
-        if(extension.equals("djs")){
-            //ejecuto draco Script
-            ejecutarDjs();
-        }else{
+     
+    
+    public lstPuntosDeInterrupcion getPuntosDeInterrupcion(){
+        lstPuntosDeInterrupcion retorno=new lstPuntosDeInterrupcion();
+        
+        try{
+            String cadenaJson = (String ) areaWeb.getEngine().executeScript("getHashMap();"); 
+//            println(cadenaJson);
+            String[] arr= cadenaJson.split(",");
             
+//            if(arr.length==1){
+//                nodoPuntoInterrupcion nuevoPunto=new nodoPuntoInterrupcion(nombre, Integer.valueOf(cadenaJson));
+//                retorno.insertar(nuevoPunto);
+//                return retorno;
+//            }
+            for(String en : arr){
+                nodoPuntoInterrupcion nuevoPunto=new nodoPuntoInterrupcion(nombre, Integer.valueOf(en));
+                retorno.insertar(nuevoPunto);
+            }
+        }catch(Exception e){
+            println("[getPuntosDeInterrupcion][ERROR]"+e.getMessage());
         }
+         
+        
+        return retorno;
     }
     
-    public void ejecutarDjs(){
-        String salida = (String ) areaWeb.getEngine().executeScript("editor.getValue();");
+    public void pintarLinea(int linea){
         
-        anlzDracoScript dra=new anlzDracoScript(salida, nombre, simbolo);
-        dra.analizar();
-        raiz=dra.raiz;
-        
-        elementoEntorno entornoGlobal=new elementoEntorno(null, "global", simbolo);
-        
-        if(raiz!=null){
-            raiz.ejecutar(entornoGlobal);
-        }else{
-            println("Raiz nula");
-        }
+        Platform.runLater(() -> {
+            try {
+                areaWeb.getEngine().executeScript("pintarLinea("+linea+");");
+            } catch (Exception e) {
+                println("[pintarLinea][ERROR]"+e.getMessage());
+            }
+        });
     }
+    
+    public void removerLineasPintadas(){
+        
+        Platform.runLater(() -> {
+            try {
+                areaWeb.getEngine().executeScript("removerLineas();");
+            } catch (Exception e) {
+                println("[removerLineasPintadas][ERROR]"+e.getMessage());
+            }
+        });
+    }
+
+    public void ejecutar() {
+        
+        if(simbolo.debug!=null){
+            if(simbolo.debug.estaActivo()){
+                simbolo.mensaje.informacion("Análisis en ejecución", "Actualmente sigue en ejecución,\n seleccione Terminar Todo para finalizar el analisis que está detenido");
+                return;
+            }
+        }
+         
+        System.out.println("+------------------------------------------------+"); 
+        System.out.println("| [nodoTabClase]Iniciando Análisis               |");
+        System.out.println("+------------------------------------------------+");
+        
+        
+        
+        
+        simbolo.txtConsola.setText("");
+        String    salida = (String) areaWeb.getEngine().executeScript("editor.getValue();");
+          
+        elementoDebug debug=new elementoDebug(extension.toLowerCase(), simbolo, salida, nombre);
+        simbolo.debug=debug;
+        
+        //Enviando los puntos de quibre, una vez ya se creo el elementoDebu
+        simbolo.listaTabsClases.cargarPuntosDeInterrupcion();
+        
+        try {
+            simbolo.debug.iniciar(); 
+        } catch (Exception e) {
+            println("[ejecutar][Error]"+e.getMessage());
+        }
+//        simbolo.debug.detener();
+//        println("[ejecutar]****  Fin del analisis *****");
+//        simbolo.debug=null;
+    }
+     
     
     /**
      * Retorna la nueva tab
@@ -191,8 +180,7 @@ public class nodoTabClase {
      */
     public Tab getNuevaTab() {
         return nuevaTab;
-    }
-     
+    } 
     
     public void println(String mensaje){
         System.out.println("[nodoTabClase]"+mensaje);
