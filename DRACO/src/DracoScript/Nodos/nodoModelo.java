@@ -60,7 +60,11 @@ public class nodoModelo {
      */
     public itemRetorno ejecutar(elementoEntorno entorno){
 //        validandoDebug();
-        
+       
+        itemRetorno retorno=new itemRetorno();
+        if(hayErrores()){
+            return retorno;
+        }
         
         return listaHijos.ejecutar(entorno);
     }
@@ -92,8 +96,11 @@ public class nodoModelo {
      * @return  Retorna un boolean para indicar si hubieron errores
      */
     public boolean hayErrores(){
-        return !simbolo.tablaErrores.tablaError.isEmpty();
-         
+        if(!simbolo.tablaErrores.tablaError.isEmpty()){
+            println("[hayErrores]No se puede ejecutar porque hay errores");
+            return true;
+        }
+        return false;
     }
     
 }

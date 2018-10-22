@@ -6,23 +6,28 @@
 package Gui;
   
 import DracoScript.Estructuras.Elementos.elementoGlobal; 
-import Gui.Componentes.ideVistaArbol;  
+import Gui.Componentes.ideTablaErrores;  
 import Gui.Elementos.elementoMensaje;
-import Gui.Listas.lstTabClase;  
+import Gui.Lienzo.Lienzo; 
+import Gui.Listas.lstTabClase;   
 import java.net.URL;
-import java.util.ResourceBundle;  
-import javafx.event.ActionEvent; 
+import java.util.ResourceBundle;   
+import javafx.event.ActionEvent;  
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader; 
+import javafx.scene.Parent;
+import javafx.scene.Scene; 
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab; 
-import javafx.scene.input.MouseEvent; 
+import javafx.scene.input.MouseEvent;  
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author joseph
  */
-public class Ide extends ideVistaArbol  {
+public class Ide extends ideTablaErrores  {
   
     
     
@@ -112,9 +117,7 @@ public class Ide extends ideVistaArbol  {
             simbolo.debug.detener();
         }
     }
-    
-    
-
+     
     /**<br>+----------------------------------------------------
      * <br>| MODOS DE EJECUCIÓN
      * <br>+----------------------------------------------------
@@ -163,14 +166,15 @@ public class Ide extends ideVistaArbol  {
     
     @FXML
     void clckEstadoEjecucion(ActionEvent event) {
-       
+        
+         newStage.show();
     }
     
     @FXML
     void clckVistaArbol(MouseEvent event) {
         enventoClickVistaArbol(event);
     }
-    
+     
       
     /**<br>+----------------------------------------------------
      * <br>| Metodo que se ejecuta de primero
@@ -186,11 +190,36 @@ public class Ide extends ideVistaArbol  {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        //Tabla de errores
+        inicializarTabla();
+        
         //Vista árbol    
         mensaje=new elementoMensaje(stackPadre);
-        simbolo=new elementoGlobal(mensaje, listaTabsClases, txtConsola);
+        
+        simbolo=new elementoGlobal(mensaje, listaTabsClases, txtConsola, tablaErrores, crearLienzo());
         listaTabsClases=new lstTabClase(tabClases, simbolo);
         simbolo.listaTabsClases=listaTabsClases;
+        
+    }
+    
+    public Stage newStage = new Stage();
+
+    public Lienzo crearLienzo() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/Gui/Lienzo/Lienzo.fxml"));
+            Parent root = (Parent) loader.load();
+            Lienzo ctrl = loader.getController();
+//         ctrl.init(table.getSelectionModel().getSelectedItem());
+            newStage.setTitle("Lienzo - 201513696");
+            Scene newScene = new Scene(root);
+            newStage.setScene(newScene);
+            return ctrl;
+        } catch (Exception e) {
+            println("[crearLienzo][Error]" + e.getMessage());
+            return new Lienzo();
+        } 
     }
     
 }

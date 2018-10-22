@@ -152,16 +152,19 @@ public class nodoTabClase {
         System.out.println("+------------------------------------------------+");
         
         
-        
-        
-        simbolo.txtConsola.setText("");
+        //Limpiando la tabla de errores
+        simbolo.tablaErrores.clean();
+        simbolo.ctrlLienzo.limpiarLienzo();
+        simbolo.clearConsola();
         String    salida = (String) areaWeb.getEngine().executeScript("editor.getValue();");
           
         elementoDebug debug=new elementoDebug(extension.toLowerCase(), simbolo, salida, nombre);
         simbolo.debug=debug;
         
-        //Enviando los puntos de quibre, una vez ya se creo el elementoDebu
-        simbolo.listaTabsClases.cargarPuntosDeInterrupcion();
+        if(simbolo.modoDebug){
+            //Enviando los puntos de quibre, una vez ya se creo el elementoDebu
+            simbolo.listaTabsClases.cargarPuntosDeInterrupcion(); 
+        }
         
         try {
             simbolo.debug.iniciar(); 

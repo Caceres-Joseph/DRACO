@@ -6,6 +6,7 @@
 package DracoScript.Estructuras.Tablas;
  
 import DracoScript.Estructuras.Elementos.elementoError;
+import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
 import java.util.ArrayList; 
 import java.util.List;
@@ -15,9 +16,17 @@ import java.util.List;
  * @author joseph
  */
 public class tablaErrores {
-    public List<elementoError> tablaError=new ArrayList<>();
-    public List<elementoError> listaConsola=new ArrayList<>();
+    public List<elementoError> tablaError=new ArrayList<>(); 
+    public elementoGlobal simbolo;
     
+    public void clean(){
+        tablaError=new ArrayList<>();
+        simbolo.tbErrores.clean();
+    }
+    
+    public tablaErrores(elementoGlobal simbolo){
+        this.simbolo=simbolo;
+    }
     public void insertar(elementoError nodo){
         tablaError.add(nodo);
     }
@@ -35,18 +44,23 @@ public class tablaErrores {
         System.out.print(mensaje);
     }
     
+    public void tablaGUI(elementoError elem){
+//        simbolo.selectTabInferior(0); 
+        simbolo.tbErrores.insertarError(elem);
+    }
 //    
-//    public void insertErrorSyntax(String ambito,int linea, int columna, String mensaje){
-//        elementoError elem=new elementoError();
-//        elem.ambito=ambito;
-//        elem.tipo="Sintactico";
-//        elem.linea=String.valueOf(linea+1);
-//        elem.columna=String.valueOf(columna+1);
-//        elem.descripcion=mensaje;
-//        
-//        this.tablaError.add(elem);
-//        println("[Error]Sintactico-> "+mensaje);
-//    }
+    public void insertErrorSyntax(String ambito,int linea, int columna, String mensaje){
+        elementoError elem=new elementoError();
+        elem.ambito=ambito;
+        elem.tipo="Sintactico";
+        elem.linea=String.valueOf(linea+1);
+        elem.columna=String.valueOf(columna+1);
+        elem.descripcion=mensaje;
+        
+        this.tablaError.add(elem);
+        tablaGUI(elem);
+        println("[Error]Sintactico-> "+mensaje);
+    }
 //    
     public void insertErrorLexical(String ambito,int linea, int columna,String mensaje){
         elementoError elem=new elementoError();
@@ -56,6 +70,9 @@ public class tablaErrores {
         elem.columna=String.valueOf(columna+1);
         elem.descripcion=mensaje;
         this.tablaError.add(elem);
+        
+        tablaGUI(elem);
+        
         println("[Error]Lexico-> "+mensaje);
     }
 //    
@@ -94,6 +111,9 @@ public class tablaErrores {
         elem.columna=String.valueOf(atrib.columna);
         elem.descripcion=mensaje; 
         this.tablaError.add(elem);
+        
+        tablaGUI(elem);
+        
         println("[Error]Sintactico-> "+mensaje);
     }
     
@@ -112,6 +132,9 @@ public class tablaErrores {
         elem.columna=String.valueOf(atrib.columna);
         elem.descripcion=mensaje; 
         this.tablaError.add(elem);
+        
+        tablaGUI(elem);
+        
         println("[Error]Lexico-> "+mensaje);
     }
      
@@ -130,6 +153,9 @@ public class tablaErrores {
         elem.columna=String.valueOf(atrib.columna);
         elem.descripcion=mensaje; 
         this.tablaError.add(elem);
+        
+        tablaGUI(elem); 
+        
         println("[Error]Semantico-> "+mensaje);
     } 
     
@@ -139,11 +165,7 @@ public class tablaErrores {
         mergeList.addAll(tab.tablaError);
         mergeList.addAll(this.tablaError);
         this.tablaError = mergeList; 
-        
-        List<elementoError> mergeList2=new ArrayList<>(); 
-        mergeList2.addAll(tab.tablaError);
-        mergeList2.addAll(this.tablaError);
-        this.listaConsola = mergeList2;
+         
         
     }
     
@@ -152,21 +174,22 @@ public class tablaErrores {
     public void imprimir() {
         System.out.println("-----cError--------");
         for (elementoError lstErrore : this.tablaError) { 
-            System.out.print("Ambito{");
-            System.out.print(lstErrore.ambito);
-            System.out.println("}");
-            System.out.print("Linea{");
-            System.out.print(lstErrore.linea);
-            System.out.println("}");
-            System.out.print("Columna{");
-            System.out.print(lstErrore.columna);
-            System.out.println("}");
-            System.out.print("Tipo{");
-            System.out.print(lstErrore.tipo);
-            System.out.println("}");
-            System.out.print("Descripcion{");
-            System.out.print(lstErrore.descripcion);
-            System.out.println("}");
+            print("Ambito{");
+            print(lstErrore.ambito);
+            println("}");
+            print("Linea{");
+            print(lstErrore.linea);
+            println("}");
+            print("Columna{");
+            print(lstErrore.columna);
+            println("}");
+            print("Tipo{");
+            print(lstErrore.tipo);
+            println("}");
+            print("Descripcion{");
+            print(lstErrore.descripcion);
+            println("}");
         }
     }
+     
 }

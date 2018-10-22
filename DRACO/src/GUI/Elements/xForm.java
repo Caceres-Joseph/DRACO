@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package GUI.Elements;
- 
-import DracoScript.Estructuras.Elementos.elementoEntorno;
-import DracoScript.Estructuras.Elementos.elementoGlobal;
-import DracoScript.Gramatica.Analizador.anlzDracoScript;
+  
 import DracoScript.Nodos.nodoModelo;
 import GUI.Principal; 
 import java.io.File; 
@@ -96,7 +93,6 @@ public class xForm extends newTab {
 //        this.setTextCode(tree.salida);
 //        
 //        tree.imprimirListas();
-       
         
         //tree.imprimirVariables();
     }

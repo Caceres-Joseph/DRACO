@@ -17,14 +17,14 @@ public class draco {
      * @param args the command line arguments
      */
     public static void main(String[] args) { 
+        
         iniciarInterfaz(args);  
     }
     
     /**
      * Main que inicializa la interfaz
      * @param args 
-     */
-    
+     */ 
     public static void iniciarInterfaz(String[] args) {
         System.out.println("Inicializando...");
         Principal pri = new Principal(); 

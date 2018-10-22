@@ -69,16 +69,14 @@ public class _PRINT extends nodoModelo {
 
             if (ret != null) {
 
-                Platform.runLater(() -> {
                     simbolo.setConsola("\n" + ret);
                     //                simbolo.txtConsola+="\n"+ret;
-                });
+               
             } else {
-                
-                Platform.runLater(() -> {
+                 
                     simbolo.setConsola("\nnull");
                     //                simbolo.txtConsola+="\n"+ret;
-                });
+               
                 //                simbolo.txtConsola+="\nnull";
             }
 
