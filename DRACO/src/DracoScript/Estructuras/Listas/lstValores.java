@@ -5,7 +5,7 @@
  */
 package DracoScript.Estructuras.Listas;
 
-import DracoScript.Estructuras.Elementos.elementoGlobal; 
+import Gui.Elementos.elementoGlobal; 
 import DracoScript.Estructuras.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemValor;
 import java.util.LinkedHashMap;

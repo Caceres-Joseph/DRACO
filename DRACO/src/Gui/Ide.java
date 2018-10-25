@@ -5,7 +5,7 @@
  */
 package Gui;
   
-import DracoScript.Estructuras.Elementos.elementoGlobal; 
+import Gui.Elementos.elementoGlobal; 
 import Gui.Componentes.ideTablaErrores;  
 import Gui.Elementos.elementoMensaje;
 import Gui.Lienzo.Lienzo; 

@@ -1,12 +1,12 @@
-package  DracoScript.Gramatica.Lexico;
+package D_plus.Gramatica.Lexico;
 
-import DracoScript.Gramatica.Sintactico.*;
+import D_plus.Gramatica.Sintactico.*;
 import java_cup.runtime.*;
 import DracoScript.Estructuras.Elementos.elementoGlobal;
 
 %%
 
-%class LexerDracoScript 
+%class LexerDplusPlus 
 %public
 
 
@@ -44,14 +44,13 @@ import DracoScript.Estructuras.Elementos.elementoGlobal;
     LineTerminator = \r|\n|\r\n
     InputCharacter = [^\r\n]
     WhiteSpace     = {LineTerminator} | [ \t\f]
-    TraditionalComment   = "$*" [^*] ~"*$" | "$*" "*"+ "$"
-    EndOfLineComment     = "$$" {InputCharacter}* {LineTerminator}?
+    TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+    EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}?
     Comment = {TraditionalComment} | {EndOfLineComment} /*| {DocumentationComment}*/
     Identifier = [:jletter:] [:jletterdigit:]*
     DecIntegerLiteral = 0 | [1-9][0-9]*
     Double          =[0-9]+\.[0-9]+
-
-    If2 ="if" {WhiteSpace}+ "not" 
+ 
 
     Char = "'"[^]"'"
 
@@ -61,18 +60,17 @@ import DracoScript.Estructuras.Elementos.elementoGlobal;
 %%
 
     /*Simbolos*/
-    <YYINITIAL> {
-        {If2}                       {return symbol(sym.tIf2, yytext());}
+    <YYINITIAL> { 
 
         ";"                         {return symbol(sym.sPuntoComa, yytext());}
         ":"                         {return symbol(sym.sDosPuntos, yytext());}
         
         "."                         {return symbol(sym.sPunto,yytext());} 
         ","                         {return symbol(sym.sComa,yytext());}  
-        ":=:"                       {return symbol(sym.sIgual,yytext());}  
+        "="                       {return symbol(sym.sIgual,yytext());}  
 
         "=="                        {return symbol(sym.sIgualacion,yytext());}  
-        "!="                        {return symbol(sym.sDiferenciacion,yytext());}  
+        "<>"                        {return symbol(sym.sDiferenciacion,yytext());}  
         "<"                         {return symbol(sym.sMenor,yytext());}  
         "<="                        {return symbol(sym.sMenorIgual,yytext());}  
         ">"                         {return symbol(sym.sMayor,yytext());}  
@@ -88,8 +86,8 @@ import DracoScript.Estructuras.Elementos.elementoGlobal;
         ")"                         {return symbol(sym.sCierraParent, yytext());}
         "["                         {return symbol(sym.sAbreCorchete, yytext());}
         "]"                         {return symbol(sym.sCierraCorchete, yytext());}
-        "{"                         {return symbol(sym.sAbreLlaves, yytext());}
-        "}"                         {return symbol(sym.sCierraLlaves, yytext());}
+        "{"                         {return symbol(sym.sAbreLlave, yytext());}
+        "}"                         {return symbol(sym.sCierraLlave, yytext());}
         
 
         "^"                         {return symbol(sym.sPot, yytext());}
@@ -99,41 +97,37 @@ import DracoScript.Estructuras.Elementos.elementoGlobal;
         "+"                         {return symbol(sym.sMas, yytext());}
         "/"                         {return symbol(sym.sDiv, yytext());}
         "-"                         {return symbol(sym.sMenos, yytext());}
-
-        "++"                         {return symbol(sym.sDobleMas, yytext()); }
-        "--"                         {return symbol(sym.sDobleMenos, yytext());}
+ 
+        "?"                          {return symbol(sym.sCierraInterrogante, yytext());}
 
     }
 
     /*Palabras*/
     <YYINITIAL>{
-        "var"                       {return symbol(sym.tVar, yytext());}
-        
-        "smash"                     {return symbol(sym.tSmash, yytext());}
-
-        "if"                        {return symbol(sym.tIf, yytext());}
-        "elif"                      {return symbol(sym.tElif, yytext());}
-        
-
-        //"not"                       {return symbol(sym.tNot, yytext());}
-        "while"                     {return symbol(sym.tWhile, yytext());}
-
-        "for"                       {return symbol(sym.tFor, yytext());}
-        "print"                     {return symbol(sym.tPrint, yytext());}
-
-        "runmultdasm"               {return symbol(sym.tRunMultDasm, yytext());}
-
-        "rundasm"                   {return symbol(sym.tRunDasm, yytext());}
-        
-        "point"                     {return symbol(sym.tPoint, yytext());}
-        "quadrate"                  {return symbol(sym.tQuadrate, yytext());}
-        "oval"                      {return symbol(sym.tOval, yytext());}
-        "string"                    {return symbol(sym.tString, yytext());}
-        
-        "line"                      {return symbol(sym.tLine, yytext());}
-        
-        "true"                      {return symbol(sym.valTrue, yytext());}
-        "false"                     {return symbol(sym.valFalse, yytext());}
+        "verdadero"                 {return symbol(sym.valTrue, yytext());}
+        "falso"                     {return symbol(sym.valFalse, yytext());} 
+        "importar"                       {return symbol(sym.tImportar, yytext());} 
+        "estructura"                     {return symbol(sym.tEstructura, yytext());} 
+        "principal"                        {return symbol(sym.tPrincipal, yytext());}
+        "retornar"                      {return symbol(sym.tRetornar, yytext());}  
+        "detener"                     {return symbol(sym.tDetener, yytext());} 
+        "continuar"                       {return symbol(sym.tContinuar, yytext());}
+        "si"                     {return symbol(sym.tSi, yytext());} 
+        "sino"                     {return symbol(sym.tSino, yytext());} 
+        "mientras"               {return symbol(sym.tMientras, yytext());} 
+        "imprimir"                   {return symbol(sym.tImprimir, yytext());} 
+        "punto"                     {return symbol(sym.tPunto, yytext());}
+        "cuadrado"                  {return symbol(sym.tCuadrado, yytext());}
+        "ovalo"                      {return symbol(sym.tOvalo, yytext());}
+        "cadena"                    {return symbol(sym.tCadena, yytext());} 
+        "linea"                      {return symbol(sym.tLinea, yytext());} 
+        "decimal"                      {return symbol(sym.tDecimal, yytext());}
+        "caracter"                     {return symbol(sym.tCaracter, yytext());}
+        "booleano"                     {return symbol(sym.tBooleano, yytext());}
+        "vacio"                     {return symbol(sym.tVacio, yytext());}
+        "entero"                     {return symbol(sym.tEntero, yytext());}
+        "para"                     {return symbol(sym.tPara, yytext());}
+        "nulo"                     {return symbol(sym.tNulo, yytext());}
     }
 
 

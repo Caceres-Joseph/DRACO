@@ -5,7 +5,7 @@
  */
 package Gui.Nodos;
   
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import Gui.Elementos.elementoDebug;  
 import Gui.Listas.lstPuntosDeInterrupcion;
 import java.io.File;

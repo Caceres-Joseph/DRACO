@@ -5,7 +5,7 @@
  */
 package Gui.Listas;
   
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import Gui.Nodos.nodoTabClase; 
 import com.jfoenix.controls.JFXTabPane;
 import java.util.ArrayList; 

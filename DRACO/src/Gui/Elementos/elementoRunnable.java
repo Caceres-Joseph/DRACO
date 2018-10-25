@@ -5,8 +5,8 @@
  */
 package Gui.Elementos;
 
+import D_plus.Gramatica.Analizador.anlzDplusPlus;
 import DracoScript.Estructuras.Elementos.elementoEntorno;
-import DracoScript.Estructuras.Elementos.elementoGlobal;
 import DracoScript.Gramatica.Analizador.anlzDracoScript;
 import DracoScript.Nodos.nodoModelo; 
 
@@ -29,11 +29,11 @@ public class elementoRunnable implements Runnable {
     
     @Override
     public void run() {
-        
+//        this.extension="d++";
         switch (extension) {
             case "djs":
-                //            println("[run]\n\t*********  Iniciando analisis ********");
                 println("[run]Iniciando Hilo de Ejecución");
+                //            println("[run]\n\t*********  Iniciando analisis ********"); 
                 anlzDracoScript dra = new anlzDracoScript(cadenaEntrada, nombreArchivo, simbolo);
                 dra.analizar();
                 raiz = dra.raiz;
@@ -42,9 +42,11 @@ public class elementoRunnable implements Runnable {
                     raiz.ejecutar(entornoGlobal);
                 }   
                 break;
-            case "d++":
-                
-                
+            case "dpp":
+                println("[run][Dpp]Iniciando Hilo de Ejecución");
+                anlzDplusPlus dPlus = new anlzDplusPlus(cadenaEntrada, nombreArchivo, simbolo);
+                dPlus.analizar();
+                 
                 break;
             default:
                 break;

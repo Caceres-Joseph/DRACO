@@ -5,7 +5,7 @@
  */
 package DracoScript.Estructuras.Items;
 
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 
 /**
  *

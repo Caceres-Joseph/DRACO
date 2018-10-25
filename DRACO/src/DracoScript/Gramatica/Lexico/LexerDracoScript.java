@@ -4,7 +4,7 @@ package  DracoScript.Gramatica.Lexico;
 
 import DracoScript.Gramatica.Sintactico.*;
 import java_cup.runtime.*;
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 
 
 /**

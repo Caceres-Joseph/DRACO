@@ -5,7 +5,7 @@
  */
 package DracoScript.Nodos.Nativas;
 
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
 import DracoScript.Nodos.nodoModelo;
 

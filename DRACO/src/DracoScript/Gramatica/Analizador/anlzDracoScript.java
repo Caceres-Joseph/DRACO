@@ -5,7 +5,7 @@
  */
 package DracoScript.Gramatica.Analizador;
 
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

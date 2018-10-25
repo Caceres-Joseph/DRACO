@@ -5,7 +5,7 @@
  */
 package GUI.Elements;
  
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import GUI.Principal;
 import java.io.BufferedReader;
 

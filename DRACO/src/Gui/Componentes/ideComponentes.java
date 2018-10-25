@@ -5,7 +5,7 @@
  */
 package Gui.Componentes;
  
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import Gui.Elementos.elementoMensaje;
 import Gui.Listas.lstTabClase;
 import Gui.Nodos.nodoVistaArbol;

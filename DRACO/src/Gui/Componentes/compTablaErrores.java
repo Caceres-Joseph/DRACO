@@ -5,7 +5,7 @@
  */
 package Gui.Componentes;
 
-import DracoScript.Estructuras.Elementos.elementoError;
+import Gui.Elementos.elementoError;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

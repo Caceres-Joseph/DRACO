@@ -5,9 +5,9 @@
  */
 package GUI.Elements;
  
-import DracoScript.Estructuras.Elementos.elementoError;
-import DracoScript.Estructuras.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Tablas.tablaErrores;
+import Gui.Elementos.elementoError;
+import Gui.Elementos.elementoGlobal;
+import Gui.Tablas.tablaErrores;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

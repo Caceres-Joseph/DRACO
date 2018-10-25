@@ -9,7 +9,7 @@ package DracoScript.Gramatica.Sintactico;
 import java.util.List;
 import java_cup.runtime.*;
 import java.util.ArrayList;
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
 import DracoScript.Nodos.AsignarValor.*;
 import DracoScript.Nodos.Inicio.*;
 import DracoScript.Nodos.Nativas.*;

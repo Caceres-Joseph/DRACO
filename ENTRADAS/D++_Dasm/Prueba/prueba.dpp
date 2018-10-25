@@ -1,0 +1,113 @@
+
+    importar("/home/javiern/prueba.dpp");
+
+estructura Estudiante {
+entero carne;
+cadena nombre = "cadena de inicio";
+decimal arreglo[3][6][2];
+}
+
+
+principal () {
+imprimir ("/****inicializando variables****/" );
+
+}
+
+Principal (){
+    imprimir ("Se calculo el Factorial de 5 - La salida debera de ser 120 .... ");
+    imprimir(factorial(5));
+    Pintar_Hojas();
+    Pintar_Petalos();
+
+    contador--;
+    caracter var1, var2, var3 = 0;
+    // Declaración de una variable
+    entero var1;
+    // Declaración e inicialización de varias variables
+    caracter var1, var2, var3 = 0;
+    entero b = 20;
+    entero a = 20;
+    // asignación directa
+    b = 25;
+    // asignación en términos de otra variable
+    b = a;
+    // asignación en términos de una expresión
+    var3 = 15 * 2 + 10;
+    entero factorial5[4] = {1, 2, 6, 24, 120};
+    var1 = arreglo[0];
+    factorial5[0] = 0;
+    // Declaración de un arreglo de tres dimensiones.
+    decimal arreglo[3][6][2];
+    decimal var = 96 + arreglo[3][6][2] * 1.5 ^ 2;
+    arreglo[3][6][2]= 1.5;
+    entero var1 = 1;
+    cadena cadenita = var1==0? "var1 es 0": "var1 NO es 0";
+    si (variable > 0) {
+    var1 = 0;
+    } sino si (variable < 0) {
+    var1 = 1;
+    } sino {
+    var1 = 2;
+    }
+
+    mientras (cuenta <= 10) {
+    cuenta++;
+    }
+    para (entero cuenta = 0; cuenta <= 10; cuenta++) {
+    a[cuenta] = cuenta;
+    }
+
+    mientras (cuenta <= 10) {
+    si (cuenta == 5) {
+    detener;
+    }
+    cuenta++;
+    }
+    mientras (cuenta <= 10) {
+    si (cuenta == 5) {
+    continuar;
+    }
+    cuenta++;
+    }
+    mientras (cuenta <= 10) {
+    imprimir ("La cuenta es: " + cuenta);
+    cuenta++;
+    }
+
+
+}
+vacio metodo(entero carne){
+carne = 201513630;
+}
+
+
+entero factorial(entero numero) {
+    si (numero == 0) {
+        retornar 1;
+    } sino {
+        retornar numero * factorial(numero - 1);
+    }
+}
+
+entero Multi_10(entero numero, entero cant){
+    retornar numero + 10*cant;
+}
+
+
+entero Multi_2(entero num, entero cant){
+    retornar num + 2 * cant;
+}
+
+vacio Pintar_Hojas(){
+    point 	(Multi_10(3, 3), Multi_10(2, 3), "#388E3C", Multi_2(2, 18) );
+    point 	(Multi_10(7, 6), Multi_10(2, 3), "#388E3C", Multi_2(2, 18));
+    point 	(Multi_10(4, 3), Multi_10(7, 6), "#388E3C", Multi_2(2, 18));
+    point 	(Multi_10(2, 7), Multi_10(9, 6), "#388E3C", Multi_2(2, 18));
+}
+
+vacio Pintar_Petalos(){
+    point 	(Multi_10(8, 2), Multi_10(9, 4), "#FFEB3B", Multi_2(2, 22));
+    point 	(Multi_10(4, 7), Multi_10(9, 4), "#FFEB3B", Multi_2(2, 22));
+    point 	(Multi_10(1, 5), Multi_10(6, 2), "#FFEB3B", Multi_2(2, 22));
+    point 	(Multi_10(1, 5), Multi_10(3, 7), "#FFEB3B", Multi_2(2, 22));
+}

@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DracoScript.Estructuras.Elementos;
+package Gui.Elementos;
  
-import DracoScript.Estructuras.Tablas.tablaErrores; 
-import Gui.Componentes.compTablaErrores;
-import Gui.Elementos.elementoDebug;
-import Gui.Elementos.elementoMensaje;
+import Gui.Tablas.tablaErrores; 
+import Gui.Componentes.compTablaErrores; 
 import Gui.Lienzo.Lienzo;
 import Gui.Listas.lstTabClase; 
 import com.jfoenix.controls.JFXTabPane; 

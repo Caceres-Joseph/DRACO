@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DracoScript.Estructuras.Tablas;
+package Gui.Tablas;
  
-import DracoScript.Estructuras.Elementos.elementoError;
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoError;
+import Gui.Elementos.elementoGlobal;
 import DracoScript.Estructuras.Items.itemAtributo;
 import java.util.ArrayList; 
 import java.util.List;

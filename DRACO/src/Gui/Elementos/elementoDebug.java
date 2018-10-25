@@ -5,7 +5,6 @@
  */
 package Gui.Elementos;
 
-import DracoScript.Estructuras.Elementos.elementoGlobal;
 import Gui.Listas.lstPuntosDeInterrupcion;
 
 /**
