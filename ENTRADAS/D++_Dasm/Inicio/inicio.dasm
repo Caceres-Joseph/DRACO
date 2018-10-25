@@ -1,0 +1,90 @@
+/******************************************************************************************/
+//         VARIABLES GLOBALES 
+/******************************************************************************************/
+
+/**************************************************************************/
+// glob = ENTERO
+get_global 0 // TOMO EL PUNTERO DEL AMBITO ACTUAL
+0// POSICION RELATIVA AL 0 DEL AMBITO ACTUAL
+ADD // SUMO PARA ENCONTRAR LA POSICION REAL DE LA VARAIABLE ENTERA 
+10
+set_global $calc // PONGO EL VALOR EN LA POSICION QUE ESTA AL FONDO DE LA PILA
+/**************************************************************************/
+
+/******************************************************************************************/
+
+/******************************************************************************************/
+//      SEGMENTO DE CODIGO  
+/******************************************************************************************/
+/*METODO PRINCIPAL*/
+Function $principal
+	
+	/**************************************************************************/
+	// a = ENTERO
+	get_local 0 // TOMO EL PUNTERO DEL AMBITO ACTUAL
+	0// POSICION RELATIVA AL 0 DEL AMBITO ACTUAL
+	ADD // SUMO PARA ENCONTRAR LA POSICION REAL DE LA VARAIABLE ENTERA 
+	10
+	set_local $calc // PONGO EL VALOR EN LA POSICION QUE ESTA AL FONDO DE LA PILA
+	/**************************************************************************/
+	
+	/**************************************************************************/
+	// b = ENTERO
+	get_local 0 // TOMO EL PUNTERO DEL AMBITO ACTUAL
+	1// POSICION RELATIVA AL 0 DEL AMBITO ACTUAL
+	ADD // SUMO PARA ENCONTRAR LA POSICION REAL DE LA VARAIABLE ENTERA 
+	10
+	set_local $calc // PONGO EL VALOR EN LA POSICION QUE ESTA AL FONDO DE LA PILA
+	/**************************************************************************/
+	
+	/**************************************************************************/
+	// c = ENTERO
+	get_local 0 // TOMO EL PUNTERO DEL AMBITO ACTUAL
+	2// POSICION RELATIVA AL 0 DEL AMBITO ACTUAL
+	ADD // SUMO PARA ENCONTRAR LA POSICION REAL DE LA VARAIABLE ENTERA 
+	45
+	8
+	ADD
+	
+	set_local $calc // PONGO EL VALOR EN LA POSICION QUE ESTA AL FONDO DE LA PILA
+	/**************************************************************************/
+	
+	/**************************************************************************/
+	// a = ENTERO 
+	get_local 0 // OBTENIENDO EL PUNTERO DE LA STACK
+	0 // POSICION RELATIVA DE LA VARIABLE A ASIGNAR
+	ADD // ENCONTRANDO LA POSICION Y METIENDOLO AL FONDO DEL STACK
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	0 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	1 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	ADD
+	
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	2 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	ADD
+	
+	
+	get_global 0 // OBTENIENDO PUNTERO
+	0 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_global $calc //OBTENIENDO EL VALOR 
+	
+	ADD
+	
+	set_local $calc // COLOCANDO EL VALOR EN LA POSICION AL FONDO DE LA PILA
+	/**************************************************************************/
+
+End

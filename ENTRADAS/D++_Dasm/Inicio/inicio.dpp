@@ -1,0 +1,76 @@
+
+/*METODO PRINCIPAL*/
+entero glob = 10;
+vacio principal()
+{
+    entero a = 10;
+    entero b = 10;
+    entero c = 45 + 8;
+    a = a + b + c + glob;
+
+}
+
+/*
+    get_global 0 
+    0
+    ADD
+    10
+    set_global $calc
+
+    Function $principal
+        get_local 0 
+        0
+        ADD
+        10
+        set_local $calc
+
+        get_local 0
+        1
+        ADD
+        10
+        set_local $calc
+
+        get_local 0
+        2
+        ADD
+        45
+        8
+        ADD
+        set_local $calc
+
+        get_local 0
+        0
+        ADD
+
+        get_local 0 
+        0
+        ADD
+        get_local $calc // OBTENIENDO a 
+
+        get_local 0
+        1
+        ADD
+        get_local $calc // OBTENIENDO b
+
+        ADD
+
+        get_local 0
+        2
+        ADD
+        get_local $calc // OBTENIENDO c
+
+        ADD
+
+        get_global 0
+        0
+        ADD
+        get_global $calc
+
+        ADD
+
+        set_local $calc
+
+
+    End 
+
+*/

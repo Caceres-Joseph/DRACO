@@ -1,0 +1,21 @@
+
+vacio principal()
+{
+
+}
+
+
+vacion factorial(entero num2)
+{
+
+}
+
+entero factorial(entero num1, num2)
+{
+
+}
+
+entero factorial(booleano bandera)
+{
+    
+}

@@ -1,0 +1,57 @@
+/******************************************************************************************/
+//         VARIABLES GLOBALES 
+/******************************************************************************************/
+
+Call $principal
+
+/******************************************************************************************/
+
+/******************************************************************************************/
+//      SEGMENTO DE CODIGO  
+/******************************************************************************************/
+/*METODO PRINCIPAL*/
+Function $principal
+	
+	/**************************************************************************/
+	get_local 0 // INICIO LLAMADO
+	0 // SIZE DEL AMBITO PARA AVANZAR
+	ADD // SUMA PARA MOVERME
+	set_local 0 // ACTUALIZA EL PUNTERO
+	
+	/**************************************************************************/
+	// PARAM: 1 de Tipo Entero 
+	get_local 0 //PUNTERO DEL STACK
+	1 // NUMERO DE PARAMETRO A COLOCAR
+	ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+	3
+	set_local $calc // COLOCAR EN LA POSICION QUE LE TOCA
+	/**************************************************************************/
+	
+	Call $F_fact_P_ENTERO// LLAMADO DE FUNCION
+	get_local 0 // REGRESANDO AL AMBITO ANTERIOR
+	0 // SIZE DEL AMBITO PARA REGRESAR
+	DIFF // RESTAR EL AMBITO
+	set_local 0 // ACTUALIZA EL PUNTERO
+	/**************************************************************************/
+
+	$e_retornar
+End
+Function $F_fact_P_ENTERO
+	
+
+	$e_retornar
+
+End
+Function $F_valor
+	
+	/**************************************************************************/
+	// RETORNO CON VALOR
+	10
+	set_local $ret // PONGO EL RETORNO EN LA POSICION DE RET
+	
+	BR $e_retornar // SALTO A LA ETIQUETA DE RETORNAR
+	/**************************************************************************/
+
+	$e_retornar
+
+End

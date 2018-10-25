@@ -1,0 +1,287 @@
+function $factorial 
+	get_local 1 //pos del parametro numero
+		eqz //verifica que la cima sea igual a 0
+		br_if $label0 //si es 0 salta
+		get_local 1 //push num
+		get_local 1 //push num 
+		-1 //push -1
+		diff // num - 1
+		set_local $calc //se pasa a - 1 como parametro para la siguiente funcion 
+		call $factorial
+		get_local $ret //se obtiene el return de la llamada anterior
+		mult // se multiplica num  * factorial(a - 1)
+		set_local $ret //se coloca en la posicion del return
+		br $label1 //salto al final del metodo luego del return
+	$label0
+		1 //push 1 en segmento de codigo
+		set_local $ret // asignando 1 en la pos de return
+		br $label1 //salto al final de metodo luego del return
+$label1
+end
+
+funciton $multi_10
+	get_local $calc // se obtiene num 
+	10
+	get_local $calc // se obtiene cant
+	mult //cant *10
+	add //cant *10 + num
+	set_local $ret //se coloca el resultado en la pos de ret
+	br $label0
+	$label0
+end
+
+
+funciton $multi_2
+	get_local $calc // se obtiene num 
+	2
+	get_local $calc // se obtiene cant
+	mult //cant*2
+	add //cant*2 + num
+	set_local $ret //se coloca el resultado en la pos de ret
+	br $label0
+	$label0
+end
+
+
+function pintar_petalos
+	3
+	3
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	2
+	3
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	18
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+
+
+	7
+	6
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	2
+	3
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	18
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+
+	4
+	3
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	7
+	6
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	18
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+
+	2
+	7
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	9
+	6
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	18
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+end
+
+function pintar_petalos
+	8
+	2
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	9
+	4
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	22
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+
+
+	4
+	7
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	9
+	4
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	22
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+
+	1
+	5
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	6
+	2
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	22
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_2
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+
+	1
+	5
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param1 de point
+	3
+	7
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param2 de point
+	#388E3C //entero en hexa
+	set_local $calc // tercer param de point	
+	2
+	22
+	set_local $calc // se pasa primer param
+	set_local $calc // se pasa segundo param
+	call $multi_10
+	get_local $ret //se obtiene resultado de la llamada anterior
+	set_local $calc // se pasa $ret como param4 de point
+	call $point
+end
+
+
+function $principal
+	99 //ascii de c
+	set_local $calc //param1 de imprimir
+	115 //ascii de s
+	set_local $calc //param2 de imprimir
+	call $imprimir
+	99 //ascii de c
+	set_local $calc //param1 de imprimir
+	115 //ascii de i
+	set_local $calc //param2 de imprimir
+	call $imprimir
+	5
+	set_local $calc //param para factorial
+	call $factorial
+	get_local $ret //se obtiene rel return
+	110 //ascii de n
+	set_local $calc //primer param de imprimir
+	set_local $calc //segundo param de imprimir resultado de factorial
+	call $pintar_hojas
+	call $pintar_petalos
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

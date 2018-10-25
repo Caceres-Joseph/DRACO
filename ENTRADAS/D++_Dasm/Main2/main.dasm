@@ -1,0 +1,169 @@
+/******************************************************************************************/
+//         VARIABLES GLOBALES 
+/******************************************************************************************/
+
+Call $principal
+
+/******************************************************************************************/
+
+/******************************************************************************************/
+//      SEGMENTO DE CODIGO  
+/******************************************************************************************/
+/*METODO PRINCIPAL*/
+Function $principal
+	
+	/**************************************************************************/
+	// iterador = ENTERO
+	get_local 0 // TOMO EL PUNTERO DEL AMBITO ACTUAL
+	1// POSICION RELATIVA AL 0 DEL AMBITO ACTUAL
+	ADD // SUMO PARA ENCONTRAR LA POSICION REAL DE LA VARAIABLE ENTERA 
+	0
+	set_local $calc // PONGO EL VALOR EN LA POSICION QUE ESTA AL FONDO DE LA PILA
+	/**************************************************************************/
+	
+	/**************************************************************************/
+	// CONDICION: 
+	$WHILE_0_1_CONDICION // ETIQUETA DE CONDICION
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	1 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	3
+	LT
+	
+	BR_IF $WHILE_0_1_FALSO // SI LA CONDICION NO CUMPLE SALE...
+	// SI ES VERDADERO: SENTENCIAS 
+			// SENTENCIAS: 
+			
+			/**************************************************************************/
+			// iterador = ENTERO 
+			get_local 0 // OBTENIENDO EL PUNTERO DE LA STACK
+			1 // POSICION RELATIVA DE LA VARIABLE A ASIGNAR
+			ADD // ENCONTRANDO LA POSICION Y METIENDOLO AL FONDO DEL STACK
+			
+			get_local 0 // OBTENIENDO PUNTERO STACK
+			1 // POSICION DE LA VARIABLE
+			ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+			get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+			
+			1
+			ADD
+			
+			set_local $calc // COLOCANDO EL VALOR EN LA POSICION AL FONDO DE LA PILA
+			/**************************************************************************/
+			
+			BR $WHILE_0_1_CONDICION // VUELTA A LA CONDICION 
+	$WHILE_0_1_FALSO
+	//SALIDA DE WHILE...
+	
+	/**************************************************************************/
+	//*           IF_SINO
+	/**************************************************************************/
+	// CONDICION
+	1
+	// FIN CONDICION
+	BR_IF $IF_0_2_FALSO_0 // SI LA CONDICION ES FALSA...
+			
+			//---------- SENTENCIAS ----------
+			
+			/**************************************************************************/
+			// iterador = ENTERO 
+			get_local 0 // OBTENIENDO EL PUNTERO DE LA STACK
+			1 // POSICION RELATIVA DE LA VARIABLE A ASIGNAR
+			ADD // ENCONTRANDO LA POSICION Y METIENDOLO AL FONDO DEL STACK
+			4
+			set_local $calc // COLOCANDO EL VALOR EN LA POSICION AL FONDO DE LA PILA
+			/**************************************************************************/
+			
+			//---------- FIN SENTENCIAS ----------
+			BR $IF_0_2_SALIDA // SALIR PARA NO CUMPLOR LAS DEMAS
+	$IF_0_2_FALSO_0 // ETIQUETA DE NO CUMPLIR LA CONDICION
+	/**************************************************************************/
+	
+	// SENTENCIA POR DEFAULT SINO
+			
+			//---------- SENTENCIAS ----------
+			
+			/**************************************************************************/
+			// iterador = ENTERO 
+			get_local 0 // OBTENIENDO EL PUNTERO DE LA STACK
+			1 // POSICION RELATIVA DE LA VARIABLE A ASIGNAR
+			ADD // ENCONTRANDO LA POSICION Y METIENDOLO AL FONDO DEL STACK
+			10
+			set_local $calc // COLOCANDO EL VALOR EN LA POSICION AL FONDO DE LA PILA
+			/**************************************************************************/
+			
+			//---------- FIN SENTENCIAS ----------
+	/**************************************************************************/
+	
+	$IF_0_2_SALIDA //SALE DEL IF..
+	
+	/**************************************************************************/
+	// numero = ENTERO
+	get_local 0 // TOMO EL PUNTERO DEL AMBITO ACTUAL
+	2// POSICION RELATIVA AL 0 DEL AMBITO ACTUAL
+	ADD // SUMO PARA ENCONTRAR LA POSICION REAL DE LA VARAIABLE ENTERA 
+	
+	/**************************************************************************/
+	get_local 0 // INICIO LLAMADO
+	1 // SIZE DEL AMBITO PARA AVANZAR
+	ADD // SUMA PARA MOVERME
+	set_local 0 // ACTUALIZA EL PUNTERO
+	
+	Call $F_valor// LLAMADO DE FUNCION
+	get_local 0 // REGRESANDO AL AMBITO ANTERIOR
+	1 // SIZE DEL AMBITO PARA REGRESAR
+	DIFF // RESTAR EL AMBITO
+	set_local 0 // ACTUALIZA EL PUNTERO
+	// OBTENIENDO EL RETORNO DE LA FUNCION Y COLOCANDOLO EN LA PILA
+	get_local $ret
+	/**************************************************************************/
+	
+	set_local $calc // PONGO EL VALOR EN LA POSICION QUE ESTA AL FONDO DE LA PILA
+	/**************************************************************************/
+	
+	/**************************************************************************/
+	get_local 0 // INICIO LLAMADO
+	2 // SIZE DEL AMBITO PARA AVANZAR
+	ADD // SUMA PARA MOVERME
+	set_local 0 // ACTUALIZA EL PUNTERO
+	
+	/**************************************************************************/
+	// PARAM: 1 de Tipo Entero 
+	get_local 0 //PUNTERO DEL STACK
+	1 // NUMERO DE PARAMETRO A COLOCAR
+	ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+	3
+	set_local $calc // COLOCAR EN LA POSICION QUE LE TOCA
+	/**************************************************************************/
+	
+	Call $F_fact_P_ENTERO// LLAMADO DE FUNCION
+	get_local 0 // REGRESANDO AL AMBITO ANTERIOR
+	2 // SIZE DEL AMBITO PARA REGRESAR
+	DIFF // RESTAR EL AMBITO
+	set_local 0 // ACTUALIZA EL PUNTERO
+	/**************************************************************************/
+
+	$e_retornar
+End
+Function $F_fact_P_ENTERO
+	
+
+	$e_retornar
+
+End
+Function $F_valor
+	
+	/**************************************************************************/
+	// RETORNO CON VALOR
+	10
+	set_local $ret // PONGO EL RETORNO EN LA POSICION DE RET
+	
+	BR $e_retornar // SALTO A LA ETIQUETA DE RETORNAR
+	/**************************************************************************/
+
+	$e_retornar
+
+End

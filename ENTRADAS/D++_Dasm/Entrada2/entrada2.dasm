@@ -1,0 +1,23 @@
+/*METODO PRINCIPAL DONDE INICIA LA EJECUCION: */
+Function $principal
+
+End
+
+
+/* CODIGO DE METODO: factorial*/
+Function $F_factorial_P_ENTERO
+
+End
+
+
+/* CODIGO DE FUNCION: factorial*/
+Function $F_factorial_P_ENTERO_P_ENTERO
+
+End
+
+
+/* CODIGO DE FUNCION: factorial*/
+Function $F_factorial_P_BOOLEAN
+
+End
+

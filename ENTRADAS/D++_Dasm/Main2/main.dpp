@@ -1,0 +1,43 @@
+
+vacio principal()
+{
+      entero iterador = 0;
+
+      mientras(iterador < 3)
+      {
+            iterador = iterador + 1;
+      }
+
+      si(verdadero)
+      {
+            iterador = 4;
+      }
+      sino
+      {
+            iterador = 10;
+      }
+
+      
+
+      entero numero = valor();
+
+      fact(3);
+}
+
+entero fact(entero n)
+{
+      
+}
+
+
+entero valor()
+{
+      retornar 10;
+}
+
+
+/*
+      ackerman = probar
+      factorial = probar
+      operador ternario probar
+*/
