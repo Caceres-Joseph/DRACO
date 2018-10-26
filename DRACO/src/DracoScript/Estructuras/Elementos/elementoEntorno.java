@@ -6,7 +6,7 @@
 package DracoScript.Estructuras.Elementos;
  
 import Gui.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemValor;
 import DracoScript.Estructuras.Listas.lstValores; 
 import java.util.Map;

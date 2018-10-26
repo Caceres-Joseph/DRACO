@@ -7,7 +7,7 @@ package DracoScript.Nodos.Inicio;
 
 import DracoScript.Estructuras.Elementos.elementoEntorno;
 import Gui.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Nodos.nodoModelo;
 import Gui.Ide;

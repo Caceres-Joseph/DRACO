@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package D_plus.Nodos.Valor;
-
-import D_plus.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
 

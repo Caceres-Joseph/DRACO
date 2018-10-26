@@ -7,7 +7,7 @@ package DracoScript.Nodos.Sentencias.For;
 
 import DracoScript.Estructuras.Elementos.elementoEntorno;
 import Gui.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Estructuras.Items.itemValor;
 import DracoScript.Nodos.AsignarValor._ASIGNAR_VAL;

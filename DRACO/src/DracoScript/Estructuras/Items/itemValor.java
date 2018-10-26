@@ -5,6 +5,7 @@
  */
 package DracoScript.Estructuras.Items;
 
+import Gui.Items.itemAtributo;
 import Gui.Elementos.elementoGlobal;
 
 /**

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DracoScript.Estructuras.Listas;
+package D_plus.Estructuras.Listas;
 
-import Gui.Elementos.elementoGlobal; 
+import D_plus.Estructuras.Items.itemValor;
+import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
-import DracoScript.Estructuras.Items.itemValor;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,11 +15,11 @@ import java.util.Map;
  *
  * @author joseph
  */
-public class lstValores {
+public class lstVariables {
     public Map<String, itemValor> lstVariables ;
     public elementoGlobal simbolo;
     
-    public lstValores(elementoGlobal simbolo){
+    public lstVariables(elementoGlobal simbolo){
         lstVariables=new LinkedHashMap<>(); 
         this.simbolo=simbolo;
     }
@@ -30,7 +30,7 @@ public class lstValores {
      * @param nombreVar Es el nombre de la nueva variable.
      * @param var Varaible nueva que va ser ingresada.
      */
-    public void insertarVariable(itemAtributo nombreVar, itemValor var){
+    public void lstVariables(itemAtributo nombreVar, itemValor var){
         
         if(_siExisteLaVariable(nombreVar)){
             simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" ya se encuentra declarada en el mismo ámbito");

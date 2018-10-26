@@ -7,7 +7,7 @@ package DracoScript.Nodos.Sentencias.If;
 
 import DracoScript.Estructuras.Elementos.elementoEntorno;
 import Gui.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import DracoScript.Estructuras.Items.itemRetorno;
 import DracoScript.Nodos.Inicio._LST_CUERPO;
 import DracoScript.Nodos.nodoModelo;

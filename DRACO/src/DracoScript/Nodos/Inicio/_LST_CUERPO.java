@@ -6,7 +6,7 @@
 package DracoScript.Nodos.Inicio;
 
 import Gui.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import DracoScript.Nodos.nodoModelo;
 
 

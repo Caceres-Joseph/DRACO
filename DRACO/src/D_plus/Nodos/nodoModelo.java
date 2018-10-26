@@ -6,7 +6,8 @@
 package D_plus.Nodos;
   
 import D_plus.Estructuras.Elementos.elementoEntorno;
-import D_plus.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
+import D_plus.Estructuras.Items.itemRetorno;
 import D_plus.Estructuras.Listas.lstNodosHijos;
 import Gui.Elementos.elementoGlobal; 
 
@@ -46,6 +47,30 @@ public class nodoModelo {
     
     /*
     |-------------------------------------------------------------------------------------------------------------------
+    | PRIMER PASADA
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */ 
+    
+    /**
+     * Metodo para la primer pasada
+     * @param entorno Es la tabla que contiene las variables
+     * @return El retorno es cuando viene un break
+     */
+    public itemRetorno primerPasada(elementoEntorno entorno){
+        validandoDebug();
+       
+        itemRetorno retorno=new itemRetorno();
+        if(hayErrores()){
+            return retorno;
+        } 
+        return listaHijos.primerPasada(entorno);
+    }
+    
+    
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
     | EJECUTAR
     |-------------------------------------------------------------------------------------------------------------------
     |
@@ -56,38 +81,38 @@ public class nodoModelo {
      * @param entorno Es la tabla que contiene las variables
      * @return El retorno es cuando viene un break
      */
-//    public itemRetorno ejecutar(elementoEntorno entorno){
-////        validandoDebug();
-//       
-//        itemRetorno retorno=new itemRetorno();
-//        if(hayErrores()){
-//            return retorno;
-//        }
-//        return null;
-////        return listaHijos.ejecutar(entorno);
-//    }
-//    
+    public itemRetorno ejecutar(elementoEntorno entorno){
+        validandoDebug();
+       
+        itemRetorno retorno=new itemRetorno();
+        if(hayErrores()){
+            return retorno;
+        } 
+        return listaHijos.ejecutar(entorno);
+    }
     
-//    public void validandoDebug(){
-//        simbolo.listaTabsClases.despintarLineas();
-//        
-//        if(simbolo.modoDebug){
-//            if(simbolo.debug.siguienteInstruccion){
-//                
-//                    simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1); 
-//                    simbolo.debug.pausar(); 
-//                    
-//            }else{
-//                //reviso si esta linea esta dentro del debug
-//                if(simbolo.debug.puntosDeInterrupcion.esPuntoDeInterrupcion(atributo)){
-//                    println("deteniendo hilo");
-//                    simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1);
-//                    simbolo.debug.pausar();
-//                }
-//            }
-//                
-//        }  
-//    }
+    
+    
+    public void validandoDebug(){
+        simbolo.listaTabsClases.despintarLineas();
+        
+        if(simbolo.modoDebug){
+            if(simbolo.debug.siguienteInstruccion){
+                
+                    simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1); 
+                    simbolo.debug.pausar(); 
+                    
+            }else{
+                //reviso si esta linea esta dentro del debug
+                
+                if(simbolo.debug.puntosDeInterrupcion.esPuntoDeInterrupcion(atributo)){
+                    println("deteniendo hilo");
+                    simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1);
+                    simbolo.debug.pausar();
+                }
+            }     
+        }  
+    }
     
     /**
      * Para detectar si hay errores semanticos

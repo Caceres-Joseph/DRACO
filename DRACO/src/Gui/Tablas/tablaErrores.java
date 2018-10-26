@@ -7,7 +7,7 @@ package Gui.Tablas;
  
 import Gui.Elementos.elementoError;
 import Gui.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import java.util.ArrayList; 
 import java.util.List;
 

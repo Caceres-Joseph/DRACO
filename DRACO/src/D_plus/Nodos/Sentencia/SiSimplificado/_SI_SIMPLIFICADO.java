@@ -5,7 +5,7 @@
  */
 package D_plus.Nodos.Sentencia.SiSimplificado;
 
-import D_plus.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
 

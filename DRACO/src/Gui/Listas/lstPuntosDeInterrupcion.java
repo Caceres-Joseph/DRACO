@@ -5,7 +5,7 @@
  */
 package Gui.Listas;
 
-import DracoScript.Estructuras.Items.itemAtributo;
+import Gui.Items.itemAtributo;
 import Gui.Nodos.nodoPuntoInterrupcion;
 import java.util.ArrayList;
 
@@ -28,6 +28,7 @@ public class lstPuntosDeInterrupcion {
      * @param atributo Contiene el nombre del archivo, y la linea
      * @return 
      */
+    
     public boolean esPuntoDeInterrupcion(itemAtributo atributo){
         String nombreArchivo= atributo.nombreArchivo;
         int linea=atributo.linea;
