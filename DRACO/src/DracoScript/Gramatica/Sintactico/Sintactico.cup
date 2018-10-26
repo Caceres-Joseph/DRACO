@@ -7,13 +7,13 @@ import Analizadores.nodo;
 import Analizadores.listaValores; */
 
 
-
 import java.util.List;
 import java_cup.runtime.*;
 import java.util.ArrayList;
 
 
-import DracoScript.Estructuras.Elementos.elementoGlobal;
+import Gui.Elementos.elementoGlobal;
+import Gui.Items.itemAtributo;
 
 import DracoScript.Nodos.AsignarValor.*;
 import DracoScript.Nodos.Inicio.*;
@@ -26,8 +26,7 @@ import DracoScript.Nodos.Sentencias.While.*;
 import DracoScript.Nodos.Valor.*;
 import DracoScript.Nodos.*;
 
-
-import DracoScript.Estructuras.Items.itemAtributo;
+ 
 //var: var++*34
 
 
