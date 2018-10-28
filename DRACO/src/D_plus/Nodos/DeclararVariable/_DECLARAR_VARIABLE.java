@@ -24,10 +24,13 @@ DECLARAR_VARIABLE   ::= DECLARAR_VARIABLE sComa VAR_ARREGLO  VAL
                     |   TIPO VAR_ARREGLO
                     ;
  */
-public class _DECLARAR_VARIABLE extends nodoModelo{
+public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
     
     public _DECLARAR_VARIABLE(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
     }
+    
+    
+    
     
 }

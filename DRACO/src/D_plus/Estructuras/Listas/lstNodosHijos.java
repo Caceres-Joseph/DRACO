@@ -5,6 +5,7 @@
  */
 package D_plus.Estructuras.Listas;
 
+import D_plus.Estructuras.Elementos.elementoClase;
 import D_plus.Estructuras.Elementos.elementoEntorno;
 import D_plus.Estructuras.Items.itemRetorno;
 import D_plus.Nodos.nodoModelo;
@@ -51,22 +52,16 @@ public class lstNodosHijos {
     
     /**
      * 
-     * @param entorno 
-     * @return El retorno 
+     * @param clase  
      */
-    public itemRetorno primerPasada(elementoEntorno entorno){
-        itemRetorno retorno =new itemRetorno();
-        retorno.setNormal();
+    public void primerPasada(elementoClase clase){ 
         
         for (nodoModelo lstHijo : lstHijos) {
             
-            itemRetorno ret= lstHijo.primerPasada(entorno);
-            if(ret.ifBreak()){
-                return ret;
-            }
+            lstHijo.primerPasada(clase);
+            
         }
         
-        return retorno;
     }
     
     /*

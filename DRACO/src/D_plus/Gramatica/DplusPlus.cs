@@ -12,10 +12,10 @@ import java.util.List;
 import java_cup.runtime.*;
 import java.util.ArrayList;
 
+ 
 
-import DracoScript.Estructuras.Elementos.elementoGlobal;
-import DracoScript.Estructuras.Items.itemAtributo;
-
+import Gui.Elementos.elementoGlobal;
+import Gui.Items.itemAtributo;
 
 import D_plus.Nodos.*;
 

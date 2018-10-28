@@ -1,0 +1,14 @@
+
+vacio principal()
+{
+	
+	cadena nombre = "Ricardo";
+    cadena apellido;
+
+    imprimir(nombre); // SALIDA DE: Ricardo
+    imprimir(apellido); // SALIDA: NULO
+
+    apellido = nombre; // IGUALO PUNTEROS, ES DECIR EL PUNTERO DE apellido APUNTA AL MISMO LUGAR QUE nombre
+
+    imprimir(apellido); // SALIDA: Ricardo
+}

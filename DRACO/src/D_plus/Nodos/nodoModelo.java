@@ -5,9 +5,11 @@
  */
 package D_plus.Nodos;
   
+import D_plus.Estructuras.Elementos.elementoClase;
 import D_plus.Estructuras.Elementos.elementoEntorno;
 import Gui.Items.itemAtributo;
 import D_plus.Estructuras.Items.itemRetorno;
+import D_plus.Estructuras.Listas.lstAtributos;
 import D_plus.Estructuras.Listas.lstNodosHijos;
 import Gui.Elementos.elementoGlobal; 
 
@@ -16,7 +18,7 @@ public class nodoModelo {
     
     public elementoGlobal simbolo;
     //public String nombreNodo = "";
-//    public lstAtributos listaAtributos;
+    public lstAtributos listaAtributos;
     public lstNodosHijos listaHijos;
     public itemAtributo atributo;
     
@@ -29,8 +31,8 @@ public class nodoModelo {
     public nodoModelo(itemAtributo atrib, elementoGlobal simbolo){
         this.atributo = atrib;
         this.simbolo=simbolo;
-//        this.listaAtributos =new lstAtributos();
-//        this.listaHijos =new lstNodosHijos(); 
+        this.listaAtributos =new lstAtributos();
+        this.listaHijos =new lstNodosHijos(); 
     }
     
      
@@ -54,17 +56,15 @@ public class nodoModelo {
     
     /**
      * Metodo para la primer pasada
-     * @param entorno Es la tabla que contiene las variables
-     * @return El retorno es cuando viene un break
+     * @param clase Es la tabla que contiene las variables  
      */
-    public itemRetorno primerPasada(elementoEntorno entorno){
+    public void primerPasada(elementoClase clase) {
         validandoDebug();
-       
-        itemRetorno retorno=new itemRetorno();
-        if(hayErrores()){
-            return retorno;
-        } 
-        return listaHijos.primerPasada(entorno);
+
+        if (hayErrores()) {
+            return;
+        }
+        listaHijos.primerPasada(clase);
     }
     
     

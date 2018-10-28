@@ -5,6 +5,7 @@
  */
 package Gui.Elementos;
 
+import D_plus.Estructuras.Elementos.elementoClase;
 import D_plus.Gramatica.Analizador.anlzDplusPlus;
 import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Gramatica.Analizador.anlzDracoScript;
@@ -19,6 +20,7 @@ public class elementoRunnable implements Runnable {
     String extension="";
     String cadenaEntrada;
     public nodoModelo raiz;
+    
     public String nombreArchivo;
     public elementoRunnable(String tipoArchivo, elementoGlobal simbolo, String cadenaEntrada, String nombreArchivo){
         this.extension=tipoArchivo;
@@ -47,6 +49,15 @@ public class elementoRunnable implements Runnable {
                 anlzDplusPlus dPlus = new anlzDplusPlus(cadenaEntrada, nombreArchivo, simbolo);
                 dPlus.analizar();
                  
+                elementoClase clase=new elementoClase(simbolo);
+                
+                if(dPlus.raiz!=null){
+                    dPlus.raiz.primerPasada(clase);
+//                    clase.imprimir();
+                }else{
+                    println("raiz vacía");
+                }
+                
                 break;
             default:
                 break;

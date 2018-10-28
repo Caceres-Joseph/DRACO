@@ -34,12 +34,14 @@ public class anlzDplusPlus {
         this.entrada = cadena;
         this.simbolo=simbolo;
         this.nombreArchivo = nombreArchivo;
+//        println("[anlzDplusPlus]"+nombreArchivo);
     }
 
     public void analizar() {
 
         //File file = new File("entradaChtml.cs");
 //            FileReader fr = new FileReader(file);
+//        println(this.entrada);
         Reader reader = new StringReader(this.entrada);
         LexerDplusPlus lex;
         
@@ -53,8 +55,11 @@ public class anlzDplusPlus {
             p.parse();
             raiz= p.raiz; 
             println("[DplusPlus]Build successful ");
+            
+            System.out.println("");
         } catch (Exception e) {
-            println("Error :(");
+            println("Error :( ||"+e.getMessage());
+            System.out.println("");
             raiz=null;
         } 
 //            System.out.println("+------------------------------------------------+");

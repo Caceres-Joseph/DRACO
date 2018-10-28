@@ -27,4 +27,14 @@ public class _VAR_ARREGLO extends nodoModelo{
         super(atrib, simbolo);
     }
     
+    
+    public itemAtributo getId(){ 
+       itemAtributo retorno= listaAtributos.getAtributo(0);
+       return retorno;
+    }
+    
+    public int getDimension(){
+        return 0;
+    }
+    
 }

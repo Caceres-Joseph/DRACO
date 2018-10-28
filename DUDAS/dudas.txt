@@ -1,0 +1,3 @@
+import es como copiar el contenido del import
+
+los metodos que retornan variables como se declaran? entero []metodo(){} entero[3] metodo(){}
