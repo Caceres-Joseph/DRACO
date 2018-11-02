@@ -22,17 +22,33 @@ public class elementoEntorno {
     public elementoGlobal simbolo;
     public String nombre;
     public lstVariables lstVariables ;
+
     
+    
+    /**
+     * +--------------------------
+     * | Para la traduccion
+     * +-------------------------
+     */
+    
+    public int posRelativa=0;
+    
+    
+    
+    //sirve para las tabulaciones y saber que tan adentro esta el codigo
+    public int nivel=0;
     /**
      * 
      * @param anterior Es el nodo anterior para moverse al ambito
      * @param nombre Nombre del entorno
      * @param simbolo Simbolo que maneja la tabla de errores
      */
-    public elementoEntorno(elementoEntorno anterior,String nombre, elementoGlobal simbolo){
+    public elementoEntorno(elementoEntorno anterior,String nombre, elementoGlobal simbolo, int nivel){
         this.anterior=anterior;
         this.simbolo=simbolo;
         this.nombre=nombre;
+        this.nivel=nivel;
+        this.lstVariables=new lstVariables(simbolo);
 //        this.lstVariables=new lstValores(simbolo);
     }
     

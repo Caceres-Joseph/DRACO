@@ -19,6 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebView;
 
 /**
  * FXML Controller class
@@ -33,14 +34,26 @@ public class ideComponentes implements Initializable  {
     public StackPane stackPadre;
     public elementoMensaje mensaje;
     
-    
+    /**
+     * Salida de la consola
+     */
     @FXML
     public TextArea txtConsola;
+    
+    /**
+     * La salida de la pestaña dasm
+     */
+    @FXML
+    public TextArea txtDasm;
+    
+    @FXML
+    public WebView wbSalidaDasm;
+     
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
-     */
+     */ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //Vista árbol     

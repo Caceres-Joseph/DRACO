@@ -5,20 +5,14 @@
  */
 package D_plus.Estructuras.Listas.HashPolimorfa;
 
-import D_plus.Estructuras.Listas.*;
-import D_plus.Estructuras.Listas.HashPolimorfa.clavePolimorfa;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.ArrayList; 
 
 /**
  *
  * @author joseph
  */
 public class lstPolimorfismo  {
-    ArrayList<nodoArreglo> nod=new ArrayList<>();
+    public ArrayList<nodoArreglo> lista=new ArrayList<>();
     
      
      public void println(String mensaje){
@@ -28,12 +22,12 @@ public class lstPolimorfismo  {
      
      public void insertar(clavePolimorfa clave, valorPolimorfo valor){
          nodoArreglo nuevo=new nodoArreglo(clave, valor);
-         nod.add(nuevo);
+         lista.add(nuevo);
      }
      
      public boolean containsKey(clavePolimorfa clave2){
           
-         for (nodoArreglo arreglo : nod) {
+         for (nodoArreglo arreglo : lista) {
              //verificar si tiene la misma cantidad de parámetros 
              clavePolimorfa clave=arreglo.getClave(); 
              if(clave.esIgual(clave2)){
@@ -45,7 +39,7 @@ public class lstPolimorfismo  {
     
      
      public void imprimir(){ 
-         for (nodoArreglo arreglo : nod) {
+         for (nodoArreglo arreglo : lista) {
              clavePolimorfa clave=arreglo.getClave();
              valorPolimorfo valor=arreglo.getValor();
              println("---------");

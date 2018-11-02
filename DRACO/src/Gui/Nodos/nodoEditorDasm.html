@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Principal -->
+    <link rel="stylesheet" type="text/css" href="http://localhost:400/lib/codemirror.css" />
+    <script src="http://localhost:400/lib/codemirror.js"></script>
+    <script src="http://localhost:400/lib/jquery.js"></script>
+
+    <!-- Temas -->
+    <link rel="stylesheet" type="text/css" href="http://localhost:400/theme/base16-light.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:400/theme/idea.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:400/theme/eclipse.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:400/theme/tomorrow-night-eighties.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:400/theme/darcula.css" />
+
+    <!-- JS -->
+    <script src="http://localhost:400/mode/clike/clike.js"></script>
+    <script src="http://localhost:400/mode/javascript/javascript.js"></script>
+    <script src="http://localhost:400/addon/selection/active-line.js"></script>
+    <script src="http://localhost:400/addon/edit/matchbrackets.js"></script>
+    <script src="http://localhost:400/addon/selection/mark-selection.js"></script>
+    <script src="http://localhost:400/addon/search/searchcursor.js"></script>
+    <script src="http://localhost:400/addon/selection/selection-pointer.js"></script>
+
+    <style type="text/css">
+        .breakpoints {
+            width: .8em;
+        }
+
+        .breakpoint {
+            color: #822;
+        }
+
+        .CodeMirror {
+            border: 1px solid #aaa;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <textarea id="code" name="code">${code}</textarea>
+    </form>
+      <button onclick="myFunction()">Enviar texto</button>  
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            viewportMargin: Infinity,
+            mode: "text/x-java",
+            theme: "eclipse",
+            indentWithTabs: true,
+            lineWrapping: true,
+            tabSize: 4,
+            gutters: ["CodeMirror-linenumbers", "breakpoints"],
+            styleSelectedText: true,
+            styleActiveLine: true
+        });
+        var map = {};
+        
+        editor.on("gutterClick", function (cm, n) {
+            var info = cm.lineInfo(n); 
+            var lines = editor.lineCount(); 
+            cm.setGutterMarker(n, "breakpoints", info.gutterMarkers ? unMarker(n) : makeMarker(n));
+        });
+
+        function unMarker(n) { 
+            return null;
+        }
+
+        function makeMarker(n) {
+            var marker = document.createElement("div");
+            marker.style.color = "#822";
+            marker.innerHTML = "●"; 
+            return marker;
+        }
+
+        function getHashMap(){
+
+            var retorno="";
+            var con=0;
+            for (let index = 0; index < editor.lineCount(); index++) {
+                var info = editor.lineInfo(index);
+                if(info.gutterMarkers){
+                    if(con==0){
+                        retorno=index;
+                    }else{
+                        retorno=retorno+","+index;
+                    }
+                    con++;
+                } 
+            }
+            return String(retorno);
+        }
+
+        function pintarLinea(n){
+            removerLineas();
+            editor.addLineClass(n, 'wrap', 'CodeMirror-activeline-error');
+        }
+
+        function removerLineas(){
+            for (let index = 0; index < editor.lineCount(); index++) { 
+                editor.removeLineClass(index, 'wrap', 'CodeMirror-activeline-error');
+            }
+            
+
+        }
+        function setValor(cadena){
+            cadena = String(cadena);
+            cadena2= String(editor.getValue());
+            editor.setValue(cadena2+cadena);
+        }
+
+        
+        function myFunction(){
+            editor.setValue("hola prro");
+            setValor("hola a todos\n");
+            //document.getElementById('code').value = 'Cambie el texto, jeje';
+            console.log(document.getElementById('code').value);
+            
+        } 
+    </script>
+
+</body>
+
+</html>

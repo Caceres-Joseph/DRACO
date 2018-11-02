@@ -1,32 +1,10 @@
 
 vacio principal()
 {
-      /*entero iterador = 0;
-
-      mientras(iterador < 3)
-      {
-            iterador = iterador + 1;
-      }
-
-      entero numero = valor();*/
-
-      fact(3);
+      entero iterador = 0;
+      entero c = 45 + 8;
+ 
 }
 
-entero fact(entero n)
-{
-      
-}
-
-
-entero valor()
-{
-      retornar 10;
-}
-
-
-/*
-      ackerman = probar
-      factorial = probar
-      operador ternario probar
-*/
+ 
+ 

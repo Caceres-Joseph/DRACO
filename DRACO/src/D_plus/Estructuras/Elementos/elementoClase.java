@@ -34,6 +34,18 @@ public class elementoClase {
     }
     
     
+    /**
+     * Inicia la traducción a código dasm
+     * @param elemento
+     */
+    public void traducir(elementoEntorno elemento){
+        //Primeero las variables globales
+        //Los otros metodos
+        //El metodo princippal
+        listaPrincipal.traducir(elemento);
+    }
+    
+    
     public void println(String mensaje){
         System.out.println("[elementoClase]"+mensaje);
     }

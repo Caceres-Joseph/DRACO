@@ -1,0 +1,41 @@
+entero akerman(entero m, entero n)
+{
+      si(m == 0)
+      {
+            retornar (n + 1);
+      }
+      sino si(m > 0 && n == 0)
+      {
+            retornar akerman(m - 1, 1);
+      }
+      sino
+      {
+            
+            retornar akerman(m -1, akerman(m, n-1));
+      }
+}
+
+entero fibo(entero n)
+{
+      si(n == 0 || n == 1)
+      {
+            retornar n;
+      }
+      sino
+      {
+            retornar fibo(n-1) + fibo(n -2);
+      }
+}
+
+
+entero factorial(entero n)
+{
+      si(n == 0)
+      {
+            retornar 1;
+      }
+      sino
+      {
+            retornar (n * factorial(n-1));
+      }
+}

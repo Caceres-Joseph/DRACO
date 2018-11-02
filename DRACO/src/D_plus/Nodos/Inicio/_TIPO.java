@@ -36,6 +36,11 @@ public class _TIPO extends nodoModelo{
     public itemAtributo getTipo(){
         
        itemAtributo retorno= listaAtributos.getAtributo(0);
+       if(retorno.valor.equals("entero")){
+           retorno.valor="numero";
+       }else if(retorno.valor.equals("decimal")){
+           retorno.valor="numero";
+       }
        return retorno;
         
     }

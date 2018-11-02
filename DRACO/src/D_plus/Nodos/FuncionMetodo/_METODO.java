@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package D_plus.Nodos.FuncionMetodo;
-import D_plus.Estructuras.Elementos.elementoClase;
-import D_plus.Estructuras.Items.itemRetorno;
+import D_plus.Estructuras.Elementos.elementoClase; 
 import D_plus.Estructuras.Listas.HashPolimorfa.clavePolimorfa;
 import D_plus.Estructuras.Listas.HashPolimorfa.valorPolimorfo;
 import D_plus.Estructuras.Listas.lstParametro;
@@ -48,8 +47,7 @@ public class _METODO extends nodoModelo{
     @Override
     public void primerPasada(elementoClase clase){
         
-       
-        itemRetorno retorno=new itemRetorno();
+        
         if(hayErrores()){
             return ;
         }  
@@ -57,7 +55,6 @@ public class _METODO extends nodoModelo{
         
         //listaHijos.primerPasada(clase);
     }
-    
     
     public void casos(elementoClase clase){
         
@@ -99,8 +96,7 @@ public class _METODO extends nodoModelo{
 //                 println("imprimir");
 //                 clave2.imprimir();
                 if(clase.listaMetodoFuncion.listaMetodoFuncion.containsKey(clave2)){
-                    //error por que ya existe
-                    
+                    //error por que ya existe 
                     simbolo.tablaErrores.insertErrorSemantic(atributo,"El metodo: "+clave2.nombre.valor+" ya se encuentra declarado con el mismo nombre");
                     
                 }else{

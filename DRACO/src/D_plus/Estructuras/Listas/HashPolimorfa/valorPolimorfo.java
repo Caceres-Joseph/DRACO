@@ -32,12 +32,7 @@ public class valorPolimorfo {
         
     }
     
-     
-    
-    
-    
-    
-    
+      
     
    public void imprimir(){
        println("VALOR:");

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DracoScript.Gramatica.Analizador;
+package Dasm.Gramatica.Analizador;
 
-import Gui.Elementos.elementoGlobal; 
-import DracoScript.Gramatica.Lexico.*;
-import DracoScript.Gramatica.Sintactico.parser;
-import DracoScript.Nodos.nodoModelo;
+import Dasm.Gramatica.Lexico.LexerDasm; 
+import Dasm.Gramatica.Sintactico.parser;
+import Dasm.Nodos.nodoModelo;
+import Gui.Elementos.elementoGlobal;
 import java.io.Reader;
 import java.io.StringReader;
 
@@ -16,8 +16,8 @@ import java.io.StringReader;
  *
  * @author joseph
  */
-public class anlzDracoScript {
-
+public class anlzDasm {
+    
     public String entrada = "";
     public String nombreArchivo;
     public elementoGlobal simbolo;
@@ -30,41 +30,39 @@ public class anlzDracoScript {
      * @param simbolo Es la tabla que se va psando entre los demás nodos
      */
     
-    public anlzDracoScript(String cadena, String nombreArchivo, elementoGlobal simbolo) {
+    public anlzDasm(String cadena, String nombreArchivo, elementoGlobal simbolo) {
         this.entrada = cadena;
         this.simbolo=simbolo;
         this.nombreArchivo = nombreArchivo;
     }
-    
-    
-    public void analizar() {
 
-        //File file = new File("entradaChtml.cs");
-//            FileReader fr = new FileReader(file);
+    public void analizar() {
+ 
         Reader reader = new StringReader(this.entrada);
-        LexerDracoScript lex;
+        LexerDasm lex;
         
-        lex = new LexerDracoScript(reader);
-        lex.iniciar(simbolo, nombreArchivo) ;
-        parser p = new parser(lex);
-        p.iniciar(simbolo, nombreArchivo);
-        
-//            System.out.println("+------------------------------------------------+");
+        lex = new LexerDasm(reader);
+        lex.iniciar(simbolo, nombreArchivo);
+       
         try {
+            parser p = new parser(lex);
             p.parse();
             raiz= p.raiz; 
-            println("[DracoScript]Build successful ");
-        } catch (Exception e) {
+            println("[Dasm]Build successful ");
+        } catch (ExceptionInInitializerError e) {
+            println("[ERROR][ExcInitiaa]"+e.getMessage());
+        } catch( NoClassDefFoundError e){
+            println("[ERROR][NoclassDef]"+e.getMessage()); 
+        }catch( Exception e){
+            println("[ERROR]"+e.getMessage()); 
             println("Error :(");
             raiz=null;
-        }
-        
+        } 
 //            System.out.println("+------------------------------------------------+");
-        
-
+         
     }
 
     public void println(String mensaje) {
-        System.out.println("[anlzDracoScript]" + mensaje);
+        System.out.println("[anlzDasm]" + mensaje);
     }
 }

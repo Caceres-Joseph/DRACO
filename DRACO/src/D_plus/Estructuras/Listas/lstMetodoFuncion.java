@@ -34,6 +34,14 @@ public class lstMetodoFuncion {
 //        }
         
     }
+    
+    
+    /**
+     * Inicia la traducción
+     */
+    public void traducir(){
+        
+    }
 
     public void imprimir() {
         

@@ -17,10 +17,12 @@ import java.util.Map;
  */
 public class lstVariables {
     public Map<String, itemValor> lstVariables ;
+    public Map<String, nodTipo> lstVariablesTipo ;
     public elementoGlobal simbolo;
     
     public lstVariables(elementoGlobal simbolo){
         lstVariables=new LinkedHashMap<>(); 
+        lstVariablesTipo=new LinkedHashMap<>();
         this.simbolo=simbolo;
     }
      
@@ -29,18 +31,60 @@ public class lstVariables {
      * Es el metodo para ingresar las nuevas varaibles al ambito
      * @param nombreVar Es el nombre de la nueva variable.
      * @param var Varaible nueva que va ser ingresada.
+     * @param tipo El tipo de la variable
      */
-    public void lstVariables(itemAtributo nombreVar, itemValor var){
+//    public void lstVariables(itemAtributo nombreVar, itemValor var, String tipo){
+//        //tiene que coincidir los tipos para guardarlos
+//        if(var.isTypeNulo()){
+//            
+//        } if(!tipo.toLowerCase().equals(var.tipo.toLowerCase())){
+//            simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de tipo: "+tipo+", pero se esta recibiendo una variable de tipo:"+var.tipo);
+//            return;
+//        }
+//        
+//        if(_siExisteLaVariable(nombreVar)){
+//            simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" ya se encuentra declarada en el mismo ámbito");
+//        }else{
+//            lstVariables.put(nombreVar.valor, var);
+//            lstVariablesTipo.put(nombreVar.valor, tipo);
+//        }
+//        
+//    }
+    
+    
+    /**
+     * Es el metodo para ingresar las nuevas varaibles al ambito
+     * @param nombreVar Es el nombre de la nueva variable.
+     * @param var Varaible nueva que va ser ingresada.
+     * @param tipo TIpo de variable
+     * @param dimension Dimesion de la varibale
+     * @param posRelativa Posicion relativa
+     */
+    
+    public void insertarVariable(itemAtributo nombreVar, itemValor var, String tipo, int dimension, int posRelativa){
+        //tiene que coincidir los tipos para guardarlos
+        
+        if(dimension!=var.dimension){
+            simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de dimension: "+String.valueOf(dimension)+", pero se esta recibiendo una valor de tipo:"+String.valueOf(var.dimension));
+            return;
+        }
+        
+        if(var.isTypeNulo()){
+            
+        } if(!tipo.toLowerCase().equals(var.tipo.toLowerCase())){
+            simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de tipo: "+tipo+", pero se esta recibiendo un valor de tipo:"+var.tipo);
+            return;
+        }
         
         if(_siExisteLaVariable(nombreVar)){
             simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" ya se encuentra declarada en el mismo ámbito");
         }else{
-            lstVariables.put(nombreVar.valLower, var);
+            lstVariables.put(nombreVar.valor, var);
+            nodTipo nod=new nodTipo(tipo, posRelativa);
+            lstVariablesTipo.put(nombreVar.valor, nod);
         }
         
     }
-    
-    
      
     /**
      * Validando si ya se encuentra declarada la variable 
@@ -102,4 +146,15 @@ public class lstVariables {
         return true;
     }
     
+    
+    
+    public class nodTipo{
+        String tipo;
+        int posRelativa;
+        
+        public nodTipo(String tipo, int posRelativa){
+            this.tipo=tipo;
+            this.posRelativa=posRelativa;
+        }
+    }
 }

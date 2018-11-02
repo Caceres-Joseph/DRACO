@@ -7,6 +7,7 @@ package Gui;
   
 import Gui.Elementos.elementoGlobal; 
 import Gui.Componentes.ideTablaErrores;  
+import Gui.Componentes.ideTxtConsolaDasm;
 import Gui.Elementos.elementoMensaje;
 import Gui.Lienzo.Lienzo; 
 import Gui.Listas.lstTabClase;   
@@ -45,12 +46,17 @@ public class Ide extends ideTablaErrores  {
 
     @FXML
     void clckCerrar(ActionEvent event) {
-        println("[clckCerrar]"); 
+//        println("[clckCerrar]"); 
+        SingleSelectionModel<Tab> selectionModel = tabClases.getSelectionModel();
+        int indice = selectionModel.getSelectedIndex(); 
+        
+        simbolo.listaTabsClases.deleteTab(indice);
+        
     }
     
     @FXML
     void clckGuardar(ActionEvent event) { 
-        println("[clckGuardar]"); 
+//        println("[clckGuardar]"); 
     }
 
     @FXML
@@ -85,7 +91,7 @@ public class Ide extends ideTablaErrores  {
     @FXML
     void clckSiguienteLinea(ActionEvent event) {
         if(simbolo.debug!=null){ 
-            println("[clckSiguienteLinea]"); 
+//            println("[clckSiguienteLinea]"); 
             simbolo.debug.siguienteInstruccion=true; 
             simbolo.debug.hiloEjecucion.resume();
         }
@@ -100,7 +106,7 @@ public class Ide extends ideTablaErrores  {
     @FXML
     void clckContinuar(ActionEvent event) {
         if(simbolo.debug!=null){ 
-            println("[clckContinuar]"); 
+//            println("[clckContinuar]"); 
             simbolo.debug.siguienteInstruccion=false;
             simbolo.debug.hiloEjecucion.resume();
         }
@@ -154,7 +160,7 @@ public class Ide extends ideTablaErrores  {
     
     @FXML
     void clckAcercaDe(ActionEvent event) {
-        System.out.println("acerca de");
+        
     }
     /**<br>+----------------------------------------------------
      * <br>| CLICK VISTA ARBOL
@@ -196,8 +202,9 @@ public class Ide extends ideTablaErrores  {
         
         //Vista árbol    
         mensaje=new elementoMensaje(stackPadre);
+        ideTxtConsolaDasm salidaDasm=new ideTxtConsolaDasm(txtDasm, wbSalidaDasm);
         
-        simbolo=new elementoGlobal(mensaje, listaTabsClases, txtConsola, tablaErrores, crearLienzo());
+        simbolo=new elementoGlobal(mensaje, listaTabsClases, txtConsola,salidaDasm, tablaErrores, crearLienzo());
         listaTabsClases=new lstTabClase(tabClases, simbolo);
         simbolo.listaTabsClases=listaTabsClases;
         

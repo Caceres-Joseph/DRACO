@@ -918,8 +918,7 @@ LST_CUERPO          ::= LST_CUERPO2:h1
                     {:
                         itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 1); 
                         _VACIO padre =new _VACIO(atrib1 , parser.simbolo);
-
-                        System.out.println("vacio");
+ 
                         RESULT= padre;
                     :}
                     ;
@@ -1633,66 +1632,74 @@ E                       ::=sMenos  E:h1
 
                                 RESULT= padre;
                             :}
-                        | valFalse
+                        | valFalse:d1
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 18); 
                                 _E padre =new _E(atrib1 , parser.simbolo);
+
+                                    itemAtributo at1=new itemAtributo("valFalse",d1, d1right, d1left,parser.nombreArchivo); 
+                                    padre.listaAtributos.insertar(at1);
                                 
                                  
 
                                 RESULT= padre;
                             :}
-                        | valTrue
+                        | valTrue:d1
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 19); 
                                 _E padre =new _E(atrib1 , parser.simbolo);
+
+                                    itemAtributo at1=new itemAtributo("valTrue",d1, d1right, d1left,parser.nombreArchivo); 
+                                    padre.listaAtributos.insertar(at1);
                                  
 
                                 RESULT= padre;
                             :}
-                        | valCadena
+                        | valCadena:d1
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 20); 
-                                _E padre =new _E(atrib1 , parser.simbolo);
-                                
-                                 
+                                _E padre =new _E(atrib1 , parser.simbolo); 
+
+                                    itemAtributo at1=new itemAtributo("valCadena",d1, d1right, d1left,parser.nombreArchivo); 
+                                    padre.listaAtributos.insertar(at1);
 
                                 RESULT= padre;
                             :}
-                        | valChar
+                        | valDecimal:d1
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 21); 
                                 _E padre =new _E(atrib1 , parser.simbolo);
-                                
-                                 
 
+                                    itemAtributo at1=new itemAtributo("valDecimal",d1, d1right, d1left,parser.nombreArchivo); 
+                                    padre.listaAtributos.insertar(at1);
+                                 
                                 RESULT= padre;
                             :}
-                        | valDecimal
+                        | valEntero:d1
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 22); 
                                 _E padre =new _E(atrib1 , parser.simbolo);
-                                
-                                    
+
+                                    itemAtributo at1=new itemAtributo("valEntero",d1, d1right, d1left,parser.nombreArchivo); 
+                                    padre.listaAtributos.insertar(at1) ;
 
                                 RESULT= padre;
                             :}
-                        | valEntero
+                        | valChar:d1
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 23); 
                                 _E padre =new _E(atrib1 , parser.simbolo);
-                                
-                                    
 
+                                    itemAtributo at1=new itemAtributo("valChar",d1, d1right, d1left,parser.nombreArchivo); 
+                                    padre.listaAtributos.insertar(at1);
+                                 
                                 RESULT= padre;
                             :}
                         | tNulo  
                             {:
                                 itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 24); 
                                 _E padre =new _E(atrib1 , parser.simbolo);
-                                
-                                  
-
+                                 
                                 RESULT= padre;
                             :}
                         ;

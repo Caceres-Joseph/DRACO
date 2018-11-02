@@ -73,7 +73,7 @@ public class nodoTabClase {
         String editingTemplate="";
 
         try {            
-            editingTemplate=contenidoArchivo = new String(Files.readAllBytes(Paths.get("src/Gui/Nodos/nodoEditor.html")));
+            editingTemplate = new String(Files.readAllBytes(Paths.get("src/Gui/Nodos/nodoEditor.html")));
         } catch (IOException ex) {
             println("[crearEditor][Error]"+ex.getMessage());
         }
@@ -174,9 +174,7 @@ public class nodoTabClase {
 //        simbolo.debug.detener();
 //        println("[ejecutar]****  Fin del analisis *****");
 //        simbolo.debug=null;
-    }
-     
-    
+    } 
     /**
      * Retorna la nueva tab
      * @return 

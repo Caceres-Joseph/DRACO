@@ -1,0 +1,197 @@
+package Dasm.Gramatica.Sintactico;
+
+/* import Analizadores.elementoTablaSimbolos;
+import Analizadores.tablaDeSimbolos;
+import Analizadores.AST;
+import Analizadores.nodo;
+import Analizadores.listaValores; */
+
+
+
+import java.util.List;
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+
+import Gui.Elementos.elementoGlobal;
+import Gui.Items.itemAtributo;
+
+import Dasm.Nodos.*;
+
+ 
+
+
+
+
+//var: var++*34
+
+
+parser code {: 
+    /* public AST ast; 
+    public tablaDeSimbolos tablaSimbolos; */
+    public elementoGlobal simbolo;
+    public String nombreArchivo="";
+    public nodoModelo raiz;
+    public void iniciar(elementoGlobal simbolo, String nombreArchivo){
+        this.simbolo=simbolo;
+        this.nombreArchivo= nombreArchivo;
+    }
+
+    public void syntax_error(Symbol te){
+        try{
+            
+            //System.out.println("compiler has detected a syntax error at line:"+te.left+ "  columna:"+te.right+"token:"+te.value.toString());
+            simbolo.tablaErrores.insertErrorSyntax(nombreArchivo,te.left, te.right, "No se esperaba token : "+te.value.toString());
+        }catch(Exception p){
+            System.out.println("[Sintactico.cup][syntax_error][ERROR]"+p.getMessage());
+        }
+        
+    }
+:};
+
+
+/*
++------------------------------------------------+
+|   Definición de terminales
++------------------------------------------------+
+*/
+
+
+ 
+
+
+terminal String tAdd ,
+                tDiff,
+                tMult,
+                tDiv,
+                tMod,
+                tPot,
+                tLt,
+                tGt,
+                tLte,
+                tGte,
+                tNot,
+                tAnd,
+                tOr,
+                tBr,
+                tBrIf,
+                tGet_local,
+                tGet_global,
+                tSet_local,
+                tSet_global,
+                tCall, 
+                tEqz,
+                tFuncion, 
+                tEnd,
+                tPrint
+                ;
+
+
+terminal  String valId, valEntero , valDecimal,valCadena;
+
+
+/*
++------------------------------------------------+
+|     Definición de No terminales
++------------------------------------------------+
+*/
+
+non terminal  nodoModelo          
+        S,
+        LST_CUERPO,
+        CUERPO,
+        LST_INSTRUCCIONES,
+        INSTRUCCION,
+        FUNCION ,
+        E
+        ;
+        
+ 
+/*
++------------------------------------------------+
+|   Producciones
++------------------------------------------------+
+*/
+start with S;
+
+
+/*
+|-------------------------------------------------------------------------------------------------------------------
+| INICIO
+|-------------------------------------------------------------------------------------------------------------------
+*/
+ 
+S               ::= LST_CUERPO 
+                ;
+
+ 
+
+
+LST_CUERPO          ::=LST_CUERPO CUERPO 
+                    |  CUERPO 
+                    ;
+
+CUERPO              ::=INSTRUCCION
+                    |  FUNCION
+                    ;
+ 
+LST_INSTRUCCIONES   ::= LST_INSTRUCCIONES INSTRUCCION
+                    |   INSTRUCCION
+                    ;  
+
+INSTRUCCION         ::=    valId
+                    |   tAdd
+                    |   tDiff
+                    |   tMult
+                    |   tDiv
+                    |   tMod
+                    |   tPot
+                    /* Relacionales */
+                    |   tLt
+                    |   tGt
+                    |   tLte
+                    |   tGte
+                    /* Logico */
+                    |   tNot
+                    |   tAnd
+                    |   tOr
+                    /* Saltos */
+                    |   tBr valId
+                    |   tBrIf valId
+
+                    /* Instruc */
+                    |   tGet_local  E 
+                    |   tGet_local valId
+                    |   tGet_global  E 
+                    |   tGet_global valId
+
+                    |   tSet_local  E 
+                    |   tSet_local valId
+                    |   tSet_global  E 
+                    |   tSet_global valId
+                    /* Funciones */
+                    |   tCall valId
+
+                    /* EXTRAS */
+                    |   tEqz
+                    //Tengo duda de como funciona
+                    
+
+                    /* Num */
+                    |   valEntero
+                    |   valDecimal
+
+                    /* PARA IMPRIMIR */
+
+                    |   valCadena
+
+                    | tPrint
+
+                    //
+                    ;
+
+ FUNCION            ::= tFuncion valId LST_INSTRUCCIONES tEnd;
+
+ E                  ::=valEntero
+                    |  valDecimal
+                    ;

@@ -5,6 +5,9 @@
  */
 package D_plus.Nodos.DeclararVariable;
 
+import D_plus.Estructuras.Elementos.elementoEntorno;
+import D_plus.Estructuras.Items.itemValor; 
+import D_plus.Nodos.Valor._VALOR;
 import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
@@ -25,6 +28,29 @@ public class _VAL extends nodoModelo{
     
     public _VAL(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
+    }
+    
+    
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | RETORNAR EL VALOR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+     */
+    /**
+     * Metodo que retorna el valor
+     *
+     * @param entorno Es la tabla que contiene las variables
+     * @return
+     */
+
+    public itemValor getValor(elementoEntorno entorno) { 
+        if (hayErrores()) {
+            return new itemValor(simbolo);
+        } 
+        _VALOR nod = (_VALOR) listaHijos.lstHijos.get(0);
+        return nod.getValor(entorno); 
     }
     
 }

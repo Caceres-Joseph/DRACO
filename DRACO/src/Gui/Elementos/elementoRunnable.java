@@ -7,6 +7,7 @@ package Gui.Elementos;
 
 import D_plus.Estructuras.Elementos.elementoClase;
 import D_plus.Gramatica.Analizador.anlzDplusPlus;
+import Dasm.Gramatica.Analizador.anlzDasm;
 import DracoScript.Estructuras.Elementos.elementoEntorno;
 import DracoScript.Gramatica.Analizador.anlzDracoScript;
 import DracoScript.Nodos.nodoModelo; 
@@ -53,12 +54,24 @@ public class elementoRunnable implements Runnable {
                 
                 if(dPlus.raiz!=null){
                     dPlus.raiz.primerPasada(clase);
+                    if(dPlus.raiz.hayErrores()){
+                        simbolo.setConsola("No se puede iniciar la traducción debido a que se econtraron errores");
+                    }else{
+                        simbolo.clase=clase;
+                        D_plus.Estructuras.Elementos.elementoEntorno entornoGlobal2 = new D_plus.Estructuras.Elementos.elementoEntorno(null, "global", simbolo,0);
+                        clase.traducir(entornoGlobal2);
+                    }
 //                    clase.imprimir();
                 }else{
                     println("raiz vacía");
-                }
-                
+                } 
                 break;
+            case "dasm":
+                println("[run][dasm]Iniciando Hilo de Ejecución");
+                anlzDasm dDasm = new anlzDasm(cadenaEntrada, nombreArchivo, simbolo);
+                dDasm.analizar();
+                   
+                break; 
             default:
                 break;
         }

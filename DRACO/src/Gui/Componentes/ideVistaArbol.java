@@ -47,7 +47,11 @@ public class ideVistaArbol extends ideTabClases {
                 nuevoNodo = new nodoTabClase(nodVist.ruta, nodVist.nombre, "djs", simbolo);
             } else if (esExtension("dpp", nodVist.nombre)) {
                 nuevoNodo = new nodoTabClase(nodVist.ruta, nodVist.nombre, "dpp", simbolo);
-            } else {
+                
+            }else if(esExtension("dasm", nodVist.nombre)){
+                nuevoNodo = new nodoTabClase(nodVist.ruta, nodVist.nombre, "dasm", simbolo);
+            } 
+            else {
                 simbolo.mensaje.informacion("Error", "No se reconoce la extensión del archivo");
                 return;
             }

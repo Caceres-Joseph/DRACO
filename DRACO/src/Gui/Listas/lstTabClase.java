@@ -28,6 +28,19 @@ public class lstTabClase {
         
     }
     
+    /**
+     * Elimina una tab ya colocada en el ide
+     * @param indice 
+     */
+    public void deleteTab(int indice){ 
+        tabClases.getTabs().remove(indice);
+        listaTabs.remove(indice); 
+    }
+    
+    /**
+     * Inserta una nueva tab
+     * @param nuevaTab 
+     */
     public void insertarTab(nodoTabClase nuevaTab){
         if(nuevaTab.getNuevaTab()==null){
             System.out.println("[lstTabClases][insertTab]Tab nula");
@@ -40,6 +53,7 @@ public class lstTabClase {
         }
         
         insertNuevoNodo(nuevaTab);
+        
     }
     
     /**

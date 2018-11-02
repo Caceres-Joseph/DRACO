@@ -5,8 +5,10 @@
  */
 package Gui.Elementos;
  
+import D_plus.Estructuras.Elementos.elementoClase;
 import Gui.Tablas.tablaErrores; 
 import Gui.Componentes.compTablaErrores; 
+import Gui.Componentes.ideTxtConsolaDasm;
 import Gui.Lienzo.Lienzo;
 import Gui.Listas.lstTabClase; 
 import com.jfoenix.controls.JFXTabPane; 
@@ -24,8 +26,16 @@ public class elementoGlobal {
      */
     
     public tablaErrores tablaErrores = new tablaErrores(this);
+    
+    
+    /**
+     * D++
+     */
     TextArea txtConsola;
-     
+    public ideTxtConsolaDasm salidaDasm;
+    elementoClase clase;
+    
+    
 //    public elementoGlobal(){
 //        
 //    }
@@ -54,6 +64,7 @@ public class elementoGlobal {
      * @param mensaje
      * @param listaTabsClases
      * @param txtConsola 
+     * @param salidaDasm 
      * @param tbErrores 
      * @param ctrlLienzo  Lienzo en donde se va pintar
      */
@@ -62,10 +73,12 @@ public class elementoGlobal {
             elementoMensaje mensaje,
             lstTabClase listaTabsClases, 
             TextArea txtConsola, 
+            ideTxtConsolaDasm salidaDasm,
             compTablaErrores tbErrores, 
             Lienzo ctrlLienzo
             ){
         
+        this.salidaDasm =salidaDasm;
         this.ctrlLienzo=ctrlLienzo;
         this.txtConsola=txtConsola;
         this.tbErrores=tbErrores;
@@ -84,10 +97,14 @@ public class elementoGlobal {
             txtConsola.setText(txtConsola.getText() + contenido);
         });
     }
+     
     public void clearConsola(){
         
         Platform.runLater(() -> {
             txtConsola.setText("");
         });
+        salidaDasm.clear();
     } 
+    
+    
 }
