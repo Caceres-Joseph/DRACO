@@ -38,7 +38,7 @@ public class nodoModelo {
      * @param mensaje Imprime el mensaje con el nombre de la clase para ubicarlo de forma fácil
      */
     public void println(String mensaje){
-        System.out.println("["+atributo.nombreToken+"]"+mensaje);
+        System.out.println("[DASM]["+atributo.nombreToken+"]"+mensaje);
     }
     
      

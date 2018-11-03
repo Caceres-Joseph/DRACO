@@ -67,10 +67,14 @@ public class elementoRunnable implements Runnable {
                 } 
                 break;
             case "dasm":
-                println("[run][dasm]Iniciando Hilo de Ejecución");
+                println("[run][DASM]Iniciando Hilo de Ejecución");
                 anlzDasm dDasm = new anlzDasm(cadenaEntrada, nombreArchivo, simbolo);
                 dDasm.analizar();
-                   
+                   if(dDasm.raiz!=null){
+                       
+                   }else{
+                       println("[DASM]Raiz nula");
+                   }
                 break; 
             default:
                 break;
