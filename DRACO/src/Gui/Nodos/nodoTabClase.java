@@ -79,14 +79,32 @@ public class nodoTabClase {
         }
          
         editingTemplate=  editingTemplate.replace("${code}", editingCode);
+        
+            switch (extension) {
+                case "djs":
+                    editingTemplate=editingTemplate.replace("'${modo}'", "'text/javascript'");
+                    break;
+                case "dpp":
+                    editingTemplate=editingTemplate.replace("'${modo}'", "'text/x-java'");  
+                    break;
+                case "dasm":
+                    editingTemplate=editingTemplate.replace("'${modo}'", "'text/x-java'");
+                    break;
+                default:
+                    break;
+            }
+         
         areaWeb.getEngine().loadContent(editingTemplate);
         
         
+         
         AnchorPane.setBottomAnchor(areaWeb, 10.0);
         AnchorPane.setLeftAnchor(areaWeb, 10.0);
         AnchorPane.setRightAnchor(areaWeb, 10.0);
         AnchorPane.setTopAnchor(areaWeb, 10.0);
         panelPadre.getChildren().setAll(areaWeb);
+        
+         
         
     }
      

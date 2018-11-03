@@ -42,6 +42,7 @@ public class elementoEntorno {
      * @param anterior Es el nodo anterior para moverse al ambito
      * @param nombre Nombre del entorno
      * @param simbolo Simbolo que maneja la tabla de errores
+     * @param nivel
      */
     public elementoEntorno(elementoEntorno anterior,String nombre, elementoGlobal simbolo, int nivel){
         this.anterior=anterior;

@@ -5,6 +5,9 @@
  */
 package Dasm.Estructuras.Listas;
  
+import Dasm.Estructuras.Elementos.elementoClase;
+import Dasm.Estructuras.Elementos.elementoEntorno;
+import Dasm.Estructuras.Items.itemRetorno;
 import Dasm.Nodos.nodoModelo;
 import java.util.ArrayList;
 
@@ -51,15 +54,14 @@ public class lstNodosHijos {
      * 
      * @param clase  
      */
-//    public void primerPasada(elementoClase clase){ 
-//        
-//        for (nodoModelo lstHijo : lstHijos) {
-//            
-//            lstHijo.primerPasada(clase);
-//            
-//        }
-//        
-//    }
+    public void primerPasada(elementoClase clase){ 
+        
+        for (nodoModelo lstHijo : lstHijos) {
+            
+            lstHijo.primerPasada(clase);
+            
+        } 
+    }
     
     /*
     |-------------------------------------------------------------------------------------------------------------------
@@ -73,18 +75,18 @@ public class lstNodosHijos {
      * @param entorno 
      * @return El retorno 
      */
-//    public itemRetorno ejecutar(elementoEntorno entorno){
-//        itemRetorno retorno =new itemRetorno();
-//        retorno.setNormal();
-//        
-//        for (nodoModelo lstHijo : lstHijos) {
-//            
-//            itemRetorno ret= lstHijo.ejecutar(entorno);
-//            if(ret.ifBreak()){
-//                return ret;
-//            }
-//        }
-//        
-//        return retorno;
-//    }
+    public itemRetorno ejecutar(elementoEntorno entorno){
+        itemRetorno retorno =new itemRetorno();
+        retorno.setNormal();
+        
+        for (nodoModelo lstHijo : lstHijos) {
+            
+            itemRetorno ret= lstHijo.ejecutar(entorno);
+            if(ret.ifBreak()){
+                return ret;
+            }
+        }
+        
+        return retorno;
+    }
 }

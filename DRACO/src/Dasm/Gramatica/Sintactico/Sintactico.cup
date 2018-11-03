@@ -198,11 +198,15 @@ LST_INSTRUCCIONES   ::= LST_INSTRUCCIONES:h1 INSTRUCCION:h2
                         :}
                     ;  
 
-INSTRUCCION         ::=    valId
+INSTRUCCION         ::=    valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 0); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+                                
  
                             RESULT= padre;
                         :}
@@ -313,19 +317,23 @@ INSTRUCCION         ::=    valId
                             RESULT= padre;
                         :}
                     /* Saltos */
-                    |   tBr valId
+                    |   tBr valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 14); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
-                    |   tBrIf valId
+                    |   tBrIf valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 15); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
@@ -340,11 +348,13 @@ INSTRUCCION         ::=    valId
  
                             RESULT= padre;
                         :}
-                    |   tGet_local valId
+                    |   tGet_local valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 17); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
@@ -357,11 +367,13 @@ INSTRUCCION         ::=    valId
  
                             RESULT= padre;
                         :}
-                    |   tGet_global valId
+                    |   tGet_global valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 19); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
@@ -375,11 +387,13 @@ INSTRUCCION         ::=    valId
  
                             RESULT= padre;
                         :}
-                    |   tSet_local valId
+                    |   tSet_local valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 21); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
@@ -392,20 +406,25 @@ INSTRUCCION         ::=    valId
  
                             RESULT= padre;
                         :}
-                    |   tSet_global valId
+                    |   tSet_global valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 23); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
                     /* Funciones */
-                    |   tCall valId
+                    |   tCall valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 24); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
@@ -423,30 +442,37 @@ INSTRUCCION         ::=    valId
                     
 
                     /* Num */
-                    |   valEntero
+                    |   valEntero:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 26); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valEntero",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
-                    |   valDecimal
+                    |   valDecimal:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 27); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valDecimal",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
 
                     /* PARA IMPRIMIR */
 
-                    |   valCadena
+                    |   valCadena:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 28); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
+                              
+                                itemAtributo at1=new itemAtributo("valCadena",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
@@ -463,30 +489,38 @@ INSTRUCCION         ::=    valId
                     //
                     ;
 
- FUNCION            ::= tFuncion valId LST_INSTRUCCIONES:h1 tEnd
+ FUNCION            ::= tFuncion valId:d1 LST_INSTRUCCIONES:h1 tEnd
                         {:
                             itemAtributo atrib1=new itemAtributo("FUNCION", parser.nombreArchivo, 0); 
                             _FUNCION padre =new _FUNCION(atrib1 , parser.simbolo);
                              
                                 padre.listaHijos.insertar(h1,h1left, h1right);   
+
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
                         ;
 
- E                  ::=valEntero
+ E                  ::=valEntero:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 0); 
                             _E padre =new _E(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valDecimal",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
  
                             RESULT= padre;
                         :}
-                    |  valDecimal
+                    |  valDecimal:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("E", parser.nombreArchivo, 1); 
                             _E padre =new _E(atrib1 , parser.simbolo);
                              
+                                itemAtributo at1=new itemAtributo("valDecimal",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+
  
                             RESULT= padre;
                         :}

@@ -17,7 +17,7 @@ import Gui.Elementos.elementoGlobal;
 public class nodoModelo {
     
     public elementoGlobal simbolo;
-    //public String nombreNodo = "";
+    public String nombreNodo = "";
     public lstAtributos listaAtributos;
     public lstNodosHijos listaHijos;
     public itemAtributo atributo;

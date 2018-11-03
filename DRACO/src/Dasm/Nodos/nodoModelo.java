@@ -5,6 +5,9 @@
  */
 package Dasm.Nodos;
     
+import Dasm.Estructuras.Elementos.elementoClase;
+import Dasm.Estructuras.Elementos.elementoEntorno;
+import Dasm.Estructuras.Items.itemRetorno;
 import Gui.Items.itemAtributo; 
 import Gui.Elementos.elementoGlobal;
 
@@ -13,7 +16,7 @@ import Dasm.Estructuras.Listas.*;
 public class nodoModelo {
     
     public elementoGlobal simbolo;
-    //public String nombreNodo = "";
+    public String nombreNodo = "";
     public lstAtributos listaAtributos;
     public lstNodosHijos listaHijos;
     public itemAtributo atributo;
@@ -54,14 +57,14 @@ public class nodoModelo {
      * Metodo para la primer pasada
      * @param clase Es la tabla que contiene las variables  
      */
-//    public void primerPasada(elementoClase clase) {
-//        validandoDebug();
-//
-//        if (hayErrores()) {
-//            return;
-//        }
-//        listaHijos.primerPasada(clase);
-//    }
+    public void primerPasada(elementoClase clase) {
+        validandoDebug();
+
+        if (hayErrores()) {
+            return;
+        }
+        listaHijos.primerPasada(clase);
+    }
     
     
     
@@ -77,27 +80,26 @@ public class nodoModelo {
      * @param entorno Es la tabla que contiene las variables
      * @return El retorno es cuando viene un break
      */
-//    public itemRetorno ejecutar(elementoEntorno entorno){
-//        validandoDebug();
-//       
-//        itemRetorno retorno=new itemRetorno();
-//        if(hayErrores()){
-//            return retorno;
-//        } 
-//        return listaHijos.ejecutar(entorno);
-//    }
+    public itemRetorno ejecutar(elementoEntorno entorno){
+        validandoDebug();
+       
+        itemRetorno retorno=new itemRetorno();
+        if(hayErrores()){
+            return retorno;
+        } 
+        return listaHijos.ejecutar(entorno);
+    }
     
     
     
-    public void validandoDebug(){
+    public void validandoDebug(){ 
         simbolo.listaTabsClases.despintarLineas();
         
         if(simbolo.modoDebug){
             if(simbolo.debug.siguienteInstruccion){
                 
                     simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1); 
-                    simbolo.debug.pausar(); 
-                    
+                    simbolo.debug.pausar();  
             }else{
                 //reviso si esta linea esta dentro del debug
                 
@@ -107,7 +109,7 @@ public class nodoModelo {
                     simbolo.debug.pausar();
                 }
             }     
-        }  
+        }
     }
     
     /**
@@ -116,7 +118,7 @@ public class nodoModelo {
      */
     public boolean hayErrores(){
         if(!simbolo.tablaErrores.tablaError.isEmpty()){
-            println("[hayErrores]No se puede ejecutar porque hay errores");
+            println("[HAY_ERRORES]No se puede ejecutar porque hay errores");
             return true;
         }
         return false;

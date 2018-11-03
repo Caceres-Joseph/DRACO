@@ -46,6 +46,7 @@ public class anlzDasm {
        
         try {
             parser p = new parser(lex);
+            p.iniciar(simbolo, nombreArchivo);
             p.parse();
             raiz= p.raiz; 
             println("[Dasm]Build successful ");

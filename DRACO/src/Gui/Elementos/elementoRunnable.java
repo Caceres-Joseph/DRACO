@@ -71,6 +71,13 @@ public class elementoRunnable implements Runnable {
                 anlzDasm dDasm = new anlzDasm(cadenaEntrada, nombreArchivo, simbolo);
                 dDasm.analizar();
                    if(dDasm.raiz!=null){
+                       //primer pasada
+                       Dasm.Estructuras.Elementos.elementoClase claseDasm=new Dasm.Estructuras.Elementos.elementoClase(simbolo);
+                       dDasm.raiz.primerPasada(claseDasm); 
+                       
+                       //ejecución
+                       Dasm.Estructuras.Elementos.elementoEntorno entornoDasm = new Dasm.Estructuras.Elementos.elementoEntorno(simbolo);
+                       dDasm.raiz.ejecutar(entornoDasm); 
                        
                    }else{
                        println("[DASM]Raiz nula");

@@ -56,7 +56,7 @@
             lineNumbers: true,
             matchBrackets: true,
             viewportMargin: Infinity,
-            mode: "text/javascript",
+            mode: '${modo}',
             theme: "eclipse",
             indentWithTabs: true,
             lineWrapping: true,
@@ -76,6 +76,8 @@
         function unMarker(n) { 
             return null;
         }
+
+        
 
         function makeMarker(n) {
             var marker = document.createElement("div");
@@ -105,6 +107,7 @@
         function pintarLinea(n){
             removerLineas();
             editor.addLineClass(n, 'wrap', 'CodeMirror-activeline-error');
+            jumpToLine(n);
         }
 
         function removerLineas(){
@@ -114,12 +117,24 @@
             
 
         }
-
-        
+ 
         function myFunction(){
             console.log(getHashMap());
             
         } 
+
+        function jumpToLine(i) {
+
+            editor.setCursor(i);
+            window.setTimeout(function () {
+                editor.setLineClass(i, null, "center-me");
+                var line = $('.CodeMirror-lines .center-me');
+                var h = line.parent();
+
+                $('.CodeMirror-scroll').scrollTop(0).scrollTop(line.offset().top - $('.CodeMirror-scroll').offset().top - Math.round($('.CodeMirror-scroll').height() / 2));
+            }, 200);
+        }
+ 
     </script>
 
 </body>
