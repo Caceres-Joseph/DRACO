@@ -5,6 +5,7 @@
  */
 package Dasm.EstructurasDasm.Heap;
 
+import Dasm.Estructuras.Elementos.elementoEntorno;
 import Dasm.EstructurasDasm.Stack.stack;
 import Gui.Elementos.elementoGlobal;
 
@@ -14,11 +15,14 @@ import Gui.Elementos.elementoGlobal;
  */
 public class heap extends stack { 
 
-    public heap(elementoGlobal simbolo) {
-        super(simbolo);
+    public heap(elementoGlobal simbolo, elementoEntorno entorno) {
+        super(simbolo, entorno);
     }
-    
- 
+
+    @Override
+    public void println(String mensaje){
+        System.out.println("[DASM][Heap]"+mensaje);
+    }
     
     
     

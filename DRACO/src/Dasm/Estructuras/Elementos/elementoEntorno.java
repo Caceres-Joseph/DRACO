@@ -19,7 +19,7 @@ public class elementoEntorno {
     public stack Stack;
     public pilita Pilita;
     public heap Heap;
-    
+    public elementoClase clase;
     
      
     
@@ -27,16 +27,18 @@ public class elementoEntorno {
     /**
      *  
      * @param simbolo Simbolo que maneja la tabla de errores
+     * @param clase Contiene las funcioens
      */
-    public elementoEntorno(elementoGlobal simbolo){
+    public elementoEntorno(elementoGlobal simbolo, elementoClase clase){
        
         
-        this.Heap=new heap(simbolo);
-        this.Stack=new stack(simbolo);
-        this.Pilita=new pilita(simbolo);
+        this.Heap=new heap(simbolo, this);
+        this.Stack=new stack(simbolo, this);
+        this.Pilita=new pilita(simbolo, this);
+        
+        this.clase=clase;
     }
-     
-    
+      
     /*
     |-------------------------------------------------------------------------------------------------------------------
     | OPERACIONES CON LA LISTA DE VARIABLES

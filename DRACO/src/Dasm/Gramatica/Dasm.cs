@@ -4,7 +4,7 @@
 LST_CUERPO          ::=LST_CUERPO CUERPO 
                     |  CUERPO
 
-CUERPO              ::=LST_INSTRUCCIONES
+CUERPO              ::=INSTRUCCION
                     |  FUNCION
                     ;
 
@@ -12,12 +12,17 @@ LST_INSTRUCCIONES   ::= LST_INSTRUCCIONES INSTRUCCION
                     |   INSTRUCCION
                     ;
 
-INSTRUCCION         ::= tAdd
+INSTRUCCION         ::=  
+                   
+                    /* Aritemeticas */
+                    |   tAdd
                     |   tDiff
                     |   tMult
                     |   tDiv
                     |   tMod
                     |   tPot
+
+
                     /* Relacionales */
                     |   tLt
                     |   tGt
@@ -30,7 +35,7 @@ INSTRUCCION         ::= tAdd
                     /* Saltos */
                     |   tBr valId
                     |   tBrIf valId
-
+                    |    valId //esta es la etiqueta para saltar
                     /* Instruc */
                     |   tGet_local valNum
                     |   tGet_local valId

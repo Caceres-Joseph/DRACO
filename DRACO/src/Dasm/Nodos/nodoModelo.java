@@ -21,6 +21,11 @@ public class nodoModelo {
     public lstNodosHijos listaHijos;
     public itemAtributo atributo;
     
+    
+    //para controlar los saltos
+    public nodoModelo nodoPadre;
+    
+    
     /**
      * constructor de _ASGIN_VAR 
      * @param atrib Atributo que contiene el nombre y la linea del nodo
@@ -31,7 +36,7 @@ public class nodoModelo {
         this.atributo = atrib;
         this.simbolo=simbolo;
         this.listaAtributos =new lstAtributos();
-        this.listaHijos =new lstNodosHijos(); 
+        this.listaHijos =new lstNodosHijos(simbolo); 
     }
     
      
@@ -58,7 +63,7 @@ public class nodoModelo {
      * @param clase Es la tabla que contiene las variables  
      */
     public void primerPasada(elementoClase clase) {
-        validandoDebug();
+//        validandoDebug();
 
         if (hayErrores()) {
             return;
@@ -78,16 +83,17 @@ public class nodoModelo {
     /**
      * Metodo de ejecución final
      * @param entorno Es la tabla que contiene las variables
+     * @param index Puntero de codigo
      * @return El retorno es cuando viene un break
      */
-    public itemRetorno ejecutar(elementoEntorno entorno){
-        validandoDebug();
+    public itemRetorno ejecutar(elementoEntorno entorno, int index){
+//        validandoDebug();
        
         itemRetorno retorno=new itemRetorno();
         if(hayErrores()){
             return retorno;
         } 
-        return listaHijos.ejecutar(entorno);
+        return listaHijos.ejecutar(entorno, index);
     }
     
     
@@ -123,5 +129,53 @@ public class nodoModelo {
         }
         return false;
     }
+    
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | PARA LOS SALTOS
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
+    /**
+     * Se almacena el padre para poder saltar a otros nodos
+     * @param padre 
+     */
+    public void insertarPadre(nodoModelo padre){
+        this.nodoPadre=padre;
+    }
+    
+    /**
+     * Tengo que recorrer los hijos dle padre en busca
+     * de la etiqueta e iniciar la ejecucion desde ahi prro 
+     * @param etiquetaOrigen el nombre de la etiqueta a la que se quiere saltar prro
+     * @param entorno Para retomar el entorno
+     */
+//    public void saltar(itemAtributo etiquetaOrigen, elementoEntorno entorno) {
+//
+//        if (nodoPadre == null) {
+//            simbolo.tablaErrores.insertErrorSemantic(atributo, "No se puede realizar el salto debido a que el nodo padre es nulo");
+//            return;
+//        }
+//        for (nodoModelo nodoHijo : nodoPadre.listaHijos.lstHijos) {
+//            //hay que revisar los atributos
+//            if (nodoHijo.listaAtributos.lstAtributos.size() >= 1) {
+//                itemAtributo etiquetaDestino = nodoHijo.listaAtributos.lstAtributos.get(0);
+//
+//                if (etiquetaDestino.nombreToken.equals("valId")) {
+//
+//                    if (etiquetaDestino.valor.equals(etiquetaOrigen.valor)) {
+//                        //aqui retomo la ejecucion
+//                        nodoHijo.ejecutar(entorno);
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        simbolo.tablaErrores.insertErrorSemantic(atributo, "No se encontró la etiqueta: " + etiquetaOrigen.valor);
+//    }
+
+   
     
 }

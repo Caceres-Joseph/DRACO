@@ -76,9 +76,14 @@ public class elementoRunnable implements Runnable {
                        dDasm.raiz.primerPasada(claseDasm); 
                        
                        //ejecución
-                       Dasm.Estructuras.Elementos.elementoEntorno entornoDasm = new Dasm.Estructuras.Elementos.elementoEntorno(simbolo);
-                       dDasm.raiz.ejecutar(entornoDasm); 
+                       Dasm.Estructuras.Elementos.elementoEntorno entornoDasm = new Dasm.Estructuras.Elementos.elementoEntorno(simbolo, claseDasm);
+                       dDasm.raiz.ejecutar(entornoDasm,0);
                        
+                       //imprimiendo lo que quedo en pilita
+                       println("--------------Imprimiendo contenido de las estructuras-------");
+                       entornoDasm.Pilita.imprimir();
+                       entornoDasm.Stack.imprimir();
+                       entornoDasm.Heap.imprimir();
                    }else{
                        println("[DASM]Raiz nula");
                    }
@@ -94,7 +99,7 @@ public class elementoRunnable implements Runnable {
 
       
     public void println(String mensaje) {
-        System.out.println("[elementoRunnable]" + mensaje);
+        System.out.println("[DASM][elementoRunnable]" + mensaje);
     }
 
 }

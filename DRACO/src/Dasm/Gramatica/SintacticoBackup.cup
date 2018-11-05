@@ -84,9 +84,7 @@ terminal String tAdd ,
                 tEqz,
                 tFuncion, 
                 tEnd,
-                tPrint,
-                tTee_local,
-                tTee_global
+                tPrint
                 ;
 
 
@@ -140,23 +138,20 @@ S               ::= LST_CUERPO :h1
 
 LST_CUERPO          ::=LST_CUERPO:h1 CUERPO :h2
                         {:
+                            itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 0); 
+                            _LST_CUERPO padre =new _LST_CUERPO(atrib1 , parser.simbolo);
                             
-                                h2.insertarPadre(h1);
-                                h1.listaHijos.insertar(h2,h2left, h2right); 
-                                
-                                
-
-                            RESULT= h1;
+                                padre.listaHijos.insertar(h1,h1left, h1right);  
+                                padre.listaHijos.insertar(h2,h2left, h2right); 
+ 
+                            RESULT= padre;
                         :}
                     |  CUERPO :h1
                         {:
                             itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 1); 
                             _LST_CUERPO padre =new _LST_CUERPO(atrib1 , parser.simbolo);
                             
-                                //insertando el padre
-                                h1.insertarPadre(padre);
                                 padre.listaHijos.insertar(h1,h1left, h1right);   
-
  
                             RESULT= padre;
                         :}
@@ -164,32 +159,39 @@ LST_CUERPO          ::=LST_CUERPO:h1 CUERPO :h2
 
 CUERPO              ::=INSTRUCCION:h1
                         {:
-                        
-                            RESULT= h1;
+                            itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 0); 
+                            _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);
+                            
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
                         :}
                     |  FUNCION:h1
                         {:
-                        
-                            RESULT= h1;
+                            itemAtributo atrib1=new itemAtributo("CUERPO", parser.nombreArchivo, 1); 
+                            _CUERPO padre =new _CUERPO(atrib1 , parser.simbolo);
+                            
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
                         :}
                     ;
  
 LST_INSTRUCCIONES   ::= LST_INSTRUCCIONES:h1 INSTRUCCION:h2
                         {:
-
-                                h2.insertarPadre(h1);
-                                h1.listaHijos.insertar(h2,h2left, h2right); 
-                                
-                         
-                            RESULT= h1;
+                            itemAtributo atrib1=new itemAtributo("LST_INSTRUCCIONES", parser.nombreArchivo, 0); 
+                            _LST_INSTRUCCIONES padre =new _LST_INSTRUCCIONES(atrib1 , parser.simbolo);
+                            
+                                padre.listaHijos.insertar(h1,h1left, h1right);  
+                                padre.listaHijos.insertar(h2,h2left, h2right); 
+ 
+                            RESULT= padre;
                         :}
                     |   INSTRUCCION:h1
                         {:
                             itemAtributo atrib1=new itemAtributo("LST_INSTRUCCIONES", parser.nombreArchivo, 1); 
                             _LST_INSTRUCCIONES padre =new _LST_INSTRUCCIONES(atrib1 , parser.simbolo);
                             
-                                //insertando el padre
-                                h1.insertarPadre(padre);
                                 padre.listaHijos.insertar(h1,h1left, h1right);   
  
                             RESULT= padre;
@@ -204,9 +206,6 @@ INSTRUCCION         ::=    valId:d1
 
                                 itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
                                 padre.listaAtributos.insertar(at1);
-
-                                itemAtributo at2=new itemAtributo("salto",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at2);
                                 
  
                             RESULT= padre;
@@ -492,24 +491,6 @@ INSTRUCCION         ::=    valId:d1
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 29); 
                             _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
                              
- 
-                            RESULT= padre;
-                        :}
-                    |   tTee_local  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 30); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    |   tTee_global  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 31); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
  
                             RESULT= padre;
                         :}

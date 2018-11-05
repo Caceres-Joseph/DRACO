@@ -20,7 +20,23 @@ public class draco {
      */
     public static void main(String[] args) { 
 //        pruebaHash();
-        iniciarInterfaz(args);  
+        iniciarInterfaz(args);
+//        int_hexa();
+    }
+    
+    public static void int_hexa() {
+        int hex = 3869451;
+        String al = Integer.toHexString(hex);
+
+        int diferencia = 6 - al.length();
+
+        String cadena = "";
+        if (diferencia != 0) {
+            for (int i = 0; i < diferencia; i++) {
+                cadena += "0";
+            }
+        }
+        System.out.println("#" + cadena + al.toUpperCase());
     }
     
     /**

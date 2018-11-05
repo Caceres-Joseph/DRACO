@@ -1,0 +1,276 @@
+
+
+
+Function $F_akerman_P_ENTERO_P_ENTERO
+	/*RESERVANDO ESPACIO PARA PARAMETROS*/
+	// PARAMETRO: 1
+	get_local 0 
+	1
+	ADD // SUMA 
+	0 // VALOR TEMPORAL..
+	set_local $calc // guardo el temporal
+	// PARAMETRO: 2
+	get_local 0 
+	2
+	ADD // SUMA 
+	0 // VALOR TEMPORAL..
+	set_local $calc // guardo el temporal
+	/*FIN DE RESERVA DE ESPACIO DE PARAMETROS */// RECUPERANDO PARAMETROS EN PILA
+	set_local $calc
+	set_local $calc
+	// FIN DE RECUPERACION DE PARAMETROS
+	
+	
+	/**************************************************************************/
+	//*           IF_SINO
+	/**************************************************************************/
+	// CONDICION
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	1 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	0
+	DIFF
+	EQZ
+	// FIN CONDICION
+	BR_IF $IF_0_1_FALSO_0 // SI LA CONDICION ES FALSA...
+			
+			//---------- SENTENCIAS ----------
+			
+			/**************************************************************************/
+			// RETORNO CON VALOR
+			
+			get_local 0 // OBTENIENDO PUNTERO STACK
+			2 // POSICION DE LA VARIABLE
+			ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+			get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+			
+			1
+			ADD
+			
+			set_local $ret // PONGO EL RETORNO EN LA POSICION DE RET
+			
+			BR $e_retornar // SALTO A LA ETIQUETA DE RETORNAR
+			/**************************************************************************/
+			
+			//---------- FIN SENTENCIAS ----------
+			BR $IF_0_1_SALIDA // SALIR PARA NO CUMPLOR LAS DEMAS
+	$IF_0_1_FALSO_0 // ETIQUETA DE NO CUMPLIR LA CONDICION
+	/**************************************************************************/
+	
+	/**************************************************************************/
+	// SINO
+	// SINO: CONDICION
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	1 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	0
+	GT
+	
+	
+	get_local 0 // OBTENIENDO PUNTERO STACK
+	2 // POSICION DE LA VARIABLE
+	ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+	get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+	
+	0
+	DIFF
+	EQZ
+	MULT
+	
+	// FIN CONDICION SINO
+	BR_IF $IF_0_1_FALSO_1 // ETIQUETA FALSO
+	// SENTENCIAS VERDADERAS
+			
+			/**************************************************************************/
+			// RETORNO CON VALOR
+			
+			/**************************************************************************/
+			// PASANDO PARAMETROS..
+			
+			/**************************************************************************/
+			// PARAM: 1 de Tipo Entero 
+			get_local 0 // PUNTERO VIRTUAL
+			2// TAMMANIO DEL AMBITO
+			ADD // SUMO
+			1 // NUMERO DE PARAMETRO A COLOCAR
+			ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+			
+			
+			get_local 0 // OBTENIENDO PUNTERO STACK
+			1 // POSICION DE LA VARIABLE
+			ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+			get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+			
+			1
+			DIFF
+			
+			
+			/**************************************************************************/
+			
+			/**************************************************************************/
+			// PARAM: 2 de Tipo Entero 
+			get_local 0 // PUNTERO VIRTUAL
+			2// TAMMANIO DEL AMBITO
+			ADD // SUMO
+			2 // NUMERO DE PARAMETRO A COLOCAR
+			ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+			
+			1
+			
+			/**************************************************************************/
+			// FIN DE PASO DE PARAEMTROS
+			get_local 0 // CAMBIANDO DE AMBITO
+			2 // SIZE DEL AMBITO PARA AVANZAR
+			ADD // SUMA PARA MOVERME
+			set_local 0 // ACTUALIZA EL PUNTERO
+			
+			Call $F_akerman_P_ENTERO_P_ENTERO// LLAMADO DE FUNCION
+			get_local 0 // REGRESANDO AL AMBITO ANTERIOR
+			2 // SIZE DEL AMBITO PARA REGRESAR
+			DIFF // RESTAR EL AMBITO
+			set_local 0 // ACTUALIZA EL PUNTERO
+			// OBTENIENDO EL RETORNO DE LA FUNCION Y COLOCANDOLO EN LA PILA
+			get_local $ret
+			/**************************************************************************/
+			
+			set_local $ret // PONGO EL RETORNO EN LA POSICION DE RET
+			
+			BR $e_retornar // SALTO A LA ETIQUETA DE RETORNAR
+			/**************************************************************************/
+			
+			// FIN SENTENCIAS VERDADERAS
+			BR $IF_0_1_SALIDA // SALE...
+	
+	$IF_0_1_FALSO_1// ETIQUETA FALSA
+	/**************************************************************************/
+	
+	// SENTENCIA POR DEFAULT SINO
+			
+			//---------- SENTENCIAS ----------
+			
+			/**************************************************************************/
+			// RETORNO CON VALOR
+			
+			/**************************************************************************/
+			// PASANDO PARAMETROS..
+			
+			/**************************************************************************/
+			// PARAM: 1 de Tipo Entero 
+			get_local 0 // PUNTERO VIRTUAL
+			2// TAMMANIO DEL AMBITO
+			ADD // SUMO
+			1 // NUMERO DE PARAMETRO A COLOCAR
+			ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+			
+			
+			get_local 0 // OBTENIENDO PUNTERO STACK
+			1 // POSICION DE LA VARIABLE
+			ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+			get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+			
+			1
+			DIFF
+			
+			
+			/**************************************************************************/
+			
+			/**************************************************************************/
+			// PARAM: 2 de Tipo Entero 
+			get_local 0 // PUNTERO VIRTUAL
+			2// TAMMANIO DEL AMBITO
+			ADD // SUMO
+			2 // NUMERO DE PARAMETRO A COLOCAR
+			ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+			
+			
+			/**************************************************************************/
+			// PASANDO PARAMETROS..
+			
+			/**************************************************************************/
+			// PARAM: 1 de Tipo Entero 
+			get_local 0 // PUNTERO VIRTUAL
+			2// TAMMANIO DEL AMBITO
+			ADD // SUMO
+			1 // NUMERO DE PARAMETRO A COLOCAR
+			ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+			
+			
+			get_local 0 // OBTENIENDO PUNTERO STACK
+			1 // POSICION DE LA VARIABLE
+			ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+			get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+			
+			
+			/**************************************************************************/
+			
+			/**************************************************************************/
+			// PARAM: 2 de Tipo Entero 
+			get_local 0 // PUNTERO VIRTUAL
+			2// TAMMANIO DEL AMBITO
+			ADD // SUMO
+			2 // NUMERO DE PARAMETRO A COLOCAR
+			ADD // SUMA PARA ENCONTRAR SU POSICION ABSOLUTA EN EL STACK
+			
+			
+			get_local 0 // OBTENIENDO PUNTERO STACK
+			2 // POSICION DE LA VARIABLE
+			ADD // SUMA PARA ENCONTRAR SU POSICION REAL
+			get_local $calc // OBTENIENDO EL VALOR DE VARIABLE
+			
+			1
+			DIFF
+			
+			
+			/**************************************************************************/
+			// FIN DE PASO DE PARAEMTROS
+			get_local 0 // CAMBIANDO DE AMBITO
+			2 // SIZE DEL AMBITO PARA AVANZAR
+			ADD // SUMA PARA MOVERME
+			set_local 0 // ACTUALIZA EL PUNTERO
+			
+			Call $F_akerman_P_ENTERO_P_ENTERO// LLAMADO DE FUNCION
+			get_local 0 // REGRESANDO AL AMBITO ANTERIOR
+			2 // SIZE DEL AMBITO PARA REGRESAR
+			DIFF // RESTAR EL AMBITO
+			set_local 0 // ACTUALIZA EL PUNTERO
+			// OBTENIENDO EL RETORNO DE LA FUNCION Y COLOCANDOLO EN LA PILA
+			get_local $ret
+			/**************************************************************************/
+			
+			
+			/**************************************************************************/
+			// FIN DE PASO DE PARAEMTROS
+			get_local 0 // CAMBIANDO DE AMBITO
+			2 // SIZE DEL AMBITO PARA AVANZAR
+			ADD // SUMA PARA MOVERME
+			set_local 0 // ACTUALIZA EL PUNTERO
+			
+			Call $F_akerman_P_ENTERO_P_ENTERO// LLAMADO DE FUNCION
+			get_local 0 // REGRESANDO AL AMBITO ANTERIOR
+			2 // SIZE DEL AMBITO PARA REGRESAR
+			DIFF // RESTAR EL AMBITO
+			set_local 0 // ACTUALIZA EL PUNTERO
+			// OBTENIENDO EL RETORNO DE LA FUNCION Y COLOCANDOLO EN LA PILA
+			get_local $ret
+			/**************************************************************************/
+			
+			set_local $ret // PONGO EL RETORNO EN LA POSICION DE RET
+			
+			BR $e_retornar // SALTO A LA ETIQUETA DE RETORNAR
+			/**************************************************************************/
+			
+			//---------- FIN SENTENCIAS ----------
+	/**************************************************************************/
+	
+	$IF_0_1_SALIDA //SALE DEL IF..
+
+	$e_retornar
+
+End
+

@@ -1,0 +1,53 @@
+
+//IMPRIMIENDO
+
+call $salto
+
+
+	"%d"
+	10 //\n
+	PRINT
+call $salto
+
+
+    "%f"
+	10 //\n
+	PRINT
+
+    
+FUNCTION $Principal
+	"%c"
+	10 //\n
+	PRINT
+
+    "%c"
+    78 //N
+    PRINT
+
+    "%c"
+    85 //U
+    PRINT
+
+    "%c"
+    76 //L
+    PRINT
+
+    "%c"
+    79 //O
+    PRINT
+
+	"%c"
+	10 //\n
+	PRINT
+
+
+END
+
+
+FUNCTION $salto
+
+	"%c"
+	10 //\n
+	PRINT
+
+END

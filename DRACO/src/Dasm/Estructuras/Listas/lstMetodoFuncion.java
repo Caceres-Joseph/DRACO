@@ -5,8 +5,11 @@
  */
 package Dasm.Estructuras.Listas;
 
+import Dasm.Estructuras.Elementos.elementoEntorno;
 import Dasm.Estructuras.Items.itemFuncion;
+import Dasm.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
+import Gui.Items.itemAtributo;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -25,8 +28,12 @@ public class lstMetodoFuncion {
         this.simbolo=simbolo;
     }
 
+    /**
+     * Inserta una nueva funcion a la lista de funciones
+     * @param nuevaFuncion 
+     */
     public void insertar(itemFuncion nuevaFuncion) {
-        String clave=nuevaFuncion.nombre.valor;
+        String clave=nuevaFuncion.nombre.valLower;
         
         
         if(listaFunciones.containsKey(clave)){
@@ -35,6 +42,23 @@ public class lstMetodoFuncion {
             listaFunciones.put(clave, nuevaFuncion);
         }
     
+    }
+    
+    /**
+     * Ejecuta una funcion 
+     * @param nombreFuncion El nombre de la funcion
+     * @param entorno El entorno que se pasa por todos los ambitos
+     */
+    public void ejecutarFuncion(itemAtributo nombreFuncion, elementoEntorno entorno){
+           //hay que buscar la funcion
+        
+           if(listaFunciones.containsKey(nombreFuncion.valLower)){
+               nodoModelo valor= listaFunciones.get(nombreFuncion.valLower).cuerpo;
+               valor.ejecutar(entorno, 0);
+           }else{
+               simbolo.tablaErrores.insertErrorSemantic(nombreFuncion, "La función :"+nombreFuncion.valor+" no se ha encontrado");
+        
+           }
     }
     
     

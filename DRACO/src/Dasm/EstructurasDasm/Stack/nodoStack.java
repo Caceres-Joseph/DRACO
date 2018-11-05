@@ -17,4 +17,9 @@ public class nodoStack {
         this.valor=valor;
         this.pos=pos;
     }
+    
+    public nodoStack(double valor){
+        this.valor=valor;
+        this.pos=0;
+    }
 }

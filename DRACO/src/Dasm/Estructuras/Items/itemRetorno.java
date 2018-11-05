@@ -5,6 +5,8 @@
  */
 package Dasm.Estructuras.Items;
 
+import Gui.Items.itemAtributo;
+
 /**
  *
  * @author joseph
@@ -12,6 +14,7 @@ package Dasm.Estructuras.Items;
 public class itemRetorno {
     
     public int tipoRetorno = 0;
+    public itemAtributo etiquetaDestino;
 
     /**
      * |--------------------------------------------------------------------------
@@ -36,9 +39,12 @@ public class itemRetorno {
 
     /**
      * Es un braek
+     * @param etiquetaOrigen Es la etiqueta a donde se quiere saltar
      */
-    public void setBreak() {
+    public void setBreak(itemAtributo etiquetaOrigen) {
         this.tipoRetorno = 1;
+        this.etiquetaDestino=etiquetaOrigen;
+        
     }
     
     

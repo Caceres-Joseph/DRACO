@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Dasm.Nodos.Inicio;
+import Dasm.Estructuras.Elementos.elementoEntorno;
+import Dasm.Estructuras.Items.itemRetorno;
 import Dasm.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -22,5 +24,28 @@ public class _CUERPO extends nodoModelo{
     public _CUERPO(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
     }
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
+    /**
+     * Metodo de ejecución final
+     * @param entorno Es la tabla que contiene las variables
+     * @return El retorno es cuando viene un break
+     */
+//    @Override
+//    public itemRetorno ejecutar(elementoEntorno entorno){
+//        validandoDebug();
+//       
+//        itemRetorno retorno=new itemRetorno();
+//        if(hayErrores()){
+//            return retorno;
+//        } 
+//        return listaHijos.ejecutar(entorno);
+//    }
     
 }

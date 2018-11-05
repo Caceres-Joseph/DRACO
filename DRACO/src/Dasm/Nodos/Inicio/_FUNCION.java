@@ -42,7 +42,7 @@ public class _FUNCION extends nodoModelo{
      * @return El retorno es cuando viene un break
      */
     @Override
-    public itemRetorno ejecutar(elementoEntorno entorno){ 
+    public itemRetorno ejecutar(elementoEntorno entorno, int index){ 
         itemRetorno ret = new itemRetorno(); 
         return ret;
     }
@@ -69,6 +69,7 @@ public class _FUNCION extends nodoModelo{
         itemAtributo nombreFuncion=listaAtributos.getAtributo(0);
         itemFuncion nuevaFuncion=new itemFuncion(nombreFuncion, listaHijos.lstHijos.get(0));
         clase.listaMetodoFuncion.insertar(nuevaFuncion);
+         
         
         //listaHijos.primerPasada(clase);
     }

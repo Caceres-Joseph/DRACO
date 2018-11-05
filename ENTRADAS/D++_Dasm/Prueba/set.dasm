@@ -1,0 +1,51 @@
+
+
+2   //ingresando a la pilita
+3   //pilita
+ADD
+//salida 5
+
+8
+2
+DIFF
+//salida 6
+
+set_local 0
+//envia el 6  la pos 0
+
+set_global 2
+//envia 5 a la posicion 2
+
+get_local 0
+get_global 2
+
+set_local $calc
+//[6]=5
+
+2
+3
+set_global $calc
+//[2]=3
+
+6
+get_local $calc
+//5
+
+2
+get_global $calc
+//3
+
+
+//FUNCION
+Function $ejemplo
+    5
+    10
+    add
+End
+
+
+set_local $ret
+get_local $ret 
+
+set_global $ret
+get_global $ret

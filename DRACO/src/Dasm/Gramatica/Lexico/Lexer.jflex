@@ -79,7 +79,9 @@ import Gui.Elementos.elementoGlobal;
         "get_local"             {return symbol(sym.tGet_local, yytext());} 
         "get_global"            {return symbol(sym.tGet_global, yytext());} 
         "set_local"             {return symbol(sym.tSet_local, yytext());}
-        "set_global"            {return symbol(sym.tSet_global, yytext());}
+        "set_global"            {return symbol(sym.tSet_global, yytext());} 
+        "tee_local"             {return symbol(sym.tTee_local, yytext());}
+        "tee_global"            {return symbol(sym.tTee_global, yytext());}
         "call"                  {return symbol(sym.tCall, yytext());}
         "eqz"                   {return symbol(sym.tEqz, yytext());}
         "function"              {return symbol(sym.tFuncion, yytext());}
