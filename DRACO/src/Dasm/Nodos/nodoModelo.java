@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package Dasm.Nodos;
-    
-import Dasm.Estructuras.Elementos.elementoClase;
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+     
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Gui.Items.itemAtributo; 
 import Gui.Elementos.elementoGlobal;
 
@@ -20,7 +18,10 @@ public class nodoModelo {
     public lstAtributos listaAtributos;
     public lstNodosHijos listaHijos;
     public itemAtributo atributo;
+    public lstNodosHijosHash listaHijosHash;
     
+    //banderas para el primer analisis
+    public boolean esInstruccion=false; 
     
     //para controlar los saltos
     public nodoModelo nodoPadre;
@@ -37,6 +38,7 @@ public class nodoModelo {
         this.simbolo=simbolo;
         this.listaAtributos =new lstAtributos();
         this.listaHijos =new lstNodosHijos(simbolo); 
+        this.listaHijosHash=new lstNodosHijosHash(simbolo);
     }
     
      
@@ -62,14 +64,14 @@ public class nodoModelo {
      * Metodo para la primer pasada
      * @param clase Es la tabla que contiene las variables  
      */
-    public void primerPasada(elementoClase clase) {
-//        validandoDebug();
-
-        if (hayErrores()) {
-            return;
-        }
-        listaHijos.primerPasada(clase);
-    }
+//    public void primerPasada(elementoClase clase) {
+////        validandoDebug();
+//
+//        if (hayErrores()) {
+//            return;
+//        }
+//        listaHijos.primerPasada(clase);
+//    }
     
     
     
@@ -82,18 +84,11 @@ public class nodoModelo {
     
     /**
      * Metodo de ejecución final
-     * @param entorno Es la tabla que contiene las variables
-     * @param index Puntero de codigo
-     * @return El retorno es cuando viene un break
+     * @param entorno Es la tabla que contiene las variables 
      */
-    public itemRetorno ejecutar(elementoEntorno entorno, int index){
+    public void ejecutar(elementoEntorno entorno){
 //        validandoDebug();
-       
-        itemRetorno retorno=new itemRetorno();
-        if(hayErrores()){
-            return retorno;
-        } 
-        return listaHijos.ejecutar(entorno, index);
+        listaHijos.ejecutar(entorno);
     }
     
     

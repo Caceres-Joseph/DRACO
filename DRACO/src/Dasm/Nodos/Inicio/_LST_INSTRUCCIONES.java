@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Dasm.Nodos.Inicio;
+import Dasm.Estructuras.Elementos.elementoEntorno;
 import Dasm.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -24,4 +25,26 @@ public class _LST_INSTRUCCIONES extends nodoModelo{
         super(atrib, simbolo);
     }
     
+    
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
+    /**
+     * <br>Detengo el ejecutar para guardar los nodos
+     * <br>Metodo de ejecución final
+     * @param entorno Es la tabla que contiene las variables 
+     */
+    @Override
+    public void ejecutar(elementoEntorno entorno){ 
+        //aquí desencadena el inicio de ejecucion de instruccioens
+         
+        while(listaHijosHash.hashHijos.containsKey(entorno.punteroCodigo)){
+            listaHijosHash.hashHijos.get(entorno.punteroCodigo).ejecutar(entorno);
+        }
+    }
 }

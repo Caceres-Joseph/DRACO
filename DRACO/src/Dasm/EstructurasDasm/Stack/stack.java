@@ -9,6 +9,8 @@ import Dasm.Estructuras.Elementos.elementoEntorno;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -16,25 +18,18 @@ import java.util.ArrayList;
  */
 public class stack {
     elementoGlobal simbolo;
-    public ArrayList<nodoStack> listaNodoStack;
+//    public ArrayList<nodoStack> listaNodoStack;
+    public Map<Integer,nodoStack> listaNodoStack;
     elementoEntorno entorno;
     public stack(elementoGlobal simbolo, elementoEntorno entorno){
         this.simbolo=simbolo;
         this.entorno=entorno;
-        this.listaNodoStack=new ArrayList<>();
-        
+//        this.listaNodoStack=new ArrayList<>();
+        this.listaNodoStack=new LinkedHashMap<>();
         //creando ptr
         ptrCrear();
     }
     
-    
-    /**
-     * Inserta un nuevo nodo a stack
-     * @param nuevoNodo 
-     */
-    public void insertar(nodoStack nuevoNodo){
-        listaNodoStack.add(nuevoNodo);
-    }
      
      
     /*
@@ -49,8 +44,8 @@ public class stack {
      * Este apunta a cero
      */
     public void ptrCrear(){
-        nodoStack nuevoNodo=new nodoStack(0);
-        insertar(nuevoNodo);
+        
+        listaNodoStack.put(0, new nodoStack(0.0)); 
     }
     
     
@@ -63,10 +58,10 @@ public class stack {
     |
     */ 
     
-    public void push(nodoStack nuevoNodo){
-        listaNodoStack.add(nuevoNodo);
-    }
-    
+//    public void push(nodoStack nuevoNodo){
+//        listaNodoStack.add(nuevoNodo);
+//    }
+//    
     
     /**
      * Inserta el nodo en una posicion especifica en el stack
@@ -78,40 +73,21 @@ public class stack {
     public void set(double valor, int index, itemAtributo errores){
         nodoStack nuevoNodo=new nodoStack(valor);
         
-        //verificando si no es mayor
-        if (index < 0) {
-            simbolo.tablaErrores.insertErrorSemantic(errores,"El indice para guardar en stack no tiene que ser negativo, valor recibido:"+String.valueOf(index));
-            return 
-                    ;
-        }
+        listaNodoStack.put(index, nuevoNodo);
         
-        if (index >= listaNodoStack.size()) {   
-            int i = index-(listaNodoStack.size()-1);
-            //insertando nuevos nodos
-            for (int j = 0; j < i; j++) {
-                nodoStack nuevoNodo2=new nodoStack(-1.0);
-                listaNodoStack.add(nuevoNodo2);
-            }
-        }
-        
-        //insertando el nuevo nodo
-        listaNodoStack.set(index, nuevoNodo);
     }
     
     
     public nodoStack get(int index, itemAtributo errores){
         //verificando si no es mayor 
         
-        if (index < 0) {
-            simbolo.tablaErrores.insertErrorSemantic(errores,"El indice para guardar en stack no tiene que ser negativo, valor recibido:"+String.valueOf(index));
+    
+        if(!listaNodoStack.containsKey(index)){
+            simbolo.tablaErrores.insertErrorSemantic(errores,"No existe el  indice :"+String.valueOf(index)+"");
             return new nodoStack(-1);
         }
-        
-        if (index >= listaNodoStack.size()) { 
-            simbolo.tablaErrores.insertErrorSemantic(errores,"El indice excedido , el indice :"+String.valueOf(index)+"no existe");
-            return new nodoStack(-1);
-        }
-        
+         
+         
         return listaNodoStack.get(index);
     }
 
@@ -123,11 +99,17 @@ public class stack {
     
     public void imprimir(){
         println("[imprimir]imprimiendo");
-        int indice=0;
-        for (nodoStack listaDouble : listaNodoStack) {
-            
-            println(String.valueOf(indice)+": "+String.valueOf(listaDouble.valor));
-            indice++;
+ 
+        
+        for (Integer key : listaNodoStack.keySet()) {
+//            System.out.println("Clave: " + key + " -> Valor: " + Heap.listaNodoStack.get(key));
+            nodoStack heap = listaNodoStack.get(key);
+            println(String.valueOf(key)+": "+String.valueOf(heap.valor));
         }
+//        for (nodoStack listaDouble : listaNodoStack) {
+//            
+//            println(String.valueOf(indice)+": "+String.valueOf(listaDouble.valor));
+//            indice++;
+//        }
     }
 }

@@ -6,8 +6,7 @@
 package Dasm.Nodos.Inicio.Instrucciones;
 
 import D_plus.Estructuras.Items.itemValor;
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno; 
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Dasm.Nodos.Inicio._E;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -29,13 +28,11 @@ public class num extends logicas{
      * <br> | E
      * <br> +----------------
      * <br> |Hay que igresar el valor a la pilita
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_26(elementoEntorno entorno) {  
-        itemRetorno retorno=new itemRetorno();
+    public void case_26(elementoEntorno entorno) {   
          if(hayErrores())
-             return retorno; 
+             return ; 
          
          
          _E nodoE =(_E)listaHijos.lstHijos.get(0);
@@ -44,14 +41,13 @@ public class num extends logicas{
         
         if (!valE.isTypeNumero()) {
             simbolo.tablaErrores.insertErrorSemantic(atributo, "Se estaba esperando un valor tipo numérico/decimal, pero se recibió: "+valE.tipo);
-            return retorno;
+            return ;
         }
         
         
          
          //guradandolo en pilita 
         entorno.Pilita.push(valE.getNumero());  
-        return retorno;     
     }
     
     
@@ -62,22 +58,22 @@ public class num extends logicas{
      * @param entorno Es el ambito que recibe
      * @return Retorna para revisión de break
      */
-//    public itemRetorno case_27(elementoEntorno entorno) {  
+//    public void case_27(elementoEntorno entorno) {  
 //        itemRetorno retorno=new itemRetorno();
 //         if(hayErrores())
-//             return retorno; 
+//             return ; 
 //         //parseando el numero
 //         itemValor temp=new itemValor(simbolo);
 //         Object objTemp=temp.getParseadoNumero(listaAtributos.lstAtributos.get(0));
 //         
 //         if(objTemp==null)
-//             return retorno;
+//             return ;
 //         
 //         
 //         Double doubleTemp=(Double)objTemp;
 //         //guradandolo en pilita 
 //         entorno.Pilita.push(doubleTemp); 
-//        return retorno;      
+//        return ;      
 //    }
     
     
@@ -85,13 +81,11 @@ public class num extends logicas{
      * <br> +----------------
      * <br> | valCadena
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_28(elementoEntorno entorno) {   
-        itemRetorno retorno=new itemRetorno();
+    public void case_28(elementoEntorno entorno) {    
          if(hayErrores())
-             return retorno; 
+             return ; 
          
           
          //parseando a cadena
@@ -100,12 +94,11 @@ public class num extends logicas{
         
         if (!valor.isTypeCadena()) {
             simbolo.tablaErrores.insertErrorSemantic(atributo, "Se estaba esperando un valor tipo cadena, pero se recibió: "+valor.tipo);
-            return retorno;
+            return ;
         }
         
          //guradandolo en pilita 
-        entorno.Pilita.push(valor.getCadena());  
-        return retorno;     
+        entorno.Pilita.push(valor.getCadena());   
     }
     
     

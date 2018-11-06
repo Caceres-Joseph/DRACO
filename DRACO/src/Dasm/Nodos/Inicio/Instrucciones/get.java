@@ -6,8 +6,7 @@
 package Dasm.Nodos.Inicio.Instrucciones;
 
 import D_plus.Estructuras.Items.itemValor;
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Dasm.EstructurasDasm.Stack.nodoStack;
 import Dasm.Nodos.Inicio._E;
 import Gui.Elementos.elementoGlobal;
@@ -33,14 +32,12 @@ public class get extends funcion{
      * <br> +---------------- 
      * <br> | Sirve para get_local num
      * <br> | Extrae en stack y push en pilita
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_16(elementoEntorno entorno) { 
-        
-        itemRetorno  retorno=new itemRetorno();
+    public void case_16(elementoEntorno entorno) { 
+         
         if(hayErrores())
-            return retorno;
+            return ;
         
         //recuperando el numero 
          _E nodoE =(_E)listaHijos.lstHijos.get(0);
@@ -49,7 +46,7 @@ public class get extends funcion{
         
         if (!valE.isTypeNumero()) {
             simbolo.tablaErrores.insertErrorSemantic(atributo, "Se estaba esperando un valor tipo numérico/decimal, pero se recibió: "+valE.tipo);
-            return retorno;
+            return ;
         }
         
         Double index = valE.getNumero();
@@ -63,8 +60,7 @@ public class get extends funcion{
         
         //haciendo push en pilita
         entorno.Pilita.push(valor.valor);
-        
-        return retorno;    
+         
     }
      
     
@@ -75,13 +71,11 @@ public class get extends funcion{
      * <br> +---------------- 
      * <br> | Sirve para get_local num
      * <br> | Extrae en heap y push en pilita
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_18(elementoEntorno entorno) { 
-        itemRetorno  retorno=new itemRetorno();
+    public void case_18(elementoEntorno entorno) {  
         if(hayErrores())
-            return retorno;
+            return ;
         
         //recuperando el numero 
          _E nodoE =(_E)listaHijos.lstHijos.get(0);
@@ -90,7 +84,7 @@ public class get extends funcion{
         
         if (!valE.isTypeNumero()) {
             simbolo.tablaErrores.insertErrorSemantic(atributo, "Se estaba esperando un valor tipo numérico/decimal, pero se recibió: "+valE.tipo);
-            return retorno;
+            return ;
         }
         
         Double index = valE.getNumero();
@@ -104,8 +98,7 @@ public class get extends funcion{
         
         //haciendo push en pilita
         entorno.Pilita.push(valor.valor);
-        
-        return retorno;       
+            
     }
     
     
@@ -120,22 +113,21 @@ public class get extends funcion{
      * <br> +----------------
      * <br> | tGet_local valId
      * <br> +----------------  
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_17(elementoEntorno entorno) { 
+    public void case_17(elementoEntorno entorno) { 
         
         
         itemAtributo respuesta=listaAtributos.getAtributo(0);
         if(respuesta.valLower.equals("$calc")){
-            return get_local_calc(entorno);
+              get_local_calc(entorno);
         }
         else if(respuesta.valLower.equals("$ret")){
-            return get_local_ret(entorno); 
+              get_local_ret(entorno); 
         }
         else{
             simbolo.tablaErrores.insertErrorSemantic(atributo, "No se reconoce el id como $calc o $ret, en su lugar:"+respuesta.valor);
-            return new itemRetorno();
+          
         }         
     }
     
@@ -146,14 +138,12 @@ public class get extends funcion{
      * <br> +---------------- 
      * <br> | Sirve para get_local calc
      * <br> | Extrae en stack la pos de la cima de pilita y push en pilita
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno get_local_calc(elementoEntorno entorno) { 
-        
-        itemRetorno  retorno=new itemRetorno();
+    public void get_local_calc(elementoEntorno entorno) { 
+         
         if(hayErrores())
-            return retorno;
+            return ;
         
         //sacando de pilita
         Double index = entorno.Pilita.pop(atributo);
@@ -166,8 +156,7 @@ public class get extends funcion{
         
         //haciendo push en pilita
         entorno.Pilita.push(valor.valor);
-        
-        return retorno;      
+           
     }
     
     /**
@@ -175,22 +164,19 @@ public class get extends funcion{
      * <br> | get_local $ret
      * <br> +---------------- 
      * <br> | Primer pop valor, segundo pop indice
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
     
-    public itemRetorno get_local_ret(elementoEntorno entorno) {  
-        itemRetorno  retorno=new itemRetorno();
+    public void get_local_ret(elementoEntorno entorno) {   
         if(hayErrores())
-            return retorno;
+            return ;
          
         
         //extraer  de pilita  retorno
         Double valor=entorno.Pilita.popRetorno(atributo);
         //insertar en pilita
         entorno.Pilita.push(valor);
-        
-        return retorno;      
+          
     }
     
     /*
@@ -206,20 +192,19 @@ public class get extends funcion{
      * <br> +----------------
      * <br> | tGet_global valId
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_19(elementoEntorno entorno) {
+    public void case_19(elementoEntorno entorno) {
         itemAtributo respuesta=listaAtributos.getAtributo(0);
         if(respuesta.valLower.equals("$calc")){
-            return get_global_calc(entorno);
+              get_global_calc(entorno);
         }
         else if(respuesta.valLower.equals("$ret")){
-            return get_local_ret(entorno); 
+              get_local_ret(entorno); 
         }
         else{
             simbolo.tablaErrores.insertErrorSemantic(atributo, "No se reconoce el id como $calc o $ret, en su lugar:"+respuesta.valor);
-            return new itemRetorno();
+              
         }        
     }
     
@@ -229,14 +214,12 @@ public class get extends funcion{
      * <br> +----------------
      * <br> | get_global $calc
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno get_global_calc(elementoEntorno entorno) {
-        
-        itemRetorno  retorno=new itemRetorno();
+    public void get_global_calc(elementoEntorno entorno) {
+         
         if(hayErrores())
-            return retorno;
+            return ;
         
         
          
@@ -250,8 +233,7 @@ public class get extends funcion{
         
         //haciendo push en pilita
         entorno.Pilita.push(valor.valor);
-        
-        return retorno;      
+          
     }
      
     

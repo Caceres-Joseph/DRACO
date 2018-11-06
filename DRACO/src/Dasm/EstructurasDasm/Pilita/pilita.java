@@ -9,6 +9,7 @@ import Dasm.Estructuras.Elementos.elementoEntorno;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  *
@@ -17,7 +18,10 @@ import java.util.ArrayList;
 public class pilita {
     
     elementoGlobal simbolo;
-    public ArrayList<Double> listaDoubles;
+//    public ArrayList<Double> listaDoubles;
+    public Stack<Double> listaDoubles;
+
+
     //sirve para los operadores de imprimir
     public ArrayList<String> listaDeStrings;
     
@@ -33,7 +37,8 @@ public class pilita {
     public pilita(elementoGlobal simbolo, elementoEntorno entorno){
         this.simbolo=simbolo;
         this.entorno=entorno;
-        this.listaDoubles=new ArrayList<>();
+//        this.listaDoubles=new ArrayList<>();
+        this.listaDoubles=new Stack<>();
         this.listaDeStrings=new ArrayList<>();
         this.listaDeRetornos=new ArrayList<>();
     }
@@ -52,8 +57,9 @@ public class pilita {
      * @param num  valor a insertar en la pilita
      */
     public void push(double num){
-        listaDoubles.add(num); 
-        println("Push en pilita: "+String.valueOf(num));
+//        listaDoubles.add(num); 
+        listaDoubles.push(num);
+//        println("Push en pilita: "+String.valueOf(num));
     }
     
     /**
@@ -67,13 +73,14 @@ public class pilita {
             return -1.0;
         }
         
-        Double retorno= listaDoubles.get(listaDoubles.size()-1);
-        
-        //lo quito de la pilita
-        listaDoubles.remove(listaDoubles.size()-1);
-        listaDoubles.trimToSize();
-        println("Pop en pilita: "+String.valueOf(retorno));
-        return retorno;
+//        Double retorno= listaDoubles.get(listaDoubles.size()-1);
+//        
+//        //lo quito de la pilita
+//        listaDoubles.remove(listaDoubles.size()-1);
+//        listaDoubles.trimToSize();
+//        println("Pop en pilita: "+String.valueOf(retorno));
+
+        return listaDoubles.pop();
     }
     
     /**
@@ -92,8 +99,8 @@ public class pilita {
         //lo quito de la pilita
 //        listaDoubles.remove(listaDoubles.size()-1);
 //        listaDoubles.trimToSize();
-        println("Pull en pilita: "+String.valueOf(retorno));
-        return retorno;
+//        println("Pull en pilita: "+String.valueOf(retorno));
+        return listaDoubles.peek();
     }
     
     

@@ -5,8 +5,7 @@
  */
 package Dasm.Nodos.Inicio.Instrucciones;
 
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 
@@ -26,20 +25,18 @@ public class relacional extends num {
      * <br> | tLt
      * <br> +---------------- 
      * <br> | num1 < num2 ? 0 :1
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_7(elementoEntorno entorno) {
-        itemRetorno retorno = new itemRetorno();
+    public void case_7(elementoEntorno entorno) { 
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer los dos numeros de pilita
         Double num2 = entorno.Pilita.pop(atributo);
         Double num1 = entorno.Pilita.pop(atributo);
 
         if (num1 == null || num2 == null) {
-            return retorno;
+            return ;
         }
 
         Double resultado = 0.0;
@@ -47,8 +44,7 @@ public class relacional extends num {
             resultado = 1.0;
         }
         entorno.Pilita.push(resultado);
-
-        return retorno;
+ 
     }
     
     
@@ -57,20 +53,18 @@ public class relacional extends num {
      * <br> | tGt
      * <br> +---------------- 
      * <br> | num1 > num2 ? 0 :1
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_8(elementoEntorno entorno) { 
-        itemRetorno retorno = new itemRetorno();
+    public void case_8(elementoEntorno entorno) {  
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer los dos numeros de pilita
         Double num2 = entorno.Pilita.pop(atributo);
         Double num1 = entorno.Pilita.pop(atributo);
 
         if (num1 == null || num2 == null) {
-            return retorno;
+            return ;
         }
 
         Double resultado = 0.0;
@@ -78,8 +72,7 @@ public class relacional extends num {
             resultado = 1.0;
         }
         entorno.Pilita.push(resultado);
-
-        return retorno; 
+ 
     }
     
     
@@ -88,20 +81,18 @@ public class relacional extends num {
      * <br> | tLte
      * <br> +---------------- 
      * <br> | num1 <= num2 ? 0 :1
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_9(elementoEntorno entorno) { 
-        itemRetorno retorno = new itemRetorno();
+    public void case_9(elementoEntorno entorno) {  
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer los dos numeros de pilita
         Double num2 = entorno.Pilita.pop(atributo);
         Double num1 = entorno.Pilita.pop(atributo);
 
         if (num1 == null || num2 == null) {
-            return retorno;
+            return ;
         }
 
         Double resultado = 0.0;
@@ -109,8 +100,7 @@ public class relacional extends num {
             resultado = 1.0;
         }
         entorno.Pilita.push(resultado);
-
-        return retorno;  
+ 
     }
     
     
@@ -119,20 +109,18 @@ public class relacional extends num {
      * <br> | tGte
      * <br> +---------------- 
      * <br> | num1 >= num2 ? 0 :1
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_10(elementoEntorno entorno) {  
-        itemRetorno retorno = new itemRetorno();
+    public void case_10(elementoEntorno entorno) {   
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer los dos numeros de pilita
         Double num2 = entorno.Pilita.pop(atributo);
         Double num1 = entorno.Pilita.pop(atributo);
 
         if (num1 == null || num2 == null) {
-            return retorno;
+            return ;
         }
 
         Double resultado = 0.0;
@@ -140,8 +128,7 @@ public class relacional extends num {
             resultado = 1.0;
         }
         entorno.Pilita.push(resultado);
-
-        return retorno;  
+ 
     }
     
 }

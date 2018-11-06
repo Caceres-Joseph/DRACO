@@ -5,8 +5,7 @@
  */
 package Dasm.Nodos.Inicio.Instrucciones;
 
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 
@@ -24,13 +23,11 @@ public class logicas extends get {
      * <br> +----------------
      * <br> | tNot
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_11(elementoEntorno entorno) {  
-        itemRetorno retorno=new itemRetorno();
+    public void case_11(elementoEntorno entorno) {   
         if(hayErrores())
-             return retorno;
+             return ;
         //extraer  de pilita 
         Double num1 = entorno.Pilita.pop(atributo);
 
@@ -39,8 +36,7 @@ public class logicas extends get {
         int resultado= ~num1.intValue(); 
 
         entorno.Pilita.push((double)resultado);
-
-        return retorno; 
+ 
     }
     
     
@@ -48,13 +44,11 @@ public class logicas extends get {
      * <br> +----------------
      * <br> | tAnd
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_12(elementoEntorno entorno) {
-        itemRetorno retorno=new itemRetorno();
+    public void case_12(elementoEntorno entorno) { 
         if(hayErrores())
-             return retorno;
+             return ;
         //extraer los dos numeros de pilita
         Double num2 = entorno.Pilita.pop(atributo);
         Double num1 = entorno.Pilita.pop(atributo);
@@ -64,8 +58,7 @@ public class logicas extends get {
         int resultado= num1.intValue() & num2.intValue(); 
 
         entorno.Pilita.push((double)resultado);
-
-        return retorno;   
+ 
     }
     
     
@@ -73,13 +66,11 @@ public class logicas extends get {
      * <br> +----------------
      * <br> | tOr
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_13(elementoEntorno entorno) { 
-        itemRetorno retorno=new itemRetorno();
+    public void case_13(elementoEntorno entorno) {  
         if(hayErrores())
-             return retorno;
+             return ;
         //extraer los dos numeros de pilita
         Double num2 = entorno.Pilita.pop(atributo);
         Double num1 = entorno.Pilita.pop(atributo);
@@ -89,8 +80,7 @@ public class logicas extends get {
         int resultado= num1.intValue() | num2.intValue(); 
 
         entorno.Pilita.push((double)resultado);
-
-        return retorno;  
+ 
     }
     
     

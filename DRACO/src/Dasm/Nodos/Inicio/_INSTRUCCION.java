@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Dasm.Nodos.Inicio;
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno; 
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Dasm.Nodos.Inicio.Instrucciones.tee; 
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -85,96 +84,163 @@ public class _INSTRUCCION extends tee{
     
     /**
      * Metodo de ejecución final
-     * @param entorno Es la tabla que contiene las variables
-     * @return El retorno es cuando viene un break
+     * @param entorno Es la tabla que contiene las variables 
      */
     @Override
-    public itemRetorno ejecutar(elementoEntorno entorno, int index){
-        validandoDebug();
-       
-        itemRetorno retorno=new itemRetorno();
+    public void ejecutar(elementoEntorno entorno){
+        
+        validandoDebug();  
         if(hayErrores()){
-            return retorno;
-        } 
-        return casos(entorno);
+//            entorno.punteroCodigo++;
+            //para salirme de la ejecución
+            entorno.punteroCodigo=-1;
+            return ;
+        }
+        casos(entorno);
+        
     }
     
     /**
      * Revisando los casos  
      * @param entorno
-     * @return 
      */
-    public itemRetorno casos(elementoEntorno entorno){
+    public void casos(elementoEntorno entorno){
         
         switch(atributo.nivelProduccion){
             case 0:
-                return case_0(entorno);
+                 entorno.punteroCodigo++;
+                 case_0(entorno);
+                 break;
             case 1:
-                return case_1(entorno);
+                 entorno.punteroCodigo++;
+                 case_1(entorno);
+                 break;
             case 2:
-                return case_2(entorno);
+                 entorno.punteroCodigo++;
+                 case_2(entorno);
+                 break;
             case 3:
-                return case_3(entorno);
+                 entorno.punteroCodigo++;
+                 case_3(entorno);
+                 break;
             case 4:
-                return case_4(entorno);
+                 entorno.punteroCodigo++;
+                 case_4(entorno);
+                 break;
             case 5:
-                return case_5(entorno);
+                 entorno.punteroCodigo++;
+                 case_5(entorno);
+                 break;
             case 6:
-                return case_6(entorno);
+                 entorno.punteroCodigo++;
+                 case_6(entorno);
+                 break;
             case 7:
-                return case_7(entorno);
+                 entorno.punteroCodigo++;
+                 case_7(entorno);
+                 break;
             case 8:
-                return case_8(entorno);
+                 entorno.punteroCodigo++;
+                 case_8(entorno);
+                 break;
             case 9:
-                return case_9(entorno);
+                 entorno.punteroCodigo++;
+                 case_9(entorno);
+                 break;
             case 10:
-                return case_10(entorno);
+                 entorno.punteroCodigo++;
+                 case_10(entorno);
+                 break;
             case 11:
-                return case_11(entorno);
+                 entorno.punteroCodigo++;
+                 case_11(entorno);
+                 break;
             case 12:
-                return case_12(entorno);
+                 entorno.punteroCodigo++;
+                 case_12(entorno);
+                 break;
             case 13:
-                return case_13(entorno);
+                 entorno.punteroCodigo++;
+                 case_13(entorno);
+                 break;
             case 14:
-                return case_14(entorno);
+                 case_14(entorno);
+                 //este es un salto
+//                 entorno.punteroCodigo++;
+                 break;
             case 15:
-                return case_15(entorno);
+                 case_15(entorno);
+                 //este es un salto condicional
+//                 entorno.punteroCodigo++;
+                 break;
             case 16:
-                return case_16(entorno);
+                 entorno.punteroCodigo++;
+                 case_16(entorno);
+                 break;
             case 17:
-                return case_17(entorno);
+                 entorno.punteroCodigo++;
+                 case_17(entorno);
+                 break;
             case 18:
-                return case_18(entorno);
+                 entorno.punteroCodigo++;
+                 case_18(entorno);
+                 break;
             case 19:
-                return case_19(entorno);
+                 entorno.punteroCodigo++;
+                 case_19(entorno);
+                 break;
             case 20:
-                return case_20(entorno);
+                 entorno.punteroCodigo++;
+                 case_20(entorno);
+                 break;
             case 21:
-                return case_21(entorno);
+                 entorno.punteroCodigo++;
+                 case_21(entorno);
+                 break;
             case 22:
-                return case_22(entorno);
+                 entorno.punteroCodigo++;
+                 case_22(entorno);
+                 break;
             case 23:
-                return case_23(entorno);
+                 entorno.punteroCodigo++;
+                 case_23(entorno);
+                 break;
             case 24:
-                return case_24(entorno);
+                 entorno.punteroCodigo++;
+                 case_24(entorno);
+                 break;
             case 25:
-                return case_25(entorno);
+                 entorno.punteroCodigo++;
+                 case_25(entorno);
+                 break;
             case 26:
-                return case_26(entorno);
+                 entorno.punteroCodigo++;
+                 case_26(entorno);
+                 break;
 //            case 27:
 //                return case_27(entorno);
             case 28:
-                return case_28(entorno);
+                 entorno.punteroCodigo++;
+                 case_28(entorno);
+                 break;
                 
             case 29:
-                return case_29(entorno);
+                 entorno.punteroCodigo++;
+                 case_29(entorno);
+                 break;
             case 30:
-                return case_30(entorno);
+                 entorno.punteroCodigo++;
+                 case_30(entorno);
+                 break;
             case 31:
-                return case_31(entorno);
+                 entorno.punteroCodigo++;
+                 case_31(entorno);
+                 break;
+            default:
+                entorno.punteroCodigo++;
+                println("No se reconocio el numero de caso de los nodos hijos");
         }
-         
-        return new itemRetorno();
+          
     }
     
     

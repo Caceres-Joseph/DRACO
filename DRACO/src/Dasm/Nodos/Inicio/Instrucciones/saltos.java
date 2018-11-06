@@ -5,8 +5,7 @@
  */
 package Dasm.Nodos.Inicio.Instrucciones;
 
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 
@@ -25,15 +24,10 @@ public class saltos extends relacional{
      * <br> +----------------
      * <br> | valId
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_0(elementoEntorno entorno) {   
-         if(hayErrores())
-             return new itemRetorno();
+    public void case_0(elementoEntorno entorno) {  
         
-         
-        return new itemRetorno();     
     }
     
     
@@ -41,33 +35,23 @@ public class saltos extends relacional{
      * <br> +----------------
      * <br> | tBr valId
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_14(elementoEntorno entorno) {  
-        itemRetorno retorno=new itemRetorno();
-        
-        if(hayErrores())
-             return retorno; 
-         
-         itemAtributo etiquetaOrigen = listaAtributos.getAtributo(0);
-         retorno.setBreak(etiquetaOrigen);
+    public void case_14(elementoEntorno entorno) {
 
-        return retorno;     
+        saltar(entorno);
     }
-    
+
     
     /**
      * <br> +----------------
      * <br> | tBrIf valId
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_15(elementoEntorno entorno) { 
-        itemRetorno retorno = new itemRetorno();
+    public void case_15(elementoEntorno entorno) {  
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer  de pilita 
         Double num1 = entorno.Pilita.pop(atributo);
@@ -75,14 +59,36 @@ public class saltos extends relacional{
         
         //Si es cero hace el salto
         if (num1 == 0.0) {
-            itemAtributo etiquetaOrigen = listaAtributos.getAtributo(0);
-            retorno.setBreak(etiquetaOrigen);
-            return retorno;
-        } 
-
-        return retorno;    
+//            itemAtributo etiquetaOrigen = listaAtributos.getAtributo(0); 
+            saltar(entorno);
+        } else{
+            //Si no cumple la condición incremento el puntero
+            entorno.punteroCodigo++;
+        }
+   
     }
     
+    
+    
+    public void saltar(elementoEntorno entorno){
+        if (hayErrores()) {
+            return;
+        }
+
+        if (entorno.listaEtiquetas == null)  
+            return;
+        
+        itemAtributo etiquetaOrigen = listaAtributos.getAtributo(0);
+        if(entorno.listaEtiquetas.hashEtiquetas.containsKey(etiquetaOrigen.valor)){
+            
+            //Modifico la posición del puntero para que haga el salto
+            entorno.punteroCodigo=entorno.listaEtiquetas.hashEtiquetas.get(etiquetaOrigen.valor);
+            return;
+        }else{
+            simbolo.tablaErrores.insertErrorSemantic(etiquetaOrigen,"La etiqueta:"+etiquetaOrigen.valor+" no se encuentra en el ambito.");
+        }
+        entorno.punteroCodigo=-1;
+    }
     
     
 }

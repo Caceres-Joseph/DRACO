@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -83,17 +84,90 @@
                                                 <Tab text="Tabla de Simbolos">
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                            <children>
-                                                                <TableView editable="true" prefHeight="200.0" prefWidth="200.0" stylesheets="@Estilos/tableCuentaCaja.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                    <columns>
-                                                                        <TableColumn minWidth="5.999969482421875" prefWidth="130.0" text="Ambito" />
-                                                                        <TableColumn prefWidth="130.0" text="Linea" />
-                                                                        <TableColumn prefWidth="130.0" text="Columna" />
-                                                                        <TableColumn minWidth="0.0" prefWidth="130.0" text="Tipo" />
-                                                                        <TableColumn maxWidth="743.0" prefWidth="743.0" text="Descripción" />
-                                                                    </columns>
-                                                                </TableView>
-                                                            </children>
+                                             <children>
+                                                <JFXTabPane prefHeight="216.0" prefWidth="350.0" side="LEFT" stylesheets="@Estilos/tabClases.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <tabs>
+                                                      <Tab text="Dasm">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.5" layoutX="56.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                    <items>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <SplitPane dividerPositions="0.5" layoutX="22.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                <items>
+                                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                                       <children>
+                                                                                          <TableView fx:id="tbDasmStack" editable="true" onMouseClicked="#clckTabSimbolosDasm2" prefHeight="200.0" prefWidth="200.0" stylesheets="@Estilos/tableCuentaCaja.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                             <columns>
+                                                                                                <TableColumn fx:id="tcDstackNo" minWidth="5.999969482421875" prefWidth="56.0" text="No." />
+                                                                                                <TableColumn fx:id="tcDStackStack" prefWidth="204.0" text="Stack " />
+                                                                                             </columns>
+                                                                                          </TableView>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                                       <children>
+                                                                                          <TableView fx:id="tbDasmHeap" editable="true" prefHeight="200.0" prefWidth="200.0" stylesheets="@Estilos/tableCuentaCaja.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                             <columns>
+                                                                                                <TableColumn fx:id="tcDheapNo" minWidth="5.999969482421875" prefWidth="56.0" text="No." />
+                                                                                                <TableColumn fx:id="tcDheap" prefWidth="204.0" text="Heap" />
+                                                                                             </columns>
+                                                                                          </TableView>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                </items>
+                                                                              </SplitPane>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <SplitPane dividerPositions="0.5" layoutX="68.0" layoutY="37.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                <items>
+                                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="477.0">
+                                                                                       <children>
+                                                                                          <TableView fx:id="tbDasmAux" editable="true" prefHeight="200.0" prefWidth="200.0" stylesheets="@Estilos/tableCuentaCaja.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                             <columns>
+                                                                                                <TableColumn fx:id="tcDauxNo" minWidth="5.999969482421875" prefWidth="56.0" text="No." />
+                                                                                                <TableColumn fx:id="tcDaux" prefWidth="204.0" text="Pila Aux" />
+                                                                                             </columns>
+                                                                                          </TableView>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                                       <children>
+                                                                                          <TableView editable="true" prefHeight="200.0" prefWidth="200.0" stylesheets="@Estilos/tableCuentaCaja.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                             <columns>
+                                                                                                <TableColumn minWidth="5.999969482421875" prefWidth="56.0" text="No." />
+                                                                                                <TableColumn prefWidth="204.0" text="Funcion" />
+                                                                                             </columns>
+                                                                                          </TableView>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                </items>
+                                                                              </SplitPane>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                    </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </Tab>
+                                                      <Tab text="Dpp">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                         </content>
+                                                      </Tab>
+                                                      <Tab text="Dc">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                         </content>
+                                                      </Tab>
+                                                   </tabs>
+                                                </JFXTabPane>
+                                             </children>
                                                         </AnchorPane>
                                                     </content>
                                                 </Tab>
@@ -162,16 +236,20 @@
                                                 <Image url="@img/baseline_play_arrow_white_24dp.png" />
                                             </image>
                                         </ImageView>
-                                        <ImageView pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@img/baseline_playlist_play_white_24dp.png" />
-                                            </image>
-                                        </ImageView>
                                     </children>
                                     <GridPane.margin>
                                         <Insets />
                                     </GridPane.margin>
                                 </HBox>
+                        <JFXButton onAction="#clckBtnSiguientePaso" text="Siguiente" textFill="WHITE" GridPane.columnIndex="2">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/baseline_playlist_play_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
                             </children>
                         </GridPane>
                         <MenuBar stylesheets="@Estilos/Metro-UI.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

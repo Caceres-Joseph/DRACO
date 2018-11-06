@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package Dasm.Estructuras.Listas;
- 
-import Dasm.Estructuras.Elementos.elementoClase;
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+  
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Dasm.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -64,14 +62,14 @@ public class lstNodosHijos {
      * 
      * @param clase  
      */
-    public void primerPasada(elementoClase clase){ 
-        
-        for (nodoModelo lstHijo : lstHijos) {
-            
-            lstHijo.primerPasada(clase);
-            
-        } 
-    }
+//    public void primerPasada(elementoClase clase){ 
+//        
+//        for (nodoModelo lstHijo : lstHijos) {
+//            
+//            lstHijo.primerPasada(clase);
+//            
+//        } 
+//    }
     
     /*
     |-------------------------------------------------------------------------------------------------------------------
@@ -82,70 +80,74 @@ public class lstNodosHijos {
     
     /**
      * 
-     * @param entorno 
-     * @param index Indice para retomar la ejecucion
-     * @return El retorno 
+     * @param entorno  
      */
-    public itemRetorno ejecutar(elementoEntorno entorno, int index){
-        itemRetorno retorno =new itemRetorno();
-        retorno.setNormal();
-        itemAtributo etiquetaOrigen = null;
-        
-        
-        
-        //para iniciar la ejecución en un punto especifico 
-        
-        if (index >= lstHijos.size()) {
-            println("[ERROR]ejecutar| El puntero codigo supera el tamaño de la pila de coido");
-            return retorno;
+    
+    public void ejecutar(elementoEntorno entorno) {
+        for (nodoModelo lstHijo : lstHijos) { 
+            lstHijo.ejecutar(entorno); 
         }
-        
-        for (int i = index; i < lstHijos.size(); i++) {
-            nodoModelo lstHijo= lstHijos.get(i);
-            itemRetorno ret= lstHijo.ejecutar(entorno,0);
-            if(ret.ifBreak()){
-                etiquetaOrigen=ret.etiquetaDestino;
-                break; 
-            }
-        }
-        
-//        for (nodoModelo lstHijo : lstHijos) {
-//            
-//            itemRetorno ret= lstHijo.ejecutar(entorno);
+    }
+//    public void ejecutar(elementoEntorno entorno, int index){
+//        itemRetorno retorno =new itemRetorno();
+//        retorno.setNormal();
+//        itemAtributo etiquetaOrigen = null;
+//        
+//        
+//        
+//        //para iniciar la ejecución en un punto especifico 
+//        
+//        if (index >= lstHijos.size()) {
+//            println("[ERROR]ejecutar| El puntero codigo supera el tamaño de la pila de coido");
+//            return retorno;
+//        }
+//        
+//        for (int i = index; i < lstHijos.size(); i++) {
+//            nodoModelo lstHijo= lstHijos.get(i);
+//            itemRetorno ret= lstHijo.ejecutar(entorno,0);
 //            if(ret.ifBreak()){
 //                etiquetaOrigen=ret.etiquetaDestino;
 //                break; 
 //            }
 //        }
-         
-        if (etiquetaOrigen == null)
-            return retorno;
-
-        
-        
-        //buscando la etiqueta
-        for (int i = 0; i < lstHijos.size(); i++) {
-            nodoModelo nodoHijo = lstHijos.get(i);
-            
-            if (nodoHijo.listaAtributos.lstAtributos.size() == 2) {
-                itemAtributo etiquetaDestino = nodoHijo.listaAtributos.lstAtributos.get(0);
-                itemAtributo etiquetaDestino2 = nodoHijo.listaAtributos.lstAtributos.get(1);
-                
-                if (etiquetaDestino.nombreToken.equals("valId") && etiquetaDestino2.nombreToken.equals("salto")) {
-                    
-                    if (etiquetaDestino.valor.equals(etiquetaOrigen.valor)) {
-                        //aqui retomo la ejecucion 
-                        nodoHijo.nodoPadre.ejecutar(entorno, i);
-                        return new itemRetorno();
-                    }
-                }
-            }            
-        }
-        
-        simbolo.tablaErrores.insertErrorSemantic(etiquetaOrigen, "No se encontró la etiqueta: "+etiquetaOrigen.valor+" para poder realizar el salto");
-        
-        return new itemRetorno();
-    }
+//        
+////        for (nodoModelo lstHijo : lstHijos) {
+////            
+////            itemRetorno ret= lstHijo.ejecutar(entorno);
+////            if(ret.ifBreak()){
+////                etiquetaOrigen=ret.etiquetaDestino;
+////                break; 
+////            }
+////        }
+//         
+//        if (etiquetaOrigen == null)
+//            return retorno;
+//
+//        
+//        
+//        //buscando la etiqueta
+//        for (int i = 0; i < lstHijos.size(); i++) {
+//            nodoModelo nodoHijo = lstHijos.get(i);
+//            
+//            if (nodoHijo.listaAtributos.lstAtributos.size() == 2) {
+//                itemAtributo etiquetaDestino = nodoHijo.listaAtributos.lstAtributos.get(0);
+//                itemAtributo etiquetaDestino2 = nodoHijo.listaAtributos.lstAtributos.get(1);
+//                
+//                if (etiquetaDestino.nombreToken.equals("valId") && etiquetaDestino2.nombreToken.equals("salto")) {
+//                    
+//                    if (etiquetaDestino.valor.equals(etiquetaOrigen.valor)) {
+//                        //aqui retomo la ejecucion 
+//                        nodoHijo.nodoPadre.ejecutar(entorno, i);
+//                        return new itemRetorno();
+//                    }
+//                }
+//            }            
+//        }
+//        
+//        simbolo.tablaErrores.insertErrorSemantic(etiquetaOrigen, "No se encontró la etiqueta: "+etiquetaOrigen.valor+" para poder realizar el salto");
+//        
+//        return new itemRetorno();
+//    }
     
     
 }

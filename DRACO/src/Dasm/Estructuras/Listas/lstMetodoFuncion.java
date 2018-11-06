@@ -54,13 +54,37 @@ public class lstMetodoFuncion {
         
            if(listaFunciones.containsKey(nombreFuncion.valLower)){
                nodoModelo valor= listaFunciones.get(nombreFuncion.valLower).cuerpo;
-               valor.ejecutar(entorno, 0);
+               
+               lstEtiquetas etiquetaTemp= entorno.listaEtiquetas;
+               
+               
+               //enviando las etiquetas del entorno
+               entorno.listaEtiquetas = valor.listaHijosHash.listaEtiquetas;
+               valor.ejecutar(entorno);
+               entorno.listaEtiquetas=etiquetaTemp;
+                
            }else{
                simbolo.tablaErrores.insertErrorSemantic(nombreFuncion, "La función :"+nombreFuncion.valor+" no se ha encontrado");
         
            }
     }
     
+    
+    public void imprimir(){
+        
+        //llenando la tabla 
+        for (String key : listaFunciones.keySet()) {
+//            System.out.println("Clave: " + key + " -> Valor: " + Heap.listaNodoStack.get(key));
+//            itemFuncion itFuncion = listaFunciones.get(key);
+            println(key);
+            
+        }
+    }
+    
+    
+    public void println(String mensaje){
+        System.out.println("[lstMetodoFuncion]"+mensaje);
+    }
     
     
 }

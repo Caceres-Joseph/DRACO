@@ -72,18 +72,19 @@ public class elementoRunnable implements Runnable {
                 dDasm.analizar();
                    if(dDasm.raiz!=null){
                        //primer pasada
-                       Dasm.Estructuras.Elementos.elementoClase claseDasm=new Dasm.Estructuras.Elementos.elementoClase(simbolo);
-                       dDasm.raiz.primerPasada(claseDasm); 
+//                       Dasm.Estructuras.Elementos.elementoClase claseDasm=new Dasm.Estructuras.Elementos.elementoClase(simbolo);
+//                       dDasm.raiz.primerPasada(claseDasm); 
                        
                        //ejecución
-                       Dasm.Estructuras.Elementos.elementoEntorno entornoDasm = new Dasm.Estructuras.Elementos.elementoEntorno(simbolo, claseDasm);
-                       dDasm.raiz.ejecutar(entornoDasm,0);
+                       Dasm.Estructuras.Elementos.elementoEntorno entornoDasm = new Dasm.Estructuras.Elementos.elementoEntorno(simbolo, dDasm.raiz.listaHijosHash.listaMetodoFuncion,dDasm.raiz.listaHijosHash.listaEtiquetas);
+                       //coloco el puntero de codigo en el inicio
+                       entornoDasm.punteroCodigo=0;
+                       //lo paso al global para poder mostrarlo en tablas
+                       simbolo.entornoDasm=entornoDasm;
+//                       
+                       dDasm.raiz.ejecutar(entornoDasm);
+//                       
                        
-                       //imprimiendo lo que quedo en pilita
-                       println("--------------Imprimiendo contenido de las estructuras-------");
-                       entornoDasm.Pilita.imprimir();
-                       entornoDasm.Stack.imprimir();
-                       entornoDasm.Heap.imprimir();
                    }else{
                        println("[DASM]Raiz nula");
                    }

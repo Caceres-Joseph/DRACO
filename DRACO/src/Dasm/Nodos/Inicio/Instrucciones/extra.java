@@ -5,8 +5,7 @@
  */
 package Dasm.Nodos.Inicio.Instrucciones;
 
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 
@@ -27,13 +26,11 @@ public class extra extends aritmeticas {
      * <br> +----------------
      * <br> | tEqz
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_25(elementoEntorno entorno) {
-        itemRetorno retorno = new itemRetorno();
+    public void case_25(elementoEntorno entorno) { 
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer  de pilita 
         Double num1 = entorno.Pilita.pop(atributo);
@@ -45,8 +42,7 @@ public class extra extends aritmeticas {
         //Operando or bit a bit
 
         entorno.Pilita.push(resultado);
-
-        return retorno;
+ 
     }
 
     
@@ -58,13 +54,11 @@ public class extra extends aritmeticas {
      * <br> | Recibe dos parametros, uno de tipo cadena "%c"
      * <br> | el otro de tipo numerico pop a pilita
      * 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_29(elementoEntorno entorno) {
-        itemRetorno retorno = new itemRetorno();
+    public void case_29(elementoEntorno entorno) { 
         if (hayErrores()) {
-            return retorno;
+            return ;
         }
         //extraer  de pilita 
         Double valor = entorno.Pilita.pop(atributo);
@@ -83,7 +77,6 @@ public class extra extends aritmeticas {
             default:
                 simbolo.tablaErrores.insertErrorSemantic(atributo,"No se reconoce el formato" +formato);
                 break;
-        }
-        return retorno;
+        } 
     }
 }

@@ -6,8 +6,7 @@
 package Dasm.Nodos.Inicio.Instrucciones;
 
 import D_plus.Estructuras.Items.itemValor;
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Dasm.Nodos.Inicio._E;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -30,14 +29,12 @@ public class set extends saltos{
      * <br> +---------------- 
      * <br> | Sirve para set_local num
      * <br> | Pop en pilita y push en stack
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_20(elementoEntorno entorno) {  
-        
-        itemRetorno  retorno=new itemRetorno();
+    public void case_20(elementoEntorno entorno) {  
+         
         if(hayErrores())
-            return retorno;
+            return ;
         
         //recuperando el numero 
          _E nodoE =(_E)listaHijos.lstHijos.get(0);
@@ -46,7 +43,7 @@ public class set extends saltos{
         
         if (!valE.isTypeNumero()) {
             simbolo.tablaErrores.insertErrorSemantic(atributo, "Se estaba esperando un valor tipo numérico/decimal, pero se recibió: "+valE.tipo);
-            return retorno;
+            return ;
         }
         
         //extraer  de pilita 
@@ -59,7 +56,7 @@ public class set extends saltos{
              
         //guardando en stack
         entorno.Stack.set(valor, index.intValue(), atributo); 
-        return retorno;     
+          
     }
     /**
      * <br> +----------------
@@ -67,14 +64,12 @@ public class set extends saltos{
      * <br> +---------------- 
      * <br> | Sirve para set_local num
      * <br> | Pop en pilita y push en heap
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_22(elementoEntorno entorno) {   
-        
-        itemRetorno  retorno=new itemRetorno();
+    public void case_22(elementoEntorno entorno) {   
+         
         if(hayErrores())
-            return retorno;
+            return ;
         
         //recuperando el numero 
          _E nodoE =(_E)listaHijos.lstHijos.get(0);
@@ -83,7 +78,7 @@ public class set extends saltos{
         
         if (!valE.isTypeNumero()) {
             simbolo.tablaErrores.insertErrorSemantic(atributo, "Se estaba esperando un valor tipo numérico/decimal, pero se recibió: "+valE.tipo);
-            return retorno;
+            return ;
         }
         
         //extraer  de pilita 
@@ -95,8 +90,7 @@ public class set extends saltos{
             println("[case_22][tSet_global_E]El indice contiene decimales pero se truncaron");
              
         //guardando en stack
-        entorno.Heap.set(valor, index.intValue(), atributo); 
-        return retorno;   
+        entorno.Heap.set(valor, index.intValue(), atributo);  
     }
     
     
@@ -112,21 +106,20 @@ public class set extends saltos{
      * <br> | tSet_local valId
      * <br> +---------------- 
      * <br> | Primer pop valor, segundo pop indice
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_21(elementoEntorno entorno) {  
+    public void case_21(elementoEntorno entorno) {  
         
         itemAtributo respuesta=listaAtributos.getAtributo(0);
         if(respuesta.valLower.equals("$calc")){
-            return set_local_calc(entorno);
+              set_local_calc(entorno);
         }
         else if(respuesta.valLower.equals("$ret")){
-            return set_local_ret(entorno); 
+              set_local_ret(entorno); 
         }
         else{
             simbolo.tablaErrores.insertErrorSemantic(atributo, "No se reconoce el id como $calc o $ret, en su lugar:"+respuesta.valor);
-            return new itemRetorno();
+     
         }     
     }
     
@@ -136,13 +129,11 @@ public class set extends saltos{
      * <br> | set_local $calc
      * <br> +---------------- 
      * <br> | Primer pop valor, segundo pop indice
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno set_local_calc(elementoEntorno entorno) {  
-        itemRetorno  retorno=new itemRetorno();
+    public void set_local_calc(elementoEntorno entorno) { 
         if(hayErrores())
-            return retorno;
+            return ;
          
         
         //extraer  de pilita 
@@ -154,8 +145,7 @@ public class set extends saltos{
             println("[set_local_calc]El indice contiene decimales pero se truncaron");
              
         //guardando en stack
-        entorno.Stack.set(valor, index.intValue(), atributo); 
-        return retorno;      
+        entorno.Stack.set(valor, index.intValue(), atributo);     
     }
      
     
@@ -164,21 +154,18 @@ public class set extends saltos{
      * <br> | set_local $ret
      * <br> +---------------- 
      * <br> | Primer pop valor, segundo pop indice
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno set_local_ret(elementoEntorno entorno) {  
-        itemRetorno  retorno=new itemRetorno();
+    public void set_local_ret(elementoEntorno entorno) {   
         if(hayErrores())
-            return retorno;
+            return ;
          
         
         //extraer  de pilita 
         Double valor = entorno.Pilita.pop(atributo); 
         //insertar en pila retorno
         entorno.Pilita.pushRetorno(valor);
-        
-        return retorno;      
+         
     }
      
     
@@ -193,21 +180,20 @@ public class set extends saltos{
      * <br> | tSet_global valId
      * <br> +---------------- 
      * <br> | Primer pop valor, segundo pop indice
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_23(elementoEntorno entorno) { 
+    public void case_23(elementoEntorno entorno) { 
          
         itemAtributo respuesta=listaAtributos.getAtributo(0);
         if(respuesta.valLower.equals("$calc")){
-            return set_global_calc(entorno);
+              set_global_calc(entorno);
         }
         else if(respuesta.valLower.equals("$ret")){
-            return set_local_ret(entorno);
+              set_local_ret(entorno);
         }
         else{
             simbolo.tablaErrores.insertErrorSemantic(atributo, "No se reconoce el id como $calc o $ret, en su lugar:"+respuesta.valor);
-            return new itemRetorno();
+            
         }
     }
     
@@ -217,13 +203,11 @@ public class set extends saltos{
      * <br> | set_global $calc
      * <br> +---------------- 
      * <br> | Primer pop valor, segundo pop indice
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno set_global_calc(elementoEntorno entorno){
-        itemRetorno  retorno=new itemRetorno();
+    public void set_global_calc(elementoEntorno entorno){ 
         if(hayErrores())
-            return retorno;
+            return ;
           
         //extraer  de pilita 
         Double valor = entorno.Pilita.pop(atributo);
@@ -235,7 +219,7 @@ public class set extends saltos{
              
         //guardando en stack
         entorno.Heap.set(valor, index.intValue(), atributo); 
-        return retorno;   
+        return ;   
     }
     
     

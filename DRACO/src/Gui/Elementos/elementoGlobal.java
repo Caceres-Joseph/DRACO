@@ -21,6 +21,14 @@ import javafx.scene.control.TextArea;
  * @author joseph
  */
 public class elementoGlobal {
+    
+    
+    
+    /**
+     * DASM
+     */
+    public Dasm.Estructuras.Elementos.elementoEntorno entornoDasm;
+    
     /**
      * DRACO SCRIPT
      */

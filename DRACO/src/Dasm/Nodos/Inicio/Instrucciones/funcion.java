@@ -5,8 +5,7 @@
  */
 package Dasm.Nodos.Inicio.Instrucciones;
 
-import Dasm.Estructuras.Elementos.elementoEntorno;
-import Dasm.Estructuras.Items.itemRetorno;
+import Dasm.Estructuras.Elementos.elementoEntorno; 
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 
@@ -27,33 +26,37 @@ public class funcion extends extra {
      * <br> +----------------
      * <br> | tCall valId
      * <br> +---------------- 
-     * @param entorno Es el ambito que recibe
-     * @return Retorna para revisión de break
+     * @param entorno Es el ambito que recibe 
      */
-    public itemRetorno case_24(elementoEntorno entorno) {
-        itemRetorno retorno = new itemRetorno();
+    public void case_24(elementoEntorno entorno) {
         if (hayErrores()) {
-            return retorno;
+            return;
         }
 
         itemAtributo respuesta = listaAtributos.getAtributo(0);
         if (respuesta.valLower.equals("$point")) {
-            return point(entorno);
+            point(entorno);
         } else if (respuesta.valLower.equals("$quadrate")) {
-            return quadrate(entorno);
+            quadrate(entorno);
         } else if (respuesta.valLower.equals("$oval")) {
-            return oval(entorno);
+            oval(entorno);
         } else if (respuesta.valLower.equals("$line")) {
-            return line(entorno);
-        } else { 
-            if(entorno.clase!=null){
-                entorno.clase.listaMetodoFuncion.ejecutarFuncion(respuesta, entorno);
-            }else{
+            line(entorno);
+        } else {
+            if (entorno.listaFunciones != null) {
+                //guardando el puntero de codigo
+                int punteroTemp = entorno.punteroCodigo;
+                //pongo el puntero en cero
+                entorno.punteroCodigo = 0;
+                entorno.listaFunciones.ejecutarFuncion(respuesta, entorno);
+
+                //regreso el valor del puntero de código
+                entorno.punteroCodigo = punteroTemp;
+            } else {
                 println("[case_24][ERROR]La clase que contiene las funciones es nula");
-            } 
-            return new itemRetorno();
+            }
         }
-        
+
     }
     
     
@@ -62,13 +65,11 @@ public class funcion extends extra {
      * <br> | tCall $point
      * <br> +----------------
      * <br> | Recibe cuatro parametros
-     * @param entorno 
-     * @return  
+     * @param entorno  
      */
-    public itemRetorno point(elementoEntorno entorno){
-        itemRetorno retorno = new itemRetorno();
+    public void point(elementoEntorno entorno){ 
         if (hayErrores()) 
-            return retorno;  
+            return ;  
         
         //diametro
         Double diametro = entorno.Pilita.pop(atributo);
@@ -81,7 +82,7 @@ public class funcion extends extra {
         
         
         simbolo.ctrlLienzo.pintarPunto(posX.intValue(), posY.intValue(), getHexa(color), diametro.intValue());
-        return retorno;
+        
     }
     
     
@@ -90,13 +91,11 @@ public class funcion extends extra {
      * <br> | tCall $quadrate
      * <br> +----------------
      * <br> | Recibe cuatro parametros
-     * @param entorno 
-     * @return  
+     * @param entorno  
      */
-    public itemRetorno quadrate(elementoEntorno entorno){
-        itemRetorno retorno = new itemRetorno();
+    public void quadrate(elementoEntorno entorno){ 
         if (hayErrores()) 
-            return retorno;  
+            return ;  
         
         //alto
         Double alto = entorno.Pilita.pop(atributo);
@@ -110,7 +109,7 @@ public class funcion extends extra {
         Double posX = entorno.Pilita.pop(atributo);
         
         simbolo.ctrlLienzo.pintarRectangulo(posX.intValue(), posY.intValue(), getHexa(color),ancho.intValue(), alto.intValue()); 
-        return retorno;
+       
     }
     
     
@@ -120,13 +119,11 @@ public class funcion extends extra {
      * <br> | tCall $oval
      * <br> +----------------
      * <br> | Recibe cuatro parametros
-     * @param entorno 
-     * @return  
+     * @param entorno  
      */
-    public itemRetorno oval(elementoEntorno entorno){
-        itemRetorno retorno = new itemRetorno();
+    public void oval(elementoEntorno entorno){ 
         if (hayErrores()) 
-            return retorno;  
+            return ;  
         
         //alto
         Double alto = entorno.Pilita.pop(atributo);
@@ -140,7 +137,7 @@ public class funcion extends extra {
         Double posX = entorno.Pilita.pop(atributo); 
         
         simbolo.ctrlLienzo.pintarOvalo(posX.intValue(), posY.intValue(), getHexa(color),ancho.intValue(), alto.intValue()); 
-        return retorno;
+         
     }
     
     
@@ -151,13 +148,11 @@ public class funcion extends extra {
      * <br> | tCall $line
      * <br> +----------------
      * <br> | Recibe cuatro parametros
-     * @param entorno 
-     * @return  
+     * @param entorno  
      */
-    public itemRetorno line(elementoEntorno entorno){
-        itemRetorno retorno = new itemRetorno();
+    public void line(elementoEntorno entorno){ 
         if (hayErrores()) 
-            return retorno;  
+            return ;  
         
         
         //grosor
@@ -175,7 +170,7 @@ public class funcion extends extra {
         
         
         simbolo.ctrlLienzo.pintarLinea(posXi.intValue(), posYi.intValue(), posXf.intValue(),posYf.intValue(), getHexa(color), grosor.intValue());
-        return retorno;
+    
     }
     
     

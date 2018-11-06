@@ -186,7 +186,10 @@ public class nodoTabClase {
         
         try {
             simbolo.debug.iniciar(); 
-        } catch (Exception e) {
+        }catch(RuntimeException e){
+            println("[ejecutar][Error]"+e.getMessage()); 
+        } 
+        catch (Exception e) {
             println("[ejecutar][Error]"+e.getMessage());
         }
 //        simbolo.debug.detener();

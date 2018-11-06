@@ -6,7 +6,7 @@
 package Gui;
   
 import Gui.Elementos.elementoGlobal; 
-import Gui.Componentes.ideTablaErrores;  
+import Gui.Componentes.*;  
 import Gui.Componentes.ideTxtConsolaDasm;
 import Gui.Elementos.elementoMensaje;
 import Gui.Lienzo.Lienzo; 
@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  *
  * @author joseph
  */
-public class Ide extends ideTablaErrores  {
+public class Ide extends ideTablaSimbolosDasm  {
   
     
     
@@ -96,6 +96,19 @@ public class Ide extends ideTablaErrores  {
             simbolo.debug.hiloEjecucion.resume();
         }
         
+    }
+    
+    
+
+    @FXML
+    void clckBtnSiguientePaso(ActionEvent event) {
+        if(simbolo.debug!=null){ 
+//            println("[clckSiguienteLinea]"); 
+            simbolo.debug.siguienteInstruccion=true; 
+            simbolo.debug.hiloEjecucion.resume();
+        } 
+        
+        mostrarTablaSimbolosDasm();
     }
     
  
@@ -181,7 +194,24 @@ public class Ide extends ideTablaErrores  {
         enventoClickVistaArbol(event);
     }
      
-      
+       
+        @FXML
+    void clckTabSimbolosDasm2(MouseEvent event) {
+        mostrarTablaSimbolosDasm();
+    }
+    
+    public void mostrarTablaSimbolosDasm(){
+//        println("[DASM]Tabla de simbolos");
+        //imprimiendo lo que quedo en pilita
+        if(simbolo.entornoDasm==null)
+            return;
+         
+        tablaSimbolosDasmStack.mostrar(simbolo.entornoDasm.Stack);
+        tablaSimbolosDasmHeap.mostrar(simbolo.entornoDasm.Heap);
+        tablaSimbolosDasmPilita.mostrar(simbolo.entornoDasm.Pilita); 
+        
+    }
+    
     /**<br>+----------------------------------------------------
      * <br>| Metodo que se ejecuta de primero
      * <br>+---------------------------------------------------- 
@@ -199,7 +229,9 @@ public class Ide extends ideTablaErrores  {
         
         //Tabla de errores
         inicializarTabla();
-        
+        //Tabla de Simbolos 
+        inicializarTablaSimbolosDasm();
+                
         //Vista árbol    
         mensaje=new elementoMensaje(stackPadre);
         ideTxtConsolaDasm salidaDasm=new ideTxtConsolaDasm(txtDasm, wbSalidaDasm);
@@ -228,5 +260,7 @@ public class Ide extends ideTablaErrores  {
             return new Lienzo();
         } 
     }
+    
+     
     
 }

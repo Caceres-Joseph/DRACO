@@ -16,10 +16,13 @@ call $salto
 
     
 FUNCTION $Principal
+
+
 	"%c"
 	10 //\n
 	PRINT
 
+	$etiqueta1
     "%c"
     78 //N
     PRINT

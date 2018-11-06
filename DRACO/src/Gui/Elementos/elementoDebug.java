@@ -124,9 +124,29 @@ public class elementoDebug {
                 hiloEjecucion.stop();
                 hiloEjecucion.destroy();
             }
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             println("[detener][ERROR]" + e.getMessage());
+        } catch (Exception e2){
+            
+            println("[detener][ERROR]" + e2.getMessage());
         }
+    }
+    
+    public void parar(){
+        try {
+            if (!esNuloHilo()) {
+//            println("[detener]");
+                simbolo.listaTabsClases.despintarLineas();
+                println("[run]\n\t*********  Fin del analisis **********");
+                hiloEjecucion.stop(); 
+            }
+        } catch (RuntimeException e) {
+            println("[parar][ERROR]" + e.getMessage());
+        } catch (Exception e2){
+            
+            println("[parar][ERROR]" + e2.getMessage());
+        }
+        
     }
     
     public boolean estaActivo(){
