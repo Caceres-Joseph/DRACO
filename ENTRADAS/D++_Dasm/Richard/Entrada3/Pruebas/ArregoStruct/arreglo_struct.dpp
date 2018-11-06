@@ -1,0 +1,83 @@
+estructura Persona{
+	cadena nombre;
+	entero edad;
+	decimal estatura;
+	caracter inicial;
+	entero dpi[13];
+}
+
+Persona arreglo_personas[4];
+
+
+principal(){
+	
+		
+		
+		entero dpi_daniel[13] = {2,0,0,9,4,0,2,6,0,0,1,0,1};
+		entero dpi_eduardo[13] = {1,2,3,9,4,0,2,6,4,5,1,0,1};
+		entero dpi_garcia[13] = {9,8,7,9,4,0,2,6,0,0,1,0,1};
+		entero dpi_paiz[13] = {5,6,7,9,4,0,2,6,0,0,1,0,1};
+		
+		
+		arreglo_personas[0] = Informacion("Daniel",21,1.71,'D',dpi_daniel);
+		arreglo_personas[1] = Informacion("Eduardo",22,2.71,'E',dpi_eduardo);
+		arreglo_personas[2] = Informacion("Garcia",23,3.71,'G',dpi_garcia);
+		arreglo_personas[3] = Informacion("Paiz",24,4.71,'P',dpi_paiz);
+		
+		entero x = 0;
+	
+		mientras(x < 4){
+			imprimir_usuario(arreglo_personas[x]);
+			x++;
+		}
+	
+}
+
+
+Persona Informacion(cadena nombre,entero edad,decimal estatura,caracter inicial,entero dpi[]){
+
+	Persona usuario;
+	usuario.nombre = nombre;
+	usuario.edad = edad;
+	usuario.estatura = estatura;
+	usuario.inicial = inicial;
+	usuario.dpi = dpi;
+	
+	retornar usuario;
+}
+
+vacio imprimir_usuario(Persona usuario){
+	
+	imprimir("-------VALORES DE LA ESTRUCTURA-------");
+	imprimir("Nombre: "+usuario.nombre);
+	imprimir("Edad: "+usuario.edad);
+	imprimir("Estatura: "+usuario.estatura);
+	imprimir("Inicial: "+usuario.inicial);
+	
+	imprimir("DPI: ");
+	entero x = 0;
+	
+	mientras(x < 13){
+		imprimir(usuario.dpi[x]);
+		x++;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

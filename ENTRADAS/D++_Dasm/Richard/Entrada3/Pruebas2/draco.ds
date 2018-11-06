@@ -1,0 +1,7 @@
+
+print("iniciando las pruebas de dracoscript");
+
+
+runMultDasm("main.dasm");
+
+print("finalizando analisis");

@@ -1,0 +1,7 @@
+
+print("corriendo Dasm: ");
+
+
+runMultDasm("inicio.dasm");
+
+print("terminado el dasm");

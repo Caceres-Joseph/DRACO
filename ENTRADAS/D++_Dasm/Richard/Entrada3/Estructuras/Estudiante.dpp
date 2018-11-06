@@ -1,0 +1,31 @@
+
+estructura Estudiante
+{
+    cadena nombre;
+    cadena apellido;
+    caracter sexo;
+    entero edad;
+}
+
+/*
+  DEVUELVE UNA NUEVA ESTRUCTURA DE TIPO ESTUDIANTE
+*/
+Estudiante nuevoEstudiante(cadena nombre, cadena apellido, caracter sexo, entero edad)
+{
+    Estudiante e1;
+
+    e1.nombre = nombre;
+    e1.apellido = apellido;
+    e1.sexo = sexo;
+    e1.edad = edad;
+
+    retornar e1;
+}
+
+/*
+  IMPRIME LA INFORMACION DEL ESTUDIANTE EN PANTALLA
+*/
+vacio verInformacionEstudiante(Estudiante e)
+{
+    imprimir("Nombre: "+e.nombre+" | Apellido: "+e.apellido+" | Edad: "+e.edad+" | Sexo: "+e.sexo);
+}

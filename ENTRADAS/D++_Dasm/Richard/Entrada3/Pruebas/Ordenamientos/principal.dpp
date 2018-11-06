@@ -1,0 +1,131 @@
+importar("importado.dpp");
+
+entero arreglo_global[10] = {5,3,2,6,7,89,20,100,45,54};
+entero arreglo_length = 10;
+
+principal(){
+	
+	/**
+	 *ORDENAMIENTO BURBUJA
+	 *
+	 */
+	 
+	entero arreglo_burbuja[10];
+	copiar_arreglo(arreglo_burbuja);
+	Ordenamiento_Burbuja(arreglo_burbuja,arreglo_length);
+	
+	
+	imprimir_arreglo("ARREGLO BURBUJA",arreglo_burbuja);
+	
+	
+	/**
+	 *ORDENAMIENTO QUICKSORT
+	 *
+	 */
+	 
+	entero arreglo_quicksort[10];
+	copiar_arreglo(arreglo_quicksort);
+	Ordenamiento_Quicksort(arreglo_quicksort,0,arreglo_length-1);
+	
+	
+	imprimir_arreglo("ARREGLO QUICKSORT",arreglo_quicksort);
+	
+	/**
+	 *PRUEBAS DE ALGORITMOS RECURSIVOS
+	 *
+	 */
+	 
+	pruebas_recursivas();
+	
+	imprimir_estructura(valores_recursivos);
+	
+	
+}
+
+
+
+vacio Ordenamiento_Burbuja(entero arreglo_burbuja[], entero arreglo_length){
+
+	para(entero i = 0; i < arreglo_length - 1; i++)
+	{
+            para(entero j = 0; j < arreglo_length - 1; j++)
+            {
+                si (arreglo_burbuja[j] < arreglo_burbuja[j + 1])
+                {
+                    entero tmp = arreglo_burbuja[j+1];
+                    arreglo_burbuja[j+1] = arreglo_burbuja[j];
+                    arreglo_burbuja[j] = tmp;
+                }
+            }
+	}
+}
+
+vacio Ordenamiento_Quicksort(entero A[], entero izq, entero der) {
+
+	entero pivote = A[izq]; // tomamos primer elemento como pivote
+	entero i = izq; // i realiza la búsqueda de izquierda a derecha
+	entero j = der; // j realiza la búsqueda de derecha a izquierda
+	entero aux;
+
+	mientras (i < j) {            // mientras no se crucen las búsquedas
+		mientras (A[i] <= pivote && i < j) {
+			i++; // busca elemento mayor que pivote
+		}
+		mientras (A[j] > pivote) {
+			j--;         // busca elemento menor que pivote
+		}
+		si (i < j) {                      // si no se han cruzado                      
+			aux = A[i];                  // los enteroercambia
+			A[i] = A[j];
+			A[j] = aux;
+		}
+	}
+	A[izq] = A[j]; // se coloca el pivote en su lugar de forma que tendremos
+	A[j] = pivote; // los menores a su izquierda y los mayores a su derecha
+	si (izq < j - 1) {
+		Ordenamiento_Quicksort(A, izq, j - 1); // ordenamos subarray izquierdo
+	}
+	si (j + 1 < der) {
+		Ordenamiento_Quicksort(A, j + 1, der); // ordenamos subarray derecho
+	}
+
+}
+
+
+vacio copiar_arreglo(entero arreglo_copia[]){
+	imprimir("ESTOY EN LA COPIA");
+	
+	
+	para(entero x = 0; x < arreglo_length; x++){
+		arreglo_copia[x] = arreglo_global[x];
+	}
+}
+
+vacio imprimir_arreglo(cadena titulo,entero arreglo_imprimir[]){
+
+	imprimir("SE IMPRIMIRA EL: "+titulo);
+
+	para(entero x = 0; x < arreglo_length; x++){
+		imprimir("valor: "+arreglo_imprimir[x]);
+	}
+}
+
+
+
+vacio imprimir_estructura(Recursividad valores_recursivos){
+
+	imprimir("---------------VALORES RECURSIVOS-------------------");
+
+	imprimir("Factorial: "+valores_recursivos.factorial);
+	imprimir("Fibonacci: "+valores_recursivos.fibonacci);
+	imprimir("Ackerman: "+valores_recursivos.ackerman);
+	imprimir("Potencia: "+valores_recursivos.potencia);
+	
+}
+
+
+
+
+
+
+

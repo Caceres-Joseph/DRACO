@@ -1,0 +1,6 @@
+
+print("Iniciando ejecucion de DASM");
+
+runMultDasm("main.dasm");
+
+print("Fin de Ejecucion de DASM");

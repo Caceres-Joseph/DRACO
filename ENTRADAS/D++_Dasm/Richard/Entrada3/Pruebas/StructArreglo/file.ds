@@ -1,0 +1,2 @@
+RunMultDasm('estructuras_arreglos.dasm');
+print("a");

@@ -1,0 +1,24 @@
+estructura Punto
+{
+  entero x;
+  entero y;
+}
+
+Punto nuevoPunto(entero x, entero y)
+{
+  Punto p;
+  p.x = x;
+  p.y = y;
+  retornar p;
+}
+
+vacio principal()
+{
+  Punto coordenadas[3] =
+  {
+    nuevoPunto(1,2),
+    nuevoPunto(3,3),
+    nuevoPunto(5,5)
+  };
+  
+}

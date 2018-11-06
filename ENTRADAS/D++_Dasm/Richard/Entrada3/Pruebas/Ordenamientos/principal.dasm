@@ -1,0 +1,4380 @@
+get_global 0 //APUNTADOR QUE QUEDERÁ GUARDADO EN TODAS LAS DECLARACIONES GLOBALES.
+//RESERVO ESPACIO PARA LAS VARIABLES GLOBALES 
+get_global 0 
+3//Numero de declaraciones globales
+add //Aumento el puntero en el heap
+set_global 0 //Actualizo la posición en el heap.
+get_global 0 //Posición inicial del arreglo en el heap
+tee_global $calc //Guardo la posicion de inicio del heap
+ 
+//....RESERVAR ARREGLO....
+
+//----DECLARACION DE LA VARAIBLE QUE LLEVARÁ EL ITERADOR: i
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+get_local 0   //posicion actual en el puntero de la pila
+3  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+//MULTIPLICACIÓN DE LAS DIMENSIONES PARA CALCULAR SU TAMAÑO.
+10
+set_local $calc   //asignación del valor en la pila
+//--Guardar el valor de las dimensiones al inicio del arreglo.
+get_global 0
+10
+set_global $calc
+get_global 0
+1 
+add 
+set_global 0
+$l1:     //Inicio del ciclo. 
+//----CONDICIÓN DEL CICLO i < base: i
+get_local 0
+2
+add
+get_local $calc
+
+get_local 0
+3
+add
+get_local $calc
+
+Lt
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l2   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l3  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l2:  //Inicio de la lista de instrucciones. 
+//----heap[i] el valor 
+get_global 0  //Puntero actual del heap
+0  //Valor inicial en la posición h[i]
+set_global $calc  //Guardar valor inicial
+//---H = H+1
+get_global 0 //valor actual del puntero del heap
+1 //Aumenta el puntero un tamaño en uno.
+add //Aumento del puntero
+set_global 0 //se actualiza el valor del puntero del heap.
+//----ITERADOR = ITERADOR + 1
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+Br $l1  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l3:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+
+
+//.....FIN ARREGLO.....
+1
+add //Aumento puntero guardado
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+0//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+5
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+1//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+3
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+2//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+2
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+3//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+6
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+4//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+7
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+5//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+89
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+6//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+20
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+7//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+100
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+8//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+45
+//VALOR.
+set_global $calc
+//INICIALIZAR ARREGLO CON VALORES DE LA FORMA DE {}{}{}{}------------------.....------
+1
+get_global $calc //Posicion donde inicia el arreglo.
+1//Numero de dimensiones
+add //Me coloco en la primera posicion que tiene valores del arreglo.
+9//Posición donde irá el valor en el arreglo.
+add //Obtengo la posición donde irá el valor
+54
+//VALOR.
+set_global $calc
+//...Inicio declaracion
+10
+  //valor inicial de la variable
+tee_global $calc  //asignación del valor en el heap
+1
+add //Aumento uno en el heap en una declaracion global.
+//...Fin Declaración
+//DECLARACION DE UNA ESTRUCTURA GLOBAL--------------------
+get_global 0 //Posición inicial del struct en el heap
+tee_global $calc //Se coloca el valor del puntero del heap en el stack
+ get_global 0 //posicion del heap antes de entrar a la declaracion.
+get_global 0
+4
+add 
+set_global 0
+//DECLARACION EN STRUCT***************
+0//Valor inicial de la variable del struct
+tee_global $calc  //asignación del valor en el heap
+1
+add
+//DECLARACION EN STRUCT***************
+0//Valor inicial de la variable del struct
+tee_global $calc  //asignación del valor en el heap
+1
+add
+//DECLARACION EN STRUCT***************
+0//Valor inicial de la variable del struct
+tee_global $calc  //asignación del valor en el heap
+1
+add
+//DECLARACION EN STRUCT***************
+0//Valor inicial de la variable del struct
+tee_global $calc  //asignación del valor en el heap
+1
+add
+br_if $l4
+$l4:
+1 
+add 
+br_if $l5
+$l5:
+Function $principal
+get_local 0 //Apuntador de la pila
+0//Posición donde se encuentra la variable del arreglo
+add //Posición donde se guardará en la pila
+ get_global 0 //Posición inicial del arreglo en el heap
+set_local $calc //Se coloca el valor del puntero del heap en el stack
+ 
+//....RESERVAR ARREGLO....
+
+//----DECLARACION DE LA VARAIBLE QUE LLEVARÁ EL ITERADOR: i
+get_local 0   //posicion actual en el puntero de la pila
+1  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+//MULTIPLICACIÓN DE LAS DIMENSIONES PARA CALCULAR SU TAMAÑO.
+10
+set_local $calc   //asignación del valor en la pila
+//--Guardar el valor de las dimensiones al inicio del arreglo.
+get_global 0
+10
+set_global $calc
+get_global 0
+1 
+add 
+set_global 0
+$l6:     //Inicio del ciclo. 
+//----CONDICIÓN DEL CICLO i < base: i
+get_local 0
+1
+add
+get_local $calc
+
+get_local 0
+2
+add
+get_local $calc
+
+Lt
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l7   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l8  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l7:  //Inicio de la lista de instrucciones. 
+//----heap[i] el valor 
+get_global 0  //Puntero actual del heap
+0  //Valor inicial en la posición h[i]
+set_global $calc  //Guardar valor inicial
+//---H = H+1
+get_global 0 //valor actual del puntero del heap
+1 //Aumenta el puntero un tamaño en uno.
+add //Aumento del puntero
+set_global 0 //se actualiza el valor del puntero del heap.
+//----ITERADOR = ITERADOR + 1
+get_local 0
+1
+add
+get_local 0
+1
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+Br $l6  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l8:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+
+
+//.....FIN ARREGLO.....
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $copiar_arreglo_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+get_local 0
+1
+add 
+2
+add 
+2
+get_global $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Ordenamiento_Burbuja_INT_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+71 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+76 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+66 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+85 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+66 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+85 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+74 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+set_local $calc
+get_local 0
+1
+add 
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_arreglo_STRING_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+get_local 0 //Apuntador de la pila
+1//Posición donde se encuentra la variable del arreglo
+add //Posición donde se guardará en la pila
+ get_global 0 //Posición inicial del arreglo en el heap
+set_local $calc //Se coloca el valor del puntero del heap en el stack
+ 
+//....RESERVAR ARREGLO....
+
+//----DECLARACION DE LA VARAIBLE QUE LLEVARÁ EL ITERADOR: i
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+get_local 0   //posicion actual en el puntero de la pila
+3  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+//MULTIPLICACIÓN DE LAS DIMENSIONES PARA CALCULAR SU TAMAÑO.
+10
+set_local $calc   //asignación del valor en la pila
+//--Guardar el valor de las dimensiones al inicio del arreglo.
+get_global 0
+10
+set_global $calc
+get_global 0
+1 
+add 
+set_global 0
+$l9:     //Inicio del ciclo. 
+//----CONDICIÓN DEL CICLO i < base: i
+get_local 0
+2
+add
+get_local $calc
+
+get_local 0
+3
+add
+get_local $calc
+
+Lt
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l10   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l11  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l10:  //Inicio de la lista de instrucciones. 
+//----heap[i] el valor 
+get_global 0  //Puntero actual del heap
+0  //Valor inicial en la posición h[i]
+set_global $calc  //Guardar valor inicial
+//---H = H+1
+get_global 0 //valor actual del puntero del heap
+1 //Aumenta el puntero un tamaño en uno.
+add //Aumento del puntero
+set_global 0 //se actualiza el valor del puntero del heap.
+//----ITERADOR = ITERADOR + 1
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+Br $l9  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l11:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+
+
+//.....FIN ARREGLO.....
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+1
+add
+get_local $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $copiar_arreglo_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+1
+add
+get_local $calc
+set_local $calc
+get_local 0
+1
+add 
+2
+add 
+0
+set_local $calc
+get_local 0
+2
+add 
+2
+add 
+2
+get_global $calc
+
+1
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Ordenamiento_Quicksort_INT_INT_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+71 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+76 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+81 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+85 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+73 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+67 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+75 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+83 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+84 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+set_local $calc
+get_local 0
+1
+add 
+2
+add 
+get_local 0
+1
+add
+get_local $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_arreglo_STRING_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $pruebas_recursivas//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+3
+get_global $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_estructura_Recursividad//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+End
+Function $Ordenamiento_Burbuja_INT_INT
+
+//....Ciclo For....
+//...Inicio declaracion
+get_local 0 //posicion actual en el puntero de la pila
+2 //posición de la variable en la pila
+add    //colocar la posición de la variable en la pilita
+0
+set_local $calc    //asignación del valor en la pila
+//...Fin Declaración
+  //inicializador del iterador.
+$l12:     //Inicio del ciclo. 
+get_local 0
+2
+add
+get_local $calc
+
+get_local 0
+1
+add
+get_local $calc
+
+1
+
+Diff
+
+Lt
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l13   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l14  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l13:  //Inicio de la lista de instrucciones. 
+
+//....Ciclo For....
+//...Inicio declaracion
+get_local 0 //posicion actual en el puntero de la pila
+3 //posición de la variable en la pila
+add    //colocar la posición de la variable en la pilita
+0
+set_local $calc    //asignación del valor en la pila
+//...Fin Declaración
+  //inicializador del iterador.
+$l15:     //Inicio del ciclo. 
+get_local 0
+3
+add
+get_local $calc
+
+get_local 0
+1
+add
+get_local $calc
+
+1
+
+Diff
+
+Lt
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l16   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l17  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l16:  //Inicio de la lista de instrucciones. 
+//........Inicio If
+//INDICE.
+get_local 0
+3
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l21   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l21:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+3
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+
+//INDICE.
+get_local 0
+3
+add
+get_local $calc
+
+1
+
+Add
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l22   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l22:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+3
+add
+get_local $calc
+
+1
+
+Add
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+
+Lt
+eqz   //Validación if
+br_if $l18   //salto etiqueta verdadero
+br $l19  //goto etiqueta falso
+$l18:    //inicio etiqueta verdadero
+//...Inicio declaracion
+get_local 0   //posicion actual en el puntero de la pila
+4  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+//INDICE.
+get_local 0
+3
+add
+get_local $calc
+
+1
+
+Add
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l23   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l23:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+3
+add
+get_local $calc
+
+1
+
+Add
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+  //valor inicial de la variable
+set_local $calc   //asignación del valor en la pila
+//...Fin Declaración
+//INDICE.
+get_local 0
+3
+add
+get_local $calc
+
+1
+
+Add
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l24   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l24:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+3
+add
+get_local $calc
+
+1
+
+Add
+
+add //Se suma la posicion del arreglo.
+//INDICE.
+get_local 0
+3
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l25   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l25:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+3
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+//INDICE.
+get_local 0
+3
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l26   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l26:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+3
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_local 0
+4
+add
+get_local $calc
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+br $l20   //salto etiqueta salida
+$l19:    //inicio de la etiqueta falsa
+//.........Fin If
+$l20:
+get_local 0 
+ 3
+add 
+get_local 0
+3
+add
+get_local $calc
+
+1
+add 
+set_local $calc
+ //Incremento del iterador. 
+Br $l15  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l17:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin For.....
+get_local 0 
+ 2
+add 
+get_local 0
+2
+add
+get_local $calc
+
+1
+add 
+set_local $calc
+ //Incremento del iterador. 
+Br $l12  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l14:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin For.....
+End
+Function $Ordenamiento_Quicksort_INT_INT_INT
+//...Inicio declaracion
+get_local 0   //posicion actual en el puntero de la pila
+3  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+//INDICE.
+get_local 0
+1
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l27   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l27:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+1
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+  //valor inicial de la variable
+set_local $calc   //asignación del valor en la pila
+//...Fin Declaración
+//...Inicio declaracion
+get_local 0   //posicion actual en el puntero de la pila
+4  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+get_local 0
+1
+add
+get_local $calc
+  //valor inicial de la variable
+set_local $calc   //asignación del valor en la pila
+//...Fin Declaración
+//...Inicio declaracion
+get_local 0   //posicion actual en el puntero de la pila
+5  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+get_local 0
+2
+add
+get_local $calc
+  //valor inicial de la variable
+set_local $calc   //asignación del valor en la pila
+//...Fin Declaración
+//...Inicio declaracion
+get_local 0 //posicion actual en el puntero de la pila
+6 //posición de la variable en la pila
+add    //colocar la posición de la variable en la pilita
+0  //valor inicial de la variable
+set_local $calc    //asignación del valor en la pila
+//...Fin Declaración
+//...........Inicio While
+$l28:     //Inicio del ciclo. 
+get_local 0
+4
+add
+get_local $calc
+
+get_local 0
+5
+add
+get_local $calc
+
+Lt
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l29   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l30  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l29:  //Inicio de la lista de instrucciones. 
+//...........Inicio While
+$l31:     //Inicio del ciclo. 
+//INDICE.
+get_local 0
+4
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l34   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l34:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+4
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+
+get_local 0
+3
+add
+get_local $calc
+
+Lte
+
+get_local 0
+4
+add
+get_local $calc
+
+get_local 0
+5
+add
+get_local $calc
+
+Lt
+
+And
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l32   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l33  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l32:  //Inicio de la lista de instrucciones. 
+get_local 0 
+ 4
+add 
+get_local 0
+4
+add
+get_local $calc
+
+1
+add 
+set_local $calc
+Br $l31  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l33:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin while
+//...........Inicio While
+$l35:     //Inicio del ciclo. 
+//INDICE.
+get_local 0
+5
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l38   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l38:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+5
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+
+get_local 0
+3
+add
+get_local $calc
+
+Gt
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l36   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l37  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l36:  //Inicio de la lista de instrucciones. 
+get_local 0 
+ 5
+add 
+get_local 0
+5
+add
+get_local $calc
+
+1
+diff 
+set_local $calc
+Br $l35  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l37:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin while
+//........Inicio If
+get_local 0
+4
+add
+get_local $calc
+
+get_local 0
+5
+add
+get_local $calc
+
+Lt
+eqz   //Validación if
+br_if $l39   //salto etiqueta verdadero
+br $l40  //goto etiqueta falso
+$l39:    //inicio etiqueta verdadero
+get_local 0
+6
+add
+//INDICE.
+get_local 0
+4
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l42   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l42:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+4
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+
+set_local $calc
+//INDICE.
+get_local 0
+4
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l43   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l43:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+4
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+//INDICE.
+get_local 0
+5
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l44   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l44:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+5
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+//INDICE.
+get_local 0
+5
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l45   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l45:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+5
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_local 0
+6
+add
+get_local $calc
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+br $l41   //salto etiqueta salida
+$l40:    //inicio de la etiqueta falsa
+//.........Fin If
+$l41:
+Br $l28  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l30:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin while
+//INDICE.
+get_local 0
+1
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l46   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l46:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+1
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+//INDICE.
+get_local 0
+5
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l47   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l47:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+5
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+//INDICE.
+get_local 0
+5
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l48   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l48:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+5
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_local 0
+3
+add
+get_local $calc
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+//........Inicio If
+get_local 0
+1
+add
+get_local $calc
+
+get_local 0
+5
+add
+get_local $calc
+
+1
+
+Diff
+
+Lt
+eqz   //Validación if
+br_if $l49   //salto etiqueta verdadero
+br $l50  //goto etiqueta falso
+$l49:    //inicio etiqueta verdadero
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+7
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+get_local 0
+1
+add 
+7
+add 
+get_local 0
+1
+add
+get_local $calc
+set_local $calc
+get_local 0
+2
+add 
+7
+add 
+get_local 0
+5
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+7//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Ordenamiento_Quicksort_INT_INT_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+7  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+br $l51   //salto etiqueta salida
+$l50:    //inicio de la etiqueta falsa
+//.........Fin If
+$l51:
+//........Inicio If
+get_local 0
+5
+add
+get_local $calc
+
+1
+
+Add
+
+get_local 0
+2
+add
+get_local $calc
+
+Lt
+eqz   //Validación if
+br_if $l52   //salto etiqueta verdadero
+br $l53  //goto etiqueta falso
+$l52:    //inicio etiqueta verdadero
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+7
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+get_local 0
+1
+add 
+7
+add 
+get_local 0
+5
+add
+get_local $calc
+
+1
+
+Add
+set_local $calc
+get_local 0
+2
+add 
+7
+add 
+get_local 0
+2
+add
+get_local $calc
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+7//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Ordenamiento_Quicksort_INT_INT_INT//se hace la llamada a la función para mover puntero IP
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+7  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+br $l54   //salto etiqueta salida
+$l53:    //inicio de la etiqueta falsa
+//.........Fin If
+$l54:
+End
+Function $copiar_arreglo_INT
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+2// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+83 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+84 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+89 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+78 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+76 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+67 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+80 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+73 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+
+//....Ciclo For....
+//...Inicio declaracion
+get_local 0 //posicion actual en el puntero de la pila
+1 //posición de la variable en la pila
+add    //colocar la posición de la variable en la pilita
+0
+set_local $calc    //asignación del valor en la pila
+//...Fin Declaración
+  //inicializador del iterador.
+$l55:     //Inicio del ciclo. 
+get_local 0
+1
+add
+get_local $calc
+
+2
+get_global $calc
+
+Lt
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l56   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l57  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l56:  //Inicio de la lista de instrucciones. 
+//INDICE.
+get_local 0
+1
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l58   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l58:    //inicio etiqueta verdadero
+get_local 0
+0 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+1
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+//INDICE.
+get_local 0
+1
+add
+get_local $calc
+//TAMAÑO.
+1//posicion de la variable del arreglo. 
+get_global $calc //Obtiene el valor de la posición del arreglo en el heap.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l59   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l59:    //inicio etiqueta verdadero
+1//posicion de la variable del arreglo. 
+get_global $calc //Obtiene el valor de la posición del arreglo en el heap.
+1
+add 
+get_local 0
+1
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+set_global $calc //ASIGNAR VALOR EN LA POSICIÓN DEL ARREGLO.
+get_local 0 
+ 1
+add 
+get_local 0
+1
+add
+get_local $calc
+
+1
+add 
+set_local $calc
+ //Incremento del iterador. 
+Br $l55  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l57:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin For.....
+End
+Function $imprimir_arreglo_STRING_INT
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--------INICIO CONCATENACIÓN----------
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+83 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+73 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+77 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+80 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+73 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+77 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+73 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+76 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+58 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//PARAMETRO2
+get_local 0 // me posiciono en el inicio de la función actual.
+1 // busco la posición del parametro que voy a pasar
+add //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+get_local 0
+0
+add
+get_local $calc
+ // Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ConcatenarString //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+
+//....Ciclo For....
+//...Inicio declaracion
+get_local 0 //posicion actual en el puntero de la pila
+2 //posición de la variable en la pila
+add    //colocar la posición de la variable en la pilita
+0
+set_local $calc    //asignación del valor en la pila
+//...Fin Declaración
+  //inicializador del iterador.
+$l60:     //Inicio del ciclo. 
+get_local 0
+2
+add
+get_local $calc
+
+2
+get_global $calc
+
+Lt
+    //Codigo de la condición, se asume que el valor de la condición ya está en la pilita.
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l61   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l62  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l61:  //Inicio de la lista de instrucciones. 
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--------INICIO CONCATENACIÓN----------
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+118 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+97 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+108 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+111 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+114 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+58 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//PARAMETRO2
+get_local 0 // me posiciono en el inicio de la función actual.
+1 // busco la posición del parametro que voy a pasar
+add //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+
+//=============CONVERTIR VALOR ENTERO A STRING PARA CONCATENAR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+//INDICE.
+get_local 0
+2
+add
+get_local $calc
+//TAMAÑO.
+get_local 0
+1 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+0//numero de dimensión
+add 
+get_global $calc //Obtiene el valor de la posición del heap. 
+Lt //Valor_Indice < Tamaño_Dimension
+Eqz //Valida si es menor
+br_if $l63   //salto etiqueta verdadero
+br $error_arreglo  //goto etiqueta falso
+$l63:    //inicio etiqueta verdadero
+get_local 0
+1 //posicion de la variable del arreglo.
+add 
+get_local $calc //Obtiene el valor de la posicion del arreglo.
+1
+add 
+get_local 0
+2
+add
+get_local $calc
+
+add //Se suma la posicion del arreglo.
+get_global $calc //Se obtiene el valor de la posición del arreglo.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+set_local 0 //Se cambia el valor del puntero en la stack
+call $double_to_int //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+1 //POR SER EL SEGUNDO OPERADOR SE RESTA UNO MÁS.
+diff 
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION==================
+ // Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ConcatenarString //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+get_local 0 
+ 2
+add 
+get_local 0
+2
+add
+get_local $calc
+
+1
+add 
+set_local $calc
+ //Incremento del iterador. 
+Br $l60  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l62:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//.......fin For.....
+End
+Function $imprimir_estructura_Recursividad
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+86 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+76 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+83 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+69 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+67 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+85 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+82 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+83 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+73 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+86 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+79 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+83 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+45 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--------INICIO CONCATENACIÓN----------
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+70 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+97 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+99 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+116 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+111 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+114 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+105 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+97 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+108 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+58 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//PARAMETRO2
+get_local 0 // me posiciono en el inicio de la función actual.
+1 // busco la posición del parametro que voy a pasar
+add //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+
+//=============CONVERTIR VALOR ENTERO A STRING PARA CONCATENAR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+get_local 0 
+0  //Posición del objeto en la pila.
+add //Posición del inicio del struct en el stack
+get_local $calc //Obtener valor del apuntador del heap.
+0  //Posición del atributo en el struct
+add
+get_global $calc //Obtener el valor de la posición del heap.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+set_local 0 //Se cambia el valor del puntero en la stack
+call $double_to_int //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+1 //POR SER EL SEGUNDO OPERADOR SE RESTA UNO MÁS.
+diff 
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION==================
+ // Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ConcatenarString //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--------INICIO CONCATENACIÓN----------
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+70 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+105 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+98 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+111 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+110 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+97 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+99 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+99 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+105 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+58 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//PARAMETRO2
+get_local 0 // me posiciono en el inicio de la función actual.
+1 // busco la posición del parametro que voy a pasar
+add //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+
+//=============CONVERTIR VALOR ENTERO A STRING PARA CONCATENAR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+get_local 0 
+0  //Posición del objeto en la pila.
+add //Posición del inicio del struct en el stack
+get_local $calc //Obtener valor del apuntador del heap.
+1  //Posición del atributo en el struct
+add
+get_global $calc //Obtener el valor de la posición del heap.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+set_local 0 //Se cambia el valor del puntero en la stack
+call $double_to_int //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+1 //POR SER EL SEGUNDO OPERADOR SE RESTA UNO MÁS.
+diff 
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION==================
+ // Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ConcatenarString //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--------INICIO CONCATENACIÓN----------
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+65 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+99 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+107 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+101 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+114 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+109 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+97 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+110 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+58 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//PARAMETRO2
+get_local 0 // me posiciono en el inicio de la función actual.
+1 // busco la posición del parametro que voy a pasar
+add //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+
+//=============CONVERTIR VALOR ENTERO A STRING PARA CONCATENAR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+get_local 0 
+0  //Posición del objeto en la pila.
+add //Posición del inicio del struct en el stack
+get_local $calc //Obtener valor del apuntador del heap.
+2  //Posición del atributo en el struct
+add
+get_global $calc //Obtener el valor de la posición del heap.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+set_local 0 //Se cambia el valor del puntero en la stack
+call $double_to_int //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+1 //POR SER EL SEGUNDO OPERADOR SE RESTA UNO MÁS.
+diff 
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION==================
+ // Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ConcatenarString //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+
+//--Función Imprimir
+
+//=============LLAMADA A FUNCIÓN IMPRIMIR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--------INICIO CONCATENACIÓN----------
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+//--GUARDAR STRING: Se guarda el puntero del heap el numero de veces del tamaño de la cadena.
+get_global 0 //Posicion que quedará hasta el final de la cadena.
+get_global 0 
+80 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+111 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+116 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+101 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+110 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+99 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+105 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+97 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+58 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+32 //Caracter en ASCII 
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+92//Caracter ACII final cadena
+tee_global $calc //Se guarda el valor en el stack
+1 //Posición del caracter 
+add 
+set_global 0 //Actualizar valor del puntero 
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//PARAMETRO2
+get_local 0 // me posiciono en el inicio de la función actual.
+1 // busco la posición del parametro que voy a pasar
+add //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+
+//=============CONVERTIR VALOR ENTERO A STRING PARA CONCATENAR===========================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+get_local 0 
+0  //Posición del objeto en la pila.
+add //Posición del inicio del struct en el stack
+get_local $calc //Obtener valor del apuntador del heap.
+3  //Posición del atributo en el struct
+add
+get_global $calc //Obtener el valor de la posición del heap.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+1 //POR SER EL SEGUNDO OPERADOR SE SUMA UNO MÁS.
+add 
+set_local 0 //Se cambia el valor del puntero en la stack
+call $double_to_int //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+1 //POR SER EL SEGUNDO OPERADOR SE RESTA UNO MÁS.
+diff 
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION==================
+ // Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ConcatenarString //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $imprimir_cadena //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN IMPRIMIR==================
+%c
+//Valor a imprimir...
+10
+Print
+End
+Function $pruebas_recursivas
+3
+get_global $calc
+0  //Posición del atributo en el struct
+add //Se coloca en la pilita la posición del atributo, listo para asingar.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+0
+add 
+6
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+0//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $factorial_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+0  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+set_global $calc
+3
+get_global $calc
+1  //Posición del atributo en el struct
+add //Se coloca en la pilita la posición del atributo, listo para asingar.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+0
+add 
+6
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+0//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $fibonacci_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+0  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+set_global $calc
+3
+get_global $calc
+2  //Posición del atributo en el struct
+add //Se coloca en la pilita la posición del atributo, listo para asingar.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+0
+add 
+3
+set_local $calc
+get_local 0
+1
+add 
+0
+add 
+4
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+0//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ackermann_INT_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+0  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+set_global $calc
+3
+get_global $calc
+3  //Posición del atributo en el struct
+add //Se coloca en la pilita la posición del atributo, listo para asingar.
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+0
+add 
+4.0
+set_local $calc
+get_local 0
+1
+add 
+0
+add 
+2
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+0//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Potencia_DOUBLE_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+0  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+set_global $calc
+End
+Function $factorial_INT
+//........Inicio If
+get_local 0
+0
+add
+get_local $calc
+
+0
+
+Diff
+Eqz
+eqz   //Validación if
+br_if $l64   //salto etiqueta verdadero
+br $l65  //goto etiqueta falso
+$l64:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+1
+add 
+1
+set_local $calc
+br $l67//Salida de la función.
+//.....FIN RETORNO....
+br $l66   //salto etiqueta salida
+$l65:    //inicio de la etiqueta falsa
+//.........Fin If
+//.........Inicio If
+//....INICIO RETORNO....
+get_local 0
+1
+add 
+get_local 0
+0
+add
+get_local $calc
+
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $factorial_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+Mult
+set_local $calc
+br $l70//Salida de la función.
+//.....FIN RETORNO....
+br $l69  //salto etiqueta salida
+//.........Fin If
+$l66:
+$l69:
+$l67:
+$l70:
+End
+Function $fibonacci_INT
+//........Inicio If
+get_local 0
+0
+add
+get_local $calc
+
+0
+
+Diff
+Eqz
+eqz   //Validación if
+br_if $l71   //salto etiqueta verdadero
+br $l72  //goto etiqueta falso
+$l71:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+1
+add 
+0
+set_local $calc
+br $l74//Salida de la función.
+//.....FIN RETORNO....
+br $l73   //salto etiqueta salida
+$l72:    //inicio de la etiqueta falsa
+//.........Fin If
+//........Inicio If
+get_local 0
+0
+add
+get_local $calc
+
+1
+
+Diff
+Eqz
+eqz   //Validación if
+br_if $l75   //salto etiqueta verdadero
+br $l76  //goto etiqueta falso
+$l75:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+1
+add 
+1
+set_local $calc
+br $l78//Salida de la función.
+//.....FIN RETORNO....
+br $l77   //salto etiqueta salida
+$l76:    //inicio de la etiqueta falsa
+//.........Fin If
+//.........Inicio If
+//....INICIO RETORNO....
+get_local 0
+1
+add 
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $fibonacci_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+
+2
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+2//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $fibonacci_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+2  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+Add
+set_local $calc
+br $l81//Salida de la función.
+//.....FIN RETORNO....
+br $l80  //salto etiqueta salida
+//.........Fin If
+$l73:
+$l77:
+$l80:
+$l74:
+$l78:
+$l81:
+End
+Function $ackermann_INT_INT
+//........Inicio If
+get_local 0
+0
+add
+get_local $calc
+
+0
+
+Diff
+Eqz
+eqz   //Validación if
+br_if $l82   //salto etiqueta verdadero
+br $l83  //goto etiqueta falso
+$l82:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+2
+add 
+get_local 0
+1
+add
+get_local $calc
+
+1
+
+Add
+set_local $calc
+br $l85//Salida de la función.
+//.....FIN RETORNO....
+br $l84   //salto etiqueta salida
+$l83:    //inicio de la etiqueta falsa
+//.........Fin If
+//........Inicio If
+get_local 0
+0
+add
+get_local $calc
+
+0
+
+Gt
+
+get_local 0
+1
+add
+get_local $calc
+
+0
+
+Diff
+Eqz
+
+And
+eqz   //Validación if
+br_if $l86   //salto etiqueta verdadero
+br $l87  //goto etiqueta falso
+$l86:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+2
+add 
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+3
+add 
+get_local 0
+0
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+get_local 0
+1
+add 
+3
+add 
+1
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ackermann_INT_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+3  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+set_local $calc
+br $l89//Salida de la función.
+//.....FIN RETORNO....
+br $l88   //salto etiqueta salida
+$l87:    //inicio de la etiqueta falsa
+//.........Fin If
+//.........Inicio If
+//....INICIO RETORNO....
+get_local 0
+2
+add 
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+3
+add 
+get_local 0
+0
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+get_local 0
+1
+add 
+3
+add 
+//ESTO ES UNA LLAMADA QUE VA COMO PARAMETRO-----------......]]]]]]]]]]
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+3
+add 
+3
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+get_local 0
+1
+add 
+3
+add 
+3
+add 
+get_local 0
+1
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+3
+add
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ackermann_INT_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+3  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+3
+diff 
+set_local 0  //Se regresa el valor del puntero en la stack.
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $ackermann_INT_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+3  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+set_local $calc
+br $l92//Salida de la función.
+//.....FIN RETORNO....
+br $l91  //salto etiqueta salida
+//.........Fin If
+$l84:
+$l88:
+$l91:
+$l85:
+$l89:
+$l92:
+End
+Function $Potencia_DOUBLE_INT
+//........Inicio If
+get_local 0
+1
+add
+get_local $calc
+
+0
+
+Diff
+Eqz
+eqz   //Validación if
+br_if $l93   //salto etiqueta verdadero
+br $l94  //goto etiqueta falso
+$l93:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+2
+add 
+1
+set_local $calc
+br $l96//Salida de la función.
+//.....FIN RETORNO....
+br $l95   //salto etiqueta salida
+$l94:    //inicio de la etiqueta falsa
+//.........Fin If
+//.........Inicio If
+//........Inicio If
+get_local 0
+1
+add
+get_local $calc
+
+1
+
+Diff
+Eqz
+eqz   //Validación if
+br_if $l99   //salto etiqueta verdadero
+br $l100  //goto etiqueta falso
+$l99:    //inicio etiqueta verdadero
+//....INICIO RETORNO....
+get_local 0
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+br $l102//Salida de la función.
+//.....FIN RETORNO....
+br $l101   //salto etiqueta salida
+$l100:    //inicio de la etiqueta falsa
+//.........Fin If
+//.........Inicio If
+//....INICIO RETORNO....
+get_local 0
+2
+add 
+get_local 0
+0
+add
+get_local $calc
+
+//INICIO DE LA FUNCIÓN: PASO DE PARAMETROS--------------------
+get_local 0
+0
+add 
+3
+add 
+get_local 0
+0
+add
+get_local $calc
+set_local $calc
+get_local 0
+1
+add 
+3
+add 
+get_local 0
+1
+add
+get_local $calc
+
+1
+
+Diff
+set_local $calc
+//CAMBIO AMBITO AUMENTO PILA---------------------------
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3//Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Potencia_DOUBLE_INT//se hace la llamada a la función para mover puntero IP
+//RETORNO DE LA FUNCION-------------
+get_local 0 //Se coloca el puntero al inicio de la pilita
+2
+add  //se suma el valor que corresponde a la posición del retorno
+get_local $calc  //Coloca el valor del retorno en la pilita
+//REGRESAR PUNTERO PILA-------------------------------
+get_local 0   //Se coloca el puntero al inicio de la pilita
+3  //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff   //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0  //Se regresa el valor del puntero en la stack.
+
+Mult
+set_local $calc
+br $l105//Salida de la función.
+//.....FIN RETORNO....
+br $l104  //salto etiqueta salida
+//.........Fin If
+$l101:
+$l104:
+br $l98  //salto etiqueta salida
+//.........Fin If
+$l95:
+$l98:
+$l96:
+$l102:
+$l105:
+End
+Function $ConcatenarString
+get_global 0 //VALOR DONDE INICIA LA CONCATENACIÓN.
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+$l108:
+get_local 0 //Posición del primer parametro
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+92 //valor del caracter del final de cadena
+diff 
+eqz  //verifica que los caracteres sean iguales
+br_if $l106   //salto etiqueta verdadero
+br $l107  //goto etiqueta falso
+$l106:    //inicio etiqueta verdadero
+get_global 0 //valor actual del apuntador del heap
+get_local 0 //Posición del primer parametro en el heap
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //Obtengo el valor del caracter
+set_global $calc //Guardo el valor del caracter en la posicion actual del heap
+get_global 0
+1 
+add 
+set_global 0 //Aumente el valor del puntero del heap.
+ //----ITERADOR = ITERADOR + 1
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+br $l108
+$l107:
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+$l109:
+get_local 0 //Posición del primer parametro
+1 
+add 
+get_local $calc
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+92 //valor del caracter del final de cadena
+diff 
+eqz  //verifica que los caracteres sean iguales
+br_if $l110   //salto etiqueta verdadero
+br $l111  //goto etiqueta falso
+$l110:    //inicio etiqueta verdadero
+get_global 0 //valor actual del apuntador del heap
+get_local 0 //Posición del primer parametro
+1 
+add 
+get_local $calc
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //Obtengo el valor del caracter
+set_global $calc //Guardo el valor del caracter en la posicion actual del heap
+get_global 0
+1 
+add 
+set_global 0 //Aumente el valor del puntero del heap.
+ //----ITERADOR = ITERADOR + 1
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+br $l109
+$l111:
+get_global 0 //valor actual del heap
+92 //caracter final de la concatenación
+set_global $calc //Se copia el final de cadena
+get_global 0 //valor actual del heap 
+1 
+add 
+set_global 0 
+End
+
+
+
+Function $double_to_int
+get_global 0 //POSICION DONDE INICIA EL VALOR EN STRING 
+
+//VALIDAR QUE EL NUMERO A CONVERTIR SEA NEGATIVO.
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+get_local $calc
+0
+Lt //numero<0
+eqz 
+br_if $l112
+br $l113
+$l112:
+get_local 0 //POSICION PARA ACTUALIZAR VALOR.
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+get_local $calc
+-1
+mult 
+set_local $calc
+get_global 0
+45
+set_global $calc
+get_global 0
+1 
+add 
+set_global 0
+$l113:
+//========================INICIO LLAMADA A INT_TO_STRING==================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+get_local 0
+get_local $calc
+// Traducción del valor que se va a pasar como parametro
+get_local 0
+get_local $calc
+// VALOR DEL PARAMETRO
+1 
+mod
+diff //RESTA: VALOR-(VALOR%1) = PARTE ENTERA.
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN INT_TOSTRING
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $int_to_string //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION ENTERA.==================
+get_local 0 
+get_local $calc //VALOR DEL PARAMETRO
+1 
+mod
+br_if $l114
+br $l115
+$l115:
+
+ //SE CONCATENA EL PUNTO PARA SEPARAR ENTERO DE DECIMAL
+get_global 0
+46 //ASCII DEL PUNTO
+set_global $calc
+get_global 0 //valor actual del heap 
+1 
+add 
+set_global 0 
+//========================OBTENER LA PARTE DECIMAL DEL NUMERO.==================
+get_local 0 
+get_local 0 
+get_local $calc //VALOR DEL PARAMETRO
+1 
+mod
+100
+mult //multiplico el decimal * 100 y lo convierto a cadena.
+set_local $calc //Actualizo el valor del parametro.
+//========================INICIO LLAMADA A INT_TO_STRING==================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+1// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+get_local 0
+get_local $calc
+// Traducción del valor que se va a pasar como parametro
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN INT_TOSTRING
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $int_to_string //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+1 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN CONVERSION DECIMAL.==================
+$l114:
+get_global 0 //valor actual del heap
+92 //caracter final de la concatenación
+set_global $calc //Se copia el final de cadena
+get_global 0 //valor actual del heap 
+1 
+add 
+set_global 0 
+End
+
+
+
+Function $int_to_string
+//VALOR DE Y
+get_local 0   //posicion actual en el puntero de la pila
+1  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+//VALOR DE r
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+get_local 0  //puntero de la pila donde inicia la función
+get_local $calc //Valor del parametro.
+set_local $calc   //asignación del valor en la pila
+
+//---------------INICIO DE CICLO-----------------
+//-----VALIDAR SI EL VALOR ES > 9
+get_local 0
+2
+add
+get_local $calc
+
+10
+Lt
+eqz 
+br_if $l119
+br $l120
+$l120:
+$l116:
+get_local 0
+2
+add
+get_local $calc
+//Valor del numero de repeticiones: r
+1 //cuando sea igual a cero se termina
+Gte 
+eqz  //verifica que sea mayor que 1
+br_if $l117   //salto etiqueta verdadero
+br $l118  //goto etiqueta falso
+$l117:    //inicio etiqueta verdadero
+//=============|r=
+get_local 0 
+2 //Pos de r
+add //Obtengo la posición de r para asignar nuevo valor.
+//==============|r / 10
+get_local 0
+2
+add
+get_local $calc
+10
+div 
+set_local $calc //R = R/10
+$l119:
+//----Y = Y + 1
+get_local 0
+1
+add
+get_local 0
+1
+add
+get_local $calc
+
+1
+Add
+set_local $calc //Y = Y+1
+br $l116
+$l118:
+get_local 0   //posicion actual en el puntero de la pila
+3  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+//========================INICIO POTENCIA==================
+
+//PARAMETRO1
+get_local 0 // me posiciono en el inicio de la función actual.
+0// busco la posición del parametro que voy a pasar
+add  //Me posicion en el lugar del parametro
+3// se coloca el tamaño de la función para poder guardar la variable
+add //Se suma el tamaño del ambito para poder pasar el parametro a la posición que lo recibe.
+get_local 0
+1
+add
+get_local $calc
+// Traducción del valor que se va a pasar como parametro
+1
+diff
+set_local $calc //guardo el valor en la posición calculada
+
+//LLAMADA DE LA FUNCIÓN CONCATENAR
+get_local 0 //Coloca el valor del puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+add //Suma el valor actual del puntero el tamaño de la función.
+set_local 0 //Se cambia el valor del puntero en la stack
+call $Potencia //se hace la llamada a la función para mover puntero IP
+
+//REGRESAR PUNTERO DEL STACK
+get_local 0 //Se coloca el puntero al inicio de la pilita
+3 //Coloca el valor del tamaño de la función al inicio de la pilita.
+diff //Resta el valo actual del puntero el tamaño de la función para retornar el ambito.
+set_local 0 //Se regresa el valor del puntero en la stack.
+//========================FIN POTENCIA==================
+set_local $calc   //asignación del valor DE LA PONTENCIA
+
+//---------------INICIO DE CICLO-----------------
+$l121:
+get_local 0
+1
+add
+get_local $calc
+//Valor del numero de repeticiones: r
+0 //cuando sea igual a cero se termina
+Gt 
+eqz  //verifica que sea mayor que 1
+br_if $l122   //salto etiqueta verdadero
+br $l123  //goto etiqueta falso
+$l122:    //inicio etiqueta verdadero
+//NUMERO_ENTRADA / POTENCIA
+get_global 0 //obtengo el puntero del heap.
+ get_local 0 
+get_local $calc //obtengo el valor del parametro que es el digito a convertir.
+get_local 0
+3
+add
+get_local $calc
+//TENGO EL VALOR DE LA POTENCIA
+div 
+//TENGO EL VALOR EN NUMERO ENTERO.
+48
+add //LO CONVERTÍ EN ASCII.
+set_global $calc //COLOCO EL ASCII EN EL HEAP.
+get_global 0 //valor actual del heap PARA AUMENTAR.
+1 
+add 
+set_global 0 
+
+//===============valor = valor % inicial;=============
+get_local 0 //posicion actual del parametro
+get_local 0 //valor actual del parametro
+get_local $calc //valor
+get_local 0
+3
+add
+get_local $calc
+
+mod
+set_local $calc //actualizo el valor del parametro.
+
+//===============inicial = inicial / 10;==============
+get_local 0
+3//POSICION DE LA POTENCIA.
+add
+get_local 0
+3
+add
+get_local $calc
+
+10
+div //Potencia / 10
+set_local $calc //Actualizo el valor de la potencia.
+
+//===============num--;==============
+get_local 0
+1//NUMERO DE DIGITOS.
+add
+get_local 0
+1
+add
+get_local $calc
+
+1
+diff
+set_local $calc
+br $l121
+$l123:
+End
+
+
+
+Function $Potencia
+
+//.....INICIO POTENCIA.....
+
+//----DECLARACION DE LA VARAIBLE QUE LLEVARÁ EL ITERADOR: i
+get_local 0   //posicion actual en el puntero de la pila
+1  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+//----DECLARACION DE LA VARAIBLE QUE LLEVARÁ EL RESULTADO: resultado
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+1 //valor inicial del resultado
+set_local $calc   //asignación del valor en la pila
+$l124:     //Inicio del ciclo. 
+//----CONDICIÓN DEL CICLO i < base: i
+get_local 0
+1
+add
+get_local $calc
+
+get_local 0 //Posición del primer parametro
+get_local $calc
+
+Lt
+Eqz   // Se valida que la condición haya sido verdadera.
+Br_if $l125   //Si es verdadera, hace un goto a la etiqueta verdadera.
+Br $l126  //Si la condición es falsa, hace un goto a la etiqueta falsa.
+$l125:  //Inicio de la lista de instrucciones. 
+//----RESULTADO = RESULTADO * BASE
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+10
+Mult
+set_local $calc
+//----ITERADOR = ITERADOR + 1
+get_local 0
+1
+add
+get_local 0
+1
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+Br $l124  //Al finalizar el ciclo, se hace un goto a la etiqueta de inicio del ciclo.
+$l126:  // Inicio de la etiqueta falsa o de salida del ciclo. 
+//COLOCAR VALOR DEL RESULTADO EN LA CIMA.....
+get_local 0
+2
+add
+get_local $calc
+
+
+
+//.....FIN POTENCIA.....
+End
+Function $imprimir_cadena
+get_local 0   //posicion actual en el puntero de la pila
+1  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+$l129:
+get_local 0 //Posición del primer parametro
+get_local $calc 
+get_local 0
+1
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+92 //valor del caracter del final de cadena
+diff 
+eqz  //verifica que los caracteres sean iguales
+br_if $l127   //salto etiqueta verdadero
+br $l128  //goto etiqueta falso
+$l127:    //inicio etiqueta verdadero
+%c
+get_local 0 //Posición del primer parametro
+get_local $calc 
+get_local 0
+1
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+Print
+//----ITERADOR = ITERADOR + 1
+get_local 0
+1
+add
+get_local 0
+1
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+br $l129
+$l128:
+End
+Function $CompararString
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+$l132:
+get_local 0 //Posición del primer parametro
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+get_local 0 //Posición del primer parametro
+1
+add
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+diff 
+eqz  //verifica que los caracteres sean iguales
+eqz  //verifica que los caracteres sean iguales
+br_if $l130   //salto etiqueta verdadero
+br $l131  //goto etiqueta falso
+$l130:    //inicio etiqueta verdadero
+get_local 0 //Posición del primer parametro
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+92 //valor del caracter del final de cadena
+diff 
+eqz  //verifica que los caracteres sean iguales
+br_if $l133   //salto etiqueta verdadero
+br $l134  //goto etiqueta falso
+$l133:    //inicio etiqueta verdadero
+//----ITERADOR = ITERADOR + 1
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+br $l132
+$l134:
+1 //AL SER IGUALES RETORNO UN UNO EN LA PILITA
+br $l135
+$l131:
+0 //AL SER DIFERENTES RETORNO UN CERO EN LA PILITA
+$l135:
+End
+Function $CalcularPesoString
+get_local 0   //posicion actual en el puntero de la pila
+2  //posición de la variable en la pila
+add   //colocar la posición de la variable en la pilita
+0 //valor inicial del iterador
+set_local $calc   //asignación del valor en la pila
+0 //VALOR DE INICIO DE LA SUMA.
+$l138:
+get_local 0 //Posición del primer parametro
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //obtengo el valor del caracter
+92 //valor del caracter del final de cadena
+diff 
+eqz  //verifica que los caracteres sean iguales
+br_if $l136   //salto etiqueta verdadero
+br $l137  //goto etiqueta falso
+$l136:    //inicio etiqueta verdadero
+get_local 0 //Posición del primer parametro en el heap
+get_local $calc 
+get_local 0
+2
+add
+get_local $calc
+
+add //Valor de la posición del caracter actual
+get_global $calc //Obtengo el valor del caracter
+add //VOY SUMANDO EL VALOR DE LOS CARACTERES.
+//----ITERADOR = ITERADOR + 1
+get_local 0
+2
+add
+get_local 0
+2
+add
+get_local $calc
+
+1
+Add
+set_local $calc
+br $l138
+$l137:
+End

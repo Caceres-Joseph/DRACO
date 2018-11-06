@@ -1,0 +1,2 @@
+RunMultDasm('pruebas_varias.dasm');
+print("a");

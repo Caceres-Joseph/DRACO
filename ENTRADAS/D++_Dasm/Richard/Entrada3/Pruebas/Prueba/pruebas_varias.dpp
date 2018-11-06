@@ -1,0 +1,92 @@
+estructura struct_prueba{
+	entero a;
+	cadena b;
+	caracter c;
+	booleano d;
+	decimal e;
+	cadena f[2][2];
+}
+
+struct_prueba prueba_struct;
+
+
+principal(){
+    struct_prueba prueba_struct2;
+	
+	
+	
+	llenar_estructura();
+	prueba_struct2 = prueba_struct;
+	
+	entero arreglo[10] = {2,3,4,55,6,7,877,6,5,3};
+	imprimir("Llamada 1: ");
+	imprimir_potencia("potencia de "+2,2^2,arreglo[8],"Sin concatenar",prueba_struct);
+	
+	arreglo = {23,34,4,4,42,3,59,39,29,39};
+	caracter b[5]  = {'m','u','n','d','o'};
+	
+	cadena arreglo2[2][2] = {{"xx","yy"},{"zz","ww"}};
+	prueba_struct2.f = arreglo2;
+	
+	imprimir("Llamada 2: ");
+	imprimir_potencia("potencia de "+3,3^2,arreglo[8],concatenar(b,"Concatenar Hola Mundo"),prueba_struct2);
+	
+	
+	cadena arreglo3[2][2] = prueba_struct.f;
+	
+	imprimir("arreglo3[0][0]:"+arreglo3[0][0]);
+	imprimir("arreglo3[0][1]:"+arreglo3[0][1]);
+	imprimir("arreglo3[1][0]:"+arreglo3[1][0]);
+	imprimir("arreglo3[1][1]:"+arreglo3[1][1]);
+	
+
+	
+}
+
+
+vacio imprimir_potencia(cadena mensaje,entero potencia,entero valor_agregado,cadena concatenado,struct_prueba la_estructura){
+	imprimir("Valor concatendado: "+concatenado);
+	imprimir(mensaje+" :"+potencia);
+	imprimir("valor_agregado: "+valor_agregado);
+	imprimir_estructura(la_estructura);
+}
+
+
+cadena concatenar(caracter b[],cadena titulo){
+
+	cadena hola = "hola";
+
+	imprimir(titulo);
+	para(entero i = 0; i < 5; i++){
+		hola = hola + b[i];
+	}
+	
+	retornar hola;
+}
+
+vacio imprimir_estructura(struct_prueba struct){
+
+	imprimir("a:"+struct.a);
+	imprimir("b:"+struct.b);
+	imprimir("c:"+struct.c);
+	imprimir("d:"+struct.d);
+	imprimir("e:"+struct.e);
+	imprimir("f[0][0]:"+struct.f[0][0]);
+	imprimir("f[0][1]:"+struct.f[0][1]);
+	imprimir("f[1][0]:"+struct.f[1][0]);
+	imprimir("f[1][1]:"+struct.f[1][1]);
+	
+
+}
+
+
+vacio llenar_estructura(){
+	prueba_struct.a = 999;
+	prueba_struct.b = "Estructura llena";
+	prueba_struct.c = 'U';
+	prueba_struct.d = verdadero;
+	prueba_struct.e = 99999.99;
+	prueba_struct.f = {{"aa","bb"},{"cc","dd"}};
+}
+
+

@@ -1,0 +1,6 @@
+
+print("correre el dams: ");
+
+runMultDasm("main.dasm");
+
+print("fin de ejecucion");

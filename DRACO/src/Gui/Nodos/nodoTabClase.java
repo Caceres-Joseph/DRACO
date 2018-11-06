@@ -8,8 +8,11 @@ package Gui.Nodos;
 import Gui.Elementos.elementoGlobal;
 import Gui.Elementos.elementoDebug;  
 import Gui.Listas.lstPuntosDeInterrupcion;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.nio.file.Files;
@@ -72,8 +75,16 @@ public class nodoTabClase {
         String editingCode = contenidoArchivo; 
         String editingTemplate="";
 
-        try {            
-            editingTemplate = new String(Files.readAllBytes(Paths.get("src/Gui/Nodos/nodoEditor.html")));
+        try {       
+            
+            InputStream res= getClass().getResourceAsStream("/Gui/Nodos/nodoEditor.html");
+            BufferedReader buff=new BufferedReader(new InputStreamReader(res));
+            String line="";
+            while((line=buff.readLine())!= null){
+                editingTemplate += line+'\n';
+            }
+            
+//            editingTemplate = new String(Files.readAllBytes(Paths.get("src/Gui/Nodos/nodoEditor.html")));
         } catch (IOException ex) {
             println("[crearEditor][Error]"+ex.getMessage());
         }
@@ -186,6 +197,8 @@ public class nodoTabClase {
         
         try {
             simbolo.debug.iniciar(); 
+            
+            
         }catch(RuntimeException e){
             println("[ejecutar][Error]"+e.getMessage()); 
         } 

@@ -1,0 +1,2 @@
+RunMultDasm('escenario.dasm');
+print("a");

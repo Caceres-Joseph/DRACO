@@ -1,0 +1,13 @@
+importar("Estudiante.dpp");
+/*
+  METODO PRINCIPAL
+*/
+vacio principal()
+{
+    Estudiante e1 = nuevoEstudiante("Ricardo", "Cutz", 'M', 22);
+    Estudiante e2 = nuevoEstudiante("Juan", "Perez", 'M', 19);
+    Estudiante e3 = nuevoEstudiante("Luisa", "Perez", 'F', 22);
+    verInformacionEstudiante(e1);
+    verInformacionEstudiante(e2);
+    verInformacionEstudiante(e3);
+}

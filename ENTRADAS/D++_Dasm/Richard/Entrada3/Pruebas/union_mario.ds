@@ -1,0 +1,2 @@
+RunMultDasm('DibujoEscenario\escenario.dasm','DibujoMario\Mario.dasm');
+print("A");

@@ -1,0 +1,31 @@
+
+entero global1 = 10;
+entero global2 = 20;
+entero global3 = 30;
+
+
+vacio principal()
+{
+    entero local = 34;
+    imprimir(global1);
+    imprimir(global2);
+    imprimir(global3);
+    imprimir(local); // SE VE LA DIFERENCIA DE LLAMAR UNA GLOBAL A UNA LOCAL...
+    booleano b = !falso;
+
+    si(b)
+    {
+    		imprimir("todo esta bien");
+    }
+}
+
+cadena _decimalToString(decimal numero)
+{
+    entero entera = 10;
+    entero puntodec = 10;
+
+    cadena return = entera + "." + puntodec;
+
+    retornar return;
+}
+

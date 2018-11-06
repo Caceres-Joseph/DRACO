@@ -1,0 +1,16 @@
+
+estructura Persona{
+	entero edad;
+	entero dpi;
+}
+
+vacio principal()
+{
+    entero a = 10;
+
+    booleano f = falso;
+
+    Persona p;
+    
+}
+

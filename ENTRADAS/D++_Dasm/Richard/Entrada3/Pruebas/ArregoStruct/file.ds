@@ -1,0 +1,2 @@
+RunMultDasm('arreglo_struct.dasm');
+print("a");

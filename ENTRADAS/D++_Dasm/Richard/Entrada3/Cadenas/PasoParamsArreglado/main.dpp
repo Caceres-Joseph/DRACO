@@ -1,0 +1,42 @@
+importar("recursivos.dpp");
+
+entero numero1 = 5;
+entero n = 3;
+entero m = 4;
+cadena nombre = "ricardo cutz";
+
+vacio principal()
+{
+	booleano bandera = verdadero;
+	decimal valor = 23.4;
+	entero a = 30;
+	entero b = 40;
+	entero c = 10;
+	entero resultado = num(a,num1(b,a),num1(a, num(1,2,3)));// RESULTADO 64...
+	imprimir(resultado);
+	imprimirResultados(factorial(numero1), fibo(numero1 + numero1), akerman(n,m));
+	imprimir(nombre);
+	/*
+		factorial = 120
+		fibo = 55
+		akerman = 125
+	*/
+}
+
+entero num(entero n, entero m, entero c)
+{
+	retornar n + m + c;
+}
+
+entero num1(entero n, entero m)
+{
+	retornar n-m;
+}
+
+
+vacio imprimirResultados(entero fact, entero fibo, entero akerman)
+{
+	imprimir(fact);
+	imprimir(fibo);
+	imprimir(akerman);
+}

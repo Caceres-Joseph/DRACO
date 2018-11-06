@@ -8,6 +8,7 @@ package Dasm.EstructurasDasm.Heap;
 import Dasm.Estructuras.Elementos.elementoEntorno;
 import Dasm.EstructurasDasm.Stack.stack;
 import Gui.Elementos.elementoGlobal;
+import Gui.Items.itemAtributo;
 
 /**
  *
@@ -17,6 +18,7 @@ public class heap extends stack {
 
     public heap(elementoGlobal simbolo, elementoEntorno entorno) {
         super(simbolo, entorno);
+        set(1, 0, new itemAtributo("", "", 0));
     }
 
     @Override

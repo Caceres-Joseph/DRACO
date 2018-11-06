@@ -1,0 +1,122 @@
+importar("Circulos.dpp");
+principal(){
+    cargar_escenario();
+}
+
+vacio cargar_escenario(){
+    dibujar_Cielo();
+    dibujar_Montanas(700, 650);
+    seleccion(100, 650,200);
+    seleccion(300,650,100);
+    dibujar_Camino(450,700);
+
+    entero centro[2];
+    dibujar_Tubos(centro,400,670);
+   
+    dibujar_Planta(centro[0]-90,centro[1]-225);
+    seleccion(200, 100,300);
+    seleccion(550, 100,300);
+}
+vacio dibujar_Cielo(){
+    cuadrado(0,0,"#99ffff",900,900);
+}
+
+entero dibujar_Montanas(entero x, entero y){
+       // >>comprobación de tipos y casteos implicitos
+        ovalo(x-100,y+50, "#009850",205,305); 
+        ovalo(x-100, y+50, "#00AF50",200,300);
+        ovalo(x, y, "#000000",205,405);
+        ovalo(x, y, "#00AF50",200,400); 
+        ovalo(x+100, y, "#000000",205,355); 
+        ovalo(x+100, y, "#00AF50",200,350); 
+}
+
+
+entero seleccion(entero x, entero y, entero z){
+        si(z==200){
+            imprimir("ARbustos");
+                dibujar_Arbustos(x,y);
+        }sino si(z==300){
+            imprimir("Nubes");
+              dibujar_Nubes(x,y);
+        }sino{
+            imprimir("Arbustos SINO");
+           dibujar_Arbustos(x,y);
+        }
+        
+    }
+
+
+
+entero dibujar_Camino(entero x, entero y){
+    entero y2=0;
+    y2=y2+y+60;
+   cuadrado(x-(1600/2), y2-(150/2), "#E20B0B",1600,150); 
+    entero x2=900;
+    entero aux=0;
+    mientras(x2>0){
+        x2 = x2-30;
+        aux = x2;
+        y2=y;
+        mientras(y2<800){
+            punto(aux, y2, "#F0D58C", 15);
+            y2 = y2+5;
+            aux = aux+5;
+        }
+    }
+  y = y-10;
+    cuadrado(x-(1600/2), y-(35/2), "#000000",1600,35);
+    cuadrado(x-(1600/2), y-(25/2), "#ece2c6",1600,25); 
+}
+
+vacio dibujar_Tubos(entero arreglo[],entero x, entero y){
+ //   arreglo = {0,0};
+    mientras(y>600){
+        cuadrado(x-(135/2), y-(10/2), "#000000",135,10); 
+        cuadrado(x-(125/2), y-(10/2), "#33CC33",125,10); 
+        cuadrado((x-'2')-(10/2), y-(10/2), "#FFFFFF",10,10); 
+        y = y-'d'-90;
+    }
+    cuadrado(x-(165/2), (y-20)-(60/2), "#000000",165,60); 
+    cuadrado(x-(155/2), (y-20)-(50/2), "#33CC33",155,50); 
+    cuadrado((x-60)-(10/2), (y-20)-(50/2),  "#FFFFFF",10,50); 
+    x = x+'?'*2;
+     cuadrado(x-(165/2), (y-'d')-(60/2), "#000000",165,60); 
+    cuadrado(x-(155/2), (y-'d')-(50/2), "#33CC33",155,50); 
+    cuadrado((x-60)-(10/2), (y-'d')-(50/2), "#FFFFFF",10,50); 
+    arreglo[0]=x;
+    arreglo[1]=y;
+    y=y-'A';
+    mientras(y<=670){
+          cuadrado(x-(135/2), y-(10/2), "#000000",135,10); 
+    cuadrado(x-(125/2), y-(10/2), "#33CC33",125,10); 
+    cuadrado((x-50)-(10/2), y-(10/2), "#FFFFFF",10,10); 
+    y =y + (90-80.50);
+    }
+}
+
+entero dibujar_Planta(entero x, entero y){
+    entero matriz[10][10]={{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,1,1,0,0,0,0,0},{0,0,1,2,1,1,1,0,0,0},{0,1,1,1,1,1,0,1,0,0},{0,0,1,1,1,1,0,1,0,0},{0,0,1,1,0,0,0,0,1,0},{0,0,0,0,0,0,0,0,1,0},{0,0,0,0,0,0,0,0,1,0},{0,0,0,0,0,0,0,0,1,0}};
+    entero i2=0;
+    entero j2=0;
+    entero i3=x;
+    entero j3=y;
+    mientras(i2<10){
+        mientras(j2<10){
+            si(matriz[i2][j2]==0){
+                imprimir("n");
+            }sino si(matriz[i2][j2]==1){
+                ovalo(i3, j3, "#00AF50",30,20);
+            }sino si(matriz[i2][j2]==2){
+                 ovalo(i3, j3, "#FFFFFF",30,20);
+            }
+        i3=i3+10;
+        j2++;
+        }
+        i3=x;
+        j3=j3+10;
+        j2=0;
+        i2++;
+    }
+
+}

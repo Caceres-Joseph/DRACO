@@ -1,0 +1,2 @@
+RunMultDasm("Mario.dasm");
+print("a");

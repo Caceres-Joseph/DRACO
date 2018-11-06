@@ -1,0 +1,10 @@
+
+
+vacio principal()
+{
+    //punto(0,0, "#0040FF", 100);
+    ovalo(0,0, "#FF00FF", 100, 100);
+    //linea(100, 100, 100, 300, "#000000",2);
+    //cadena(200, 200, "#0101DF", "Ricardo cutz");
+    //cuadrado(100, 200, "#FF8000", 20,20);
+}

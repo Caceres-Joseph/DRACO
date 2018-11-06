@@ -1,0 +1,120 @@
+estructura struct_prueba{
+	entero a;
+	cadena b;
+	caracter c;
+	booleano d;
+	decimal e;
+	cadena f[2][2];
+	entero g[2][2][2];
+}
+
+struct_prueba arreglo_struct[2][2];
+
+
+principal(){
+	//DECLARACION DE STRUCTS
+	
+	struct_prueba struc1;
+	struct_prueba struc2;
+	struct_prueba struc3;
+	struct_prueba struc4;
+	struct_prueba struc5;
+	
+	//LLENAR ARREGLO
+	arreglo_struct = {{struc1,struc2},{struc3,struc4}};
+	
+	//LLENADO DE STRUCTS
+	llenado_1(arreglo_struct[0][0]);
+	llenado_2(arreglo_struct[0][1]);
+	
+	
+	imprimir("------STRUCT 1 SIN EL ARREGLO----------");
+	arreglo_struct[1][0] = struc1;
+	arreglo_struct[1][1] = struc2;
+	
+
+	
+	
+	//RECORRER ARREGLO
+	
+	para(entero i = 0; i < 2; i++){
+		para(entero j = 0; j < 2; j++){
+			imprimir("-------------CICLO PARA"+i+","+j+"-------------------");
+			imprimir_estructura(arreglo_struct[i][j]);
+		}
+	}
+	
+	//ASIGNAR DE UN ARREGLO
+	struc5 = arreglo_struct[1][1];
+	
+	imprimir("------------COPIA----------------");
+	imprimir_estructura(struc5);
+	
+	imprimir("-----------ESTRUCTURA RETORNADA---------");
+	imprimir_estructura(retorno_struct());
+}
+
+vacio llenado_1(struct_prueba prueba_struct){
+	prueba_struct.a = 999;
+	prueba_struct.b = "Estructura 1";
+	prueba_struct.c = 'U';
+	prueba_struct.d = verdadero;
+	prueba_struct.e = 99999.99;
+	prueba_struct.f = {{"aa","bb"},{"cc","dd"}};
+	prueba_struct.g = {{{2,3},{4,5}},{{6,7},{8,9}}};
+}
+
+
+vacio llenado_2(struct_prueba prueba_struct){
+	prueba_struct.a = 73646;
+	prueba_struct.b = "Estructura 2";
+	prueba_struct.c = 'A';
+	prueba_struct.d = falso;
+	prueba_struct.e = 74644.38;
+	prueba_struct.f = {{"valor1","valor2"},{"cc","vsx"}};
+	prueba_struct.g = {{{10,11},{12,13}},{{14,15},{16,17}}};
+}
+
+vacio imprimir_estructura(struct_prueba struct){
+	imprimir("a:"+struct.a);
+	imprimir("b:"+struct.b);
+	imprimir("c:"+struct.c);
+	imprimir("d:"+struct.d);
+	imprimir("e:"+struct.e);
+	imprimir("f[0][0]:"+struct.f[0][0]);
+	imprimir("f[0][1]:"+struct.f[0][1]);
+	imprimir("f[1][0]:"+struct.f[1][0]);
+	imprimir("f[1][1]:"+struct.f[1][1]);
+	
+	para(entero i = 0; i < 2; i++){
+		para(entero j = 0; j < 2; j++){
+			para(entero k = 0; k < 2; k++){
+				imprimir("-------------CICLO PARA"+i+","+j+","+k+"-------------------");
+				imprimir("value: "+struct.g[i][j][k]);
+			}
+		}
+	}
+	
+	
+}
+
+struct_prueba retorno_struct(){
+	struct_prueba retornado;
+	retornado.a = 3454;
+	retornado.b = "Estructura 3";
+	retornado.c = 'Z';
+	retornado.d = verdadero;
+	retornado.e = 34.32;
+	retornado.f = {{"adfa","valorasdf2"},{"dfd","wer2"}};
+	retornado.g = {{{3,34},{52,23}},{{1,2},{3,4}}};
+	retornar retornado;
+
+}
+
+
+
+
+
+
+
+

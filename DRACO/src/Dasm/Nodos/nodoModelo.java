@@ -93,24 +93,35 @@ public class nodoModelo {
     
     
     
-    public void validandoDebug(){ 
-        simbolo.listaTabsClases.despintarLineas();
+    public void validandoDebug(){
+//        if(true)
+//            return;
+        
+        
         
         if(simbolo.modoDebug){
+            
             if(simbolo.debug.siguienteInstruccion){
-                
+                    simbolo.tablaSimbolosDasm.mostrar(simbolo);
+                    simbolo.listaTabsClases.despintarLineas();
                     simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1); 
                     simbolo.debug.pausar();  
             }else{
                 //reviso si esta linea esta dentro del debug
                 
                 if(simbolo.debug.puntosDeInterrupcion.esPuntoDeInterrupcion(atributo)){
-                    println("deteniendo hilo");
+                    simbolo.tablaSimbolosDasm.mostrar(simbolo);
+                    simbolo.listaTabsClases.despintarLineas();
+                    println("Deteniendo hilo en punto");
                     simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1);
                     simbolo.debug.pausar();
                 }
             }     
         }
+    }
+    
+    public void mostrarTablaSimbolos(){
+        
     }
     
     /**

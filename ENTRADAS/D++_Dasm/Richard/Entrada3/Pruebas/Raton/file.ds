@@ -1,0 +1,2 @@
+RunMultDasm('Mouse.dasm');
+print("a");

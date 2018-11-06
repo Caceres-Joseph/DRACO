@@ -1,0 +1,10 @@
+/*
+    archivo uno de prueba
+*/
+importar("i_2.dpp");
+entero a,b,c;
+
+vacio miFuncion1()
+{
+    entero g = 4;
+}

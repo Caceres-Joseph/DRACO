@@ -108,7 +108,7 @@ public class Ide extends ideTablaSimbolosDasm  {
             simbolo.debug.hiloEjecucion.resume();
         } 
         
-        mostrarTablaSimbolosDasm();
+//        mostrarTablaSimbolosDasm();
     }
     
  
@@ -197,20 +197,19 @@ public class Ide extends ideTablaSimbolosDasm  {
        
         @FXML
     void clckTabSimbolosDasm2(MouseEvent event) {
-        mostrarTablaSimbolosDasm();
+//        mostrarTablaSimbolosDasm();
+        simbolo.tablaSimbolosDasm.mostrar(simbolo);
     }
     
-    public void mostrarTablaSimbolosDasm(){
-//        println("[DASM]Tabla de simbolos");
-        //imprimiendo lo que quedo en pilita
-        if(simbolo.entornoDasm==null)
-            return;
-         
-        tablaSimbolosDasmStack.mostrar(simbolo.entornoDasm.Stack);
-        tablaSimbolosDasmHeap.mostrar(simbolo.entornoDasm.Heap);
-        tablaSimbolosDasmPilita.mostrar(simbolo.entornoDasm.Pilita); 
-        
-    }
+//    public void mostrarTablaSimbolosDasm(){
+////        println("[DASM]Tabla de simbolos");
+//        //imprimiendo lo que quedo en pilita
+//        if(simbolo.entornoDasm==null)
+//            return;
+//         
+//        simbolo.tablaSimbolosDasm.mostrar(simbolo); 
+//        
+//    }
     
     /**<br>+----------------------------------------------------
      * <br>| Metodo que se ejecuta de primero
@@ -236,7 +235,7 @@ public class Ide extends ideTablaSimbolosDasm  {
         mensaje=new elementoMensaje(stackPadre);
         ideTxtConsolaDasm salidaDasm=new ideTxtConsolaDasm(txtDasm, wbSalidaDasm);
         
-        simbolo=new elementoGlobal(mensaje, listaTabsClases, txtConsola,salidaDasm, tablaErrores, crearLienzo());
+        simbolo=new elementoGlobal(mensaje, listaTabsClases, txtConsola,salidaDasm, tablaErrores, crearLienzo(), tablas);
         listaTabsClases=new lstTabClase(tabClases, simbolo);
         simbolo.listaTabsClases=listaTabsClases;
         

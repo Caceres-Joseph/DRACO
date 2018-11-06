@@ -83,7 +83,7 @@ public class elementoRunnable implements Runnable {
                        simbolo.entornoDasm=entornoDasm;
 //                       
                        dDasm.raiz.ejecutar(entornoDasm);
-//                       
+                       simbolo.tablaSimbolosDasm.mostrar(simbolo);
                        
                    }else{
                        println("[DASM]Raiz nula");

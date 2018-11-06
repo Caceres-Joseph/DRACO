@@ -108,7 +108,7 @@ public class ideVistaArbol extends ideTabClases {
      */
     public TreeItem<nodoVistaArbol> getNodesForDirectory(File directory) { //Returns a TreeItem representation of the specified directory
         TreeItem<nodoVistaArbol> root = new TreeItem<>(new nodoVistaArbol(directory.getName(),directory.getPath()), new ImageView("Gui/img/ic_folder_black_24dp_1x.png"));
-        root.setExpanded(true);
+//        root.setExpanded(true);
         
         
         for(File f : directory.listFiles()) {

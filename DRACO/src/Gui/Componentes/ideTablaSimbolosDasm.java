@@ -6,6 +6,7 @@
 package Gui.Componentes;
 
 import Gui.Componentes.TablaSimbolosDasm.*;
+import Gui.Elementos.elementoGlobal;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,7 +25,7 @@ public class ideTablaSimbolosDasm extends ideTablaErrores{
     |-------------------------------------------------------------------------------------------------------------------
     |
     */ 
-    public dasmTablaStack tablaSimbolosDasmStack;
+    private dasmTablaStack tablaSimbolosDasmStack;
      
     @FXML
     private TableView<dasmTablaStack.elementoTabla> tbDasmStack;
@@ -48,7 +49,7 @@ public class ideTablaSimbolosDasm extends ideTablaErrores{
     |-------------------------------------------------------------------------------------------------------------------
     |
     */ 
-    public dasmTablaHeap tablaSimbolosDasmHeap;
+    private dasmTablaHeap tablaSimbolosDasmHeap;
     @FXML
     private TableView<dasmTablaHeap.elementoTabla> tbDasmHeap;
 
@@ -72,7 +73,7 @@ public class ideTablaSimbolosDasm extends ideTablaErrores{
     */ 
     
     
-    public dasmTablaStackAux tablaSimbolosDasmPilita;
+    private dasmTablaStackAux tablaSimbolosDasmPilita;
     
     
     @FXML
@@ -93,6 +94,7 @@ public class ideTablaSimbolosDasm extends ideTablaErrores{
     
     
     
+    public dasmTablasSimbolos tablas;
     
     /**
      * Inicializando tablas
@@ -101,5 +103,7 @@ public class ideTablaSimbolosDasm extends ideTablaErrores{
         inicializarTablaDasmStack();
         inicializarTablaDasmHeap();
         inicializarTablaDasmPilita();
+        
+        tablas=new dasmTablasSimbolos(tablaSimbolosDasmStack, tablaSimbolosDasmHeap, tablaSimbolosDasmPilita);
     }
 }

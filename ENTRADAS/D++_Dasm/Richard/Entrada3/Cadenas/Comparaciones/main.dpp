@@ -1,0 +1,31 @@
+vacio principal()
+{
+  // AL CAMBIAR ESTOS VALORES SE VERA EL EFECTO DE COMPRACION
+  // DE CADENAS...
+  cadena p1 = "a"; //97
+  cadena p2 = "b"; //98 
+
+  si(p1 == p2)
+  {
+    imprimir("p1 == p2");
+  }
+  sino si(p1 <> p2)
+  {
+    imprimir("p1 <> p2"); // ESTO SERA LA PRIMERA LINEA
+  }
+
+  si(p1 > p2)
+  {
+    imprimir("p1 > p2");
+  }
+  sino si(p1 < p2)
+  {
+    imprimir("p1 < p2"); // ESTO SERA LA SEGUNDA LINEA
+  }
+  sino
+  {
+    imprimir("p1 == p2");
+  }
+
+  imprimir("fin comparaciones....");
+}

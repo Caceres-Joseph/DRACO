@@ -1,0 +1,44 @@
+vacio dibujar_Arbustos(entero x, entero y){
+    entero centro1_x=x-50;
+	entero centro2_x=x+50;
+	entero centro3_x=x;
+	
+    entero centro1_y=y;
+	entero centro2_y=y; 
+	entero centro3_y=y-25;
+        punto(centro1_x, centro1_y, "#000000", 85);
+        punto(centro1_x, centro1_y, "#00AF50", 80);
+        punto(centro2_x, centro2_y, "#000000", 85);
+        punto(centro2_x, centro2_y, "#00AF50", 80);
+        punto(centro3_x, centro3_y, "#000000", 85);
+        punto(centro3_x, centro3_y, "#00AF50", 80); 
+
+        
+        cuadrado(x-(110/2), (y+25) -(50/2), "#00AF50",110,50);
+}
+
+vacio dibujar_Nubes(entero x, entero y){
+    entero centro1_x,centro2_x,centro3_x,centro4_x;
+    entero centro1_y,centro2_y,centro3_y,centro4_y;
+    centro1_x=x-50;
+    centro2_x=x+50;
+    centro3_x=x;
+    centro4_x=x;
+    centro1_y=y;
+    centro2_y=y;
+    centro3_y=y-25;
+    centro4_y=y+25;
+     ovalo(centro1_x, centro1_y, "#000000",105,55);
+        ovalo(centro1_x, centro1_y, "#ffffff",100,50);
+        
+        ovalo(centro2_x, centro2_y, "#000000",105,55);
+        ovalo(centro2_x, centro2_y, "#ffffff",100,50);
+        
+        ovalo(centro3_x, centro3_y, "#000000",105,55);
+        ovalo(centro3_x, centro3_y, "#ffffff",100,50);
+        
+        ovalo(centro4_x, centro4_y, "#000000",105,55);
+        ovalo(centro4_x, centro4_y, "#ffffff",100,50);
+        
+        cuadrado(x-(110/2), y-(50/2), "#ffffff",110,50);
+}

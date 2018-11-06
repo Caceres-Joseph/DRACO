@@ -1,0 +1,4 @@
+vacio ojos(entero x, entero y){
+        ovalo(x+75, y-75, "#FFFFFF",25, 50);
+        ovalo(x-75, y-75, "#FFFFFF",25, 50); 
+}

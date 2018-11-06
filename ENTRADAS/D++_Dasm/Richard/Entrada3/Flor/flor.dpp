@@ -1,0 +1,37 @@
+vacio principal (){
+    imprimir ("Se calculo el Factorial de 5 - La salida debera de ser 120 .... ");
+    imprimir(factorial(5));
+    Pintar_Hojas();
+    Pintar_Petalos();
+}
+
+entero factorial(entero numero) {
+    si (numero == 0) {
+        retornar 1;
+    } sino {
+        retornar numero * factorial(numero - 1);
+    }
+}
+
+entero Multi_10(entero numero, entero cant){
+    retornar numero + 10*cant;
+}
+
+
+entero Multi_2(entero num, entero cant){
+    retornar num + 2 * cant;
+}
+
+vacio Pintar_Hojas(){
+    punto(Multi_10(3, 3), Multi_10(2, 3), "#388E3C", Multi_2(2, 18) );
+    punto(Multi_10(7, 6), Multi_10(2, 3), "#388E3C", Multi_2(2, 18));
+    punto(Multi_10(4, 3), Multi_10(7, 6), "#388E3C", Multi_2(2, 18));
+    punto(Multi_10(2, 7), Multi_10(9, 6), "#388E3C", Multi_2(2, 18));
+}
+
+vacio Pintar_Petalos(){
+    punto(Multi_10(8, 2), Multi_10(9, 4), "#FFEB3B", Multi_2(2, 22));
+    punto(Multi_10(4, 7), Multi_10(9, 4), "#FFEB3B", Multi_2(2, 22));
+    punto(Multi_10(1, 5), Multi_10(6, 2), "#FFEB3B", Multi_2(2, 22));
+    punto(Multi_10(1, 5), Multi_10(3, 7), "#FFEB3B", Multi_2(2, 22));
+}

@@ -1,0 +1,23 @@
+
+vacio principal()
+{
+    entero numero1 = 123456;
+
+    booleano bandera = verdadero;
+
+    booleano bandera2 = falso;
+
+    cadena nombre = "ricardo";
+
+    caracter char = 'Q';
+
+    imprimir(numero1 + "<-- este es un gran numero");
+    imprimir("este es un valor boolean: "+bandera);
+    imprimir(bandera2 + " <---  este es un valor falso!");
+    imprimir("el nombre del programador es: " + nombre);
+    imprimir("este es un caracter: "+char);
+    imprimir(char + " < -- probando que funcione en ambos lados");
+    /*FIN DE PRUEBAS DE CONCATENACION (BASICAS) */
+
+    imprimir("los tipos de datos son: char: "+char+", Boolean: "+bandera+", entero: "+numero1+", cadena: "+nombre+", Decimal: "+568.45);/*NOTA: SOLO DOS DECIMALES APARECERAN....*/
+}

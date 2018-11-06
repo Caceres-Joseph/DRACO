@@ -94,11 +94,11 @@ public class nodoModelo {
     
     
     public void validandoDebug(){
-        simbolo.listaTabsClases.despintarLineas();
         
         if(simbolo.modoDebug){
             if(simbolo.debug.siguienteInstruccion){
                 
+                    simbolo.listaTabsClases.despintarLineas();
                     simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1); 
                     simbolo.debug.pausar(); 
                     
@@ -106,6 +106,8 @@ public class nodoModelo {
                 //reviso si esta linea esta dentro del debug
                 
                 if(simbolo.debug.puntosDeInterrupcion.esPuntoDeInterrupcion(atributo)){
+                    
+                    simbolo.listaTabsClases.despintarLineas();
                     println("deteniendo hilo");
                     simbolo.listaTabsClases.pintarLinea(atributo.nombreArchivo, atributo.linea-1);
                     simbolo.debug.pausar();

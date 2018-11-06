@@ -1,0 +1,43 @@
+importar("Ojillos.dpp");
+vacio principal(){
+	entero x=350;
+	entero y=400;
+
+	entero scala=40;
+	
+	cara(x,y);
+	orejas(x, y);
+	boca(x, y);
+	ojos(x, y);
+   
+}
+
+vacio cara(entero x, entero y){
+	punto(x, y, "#000000", 300);
+}
+
+vacio orejas(entero x, entero y){
+	entero diam = 60;
+	mientras(x<540){
+		x=x+1;
+		diam++;
+		y=y-1;
+		punto(x, y, "#000000", diam);            
+	}
+	
+	x=x-390;
+
+	mientras(x<400){
+		x=x+1;
+		diam--;
+		y=y+1;
+		punto(x, y, "#000000",diam);            
+	}
+}
+	
+vacio boca(entero x, entero y){
+	punto(x, y, "#FFFFFF", 270);
+	para(entero aux=y;aux>265;aux--){
+		ovalo(x, aux, "#000000",x-50, 10);            
+	}
+}

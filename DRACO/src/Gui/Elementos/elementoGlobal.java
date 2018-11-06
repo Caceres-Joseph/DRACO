@@ -6,6 +6,7 @@
 package Gui.Elementos;
  
 import D_plus.Estructuras.Elementos.elementoClase;
+import Gui.Componentes.TablaSimbolosDasm.dasmTablasSimbolos;
 import Gui.Tablas.tablaErrores; 
 import Gui.Componentes.compTablaErrores; 
 import Gui.Componentes.ideTxtConsolaDasm;
@@ -28,7 +29,7 @@ public class elementoGlobal {
      * DASM
      */
     public Dasm.Estructuras.Elementos.elementoEntorno entornoDasm;
-    
+    public dasmTablasSimbolos tablaSimbolosDasm;
     /**
      * DRACO SCRIPT
      */
@@ -75,6 +76,7 @@ public class elementoGlobal {
      * @param salidaDasm 
      * @param tbErrores 
      * @param ctrlLienzo  Lienzo en donde se va pintar
+     * @param tablaSimbolosDasm
      */
     
     public elementoGlobal(
@@ -83,7 +85,8 @@ public class elementoGlobal {
             TextArea txtConsola, 
             ideTxtConsolaDasm salidaDasm,
             compTablaErrores tbErrores, 
-            Lienzo ctrlLienzo
+            Lienzo ctrlLienzo,
+            dasmTablasSimbolos tablaSimbolosDasm
             ){
         
         this.salidaDasm =salidaDasm;
@@ -96,6 +99,9 @@ public class elementoGlobal {
         
 //        this.hiloEjecucion=new elementoHilo(this); 
         this.ctrlLienzo = ctrlLienzo;
+        
+        //dasm
+        this.tablaSimbolosDasm=tablaSimbolosDasm;
 
     }
     

@@ -9,6 +9,7 @@ import Dasm.Estructuras.Items.itemFuncion;
 import Dasm.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo; 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ import java.util.Map;
  */
 public class lstNodosHijosHash {
 
-    public Map<Integer, nodoModelo> hashHijos = new LinkedHashMap<>();
+    public Map<Integer, nodoModelo> hashHijos = new HashMap<>();
     public lstEtiquetas listaEtiquetas; 
     public lstMetodoFuncion listaMetodoFuncion;  
             

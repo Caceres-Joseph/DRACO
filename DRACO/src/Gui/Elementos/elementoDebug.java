@@ -15,7 +15,7 @@ public class elementoDebug {
     public Thread hiloEjecucion;
     elementoGlobal simbolo;
     public boolean siguienteInstruccion=false;  
-    
+    public String cadenaEntrada="";
     
     public lstPuntosDeInterrupcion puntosDeInterrupcion;
     
@@ -31,7 +31,7 @@ public class elementoDebug {
         elementoRunnable run=new elementoRunnable(tipoArchivo, simbolo, cadenaEntrada, nombreArchivo);
         hiloEjecucion=new Thread(run);
         puntosDeInterrupcion=new lstPuntosDeInterrupcion();
-        
+        this.cadenaEntrada=cadenaEntrada;
         siguienteInstruccion=false;
     }
     

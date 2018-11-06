@@ -1,0 +1,203 @@
+//iables globales
+ entero escala;
+ entero x;
+ entero y;
+
+vacio principal(){
+	dibujar_Cara();
+	dibujar_Bigote();
+	dibujar_Gorra();
+	dibujar_Pantalon();
+	dibujar_Zapatos();
+	dibujar_Manos();
+}
+
+
+vacio dibujar_cabello(){ 
+	 entero x2;
+	 entero y2;
+	 entero escala2;
+	x2=x;
+	y2=y;
+	escala2=escala;
+	cuadrado(x2+escala2*2, y2+escala2, "#50361b",escala2,escala2); 
+	
+	cuadrado(x2+escala2*2, y2+escala2*3, "#50361b",escala2,escala2); 
+	
+	cuadrado(x2+escala2, y2+escala2*2, "#50361b",escala2,escala2*3); 
+	
+	cuadrado(x2, y2+escala2, "#50361b",escala2,escala2); 
+	
+	cuadrado(x2, y2+escala2*4, "#50361b",escala2,escala2); 
+
+	cuadrado(x2-escala2, y2+escala2*2, "#50361b",escala2,escala2*5); 
+	
+	cuadrado(x2-escala2*2, y2+escala2*3, "#50361b",escala2,escala2*3); 
+	
+	dibujar_Ojo();
+}
+
+vacio dibujar_Bigote(){
+	
+	 entero x1,y2;
+	x1=x+escala*6;
+	y2=y+escala*3;
+	si(x<>y){
+	   cuadrado(x1, y2, "#50361b",escala,escala);
+	}
+	si(y==400){
+	   x1 = x1 + escala;
+	}
+	si(escala<=200){
+	   y2 = y2 + escala; 
+	}
+	si(x>=escala){
+	   cuadrado(x1, y2, "#50361b",escala*4,escala);
+	}
+}
+
+vacio dibujar_Gorra(){
+	
+	cuadrado(x+escala*3, y, "#E20B0B",escala*9,escala);          
+	cuadrado(x+escala*2, y-escala, "#E20B0B",escala*5,escala); 
+	cuadrado(x+escala*5, y-escala, "#E20B0B",escala*2,escala); 
+}
+
+vacio dibujar_Cara(){
+	x=100;
+	y=400;
+	si(5<>5){
+		escala=5;
+	}
+	si(5==5){
+		escala=10; 
+	}
+	si(5<=2){
+		escala=15;
+	}
+	si(8>=15){
+		escala=20;
+	}
+	
+	entero aux=6;
+	para(entero y2=0;y2<6;y2++){
+	   para(entero x2=0;x2<aux;x2++){
+		   cuadrado(x+escala*x2, y+y2*escala, "#FFCC99",escala,escala);  
+	   }
+		si(y2==0){
+		   aux=7;
+		}si(y2==1){
+		   aux=9;
+		}si(y2==2){
+			aux=10;
+		}si(y2==3){
+			aux=9;
+		}si(y2==4){
+			aux=8;
+		}
+	}
+	dibujar_cabello();
+}
+
+vacio dibujar_Ojo(){
+	si(x==y || y<>y){
+	   cuadrado(x+escala*5, y+escala*2-5, "#50361b",800,800);    
+	}
+	si(y<>400 && escala<=200){
+	   cuadrado(x+escala*5, y+escala*2-5, "#50361b",800,800);    
+	}
+	si(verdadero == falso ){ 
+	   cuadrado(x+escala*5, y+escala*2-5, "#50361b",800,800);    
+	}
+	si(verdadero == falso){ 
+	   cuadrado(x+escala*5, y+escala*2-5, "#50361b",800,800);    
+	}
+	si( x == x || y<>y){
+	   cuadrado(x+escala*5, y+escala*2-5, "#50361b",escala,escala*2);    
+	}
+	
+}    
+
+vacio dibujar_Manos(){
+	entero y2=y+escala*9;
+	entero x2=x-escala*3;
+	entero x3=x+escala*7;
+	para(entero y_aux=0;y_aux<3;y_aux++){
+		para(entero x_aux=0;x_aux<4;x_aux++){
+			si(y_aux==1){
+					cuadrado(x2+escala*x_aux, y2+escala*y_aux, "#FFCC99",escala,escala);  
+					cuadrado(x3+escala*(x_aux-1), y2+escala*y_aux, "#FFCC99",escala,escala);  
+			}sino{
+				si(x_aux<>3){
+					cuadrado(x2+escala*x_aux, y2+escala*y_aux, "#FFCC99",escala,escala);  
+					cuadrado(x3+escala*x_aux, y2+escala*y_aux, "#FFCC99",escala,escala);  
+
+				}
+			}
+		}
+	}
+}
+
+vacio dibujar_Camisa(){
+		entero y2=y+escala*6;
+		para(entero y_aux=0;y_aux<3;y_aux++){
+		si(y_aux<1){
+			cuadrado(x+escala*2, y2+escala*y_aux, "#50361b",escala*7,escala);  
+			cuadrado(x-escala/2+escala*3, y2+escala, "#50361b",escala*10,escala);    
+		}
+		si(y_aux>1){
+			cuadrado(x-escala/2+escala*3, y2+escala*y_aux, "#50361b",escala*y_aux*6,escala);    
+		}
+
+	}
+	cuadrado(x-escala/2+escala*3, y2+escala*3, "#50361b",escala*11,escala);    
+
+}
+
+vacio dibujar_Pantalon(){
+	dibujar_Camisa();
+	entero y2=y+escala*6;
+	para(entero y_aux=0;y_aux<7;y_aux++){
+		si(y_aux<2){
+			cuadrado(x+escala*2, y2+escala*y_aux, "#E20B0B",escala,escala);    
+			cuadrado(x+escala*5, y2+escala*y_aux, "#E20B0B",escala,escala);    
+		}
+		si(y_aux>=2 && y_aux<6 ){
+			cuadrado(x-escala/2+escala*4, y2+escala*y_aux, "#E20B0B",escala*y_aux*2,escala);    
+		}
+		si(y_aux>=6){
+			cuadrado(x+escala, y2+escala*y_aux, "#E20B0B",escala*4,escala);    
+			cuadrado(x+escala*6, y2+escala*y_aux, "#E20B0B",escala*4,escala);    
+		} 
+	}
+	dibujar_Botones();
+}    
+
+vacio dibujar_Botones(){
+	entero y2=y+escala*6;
+	cuadrado(x+escala*2, y2+escala*3, "#FFFF00",escala,escala);    
+	cuadrado(x+escala*5, y2+escala*3, "#FFFF00",escala,escala);        
+}    
+
+vacio dibujar_Zapatos(){
+	entero y2=y+escala*13;
+	entero x2=x+escala*5;
+	entero x3=x+escala*3;
+	entero a;
+	para(entero y_aux=0;y_aux<2;y_aux++){
+		a=5;
+		para(entero x_aux=0;x_aux<5;x_aux++){
+			si(y_aux<1){
+				si(x_aux<4){
+					cuadrado(x2+escala*x_aux, y2+escala*y_aux, "#50361b",escala,escala);  
+					a--;
+					cuadrado(x3-escala*a, y2+escala*y_aux, "#50361b",escala,escala);  
+				}
+			}sino{
+				cuadrado(x2+escala*x_aux, y2+escala*y_aux, "#50361b",escala,escala);  
+				cuadrado(x3-escala*a, y2+escala*y_aux, "#50361b",escala,escala);  
+				a--;
+			}
+		}
+	}
+}    
