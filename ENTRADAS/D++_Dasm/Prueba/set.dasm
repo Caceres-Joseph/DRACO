@@ -49,3 +49,9 @@ get_local $ret
 
 set_global $ret
 get_global $ret
+
+
+
+26
+0
+set_local $calc

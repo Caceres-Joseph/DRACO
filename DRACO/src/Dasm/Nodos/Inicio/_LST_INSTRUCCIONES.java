@@ -40,10 +40,14 @@ public class _LST_INSTRUCCIONES extends nodoModelo{
      * @param entorno Es la tabla que contiene las variables 
      */
     @Override
-    public void ejecutar(elementoEntorno entorno){ 
+    public void ejecutar(elementoEntorno entorno) {
         //aquí desencadena el inicio de ejecucion de instruccioens
-         
-        while(listaHijosHash.hashHijos.containsKey(entorno.punteroCodigo)){
+
+        while (listaHijosHash.hashHijos.containsKey(entorno.punteroCodigo)) {
+            if (hayErrores()) {
+                return;
+            }
+
             listaHijosHash.hashHijos.get(entorno.punteroCodigo).ejecutar(entorno);
         }
     }

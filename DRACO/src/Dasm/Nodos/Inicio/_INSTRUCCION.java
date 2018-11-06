@@ -88,7 +88,7 @@ public class _INSTRUCCION extends tee{
      */
     @Override
     public void ejecutar(elementoEntorno entorno){
-        
+        entorno.punteroCodigo++;
         validandoDebug();  
         if(hayErrores()){
 //            entorno.punteroCodigo++;
@@ -96,7 +96,7 @@ public class _INSTRUCCION extends tee{
             entorno.punteroCodigo=-1;
             return ;
         }
-        casos(entorno);
+//        casos(entorno);
         
     }
     

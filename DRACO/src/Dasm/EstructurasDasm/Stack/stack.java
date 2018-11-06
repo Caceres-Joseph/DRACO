@@ -75,6 +75,14 @@ public class stack {
         
         listaNodoStack.put(index, nuevoNodo);
         
+        if(!listaNodoStack.containsKey(index)){
+            simbolo.tablaErrores.insertErrorSemantic(errores, "No se almaceno el valor en el lugar que se indico");
+        }else{
+            if(listaNodoStack.get(index).valor != valor){
+                simbolo.tablaErrores.insertErrorSemantic(errores, "No se almaceno el valor en el lugar que se indico2");
+            }
+            
+        }
     }
     
     

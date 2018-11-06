@@ -17,6 +17,7 @@ import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
 
 import Dasm.Nodos.Inicio.*;
+import Dasm.Nodos.Inicio.Casos.*;
 import Dasm.Nodos.*;
 
  
@@ -106,7 +107,38 @@ non terminal  nodoModelo
         LST_INSTRUCCIONES,
         INSTRUCCION,
         FUNCION ,
-        E
+        E,
+        CASO_01 ,
+        CASO_02 ,
+        CASO_03 ,
+        CASO_04 ,
+        CASO_05 ,
+        CASO_06 ,
+        CASO_07 ,
+        CASO_08 ,
+        CASO_09 ,
+        CASO_10 ,
+        CASO_11 ,
+        CASO_12 ,
+        CASO_13 ,
+        CASO_14 ,
+        CASO_15 ,
+        CASO_16 ,
+        CASO_17 ,
+        CASO_18 ,
+        CASO_19 ,
+        CASO_20 ,
+        CASO_21 ,
+        CASO_22 ,
+        CASO_23 ,
+        CASO_24 ,
+        CASO_25 ,
+        CASO_26 ,
+        CASO_27 ,
+        CASO_28 ,
+        CASO_29 ,
+        CASO_30 ,
+        CASO_31 
         ;
         
  
@@ -197,6 +229,338 @@ LST_INSTRUCCIONES   ::= LST_INSTRUCCIONES:h1 INSTRUCCION:h2
                         :}
                     ;  
 
+
+
+CASO_01               ::= tAdd
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 1); 
+                            _CASO_01 padre =new _CASO_01(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_02               ::=tDiff
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 2); 
+                            _CASO_02 padre =new _CASO_02(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_03               ::=tMult
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 3); 
+                            _CASO_03 padre =new _CASO_03(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_04               ::=tDiv
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 4); 
+                            _CASO_04 padre =new _CASO_04(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_05               ::=tMod
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 5); 
+                            _CASO_05 padre =new _CASO_05(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_06               ::=tPot
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 6); 
+                            _CASO_06 padre =new _CASO_06(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_07               ::= tLt
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 7); 
+                            _CASO_07 padre =new _CASO_07(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_08               ::=tGt
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 8); 
+                            _CASO_08 padre =new _CASO_08(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_09               ::= tLte
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 9); 
+                            _CASO_09 padre =new _CASO_09(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_10               ::= tGte
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 10); 
+                            _CASO_10 padre =new _CASO_10(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_11               ::= tNot
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 11); 
+                            _CASO_11 padre =new _CASO_11(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_12               ::= tAnd
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 12); 
+                            _CASO_12 padre =new _CASO_12(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_13               ::= tOr
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 13); 
+                            _CASO_13 padre =new _CASO_13(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_14               ::=tBr valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 14); 
+                            _CASO_14 padre =new _CASO_14(atrib1 , parser.simbolo);
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_15               ::= tBrIf valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 15); 
+                            _CASO_15 padre =new _CASO_15(atrib1 , parser.simbolo);
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_16               ::=tGet_local  E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 16); 
+                            _CASO_16 padre =new _CASO_16(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_17               ::=tGet_local valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 17); 
+                            _CASO_17 padre =new _CASO_17(atrib1 , parser.simbolo);
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_18               ::= tGet_global  E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 18); 
+                            _CASO_18 padre =new _CASO_18(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_19               ::= tGet_global valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 19); 
+                            _CASO_19 padre =new _CASO_19(atrib1 , parser.simbolo);
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_20               ::= tSet_local  E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 20); 
+                            _CASO_20 padre =new _CASO_20(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_21               ::=tSet_local valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 21); 
+                            _CASO_21 padre =new _CASO_21(atrib1 , parser.simbolo);
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_22               ::=tSet_global  E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 22); 
+                            _CASO_22 padre =new _CASO_22(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_23               ::=tSet_global valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 23); 
+                            _CASO_23 padre =new _CASO_23(atrib1 , parser.simbolo);
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_24               ::=tCall valId:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 24); 
+                            _CASO_24 padre =new _CASO_24(atrib1 , parser.simbolo);
+                             
+                             
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_25               ::= tEqz
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 25); 
+                            _CASO_25 padre =new _CASO_25(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_26               ::=E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 26); 
+                            _CASO_26 padre =new _CASO_26(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+ 
+
+CASO_28               ::=valCadena:d1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 28); 
+                            _CASO_28 padre =new _CASO_28(atrib1 , parser.simbolo);
+                             
+                              
+                                itemAtributo at1=new itemAtributo("valCadena",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_29               ::=tPrint
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 29); 
+                            _CASO_29 padre =new _CASO_29(atrib1 , parser.simbolo);
+                             
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_30               ::=tTee_local  E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 30); 
+                            _CASO_30 padre =new _CASO_30(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+CASO_31               ::=tTee_global  E :h1
+                        {:
+                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 31); 
+                            _CASO_31 padre =new _CASO_31(atrib1 , parser.simbolo);
+                             
+                                padre.listaHijos.insertar(h1,h1left, h1right);   
+ 
+                            RESULT= padre;
+                        :}
+                        ;
+
+
+
+
 INSTRUCCION         ::=    valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 0); 
@@ -212,311 +576,71 @@ INSTRUCCION         ::=    valId:d1
  
                             RESULT= padre;
                         :}
-                    |   tAdd
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 1); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tDiff
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 2); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tMult
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 3); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tDiv
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 4); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tMod
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 5); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tPot
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 6); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    /* Relacionales */
-                    |   tLt
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 7); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tGt
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 8); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tLte
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 9); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tGte
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 10); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    /* Logico */
-                    |   tNot
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 11); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tAnd
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 12); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tOr
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 13); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    /* Saltos */
-                    |   tBr valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 14); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-                    |   tBrIf valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 15); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-
-                    /* Instruc */
-                    |   tGet_local  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 16); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    |   tGet_local valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 17); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-                    |   tGet_global  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 18); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    |   tGet_global valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 19); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-
-                    |   tSet_local  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 20); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    |   tSet_local valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 21); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-                    |   tSet_global  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 22); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    |   tSet_global valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 23); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-                    /* Funciones */
-                    |   tCall valId:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 24); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                             
-                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-
-                    /* EXTRAS */
-                    |   tEqz
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 25); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    //Tengo duda de como funciona
-                    
-
-                    /* Num */
-                    | E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 26); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    /* |   valEntero:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 26); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valEntero",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-                    |   valDecimal:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 27); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                itemAtributo at1=new itemAtributo("valDecimal",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :} */
-
-                    /* PARA IMPRIMIR */
-
-                    |   valCadena:d1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 28); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                              
-                                itemAtributo at1=new itemAtributo("valCadena",d1, d1right, d1left,parser.nombreArchivo); 
-                                padre.listaAtributos.insertar(at1);
- 
-                            RESULT= padre;
-                        :}
-
-                    | tPrint
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 29); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
- 
-                            RESULT= padre;
-                        :}
-                    |   tTee_local  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 30); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-                    |   tTee_global  E :h1
-                        {:
-                            itemAtributo atrib1=new itemAtributo("INSTRUCCION", parser.nombreArchivo, 31); 
-                            _INSTRUCCION padre =new _INSTRUCCION(atrib1 , parser.simbolo);
-                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);   
- 
-                            RESULT= padre;
-                        :}
-
-                    //
+                    |   CASO_01:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_02:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_03:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_04:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_05:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_06:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_07:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_08:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_09:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_10:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_11:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_12:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_13:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_14:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_15:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_16:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_17:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_18:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_19:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_20:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_21:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_22:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_23:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_24:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_25:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_26:h1
+                        {:  RESULT= h1; :}
+                    /* |   CASO_27:h1
+                        {:  RESULT= h1; :} */
+                    |   CASO_28:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_29:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_30:h1
+                        {:  RESULT= h1; :}
+                    |   CASO_31:h1
+                        {:  RESULT= h1; :}
                     ;
+                     
+                
 
  FUNCION            ::= tFuncion valId:d1 LST_INSTRUCCIONES:h1 tEnd
                         {:

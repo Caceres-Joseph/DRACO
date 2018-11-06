@@ -42,6 +42,10 @@ public class _LST_CUERPO extends nodoModelo{
         //aquí desencadena el inicio de ejecucion de instruccioens
          
         while(listaHijosHash.hashHijos.containsKey(entorno.punteroCodigo)){
+            if (hayErrores()) {
+                return;
+            } 
+            
             listaHijosHash.hashHijos.get(entorno.punteroCodigo).ejecutar(entorno);
         }
     }
