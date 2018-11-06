@@ -45,7 +45,12 @@ public class ideVistaArbol extends ideTabClases {
             //Verificando la extensión antes de abrir el archivo
             if (esExtension("djs", nodVist.nombre)) {
                 nuevoNodo = new nodoTabClase(nodVist.ruta, nodVist.nombre, "djs", simbolo);
-            } else if (esExtension("dpp", nodVist.nombre)) {
+            
+            } else if(esExtension("ds", nodVist.nombre)){
+                nuevoNodo = new nodoTabClase(nodVist.ruta, nodVist.nombre, "djs", simbolo); 
+            
+            }else if (esExtension("dpp", nodVist.nombre)) {
+                
                 nuevoNodo = new nodoTabClase(nodVist.ruta, nodVist.nombre, "dpp", simbolo);
                 
             }else if(esExtension("dasm", nodVist.nombre)){

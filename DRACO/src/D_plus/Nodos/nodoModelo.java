@@ -35,16 +35,13 @@ public class nodoModelo {
         this.listaHijos =new lstNodosHijos(); 
     }
     
-     
-    
-     
+      
     /**
      * @param mensaje Imprime el mensaje con el nombre de la clase para ubicarlo de forma fácil
      */
     public void println(String mensaje){
         System.out.println("[DPP]["+atributo.nombreToken+"]"+mensaje);
     }
-    
      
     
     /*
