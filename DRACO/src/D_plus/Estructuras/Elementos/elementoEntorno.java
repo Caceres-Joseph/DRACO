@@ -31,7 +31,7 @@ public class elementoEntorno {
      * +-------------------------
      */
     
-    public int posRelativa=0;
+    public int posRelativa=1;
     
     
     

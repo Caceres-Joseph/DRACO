@@ -56,7 +56,7 @@ public class nodoModelo {
      * @param clase Es la tabla que contiene las variables  
      */
     public void primerPasada(elementoClase clase) {
-        validandoDebug();
+//        validandoDebug();
 
         if (hayErrores()) {
             return;
@@ -79,7 +79,7 @@ public class nodoModelo {
      * @return El retorno es cuando viene un break
      */
     public itemRetorno ejecutar(elementoEntorno entorno){
-        validandoDebug();
+//        validandoDebug();
        
         itemRetorno retorno=new itemRetorno();
         if(hayErrores()){

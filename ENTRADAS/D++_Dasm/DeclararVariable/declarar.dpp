@@ -1,0 +1,18 @@
+
+decimal u0=12.0;
+entero u1=0;
+caracter u2='a';
+booleano u3=falso;
+cadena u4="hola";
+
+
+vacio principal(){ 
+    decimal g0=12.0;
+    entero g1=0;
+    caracter g2='a';
+    booleano g3=falso+verdadero;
+    
+	cadena g4="hola";
+
+
+}

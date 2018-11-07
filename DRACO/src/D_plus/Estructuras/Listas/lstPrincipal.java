@@ -52,18 +52,18 @@ public class lstPrincipal {
         }else{
             
             simbolo.salidaDasm.comentarioGrande("Principal");
-            simbolo.salidaDasm.lineaComentada("Call $principal", "Metodo Principal", elemento.nivel);
+            
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getCall("$principal"), "Metodo Principal", elemento.nivel);
             simbolo.salidaDasm.comentarioMediano("Funcion principal");
-            simbolo.salidaDasm.linea("Function $principal", 0);
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getFuncion("$principal"), 0);
             
             elementoEntorno entornoMain =new elementoEntorno(elemento, "principal", simbolo, elemento.nivel+1);
             valorPolimorfo val= listaMain.lista.get(0).getValor();
             val.cuerpo.ejecutar(entornoMain);
             
-            simbolo.salidaDasm.linea("End", 0);
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getEnd(), 0);
         }
-        
-        
+         
     }
     
     

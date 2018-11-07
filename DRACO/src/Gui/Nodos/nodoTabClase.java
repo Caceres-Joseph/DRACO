@@ -99,7 +99,7 @@ public class nodoTabClase {
                     editingTemplate=editingTemplate.replace("'${modo}'", "'text/x-java'");  
                     break;
                 case "dasm":
-                    editingTemplate=editingTemplate.replace("'${modo}'", "'text/x-java'");
+                    editingTemplate=editingTemplate.replace("'${modo}'", "'text/x-c++src'");
                     break;
                 default:
                     break;

@@ -65,9 +65,10 @@ public class suma {
  
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(("OR"));
-            boolean resul = true;
-            retorno.setValor(resul);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getOr());
+            
+            //mantengo el valor como booleano
+            retorno.setValor(true);
             return retorno;
         }
          
@@ -79,10 +80,9 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(("ADD"));
-            double resul = 0.0;
-             
-            retorno.setValor(resul);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
         }
 
@@ -92,36 +92,23 @@ public class suma {
          */
         else if (val1.isTypeBooleano() && val2.isTypeCadena()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+           
+            
             return retorno;
 
         }
 
 
         /*
-         *Booleano + Char = Cadena
+         *Booleano + Char = Numero
          */
         else if (val1.isTypeBooleano() && val2.isTypeChar()) {
 
-            Object ob1 = val1.getParseadoNumero(atrib);
-            Object ob2 = val2.getParseadoNumero(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-                return retorno;
-            }
-
-            double resul = (double) ob1 + (double) ob2;
-            retorno.setValor(resul);
+            retorno.cadenaDasm.addAll(val1.cadenaDasm);
+            retorno.cadenaDasm.addAll(val2.cadenaDasm);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
 
         }
@@ -141,10 +128,9 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(("ADD"));
-            double resul = 0.0;
-             
-            retorno.setValor(resul);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
         }
 
@@ -156,9 +142,9 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(("ADD"));
-            double resul = 0.0;
-            retorno.setValor(resul);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
         }
 
@@ -168,17 +154,8 @@ public class suma {
          */
         else if (val1.isTypeNumero() && val2.isTypeCadena()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+          
+            
             return retorno;
 
         }
@@ -192,10 +169,9 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(("ADD"));
-            double resul = 0.0;
-             
-            retorno.setValor(resul);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
         }
         
@@ -206,40 +182,20 @@ public class suma {
         */
         
         /*
-         *Cadena + Booleano = Numero
+         *Cadena + Booleano = Cadena
          */
         else if (val1.isTypeCadena() && val2.isTypeBooleano()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+       
             return retorno;
         }
 
         /*
-         *Cadena + Numero = Numero
+         *Cadena + Numero = Cadena
          */
         else if (val1.isTypeCadena() && val2.isTypeNumero()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+             
             return retorno;
         }
 
@@ -249,37 +205,18 @@ public class suma {
         
         else if (val1.isTypeCadena() && val2.isTypeCadena()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+             
             return retorno;
 
         }
  
         /*
-         *Cadena + Char = Numero
+         *Cadena + Char = Cadena
          */
         else if (val1.isTypeCadena() && val2.isTypeChar()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+          
+            
             return retorno;
         }
         
@@ -294,17 +231,11 @@ public class suma {
          */
         else if (val1.isTypeChar()&& val2.isTypeBooleano()) {
 
-            Object ob1 = val1.getParseadoNumero(atrib);
-            Object ob2 = val2.getParseadoNumero(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            double resul = (double) ob1 + (double) ob2;
-            retorno.setValor(resul);
+            retorno.cadenaDasm.addAll(val1.cadenaDasm);
+            retorno.cadenaDasm.addAll(val2.cadenaDasm);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
         }
 
@@ -317,10 +248,9 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(("ADD"));
-            double resul = 0.0;
-             
-            retorno.setValor(resul);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
         }
 
@@ -329,20 +259,8 @@ public class suma {
          */
         
         else if (val1.isTypeChar() && val2.isTypeCadena()) {
-
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
-            return retorno;
-
+ 
+            return retorno; 
         }
  
         /*
@@ -350,17 +268,14 @@ public class suma {
          */
         else if (val1.isTypeChar() && val2.isTypeChar()) {
 
-            Object ob1 = val1.getParseadoCadena(atrib);
-            Object ob2 = val2.getParseadoCadena(atrib);
-
-            if (ob1 == null || ob2 == null) {
-                simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
-                return retorno;
-            }
-
-            String resul = (String) ob1 + (String) ob2;
-            retorno.setValor(resul);
+            
+            retorno.cadenaDasm.addAll(val1.cadenaDasm);
+            retorno.cadenaDasm.addAll(val2.cadenaDasm);
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+           
+            retorno.setValor(1.0);
             return retorno;
+            
         } else {
             simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede operar el  " + val1.tipo + "[" + signo + "] " + val2.tipo);
             return retorno;

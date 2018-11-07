@@ -307,12 +307,13 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_4(elementoEntorno entorno) {  
-        suma sum=new suma(simbolo, listaAtributos.getAtributo(0), "SUMA");
+        suma sum=new suma(simbolo, atributo, "SUMA");
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
-        
-        return sum.getValor(e1.getValor(entorno),e2.getValor(entorno), entorno);   
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);   
     }
     
     
@@ -566,8 +567,78 @@ public class _E extends nodoModelo{
         itemValor retorno = new itemValor(simbolo);
         
         retorno.parseToCadena(listaAtributos.getAtributo(0));
-//        println("----impriendo-----");
-//        retorno.imprimir();
+        
+        char [] charCadena= retorno.getCadena().toCharArray();
+        int i=0;
+        for (char c : charCadena) {
+            double ret = c;
+            if (i == 0) {
+                //ya tengo el ascci de la cadena
+                
+
+                /*CODIGO*/
+                //posicion inicial de la cadena
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+                //puntero
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+                // valor caracter
+                retorno.cadenaDasm.add(String.valueOf(ret));
+                //guardando el valor
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getSet_global_calc());
+                
+                //actualizando el puntero 
+                //puntero
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+                //aumentando la posicion
+                retorno.cadenaDasm.add("1");
+                //sumando
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+                //actualizo el heap para que apunte al siguiente
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getSet_global_id("0"));
+
+            }else{
+                 
+                //puntero
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+                // valor caracter
+                retorno.cadenaDasm.add(String.valueOf(ret));
+                //guardando el valor
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getSet_global_calc());
+                
+                //actualizando el puntero 
+                //puntero
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+                //aumentando la posicion
+                retorno.cadenaDasm.add("1");
+                //sumando
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+                //actualizo el heap para que apunte al siguiente
+                retorno.cadenaDasm.add(simbolo.salidaDasm.getSet_global_id("0"));
+            }
+            
+            i++;
+        }
+        
+        //ahora el caracter nulo para indicar el fin de la cadena
+        
+        //puntero
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+        // valor caracter NULO
+        retorno.cadenaDasm.add("0");
+        //guardando el valor
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getSet_global_calc());
+
+        //actualizando el puntero 
+        //puntero
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_id("0"));
+        //aumentando la posicion
+        retorno.cadenaDasm.add("1");
+        //sumando
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+        //actualizo el heap para que apunte al siguiente
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getSet_global_id("0"));
+        
+        
         return retorno;
     }
     
@@ -618,7 +689,12 @@ public class _E extends nodoModelo{
      */
     public itemValor case_23(elementoEntorno entorno) { 
         itemValor retorno = new itemValor(simbolo);
-        retorno.parseToChar(listaAtributos.getAtributo(0)); 
+        retorno.parseToChar(listaAtributos.getAtributo(0));
+        Object ObjRet=retorno.getParseadoNumero(atributo);
+        if(ObjRet==null){
+            return retorno;
+        }
+        retorno.cadenaDasm.add(String.valueOf((double)ObjRet));
         return retorno;
     }
 

@@ -6,6 +6,7 @@
 package D_plus.Nodos.FuncionMetodo;
 
 import D_plus.Estructuras.Elementos.elementoClase;
+import D_plus.Estructuras.Elementos.elementoEntorno;
 import D_plus.Estructuras.Items.itemRetorno;
 import D_plus.Estructuras.Listas.HashPolimorfa.clavePolimorfa;
 import D_plus.Estructuras.Listas.HashPolimorfa.valorPolimorfo;
@@ -35,6 +36,19 @@ public class _MAIN extends nodoModelo{
         super(atrib, simbolo);
     }
     
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */ 
+    @Override
+    public itemRetorno ejecutar(elementoEntorno entorno) {
+        itemRetorno retorno=new itemRetorno();
+        //para que no ejecute el metodo/funcion
+        
+        return retorno;
+    }
     /*
     |-------------------------------------------------------------------------------------------------------------------
     | PRIMER PASADA

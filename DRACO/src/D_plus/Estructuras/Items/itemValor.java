@@ -65,7 +65,7 @@ public class itemValor {
      * @param char2 elemento char
      */
     public  void setValor(char char2) {
-        this.tipo = "char";
+        this.tipo = "caracter";
         this.valor = char2; 
     }
 
@@ -221,7 +221,13 @@ public class itemValor {
     public void parseToBooleano(itemAtributo arib) {
 
         try {
-            setValor(Boolean.parseBoolean(arib.valor));
+            if(arib.valLower.equals("falso")){
+                setValor(false);
+            }else if(arib.valLower.equals("verdadero")){ 
+                setValor(true);
+            }else{
+                simbolo.tablaErrores.insertErrorSemantic(arib, "No se puede parsear a booleano el valor");
+            } 
         } catch (NumberFormatException e) {
             println(e.getMessage());
             simbolo.tablaErrores.insertErrorSemantic(arib, "No se puede parsear "+arib.valor +" a tipo booleano.");
@@ -255,7 +261,7 @@ public class itemValor {
                         }else{
                             return String.valueOf(del);
                         } 
-                    case "char":
+                    case "caracter":
                         return String.valueOf(getChar());
                     case "booleano":
                         return String.valueOf(getBooleano());
@@ -279,7 +285,7 @@ public class itemValor {
                     case "numero":
                         return getNumero();
 
-                    case "char":
+                    case "caracter":
                         double ret = getChar();
                         return ret;
                     case "booleano":
@@ -294,7 +300,7 @@ public class itemValor {
                         return null;
                 }
 
-            case "char":
+            case "caracter":
                 switch (tipo) {
                     case "cadena":
                         if (getCadena().length() < 1) {
@@ -315,7 +321,7 @@ public class itemValor {
                             simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede parsear " + getNumero().toString() + " a tipo char");
                             return null;
                         }
-                    case "char":
+                    case "caracter":
                         return getChar();
 
                     case "booleano":
@@ -354,7 +360,7 @@ public class itemValor {
                             simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede parsear " + getNumero().toString() + " a tipo Boolean");
                             return null;
                         }
-                    case "char":
+                    case "caracter":
 
                         if (getChar() == '0') {
                             return false;
@@ -391,7 +397,7 @@ public class itemValor {
     
     
     public Object getParseadoChar(itemAtributo atrib){
-        return getValorParseado("char", atrib);
+        return getValorParseado("caracter", atrib);
     }
     
     
@@ -425,7 +431,7 @@ public class itemValor {
         return tipo.equals("booleano");
     }
     public boolean isTypeChar(){
-        return tipo.equals("char");
+        return tipo.equals("caracter");
     }
      
       
@@ -446,7 +452,7 @@ public class itemValor {
             case "numero":
                 System.out.println(getNumero());
                 break;
-            case "char":
+            case "caracter":
                 System.out.println(getChar());
                 
                 break; 

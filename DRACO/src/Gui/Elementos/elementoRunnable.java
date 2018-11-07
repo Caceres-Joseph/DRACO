@@ -59,7 +59,8 @@ public class elementoRunnable implements Runnable {
                     }else{
                         simbolo.clase=clase;
                         D_plus.Estructuras.Elementos.elementoEntorno entornoGlobal2 = new D_plus.Estructuras.Elementos.elementoEntorno(null, "global", simbolo,0);
-                        clase.traducir(entornoGlobal2);
+//                        clase.traducir(entornoGlobal2);
+                        dPlus.raiz.ejecutar(entornoGlobal2);
                     }
 //                    clase.imprimir();
                 }else{

@@ -50,10 +50,10 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
      */
     @Override
     public itemRetorno ejecutar(elementoEntorno entorno){ 
+        validandoDebug();
         itemRetorno ret = new itemRetorno();
         if (hayErrores()) 
             return ret;
-        validandoDebug();
         
         return casos(entorno);
     }
@@ -139,45 +139,34 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
         _VAL nodVal = (_VAL) listaHijos.lstHijos.get(2);
         itemValor val=nodVal.getValor(entorno);
         
+        
+        
+        
+        /*INICIO CODIGO*/
         simbolo.salidaDasm.comentarioPequeño("Declarando variable", idVar.valor+"="+tipo.valor, entorno.nivel);
-        tomandoValores(entorno);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "Obteniendo el puntero", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(String.valueOf(entorno.posRelativa), "Pos relativa de la variable", entorno.nivel);
+        entorno.posRelativa++;
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+         
         
-        
+        //guardando la variable en la tabla de simbolos
+        entorno.lstVariables.insertarVariable(idVar, val, tipo.valor, dimension, entorno.posRelativa-1);
+         
+         
         //Ubicndo todo lo que viene en E
         simbolo.salidaDasm.comentario("Operaciones E", entorno.nivel);
         for (String string : val.cadenaDasm) { 
             simbolo.salidaDasm.linea(string,entorno.nivel);
         }
+         
         
         
-//        if (nodVal.atributo.nivelProduccion == 0) {
-//            //LST_VALOR
-//            
-//            if(val.isTypeNumero()){
-//                double numero=val.getNumero();
-//                simbolo.salidaDasm.lineaComentada(String.valueOf(numero), "Valor", entorno.nivel);
-//            }else if(val.isTypeBooleano()){
-//                if(val.getBooleano()){
-//                    simbolo.salidaDasm.lineaComentada("1", "Valor", entorno.nivel);
-//                }else{
-//                    simbolo.salidaDasm.lineaComentada("0", "Valor", entorno.nivel);
-//                }
-//            }
-//            else{
-//                println("[case2]No es numero");
-//            }
-//            
-//        } else if (nodVal.atributo.nivelProduccion == 1) {
-//            //LST_LLAVES
-//        }
         
-       
-        entorno.lstVariables.insertarVariable(idVar, val, tipo.valor, dimension, entorno.posRelativa--);
-        
-        
-        simbolo.salidaDasm.set_local_calc(entorno.nivel);
-
+        /*INICIO CODIGO*/
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_local_calc(), "Enviando var a la posicion", entorno.nivel);
         return retorno;
+         
     }
     
     /**
@@ -197,12 +186,12 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
     }
     
     
-    public void tomandoValores(elementoEntorno entorno){
-        
-        simbolo.salidaDasm.get_local(0, entorno.nivel);
-        simbolo.salidaDasm.lineaComentada(String.valueOf(entorno.posRelativa), "Posición relativa", entorno.nivel);
-        entorno.posRelativa++;//incrementando la posicion relativa para la proxima variable 
-        simbolo.salidaDasm.add("Sumando para encontrar el valor real", entorno.nivel);
-    }
+//    public void tomandoValores(elementoEntorno entorno){
+//        
+//        simbolo.salidaDasm.get_local(0, entorno.nivel);
+//        simbolo.salidaDasm.lineaComentada(String.valueOf(entorno.posRelativa), "Posición relativa", entorno.nivel);
+//        entorno.posRelativa++;//incrementando la posicion relativa para la proxima variable 
+//        simbolo.salidaDasm.add("Sumando para encontrar el valor real", entorno.nivel);
+//    }
      
 }
