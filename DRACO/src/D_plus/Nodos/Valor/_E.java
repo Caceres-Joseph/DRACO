@@ -14,6 +14,15 @@ import D_plus.Nodos.Valor.OpeAritmetica.multiplicacion;
 import D_plus.Nodos.Valor.OpeAritmetica.potencia;
 import D_plus.Nodos.Valor.OpeAritmetica.resta;
 import D_plus.Nodos.Valor.OpeAritmetica.suma;
+import D_plus.Nodos.Valor.OpeLogico.and;
+import D_plus.Nodos.Valor.OpeLogico.not;
+import D_plus.Nodos.Valor.OpeLogico.or;
+import D_plus.Nodos.Valor.OpeRelacional.diferenciacion;
+import D_plus.Nodos.Valor.OpeRelacional.igualacion;
+import D_plus.Nodos.Valor.OpeRelacional.mayor;
+import D_plus.Nodos.Valor.OpeRelacional.mayorIgual;
+import D_plus.Nodos.Valor.OpeRelacional.menor;
+import D_plus.Nodos.Valor.OpeRelacional.menorIgual;
 import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
@@ -246,8 +255,12 @@ public class _E extends nodoModelo{
         
         _E nodoE =(_E)listaHijos.lstHijos.get(0); 
         retorno=nodoE.getValor(entorno);
+        //agrego un cero
         retorno.cadenaDasm.add("0");
+        //agrego el numero
         retorno.cadenaDasm.addAll(nodoE.getValor(entorno).cadenaDasm); 
+        //los resto
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getDiff());
         return retorno;
     }
 
@@ -386,9 +399,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_7(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+    public itemValor case_7(elementoEntorno entorno) {      
+        igualacion sum=new igualacion(simbolo, atributo, "IGUALACIÓN");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);   
     }
     
     
@@ -403,9 +421,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_8(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;     
+    public itemValor case_8(elementoEntorno entorno) {    
+        diferenciacion sum=new diferenciacion(simbolo, atributo, "DIFERENCIACIÓN");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);
     }
     
     /**
@@ -419,9 +442,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_9(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+    public itemValor case_9(elementoEntorno entorno) { 
+        menor sum=new menor(simbolo, atributo, "MENOR");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);     
     }
     
     /**
@@ -435,9 +463,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_10(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;       
+    public itemValor case_10(elementoEntorno entorno) {
+        menorIgual sum=new menorIgual(simbolo, atributo, "MENOR IGUAL QUE");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno); 
     }
     
     /**
@@ -451,9 +484,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_11(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+    public itemValor case_11(elementoEntorno entorno) {
+        mayor sum=new mayor(simbolo, atributo, "MAYOR");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);    
     }
     /**
      * <br> +----------------
@@ -467,8 +505,13 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_12(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+        mayorIgual sum=new mayorIgual(simbolo, atributo, "MAYOR IGUAL QUE");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);  
     } 
     /**
      * <br> +----------------
@@ -481,9 +524,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_13(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;        
+    public itemValor case_13(elementoEntorno entorno) {     
+        and sum=new and(simbolo, atributo, "AND");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);     
     } 
     /**
      * <br> +----------------
@@ -497,8 +545,13 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_14(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+        or sum=new or(simbolo, atributo, "OR");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);      
     } 
     /**
      * <br> +----------------
@@ -512,8 +565,11 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_15(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;      
+        not sum=new not(simbolo, atributo, "NOT");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0); 
+        itemValor val1=e1.getValor(entorno); 
+        return sum.getValor(val1,entorno); 
     } 
     
     

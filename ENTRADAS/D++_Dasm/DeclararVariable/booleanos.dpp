@@ -1,0 +1,14 @@
+ 
+booleano val1 = verdadero && verdadero;
+booleano val2 = verdadero && falso;
+booleano val3 = falso && verdadero;
+booleano val4 = falso && falso;
+
+booleano val5 = verdadero || verdadero;
+booleano val6 = verdadero || falso;
+booleano val7 = falso || verdadero;
+booleano val8 = falso || falso;
+
+booleano val9 = !verdadero;
+booleano val10 = !falso ;
+

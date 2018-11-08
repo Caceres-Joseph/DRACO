@@ -48,7 +48,7 @@ public class suma {
        itemValor retorno=new itemValor(simbolo);
        
         if(val1.isTypeNulo()||val2.isTypeNulo()){
-            simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede sumar con un valor de tipo nulo");
+            simbolo.tablaErrores.insertErrorSemantic(atrib, "No se puede ["+signo+"] con un valor de tipo nulo");
             return retorno;
         }
         

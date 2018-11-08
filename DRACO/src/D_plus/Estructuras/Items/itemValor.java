@@ -36,6 +36,8 @@ public class itemValor {
     public String nombreEntorno="";
     public ArrayList<String> cadenaDasm=new ArrayList<>();
     public int posRelativa=-1;
+    
+    public boolean esEstructura=false;
     /**
      * Constructor que recibe la tabla de errores
      * @param simbolo Se usa para la tabla de errores
@@ -488,5 +490,26 @@ public class itemValor {
     }
 
     
+    /**
+     * <br>|--------------------------------------------------------------------------
+     * <br>| Es primitivo numerico
+     * <br>|--------------------------------------------------------------------------
+     * <br>| Se usa cuando se envian los valores, y luego estos son parseados
+     * @return 
+     */
+    
+    public boolean isTypePrimitivoNumerico(){
+        if(isTypeNumero()){
+            return true;
+        }else if(isTypeChar()){
+            return true;
+        }else if(isTypeBooleano()){
+            return true;
+        }else{
+            return false;
+        }
+            
+        
+    }
     
 }

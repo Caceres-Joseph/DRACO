@@ -27,7 +27,7 @@ Function $DASM_CONCATENAR_CADENAS
 	set_local $calc  
 	set_local $calc 
 
-    
+
     get_global 0 
 	$CADENA1
 	get_local 0 
@@ -391,4 +391,359 @@ Function $_DECIMAL_TO_STRING
 	ADD  
 	get_local $calc 
 	set_local $ret  
+End
+
+/*
+|-------------------------------------------------------------------------------------------------------------------
+| IGUALACION CADENAS
+|-------------------------------------------------------------------------------------------------------------------
+|
+*/
+
+/*
+|-------------------------------------------------
+| Comparando cadenas
+|-------------------------------------------------
+| FUNCION ENCARGADA DE TRAER LA COMPARACION ENTRE CADENAS 
+| PARAM 1: PUNTERO DE LA CADENA 1
+| PARAM 2: PUNTERO DE LA CADENA 2
+*/
+
+Function $DASM_COMPARAR_CADENAS 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    4
+    ADD
+    0
+    set_local $calc  
+    get_local 0
+    3
+    ADD  
+    get_local 0
+    4
+    ADD
+    1
+    ADD              
+
+    get_local 0
+    1
+    ADD
+    get_local $calc  
+    get_local 0
+    4
+    ADD
+    set_local 0
+    Call $DASM_SUMA_CADENA
+    get_local 0
+    4
+    DIFF
+    set_local 0
+    get_local $ret  
+    set_local $calc 
+    get_local 0
+    4
+    ADD  
+    get_local 0
+    4
+    ADD
+    1
+    ADD   
+
+    get_local 0
+    2
+    ADD 
+    get_local $calc   
+    get_local 0
+    4
+    ADD
+    set_local 0
+    Call $DASM_SUMA_CADENA
+    get_local 0
+    4
+    DIFF
+    set_local 0
+    get_local $ret 
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    get_local $calc  
+
+    get_local 0
+    4
+    ADD
+    get_local $calc  
+
+    DIFF
+
+    EQZ  
+    BR_IF $MAYOR
+    0
+    set_local $ret 
+    BR $e_retornar
+
+    $MAYOR
+    get_local 0
+    3
+    ADD
+    get_local $calc  
+
+    get_local 0
+    4
+    ADD
+    get_local $calc  
+
+    GT
+
+    BR_IF $MENOR
+    1
+    set_local $ret
+    BR $e_retornar
+
+    $MENOR
+    2
+    set_local $ret
+
+    $e_retornar
+
+End
+
+
+/*
+|-------------------------------------------------
+| Igualacion cadenas
+|-------------------------------------------------
+| FUNCION QUE HACE EL IGUAL EN CADENAS
+| PARAM 1: PUNTERO CADENA 1
+| PARAM 2: PUNTERO CADENA 2
+*/
+ 
+Function $DASM_IGUALACION_CADENAS 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD  
+    get_local 0
+    2
+    ADD
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+
+    get_local 0
+    2
+    ADD
+    2
+    ADD
+
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    get_local 0
+    2
+    ADD
+    set_local 0
+    Call $DASM_COMPARAR_CADENAS
+    get_local 0
+    2
+    DIFF
+    set_local 0
+
+    get_local $ret 
+    set_local $calc  
+    get_local 0
+    3
+    ADD
+    get_local $calc
+
+    BR_IF $ES_IGUAL
+    0
+    set_local $ret
+    BR $e_retornar
+    $ES_IGUAL
+    1
+    set_local $ret
+    $e_retornar
+End
+
+/*
+|-------------------------------------------------
+| Igualacion cadenas
+|-------------------------------------------------
+| FUNCION AUXILIAR QUE HARA LA SUMA DE UNA CADENA DADA RETORNARA EL TOTAL DE LA SUMA
+| PARAM 1: PUNTERO DE LA CADENA
+*/
+
+Function $DASM_SUMA_CADENA
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    set_local $calc 
+    get_local 0
+    2
+    ADD 
+    0
+    set_local $calc 
+    get_local 0
+    1
+    ADD
+    get_local $calc     
+
+    BR_IF $TERMINAR      
+    $INICIO 
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    get_global $calc  
+    BR_IF $TERMINAR  
+    get_local 0
+    2
+    ADD  
+
+    get_local 0
+    2
+    ADD
+    get_local $calc  
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    get_global $calc  
+
+    ADD  
+
+    set_local $calc  
+    get_local 0
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+
+    1
+
+    ADD
+
+    set_local $calc 
+    BR $INICIO
+    $TERMINAR 
+    get_local 0
+    2
+    ADD
+    get_local $calc  
+
+    set_local $ret 
+End
+
+
+/*
+|-------------------------------------------------
+| Mayor que cadenas
+|-------------------------------------------------
+| FUNCION QUE ESTABLECE SI ES MAYOR
+| PARAM 1: PUNTERO CADENA 1
+| PARAM 2: PUNTERO CADENA 2
+*/
+ 
+Function $DASM_MAYOR_CADENA 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD  
+    get_local 0
+    2
+    ADD
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+
+    get_local 0
+    2
+    ADD
+    2
+    ADD
+
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    get_local 0
+    2
+    ADD
+    set_local 0
+    Call $_COMPARE_STRING
+    get_local 0
+    2
+    DIFF
+    set_local 0 
+    get_local $ret 
+    set_local $calc  
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    1 
+    DIFF 
+    EQZ 
+    BR_IF $NO_MAYOR
+    1
+    set_local $ret
+    BR $e_retornar
+    $NO_MAYOR
+    0
+    set_local $ret
+    $e_retornar
 End

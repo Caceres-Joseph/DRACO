@@ -129,8 +129,12 @@ public class ideTxtConsolaDasmPadre {
             txtDasm.setText(txtDasm.getText() + mensaje);
             String tal= txtDasm.getText();
 //            writeAddWeb(tal);
+
+            //enviando el scroll hast abajo
+            txtDasm.selectPositionCaret(txtDasm.getLength()); 
+            txtDasm.deselect();
+                  
         }); 
-        
     }
     /**
      * Limpia la consola

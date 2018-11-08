@@ -1,0 +1,10 @@
+ 
+vacio principal(){ 
+	 comparar("e","a" );
+
+}
+
+vacio comparar(cadena val1, cadena val2){
+    
+}
+ 
