@@ -86,7 +86,7 @@ public class _MAIN extends nodoModelo{
                  */
                 
                 valorPolimorfo valor;
-                valor=new valorPolimorfo(new lstParametro(simbolo),nombre ,tipo, 0, listaHijos.lstHijos.get(1));
+                valor=new valorPolimorfo(new lstParametro(simbolo),tipo,nombre , 0, listaHijos.lstHijos.get(1), simbolo);
                 clavePolimorfa clave=new clavePolimorfa(new lstParametro(simbolo), nombre);
                 
                 
@@ -103,7 +103,7 @@ public class _MAIN extends nodoModelo{
                  */
                 
                 valorPolimorfo valor2;
-                valor2=new valorPolimorfo(new lstParametro(simbolo),nombre ,tipo, 0, listaHijos.lstHijos.get(0));
+                valor2=new valorPolimorfo(new lstParametro(simbolo),tipo,nombre , 0, listaHijos.lstHijos.get(0), simbolo);
                 clavePolimorfa clave2=new clavePolimorfa(new lstParametro(simbolo), nombre);
                 
                 

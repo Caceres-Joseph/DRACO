@@ -33,9 +33,9 @@ public class itemValor {
     public Object valor;
     public elementoGlobal simbolo; 
     public int dimension=0;
-    
+    public String nombreEntorno="";
     public ArrayList<String> cadenaDasm=new ArrayList<>();
-    
+    public int posRelativa=-1;
     /**
      * Constructor que recibe la tabla de errores
      * @param simbolo Se usa para la tabla de errores
@@ -52,6 +52,10 @@ public class itemValor {
      * <br>|--------------------------------------------------------------------------
      * <br>| Se usa cuando se envian los valores, y luego estos son parseados
      */
+    public void setValorVacio(){
+        this.tipo = "vacio";
+        this.valor = null; 
+    }
     /**
      * @param cadena Se esta recibiendo un tipo cadena
      */
@@ -418,6 +422,9 @@ public class itemValor {
      * Validando Los tipos
      * @return Retorno booleano para verificar si es del tipo especificado
      */
+    public boolean isTypeVacio(){
+        return tipo.equals("vacio");
+    }
     public boolean isTypeNulo(){
         return tipo.equals("nulo");
     }

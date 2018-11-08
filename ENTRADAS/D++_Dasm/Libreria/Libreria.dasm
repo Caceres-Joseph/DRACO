@@ -1,16 +1,19 @@
 
 
 
-/***************************************************************************************************/
-/***************************************************************************************************/
-// CONCATENAR STRING UTILIZANDO DOS PUNTEROS Y EL PUNTERO LIBRE DEL HEAP:
-// PARAM 1: PUNTERO STRING 1
-// PARAM 2: PUNTERO STRING 2
-// RETORNAR EL PUNTERO DE LA CADENA RESULTANTE
-/***************************************************************************************************/
 
 
-Function $FUNC_CONCATENAR_CADENAS
+/*
+|-------------------------------------------------
+| Concatenando cadenas
+|-------------------------------------------------
+| CONCATENAR STRING UTILIZANDO DOS PUNTEROS Y EL PUNTERO LIBRE DEL HEAP:
+| PARAM 1: PUNTERO STRING 1
+| PARAM 2: PUNTERO STRING 2
+| RETORNAR EL PUNTERO DE LA CADENA RESULTANTE
+*/
+
+Function $DASM_CONCATENAR_CADENAS
 	get_local 0
 	1
 	ADD
@@ -23,6 +26,8 @@ Function $FUNC_CONCATENAR_CADENAS
 	set_local $calc 
 	set_local $calc  
 	set_local $calc 
+
+    
     get_global 0 
 	$CADENA1
 	get_local 0 
@@ -101,7 +106,7 @@ End
 // PARAM 1: NUMERO ENTERO A CONVERTIR
 /***************************************************************************************************/
 Function $_INT_TO_STRING
-    get_local 0
+     get_local 0
 	1
 	ADD
 	0
@@ -242,5 +247,148 @@ Function $_INT_TO_STRING
 	5
 	ADD
 	get_local $calc
+	set_local $ret  
+End
+
+
+/***************************************************************************************************/
+// FUNCION QUE CONVERTIRA EL NUMERO DECIMAL DADO A CADENA PARA PODER MOSTRARLO E IMPRIMIRLO
+// PARAM 1: NUMERO DECIMAL A CONVERTIR
+/***************************************************************************************************/
+Function $_DECIMAL_TO_STRING 
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc 
+	set_local $calc 
+	get_local 0
+	2
+	ADD 
+	get_local 0
+	1
+	ADD
+	get_local $calc 
+	get_local 0
+	1
+	ADD
+	get_local $calc 
+	1 
+	MOD 
+	DIFF 
+	set_local $calc 
+	get_local 0
+	3
+	ADD 
+	get_local 0
+	1
+	ADD
+	get_local $calc 
+	1 
+	MOD 
+	100 
+	MULT 
+	set_local $calc 
+	get_local 0 
+	4 
+	ADD  
+	get_local 0  
+	3 
+	ADD  
+	1  
+	ADD 
+	get_local 0 
+	3 
+	ADD  
+	1  
+	ADD 
+	get_local 0 
+	3 
+	ADD  
+	1  
+	ADD  
+	get_local 0  
+	2  
+	ADD  
+	get_local $calc 
+    get_local 0  
+	3 
+	ADD  
+	set_local 0  
+	Call $_INT_TO_STRING 
+	get_local 0 
+	3 
+	DIFF 
+	set_local 0  
+	get_local $ret 
+	get_local 0 
+	3 
+	ADD  
+	2 
+	ADD  
+	get_global 0 
+	get_global 0  
+	46 
+	set_global $calc  
+	get_global 0  
+	1  
+	ADD  
+	set_global 0 
+	get_global 0 
+	0 
+	set_global $calc  
+	get_global 0  
+	1  
+	ADD  
+	set_global 0  
+	get_local 0  
+	3  
+	ADD  
+	set_local 0 
+	Call $_CONCAT_STRING 
+	get_local 0  
+	3  
+	DIFF  
+	set_local 0  
+	get_local $ret  
+	get_local 0 
+	3
+	ADD 
+	2 
+	ADD 
+	get_local 0  
+	3 
+	ADD  
+	1  
+	ADD 
+	get_local 0  
+	3  
+	ADD  
+	get_local $calc
+    get_local 0 
+	3 
+	ADD  
+	set_local 0  
+	Call $_INT_TO_STRING 
+	get_local 0  
+	3  
+	DIFF  
+	set_local 0  
+	get_local $ret  
+	get_local 0  
+	3  
+	ADD 
+	set_local 0  
+	Call $_CONCAT_STRING 
+	get_local 0  
+	3 
+	DIFF 
+	set_local 0  
+	get_local $ret 
+	set_local $calc  
+	get_local 0  
+	4 
+	ADD  
+	get_local $calc 
 	set_local $ret  
 End

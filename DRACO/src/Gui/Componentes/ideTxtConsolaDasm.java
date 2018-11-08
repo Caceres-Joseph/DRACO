@@ -54,6 +54,7 @@ public class ideTxtConsolaDasm extends ideTxtConsolaDasmPadre {
 
     private final String tCalc = "$calc";
     private final String tRet = "$ret";
+    private final String tEtiquetaRetornar="$dasm_retora";
 
     /*
     +------------------------------------------------+
@@ -196,4 +197,8 @@ public class ideTxtConsolaDasm extends ideTxtConsolaDasmPadre {
         return tTee_global + " " + id;
     }
 
+    public String gettEtiquetaRetornar() {
+        return tEtiquetaRetornar;
+    }
+    
 }

@@ -7,6 +7,12 @@ package D_plus.Nodos.Valor;
 
 import D_plus.Estructuras.Elementos.elementoEntorno;
 import D_plus.Estructuras.Items.itemValor;
+import D_plus.Nodos.IdVarFunc._ID_VAR_FUNC;
+import D_plus.Nodos.Valor.OpeAritmetica.division;
+import D_plus.Nodos.Valor.OpeAritmetica.modulo;
+import D_plus.Nodos.Valor.OpeAritmetica.multiplicacion;
+import D_plus.Nodos.Valor.OpeAritmetica.potencia;
+import D_plus.Nodos.Valor.OpeAritmetica.resta;
 import D_plus.Nodos.Valor.OpeAritmetica.suma;
 import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
@@ -235,19 +241,13 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     public itemValor case_0(elementoEntorno entorno) {
+        
         itemValor retorno = new itemValor(simbolo);
-        _E nod = (_E) listaHijos.lstHijos.get(0);
-
-//        itemValor le = nod.getValor(entorno);
-//        Object tel = le.getNumero();
-//        if (tel != null) {
-//            double el = (double) tel;
-//            retorno.setValor((-1) * el);
-//            return retorno;
-//        } else {
-//            simbolo.tablaErrores.insertErrorSemantic(atributo, "No se puede convertir a negativo el tipo " + le.tipo);
-//            
-//        }
+        
+        _E nodoE =(_E)listaHijos.lstHijos.get(0); 
+        retorno=nodoE.getValor(entorno);
+        retorno.cadenaDasm.add("0");
+        retorno.cadenaDasm.addAll(nodoE.getValor(entorno).cadenaDasm); 
         return retorno;
     }
 
@@ -262,8 +262,13 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_1(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;     
+        potencia sum=new potencia(simbolo, atributo, "POTENCIA");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno); 
     }
     
     /**
@@ -276,9 +281,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_2(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+    public itemValor case_2(elementoEntorno entorno) {   
+        division sum=new division(simbolo, atributo, "DIVISIÓN");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);  
     }
     
     /**
@@ -291,9 +301,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_3(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+    public itemValor case_3(elementoEntorno entorno) { 
+        multiplicacion sum=new multiplicacion(simbolo, atributo, "MULTIPLICACIÓN");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);      
     }
     
     /**
@@ -328,9 +343,14 @@ public class _E extends nodoModelo{
      * @return Retorna para revisión de break
      */
     
-    public itemValor case_5(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;     
+    public itemValor case_5(elementoEntorno entorno) { 
+        resta sum=new resta(simbolo, atributo, "RESTA");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno); 
     }
     
     
@@ -347,8 +367,13 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_6(elementoEntorno entorno) {  
-        itemValor retorno = new itemValor(simbolo);
-        return retorno;         
+        modulo sum=new modulo(simbolo, atributo, "MODULO");
+        
+        _E e1 = (_E) listaHijos.lstHijos.get(0);
+        _E e2 = (_E) listaHijos.lstHijos.get(1);
+        itemValor val1=e1.getValor(entorno);
+        itemValor val2=e2.getValor(entorno);
+        return sum.getValor(val1,val2, entorno);  
     }
     /**
      * <br> +----------------
@@ -514,7 +539,7 @@ public class _E extends nodoModelo{
     
     /**
      * <br> +----------------
-     * <br> | valId
+     * <br> | ID_VAR_FUNC
      * <br> +----------------
      * <br> | Producción para reconocer cuando viene un Id
      * <br> | Hay que buscarlo dentro de la tabla de entornos, jejejejejeje
@@ -523,7 +548,11 @@ public class _E extends nodoModelo{
      */
     
     public itemValor case_17(elementoEntorno entorno) {
-        return entorno.getValVariable(listaAtributos.getAtributo(0)); 
+        itemValor retorno=new itemValor(simbolo);
+        _ID_VAR_FUNC nodoVarFunc=(_ID_VAR_FUNC)listaHijos.lstHijos.get(0);
+        retorno=nodoVarFunc.getValor(entorno);
+         
+        return retorno;
     }
     
      

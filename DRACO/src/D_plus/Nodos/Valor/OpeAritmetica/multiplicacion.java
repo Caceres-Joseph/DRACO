@@ -14,14 +14,14 @@ import Gui.Items.itemAtributo;
  *
  * @author joseph
  */
-public class suma {
+public class multiplicacion {
     
     itemAtributo val1;
     itemAtributo val2;
     elementoGlobal simbolo;
     itemAtributo atrib;
     String signo;
-    public suma(elementoGlobal simbolo, itemAtributo atrib, String signo){
+    public multiplicacion(elementoGlobal simbolo, itemAtributo atrib, String signo){
         this.simbolo=simbolo;
         this.atrib=atrib;
         this.signo=signo;
@@ -59,28 +59,27 @@ public class suma {
         */
         
         /*
-         *Booleano + Booleano = Booleano
+         *Booleano * Booleano = Booleano
          */
         else if (val1.isTypeBooleano() && val2.isTypeBooleano()) {
  
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getOr());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAnd());
             
             //mantengo el valor como booleano
             retorno.setValor(true);
             return retorno;
         }
-         
         /*
-         *Booleano + Numero = Numero
+         *Booleano * Numero = Numero
          */
         else if (val1.isTypeBooleano() && val2.isTypeNumero()) {
 
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
@@ -88,25 +87,17 @@ public class suma {
 
 
         /*
-         *Booleano + Cadena = Cadena
-         */
-        else if (val1.isTypeBooleano() && val2.isTypeCadena()) {
-
-           
-            
-            return retorno;
-
-        }
-
+         *Booleano * Cadena = Cadena
+         */ 
 
         /*
-         *Booleano + Char = Numero
+         *Booleano * Char = Numero
          */
         else if (val1.isTypeBooleano() && val2.isTypeChar()) {
 
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
@@ -121,28 +112,28 @@ public class suma {
         */
         
         /*
-         *Numero + Booleano = Numero
+         *Numero * Booleano = Numero
          */
         else if (val1.isTypeNumero() && val2.isTypeBooleano()) {
 
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
         }
 
         /*
-         *Numero + Numero = Numero
+         *Numero * Numero = Numero
          */
 
         else if (val1.isTypeNumero() && val2.isTypeNumero()) {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
@@ -150,18 +141,11 @@ public class suma {
 
 
         /*
-         *Numero + Cadena = Cadena
-         */
-        else if (val1.isTypeNumero() && val2.isTypeCadena()) {
-
-          
-            
-            return retorno;
-
-        }
+         *Numero * Cadena = Cadena
+         */ 
  
         /*
-         *Numero + Char = Numero
+         *Numero * Char = Numero
          */
 
         else if (val1.isTypeNumero() && val2.isTypeChar()) {
@@ -169,7 +153,7 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
@@ -182,55 +166,18 @@ public class suma {
         */
         
         /*
-         *Cadena + Booleano = Cadena
-         */
-        else if (val1.isTypeCadena() && val2.isTypeBooleano()) {
-//
-//            retorno.cadenaDasm.addAll(val1.cadenaDasm);
-//            retorno.cadenaDasm.addAll(val2.cadenaDasm);
-//            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
-//           
-            retorno.setValor("cadena"); 
-            return retorno;
-        }
-
+         *Cadena * Booleano =  
+         */ 
         /*
-         *Cadena + Numero = Cadena
-         */
-        else if (val1.isTypeCadena() && val2.isTypeNumero()) {
-
-             
-            return retorno;
-        }
-
+         *Cadena * Numero =  
+         */ 
         /*
-         *Cadena + Cadena = Cadena
+         *Cadena * Cadena =  
          */
-        
-        else if (val1.isTypeCadena() && val2.isTypeCadena()) {
- 
-            
-            //aqui mando a llamar a la funcion
-            
-            
-//            retorno.cadenaDasm.addAll(val1.cadenaDasm);
-//            retorno.cadenaDasm.addAll(val2.cadenaDasm);
-//            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
-//           
-//            retorno.setValor("cadena"); 
-            return retorno;
-
-        }
- 
+         
         /*
-         *Cadena + Char = Cadena
-         */
-        else if (val1.isTypeCadena() && val2.isTypeChar()) {
-
-          
-            
-            return retorno;
-        }
+         *Cadena * Char =  
+         */ 
         
         /*
         |--------------------------------------------------------------------------
@@ -239,20 +186,20 @@ public class suma {
         */
         
         /*
-         *Char + Booleano = Numero
+         *Char * Booleano = Numero
          */
         else if (val1.isTypeChar()&& val2.isTypeBooleano()) {
 
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
         }
 
         /*
-         *Char + Numero = Numero
+         *Char * Numero = Numero
          */
 
         else if (val1.isTypeChar() && val2.isTypeNumero()) {
@@ -260,30 +207,26 @@ public class suma {
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
         }
 
         /*
-         *Char + Cadena = Cadena
+         *Char * Cadena =  
          */
-        
-        else if (val1.isTypeChar() && val2.isTypeCadena()) {
- 
-            return retorno; 
-        }
+         
  
         /*
-         *Char + Char = Numero
+         *Char * Char = Numero
          */
         else if (val1.isTypeChar() && val2.isTypeChar()) {
 
             
             retorno.cadenaDasm.addAll(val1.cadenaDasm);
             retorno.cadenaDasm.addAll(val2.cadenaDasm);
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getMult());
            
             retorno.setValor(1.0);
             return retorno;
@@ -294,6 +237,4 @@ public class suma {
         }
           
     }
-   
-    
 }

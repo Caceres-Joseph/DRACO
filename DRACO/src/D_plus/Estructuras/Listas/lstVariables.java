@@ -59,10 +59,13 @@ public class lstVariables {
      * @param tipo TIpo de variable
      * @param dimension Dimesion de la varibale
      * @param posRelativa Posicion relativa
+     * @param nombreEtorno
      */
     
-    public void insertarVariable(itemAtributo nombreVar, itemValor var, String tipo, int dimension, int posRelativa){
+    public void insertarVariable(itemAtributo nombreVar, itemValor var, String tipo, int dimension, int posRelativa, String nombreEtorno){
         //tiene que coincidir los tipos para guardarlos
+        var.nombreEntorno=nombreEtorno;
+        var.posRelativa=posRelativa;
         
         if(dimension!=var.dimension){
             simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de dimension: "+String.valueOf(dimension)+", pero se esta recibiendo una valor de tipo:"+String.valueOf(var.dimension));
@@ -71,7 +74,7 @@ public class lstVariables {
         
         if(var.isTypeNulo()){
             
-        } if(!tipo.toLowerCase().equals(var.tipo.toLowerCase())){
+        } else if(!tipo.toLowerCase().equals(var.tipo.toLowerCase())){
             simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de tipo: "+tipo+", pero se esta recibiendo un valor de tipo:"+var.tipo);
             return;
         }

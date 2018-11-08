@@ -34,18 +34,60 @@ public class elementoClase {
     }
     
     
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
     /**
-     * Inicia la traducción a código dasm
-     * @param elemento
+     * Ejecucion de los metodos
+     * @param entorno 
      */
-    public void traducir(elementoEntorno elemento){
-        //Primeero las variables globales
-        //Los otros metodos
-        //El metodo princippal
-        listaPrincipal.traducir(elemento);
-    }
-    
-    
+     public void ejecutar(elementoEntorno entorno){
+          ejecutarPrincipal(entorno);
+          ejecutarDemasMetodos(entorno);
+     }
+     
+     
+     /**
+      * Colocando el codigo del metodo principal
+     * @param entorno
+      */
+     public void ejecutarPrincipal(elementoEntorno entorno){
+         simbolo.salidaDasm.comentarioPequeño("Llamado a principal", "", entorno.nivel);
+         //obtengo el puntero
+         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "Cambiando de ambito", entorno.nivel);
+         //tamanio del ambito
+         simbolo.salidaDasm.lineaComentada(String.valueOf(entorno.posRelativa-1), "Tam de ambito", entorno.nivel);
+         //sumando
+         simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+         //actualizando puntero
+         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_local_id("0"), "actualizando puntero",entorno.nivel);
+         
+         if(!listaPrincipal.listaMain.lista.isEmpty()){
+             simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getCall("$principal"), "Llamado main", entorno.nivel);
+              
+             listaPrincipal.ejecutar(entorno);
+         }else{
+             //no hay principal
+         }
+     }
+     
+     /**
+      * ejecuta los demas metodos
+     * @param entorno
+      */
+     public void ejecutarDemasMetodos(elementoEntorno entorno){
+         listaMetodoFuncion.ejecutar(entorno);
+     }
+      
+     /**
+      * 
+      * @param mensaje 
+      */ 
     public void println(String mensaje){
         System.out.println("[elementoClase]"+mensaje);
     }

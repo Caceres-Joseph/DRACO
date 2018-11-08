@@ -22,7 +22,7 @@ public class elementoEntorno {
     public elementoGlobal simbolo;
     public String nombre;
     public lstVariables lstVariables ;
-
+    public elementoClase funciones;
     
     
     /**
@@ -44,12 +44,13 @@ public class elementoEntorno {
      * @param simbolo Simbolo que maneja la tabla de errores
      * @param nivel
      */
-    public elementoEntorno(elementoEntorno anterior,String nombre, elementoGlobal simbolo, int nivel){
+    public elementoEntorno(elementoEntorno anterior,String nombre, elementoGlobal simbolo, int nivel, elementoClase funciones){
         this.anterior=anterior;
         this.simbolo=simbolo;
         this.nombre=nombre;
         this.nivel=nivel;
         this.lstVariables=new lstVariables(simbolo);
+        this.funciones=funciones;
 //        this.lstVariables=new lstValores(simbolo);
     }
     

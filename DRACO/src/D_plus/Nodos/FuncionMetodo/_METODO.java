@@ -95,7 +95,7 @@ public class _METODO extends nodoModelo{
                 _LST_PARAMETROS parametros=(_LST_PARAMETROS)listaHijos.lstHijos.get(2);
    
                 valorPolimorfo valor;
-                valor=new valorPolimorfo(parametros.getListaParametros(), tipo, nombre, dimension, listaHijos.lstHijos.get(3));
+                valor=new valorPolimorfo(parametros.getListaParametros(), tipo, nombre, dimension, listaHijos.lstHijos.get(3), simbolo);
                 clavePolimorfa clave=new clavePolimorfa(parametros.getListaParametros(), nombre);
                 
                 if(clase.listaMetodoFuncion.listaMetodoFuncion.containsKey(clave)){
@@ -108,7 +108,7 @@ public class _METODO extends nodoModelo{
                 break; 
             case 1: 
                 valorPolimorfo valor2;
-                valor2=new valorPolimorfo(new lstParametro(simbolo), tipo, nombre, dimension, listaHijos.lstHijos.get(2));
+                valor2=new valorPolimorfo(new lstParametro(simbolo), tipo, nombre, dimension, listaHijos.lstHijos.get(2), simbolo);
 //                println("imprimiendo");
 //                valor2.imprimir();
                 clavePolimorfa clave2=new clavePolimorfa(new lstParametro(simbolo), nombre);

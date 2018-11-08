@@ -349,13 +349,10 @@ PARAMETRO           ::=TIPO:h1 VAR_ARREGLO:h2
 
 LST_VAL             ::= LST_VAL:h1 sComa VALOR:h2
                         {:
-                            itemAtributo atrib1=new itemAtributo("LST_VAL", parser.nombreArchivo, 0); 
-                            _LST_VAL padre =new _LST_VAL(atrib1 , parser.simbolo);
                             
-                                padre.listaHijos.insertar(h1,h1left, h1right);
-                                padre.listaHijos.insertar(h2,h2left, h2right);
+                                h1.listaHijos.insertar(h2,h2left, h2right);
 
-                            RESULT= padre;
+                            RESULT= h1;
                         :}
                     |   VALOR:h1
                         {:
@@ -744,44 +741,59 @@ ID_VAR_FUNC         ::= ID_VAR_FUNC:h1 LST_PUNTOSP:h2
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 0); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
                              
+                             padre.listaHijos.insertar(h1,h1left, h1right); 
 
                             RESULT= padre;
                         :}
-                    |   valId
+                    |   valId:d1
                         {:
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 1); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
                              
 
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+
                             RESULT= padre;
                         :}
-                    |   valId sAbreParent  LST_VAL:h1  sCierraParent
+                    |   valId:d1 sAbreParent  LST_VAL:h1  sCierraParent
                         {:
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 2); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
                              
 
+                                padre.listaHijos.insertar(h1,h1left, h1right); 
+
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+
                             RESULT= padre;
                         :}
-                    |   valId sAbreParent           sCierraParent
+                    |   valId:d1 sAbreParent           sCierraParent
                         {:
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 3); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
                              
 
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+
                             RESULT= padre;
                         :}
                     //para hacer uso de corchetes
-                    |   valId  LST_CORCHETES_VAL:h1
+                    |   valId:d1  LST_CORCHETES_VAL:h1
                         {:
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 4); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
                             
                                 padre.listaHijos.insertar(h1,h1left, h1right); 
 
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+
                             RESULT= padre;
                         :}
-                    |   valId  sAbreParent  LST_VAL:h1  sCierraParent  LST_CORCHETES_VAL:h2
+                    |   valId:d1  sAbreParent  LST_VAL:h1  sCierraParent  LST_CORCHETES_VAL:h2
                         {:
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 5); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
@@ -789,14 +801,21 @@ ID_VAR_FUNC         ::= ID_VAR_FUNC:h1 LST_PUNTOSP:h2
                                 padre.listaHijos.insertar(h1,h1left, h1right);
                                 padre.listaHijos.insertar(h2,h2left, h2right);
 
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
+
                             RESULT= padre;
                         :}
-                    |   valId  sAbreParent           sCierraParent  LST_CORCHETES_VAL:h1
+                    |   valId:d1  sAbreParent           sCierraParent  LST_CORCHETES_VAL:h1
                         {:
                             itemAtributo atrib1=new itemAtributo("ID_VAR_FUNC", parser.nombreArchivo, 6); 
                             _ID_VAR_FUNC padre =new _ID_VAR_FUNC(atrib1 , parser.simbolo);
                             
                                 padre.listaHijos.insertar(h1,h1left, h1right); 
+
+
+                                itemAtributo at1=new itemAtributo("valId",d1, d1right, d1left,parser.nombreArchivo); 
+                                padre.listaAtributos.insertar(at1);
 
                             RESULT= padre;
                         :}

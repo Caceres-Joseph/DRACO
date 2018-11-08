@@ -151,7 +151,7 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
          
         
         //guardando la variable en la tabla de simbolos
-        entorno.lstVariables.insertarVariable(idVar, val, tipo.valor, dimension, entorno.posRelativa-1);
+        entorno.lstVariables.insertarVariable(idVar, val, tipo.valor, dimension, entorno.posRelativa-1, entorno.nombre);
          
          
         //Ubicndo todo lo que viene en E
@@ -159,10 +159,7 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
         for (String string : val.cadenaDasm) { 
             simbolo.salidaDasm.linea(string,entorno.nivel);
         }
-         
-        
-        
-        
+          
         /*INICIO CODIGO*/
         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_local_calc(), "Enviando var a la posicion", entorno.nivel);
         return retorno;

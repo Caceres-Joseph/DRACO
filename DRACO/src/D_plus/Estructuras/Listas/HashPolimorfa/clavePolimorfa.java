@@ -43,6 +43,40 @@ public class clavePolimorfa {
             lstClaves.add(clave);
         }
     } 
+    /**
+     * 
+     * @param listaTipos Es el listado de tipos de los parametros
+     * @param nombre Es el nombre de la funcion
+     */
+    public clavePolimorfa(ArrayList<itemClave> listaTipos, itemAtributo nombre){
+        this.nombre=nombre;
+        lstClaves =new ArrayList<>();
+        for (itemClave clave : listaTipos) { 
+            lstClaves.add(clave);
+        }
+    }
+    
+    public String getListaTiposString(){
+        String retorno="";
+        for (itemClave listaTipo : lstClaves) {
+            if(retorno.equals("")){
+                retorno+=listaTipo.tipo+String.valueOf(listaTipo.dimension);
+            }else{
+                retorno+=", "+listaTipo.tipo+String.valueOf(listaTipo.dimension);
+            }
+        }
+        return retorno;
+    }
+    
+    public String getParamsNombreFunc(){
+        String retorno="";
+        for (itemClave listaTipo : lstClaves) {
+         
+                retorno+="_"+listaTipo.tipo+String.valueOf(listaTipo.dimension);
+            
+        } 
+        return retorno;
+    }
     
     public void imprimir(){
         println("CLAVE:"+nombre.valor+"--");
@@ -93,18 +127,6 @@ public class clavePolimorfa {
          
     }
     
-    /**
-     * Clase para tener un par de tipo [tipo][dimension]
-     */
-     
-    public class itemClave{
-        String tipo;
-        int dimension;
-        
-        public itemClave(String tipo, int dimension){
-            this.tipo=tipo;
-            this.dimension=dimension; 
-        }
-    }
+    
     
 }

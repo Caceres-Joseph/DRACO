@@ -50,17 +50,20 @@ public class elementoRunnable implements Runnable {
                 anlzDplusPlus dPlus = new anlzDplusPlus(cadenaEntrada, nombreArchivo, simbolo);
                 dPlus.analizar();
                  
-                elementoClase clase=new elementoClase(simbolo);
+                elementoClase claseDpp=new elementoClase(simbolo);
                 
                 if(dPlus.raiz!=null){
-                    dPlus.raiz.primerPasada(clase);
+                    dPlus.raiz.primerPasada(claseDpp);
                     if(dPlus.raiz.hayErrores()){
                         simbolo.setConsola("No se puede iniciar la traducción debido a que se econtraron errores");
                     }else{
-                        simbolo.clase=clase;
-                        D_plus.Estructuras.Elementos.elementoEntorno entornoGlobal2 = new D_plus.Estructuras.Elementos.elementoEntorno(null, "global", simbolo,0);
-//                        clase.traducir(entornoGlobal2);
+                        simbolo.clase=claseDpp;
+                        D_plus.Estructuras.Elementos.elementoEntorno entornoGlobal2 = new D_plus.Estructuras.Elementos.elementoEntorno(null, "global", simbolo,0,claseDpp);
+                        //traduce las variables gloables
                         dPlus.raiz.ejecutar(entornoGlobal2);
+                        //traduce los metodos
+                        claseDpp.ejecutar(entornoGlobal2);
+                        
                     }
 //                    clase.imprimir();
                 }else{

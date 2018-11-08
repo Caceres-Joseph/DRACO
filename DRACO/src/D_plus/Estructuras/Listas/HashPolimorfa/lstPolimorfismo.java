@@ -30,12 +30,32 @@ public class lstPolimorfismo  {
          for (nodoArreglo arreglo : lista) {
              //verificar si tiene la misma cantidad de parámetros 
              clavePolimorfa clave=arreglo.getClave(); 
+             if(clave2==null){
+                 println("[containsKey]Clave2 nula");
+                 return false;
+             }else if(clave==null){
+                 println("[containsKey]Clave nula");
+                 return false;
+             }
              if(clave.esIgual(clave2)){
                  return true;
              }
          } 
          return false;
      }
+     
+     
+     public valorPolimorfo getValorPolimorfo (clavePolimorfa clave2){
+         for (nodoArreglo arreglo : lista) {
+             //verificar si tiene la misma cantidad de parámetros 
+             clavePolimorfa clave=arreglo.getClave(); 
+             if(clave.esIgual(clave2)){
+                 return arreglo.valor;
+             }
+         } 
+         
+         return null;
+     } 
     
      
      public void imprimir(){ 
@@ -50,8 +70,8 @@ public class lstPolimorfismo  {
          }
      }
      public class nodoArreglo{
-         clavePolimorfa clave;
-         valorPolimorfo valor;
+         public clavePolimorfa clave;
+         public valorPolimorfo valor;
          public nodoArreglo(clavePolimorfa clave, valorPolimorfo valor){
              this.clave=clave;
              this.valor=valor; 
