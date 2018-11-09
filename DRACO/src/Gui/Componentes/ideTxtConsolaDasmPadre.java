@@ -90,7 +90,7 @@ public class ideTxtConsolaDasmPadre {
         for (int i = 0; i < nivel; i++) {
             tabs=tabs+"\t";
         }
-        String escribir="\n"+tabs+"\t//"+comentario+"\n"+tabs+linea;
+        String escribir="\n"+tabs+"//"+comentario+"\n"+tabs+linea;
         writeAdd(escribir);
     }
     public void comentario( String comentario, int nivel){
@@ -98,7 +98,7 @@ public class ideTxtConsolaDasmPadre {
         for (int i = 0; i < nivel; i++) {
             tabs=tabs+"\t";
         }
-        String escribir="\n"+tabs+"\t//"+comentario;
+        String escribir="\n"+tabs+"//"+comentario;
         writeAdd(escribir);
     }
     

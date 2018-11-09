@@ -11,17 +11,15 @@ import D_plus.Estructuras.Items.itemValor;
 import D_plus.Estructuras.Listas.HashPolimorfa.clavePolimorfa;
 import D_plus.Estructuras.Listas.HashPolimorfa.itemClave;
 import D_plus.Nodos.Parametros._LST_VAL;
-import Gui.Items.itemAtributo;
-import D_plus.Nodos.nodoModelo;
+import Gui.Items.itemAtributo; 
 import Gui.Elementos.elementoGlobal;  
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  *
  * @author joseph
  */
-public class _ID_VAR_FUNC_PADRE extends nodoModelo{
+public class _ID_VAR_FUNC_PADRE extends _ID_VAR_FUNC_PADRE2{
     
     public _ID_VAR_FUNC_PADRE(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
@@ -68,9 +66,9 @@ public class _ID_VAR_FUNC_PADRE extends nodoModelo{
             case 4:
                 return case_4(entorno);
             case 5:
-                return case_4(entorno);
+                return case_5(entorno);
             case 6:
-                return case_4(entorno);
+                return case_6(entorno);
             default:
                 println("[casos]Ninguno de los casos");
                 return retorno;

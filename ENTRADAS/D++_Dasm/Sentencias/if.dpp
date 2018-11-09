@@ -1,0 +1,13 @@
+vacio principal(){ 
+	 
+	booleano val1=verdadero;
+	si(val1){
+ 		entero val2=3+3; 
+	  	si(val2==6){
+			entero val2=99;
+		}
+	}
+  	entero val2=11;
+}
+ 
+

@@ -110,130 +110,72 @@ public class _E extends nodoModelo{
 
         switch (atributo.nivelProduccion) {
 
-            case 0:
-                if(hayErrores())
-                    return retorno;
-                
+            case 0: 
                 return case_0(entorno); 
  
-            case 1:
-                if(hayErrores())
-                    return retorno;
-                
+            case 1: 
                 return case_1(entorno); 
  
-            case 2:
-                if(hayErrores())
-                    return retorno;
+            case 2: 
                 
                 return case_2(entorno); 
-            case 3:
-                if(hayErrores())
-                    return retorno; 
+            case 3: 
                 return case_3(entorno); 
-            case 4:
-                if(hayErrores())
-                    return retorno; 
+            case 4: 
                 return case_4(entorno);  
-            case 5:
-                if(hayErrores())
-                    return retorno; 
+            case 5: 
                 return case_5(entorno);  
-            case 6:
-                if(hayErrores())
-                    return retorno; 
+            case 6: 
                 return case_6(entorno); 
             case 7:
-
-                if(hayErrores())
-                    return retorno; 
-                return case_7(entorno);  
+                itemValor ret=case_7(entorno); 
+                return ret; 
             case 8:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_8(entorno);  
             case 9:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_9(entorno);  
             case 10:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_10(entorno);  
             case 11:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_11(entorno);  
             case 12:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_12(entorno);  
             case 13:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_13(entorno);  
             case 14:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_14(entorno);  
             case 15:
-
-                if(hayErrores())
-                    return retorno; 
+ 
                 return case_15(entorno);  
-            case 16:
-                if(hayErrores())
-                    return retorno;
-                
+            case 16: 
                 return case_16(entorno);  
-            case 17:
-                if(hayErrores())
-                    return retorno;
-                
+            case 17: 
                 return case_17(entorno);
-            case 18:
-                if(hayErrores())
-                    return retorno;
-                
+            case 18: 
                 return case_19(entorno); 
-            case 19:
-                if(hayErrores())
-                    return retorno;
-                
+            case 19: 
                 return case_19(entorno); 
-            case 20:
-                if(hayErrores())
-                    return retorno;
-                
+            case 20: 
                 return case_20(entorno); 
                 
-            case 21:
-                if(hayErrores())
-                    return retorno;
-                
+            case 21: 
                 return case_21(entorno); 
             case 22:
-                
-                if(hayErrores())
-                    return retorno;
-
+                 
                 return case_22(entorno);
             case 23:
-
-                if (hayErrores()) {
-                    return retorno;
-                }
-
+ 
                 return case_23(entorno);
 
             default:
+                println("[getValor]No se encontro el nivel");
                 return new itemValor(simbolo);
         }
 

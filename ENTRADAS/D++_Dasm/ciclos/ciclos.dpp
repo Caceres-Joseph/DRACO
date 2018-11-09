@@ -1,0 +1,11 @@
+
+
+vacio principal(){ 
+	 
+	
+    para (entero cuenta = 0; cuenta <= 10; cuenta++) {
+        entero var1=0;
+    }
+    
+}
+ 

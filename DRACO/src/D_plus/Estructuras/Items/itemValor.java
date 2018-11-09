@@ -38,6 +38,11 @@ public class itemValor {
     public int posRelativa=-1;
     
     public boolean esEstructura=false;
+    
+    //Me sirve extra
+    public String tipoSupremo="nulo";
+    
+    
     /**
      * Constructor que recibe la tabla de errores
      * @param simbolo Se usa para la tabla de errores

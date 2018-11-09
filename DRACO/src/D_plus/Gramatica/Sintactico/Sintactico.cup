@@ -886,12 +886,13 @@ LST_PUNTOSP         ::= sPunto  valId
     */
  
 
-ASIG_VALOR          ::= ID_VAR_FUNC:h1  VAL
+ASIG_VALOR          ::= ID_VAR_FUNC:h1  VAL:h2
                         {:
                             itemAtributo atrib1=new itemAtributo("ASIG_VALOR", parser.nombreArchivo, 0); 
                             _ASIG_VALOR padre =new _ASIG_VALOR(atrib1 , parser.simbolo);
                             
-                                padre.listaHijos.insertar(h1,h1left, h1right); 
+                                padre.listaHijos.insertar(h1,h1left, h1right);
+                                padre.listaHijos.insertar(h2,h2left, h2right); 
 
                             RESULT= padre;
                         :}
@@ -935,10 +936,13 @@ LST_CUERPO          ::= LST_CUERPO2:h1
                         :}
                     |   /* epsilon */
                     {:
-                        itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 1); 
-                        _VACIO padre =new _VACIO(atrib1 , parser.simbolo);
- 
-                        RESULT= padre;
+                            itemAtributo atrib1=new itemAtributo("LST_CUERPO", parser.nombreArchivo, 0); 
+                            _LST_CUERPO padre =new _LST_CUERPO(atrib1 , parser.simbolo);
+                                 
+                                _VACIO h1 =new _VACIO(atrib1 , parser.simbolo);
+                                padre.listaHijos.insertar(h1,0, 0); 
+
+                            RESULT= padre;
                     :}
                     ;
 
@@ -1142,7 +1146,7 @@ SENTENCIAS          ::= SI:h1
 
 
 
-SI      ::= tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave
+SI      ::= tSi  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave
                         {:
                             itemAtributo atrib1=new itemAtributo("SI", parser.nombreArchivo, 0); 
                             _SI padre =new _SI(atrib1 , parser.simbolo);
@@ -1152,7 +1156,7 @@ SI      ::= tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sC
 
                             RESULT= padre;
                         :}
-        |   tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO_SI:h3
+        |   tSi  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO_SI:h3
                         {:
                             itemAtributo atrib1=new itemAtributo("SI", parser.nombreArchivo, 1); 
                             _SI padre =new _SI(atrib1 , parser.simbolo);
@@ -1163,19 +1167,20 @@ SI      ::= tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sC
 
                             RESULT= padre;
                         :}
-        |   tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO:h3
+        |   tSi  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO:h3
                         {:
                             itemAtributo atrib1=new itemAtributo("SI", parser.nombreArchivo, 2); 
                             _SI padre =new _SI(atrib1 , parser.simbolo);
                             
                                 padre.listaHijos.insertar(h1,h1left, h1right);
                                 padre.listaHijos.insertar(h2,h2left, h2right);
+                                padre.listaHijos.insertar(h3,h3left, h3right);
 
                             RESULT= padre;
                         :}
         ;
 
-SINO_SI ::= tSino  tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave
+SINO_SI ::= tSino  tSi  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave
                         {:
                             itemAtributo atrib1=new itemAtributo("SINO_SI", parser.nombreArchivo, 0); 
                             _SINO_SI padre =new _SINO_SI(atrib1 , parser.simbolo);
@@ -1185,7 +1190,7 @@ SINO_SI ::= tSino  tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO
 
                             RESULT= padre;
                         :}
-        |   tSino  tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO_SI:h3
+        |   tSino  tSi  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO_SI:h3
                         {:
                             itemAtributo atrib1=new itemAtributo("SINO_SI", parser.nombreArchivo, 1); 
                             _SINO_SI padre =new _SINO_SI(atrib1 , parser.simbolo);
@@ -1196,7 +1201,7 @@ SINO_SI ::= tSino  tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO
 
                             RESULT= padre;
                         :}
-        |   tSino  tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO:h3
+        |   tSino  tSi  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave  SINO:h3
                         {:
                             itemAtributo atrib1=new itemAtributo("SINO_SI", parser.nombreArchivo, 2); 
                             _SINO_SI padre =new _SINO_SI(atrib1 , parser.simbolo);
@@ -1211,8 +1216,8 @@ SINO_SI ::= tSino  tSi  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO
 
 SINO    ::= tSino  sAbreLlave  LST_CUERPO:h1  sCierraLlave
                         {:
-                            itemAtributo atrib1=new itemAtributo("SINO_SI", parser.nombreArchivo, 0); 
-                            _SINO_SI padre =new _SINO_SI(atrib1 , parser.simbolo);
+                            itemAtributo atrib1=new itemAtributo("SINO", parser.nombreArchivo, 0); 
+                            _SINO padre =new _SINO(atrib1 , parser.simbolo);
                             
                                 padre.listaHijos.insertar(h1,h1left, h1right); 
 
@@ -1247,7 +1252,7 @@ SI_SIMPLIFICADO     ::= VALOR:h1  sCierraInterrogante  E:h2  sDosPuntos  E:h3
     */
 
 
-WHILE       ::=tMientras  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave
+WHILE       ::=tMientras  sAbreParent  VALOR:h1  sCierraParent  sAbreLlave  LST_CUERPO:h2  sCierraLlave
                         {:
                             itemAtributo atrib1=new itemAtributo("WHILE", parser.nombreArchivo, 0); 
                             _WHILE padre =new _WHILE(atrib1 , parser.simbolo);
@@ -1267,7 +1272,7 @@ WHILE       ::=tMientras  sAbreParent  E:h1  sCierraParent  sAbreLlave  LST_CUER
     ------------------------------------------
     */
 
-FOR     ::= tPara  sAbreParent  DECLARAR_VARIABLE:h1  sPuntoComa  E:h2  sPuntoComa  ASIG_VALOR:h3  sCierraParent  sAbreLlave  LST_CUERPO:h4  sCierraLlave
+FOR     ::= tPara  sAbreParent  DECLARAR_VARIABLE:h1  sPuntoComa  VALOR:h2  sPuntoComa  ASIG_VALOR:h3  sCierraParent  sAbreLlave  LST_CUERPO:h4  sCierraLlave
                         {:
                             itemAtributo atrib1=new itemAtributo("FOR", parser.nombreArchivo, 0); 
                             _FOR padre =new _FOR(atrib1 , parser.simbolo);
@@ -1279,7 +1284,7 @@ FOR     ::= tPara  sAbreParent  DECLARAR_VARIABLE:h1  sPuntoComa  E:h2  sPuntoCo
 
                             RESULT= padre;
                         :}
-        |   tPara  sAbreParent  ASIG_VALOR:h1  sPuntoComa  E:h2  sPuntoComa  ASIG_VALOR:h3  sCierraParent  sAbreLlave  LST_CUERPO:h4  sCierraLlave
+        |   tPara  sAbreParent  ASIG_VALOR:h1  sPuntoComa  VALOR:h2  sPuntoComa  ASIG_VALOR:h3  sCierraParent  sAbreLlave  LST_CUERPO:h4  sCierraLlave
                         {:
                             itemAtributo atrib1=new itemAtributo("FOR", parser.nombreArchivo, 1); 
                             _FOR padre =new _FOR(atrib1 , parser.simbolo);

@@ -94,8 +94,7 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
     /**
      * <br> +----------------
      * <br> | ID_VAR_FUNC  LST_PUNTOSP
-     * <br> +----------------
-     * <br> |DECLARAR_VARIABLE sComa VAR_ARREGLO
+     * <br> +---------------- 
      * 
      * @param entorno Es el ambito que recibe
      * @return Retorna para revisión de break
@@ -124,26 +123,27 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
         itemValor val= entorno.getValVariable(nombreVariable);
         if(hayErrores())
             return new itemValor(simbolo);
-        
+        //inicializando la lista
+        val.cadenaDasm=new ArrayList<>();
         
         //verificando si no es una variable global
         if(val.nombreEntorno.equals("global")){
             //posicion relativa de la variable
-            retorno.cadenaDasm.add(String.valueOf(val.posRelativa));
+            val.cadenaDasm.add(String.valueOf(val.posRelativa));
             //obteniendo el valor de esa posicion
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
+            val.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
             
         }else{
             //obtengo el puntero
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_local_id("0"));
+            val.cadenaDasm.add(simbolo.salidaDasm.getGet_local_id("0"));
             //posicion relativa de la variable
-            retorno.cadenaDasm.add(String.valueOf(val.posRelativa));
+            val.cadenaDasm.add(String.valueOf(val.posRelativa));
             //sumando
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            val.cadenaDasm.add(simbolo.salidaDasm.getAdd());
             //obteniendo el valor de esa posicion
-            retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
+            val.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
         }
-        return retorno;
+        return val;
     }
     
     

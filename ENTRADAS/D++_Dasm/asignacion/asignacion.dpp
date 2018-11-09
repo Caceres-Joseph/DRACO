@@ -1,0 +1,9 @@
+vacio principal(){ 
+	 
+	booleano val1=verdadero;
+	booleano val2;
+  
+  	val2=val1;
+  
+}
+ 

@@ -47,7 +47,8 @@ public class _VALOR extends nodoModelo{
             return new itemValor(simbolo);
         } 
         _E nod = (_E) listaHijos.lstHijos.get(0);
-        return nod.getValor(entorno);
+        itemValor ret=nod.getValor(entorno); 
+        return ret;
 
     }
 }

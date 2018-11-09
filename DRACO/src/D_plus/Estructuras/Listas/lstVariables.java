@@ -117,7 +117,11 @@ public class lstVariables {
             String nombreVar=lstVariable.getKey();
             
             if(atribNombreVar.valLower.equals(nombreVar)){
-                return lstVariable.getValue();
+              
+                nodTipo tipo = lstVariablesTipo.get(nombreVar);
+                itemValor retorno= lstVariable.getValue();
+                retorno.tipoSupremo=tipo.tipo;
+                return retorno;
             }
         }
         //hay que buscar en los ambitos anteriores

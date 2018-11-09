@@ -5,6 +5,8 @@
  */
 package D_plus.Nodos.SentenciaControl;
 
+import D_plus.Estructuras.Elementos.elementoEntorno;
+import D_plus.Estructuras.Items.itemRetorno;
 import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
@@ -26,4 +28,64 @@ public class _ROMPER extends nodoModelo{
         super(atrib, simbolo);
     }
     
+    
+     
+    /*
+    |-------------------------------------------------------------------------------------------------------------------
+    | EJECUTAR
+    |-------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    
+    /**
+     * Metodo de ejecución final
+     * @param entorno Es la tabla que contiene las variables
+     * @return El retorno es cuando viene un break
+     */
+    @Override
+    public itemRetorno ejecutar(elementoEntorno entorno){ 
+        validandoDebug();
+        itemRetorno ret = new itemRetorno();
+        if (hayErrores()) 
+            return ret;
+        
+        return casos(entorno);
+    }
+    
+    public itemRetorno casos(elementoEntorno entorno) { 
+        itemRetorno retorno=new itemRetorno();
+        //tengo que ir en busca de un entorno que se llame while o for y recuperar su nivel
+        
+        buscarEntorno(entorno, entorno.nivel);
+        return retorno;
+    }
+    
+     
+    /**
+     * Recuperando el valor de la variable
+     * @param entorno El entorno que estoy buscando
+     * @param nivelActual Nivel del metodo
+     */
+    
+    public void buscarEntorno(elementoEntorno entorno, int nivelActual){
+         
+        
+        //buscando un ciclo
+        if(entorno.nombre.equals("while")|| entorno.nombre.equals("for")){
+            String etiquetaSalidaCiclo="$e_"+entorno.nombre+"_falso"+String.valueOf(entorno.nivel-1);
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalidaCiclo), "BREAK:", nivelActual);
+            
+        }else{
+            
+             if(entorno.anterior!=null){
+                 buscarEntorno(entorno.anterior, nivelActual);
+             }else{ 
+                 simbolo.tablaErrores.insertErrorSemantic(atributo, "La sentencia denter solo puede venir dentro de un ciclo");
+                 //no se encontro dentro de un cilco erro prro
+             }
+        }
+        
+    }
+    
 }
+

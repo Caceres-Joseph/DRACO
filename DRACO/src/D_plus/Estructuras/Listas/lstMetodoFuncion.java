@@ -39,6 +39,7 @@ public class lstMetodoFuncion {
     }
     
     
+    public static valorPolimorfo valPolimorfoFuncActual;
     /**
      * Traduccion del metodo
      * @param entorno 
@@ -47,7 +48,7 @@ public class lstMetodoFuncion {
         for (lstPolimorfismo.nodoArreglo arreglo : listaMetodoFuncion.lista) {
             clavePolimorfa clave=arreglo.clave;
             valorPolimorfo valor=arreglo.valor;
-            
+            valPolimorfoFuncActual=valor;
             //aqui se crea un nuevo entorno
             
             

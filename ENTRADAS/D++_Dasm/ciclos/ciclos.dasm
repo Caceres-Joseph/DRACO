@@ -1,0 +1,97 @@
+
+/*
++----------------------
+| Llamado a principal
++----------------------
+| 
+*/
+//Cambiando de ambito
+get_local 0
+//Tam de ambito
+0
+ADD
+//actualizando puntero
+set_local 0
+//Llamado main
+Call $principal
+/*
+|-------------------------------------------------
+| Principal
+*/
+Function $principal
+	/*
+	+----------------------
+	| Para
+	+----------------------
+	| Declarando var
+	*/
+	//DECLARANDO VAR EN FOR:
+		/*
+		+----------------------
+		| Declarando variable
+		+----------------------
+		| cuenta=numero
+		*/
+		//Obteniendo el puntero
+		get_local 0
+		//Pos relativa de la variable
+		1
+		ADD
+		//Operaciones E
+		0
+		//Enviando var a la posicion
+		set_local $calc
+	//Etiqueta condicion
+	$e_for_condicion1
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	10
+	GT
+	EQZ
+	//Etiqueta para salir del for
+	BR_IF $e_for_falso1
+	//CUERPO FOR:
+		/*
+		+----------------------
+		| Declarando variable
+		+----------------------
+		| var1=numero
+		*/
+		//Obteniendo el puntero
+		get_local 0
+		//Pos relativa de la variable
+		2
+		ADD
+		//Operaciones E
+		0
+		//Enviando var a la posicion
+		set_local $calc
+	//INCREMENTO FOR:
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		1
+		ADD
+		//Operaciones E
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_for_condicion1
+	//Etiqueta de salida para el valor falso
+	$e_for_falso1
+	$dasm_retora
+END

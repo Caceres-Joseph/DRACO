@@ -163,6 +163,8 @@ public class lstParametro {
         /*GUARDANDO LA VARIABLE EN LA TABLA DE SIMBOLOS*/  
         //Valor Temporal que es nulo
         itemValor tempVal=new itemValor(simbolo);
+        //asingando el tipo del parametro
+        tempVal.tipo=val.tipo.valor;
         //guardando la variable
         entorno.lstVariables.insertarVariable(val.nombre, tempVal, val.tipo.valor, val.dimension, numParametro, entorno.nombre);
         
