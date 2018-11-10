@@ -9,6 +9,7 @@ import D_plus.Estructuras.Items.itemValor;
 import D_plus.Estructuras.Listas.lstVariables;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
+import java.util.Random;
 
 /**
  *
@@ -32,8 +33,17 @@ public class elementoEntorno {
      */
     
     public int posRelativa=1;
+    public String idSentencia="";
+    public String idSentencia2="";
     
     
+    public void crearIdSentencia(){
+        Random rand = new Random();
+        int indice_salto_falso=rand.nextInt(1000);
+       
+        int indice_salto_falso2=rand.nextInt(10);
+        idSentencia=String.valueOf(indice_salto_falso+indice_salto_falso);
+    }
     
     //sirve para las tabulaciones y saber que tan adentro esta el codigo
     public int nivel=0;
@@ -51,13 +61,11 @@ public class elementoEntorno {
         this.nivel=nivel;
         this.lstVariables=new lstVariables(simbolo);
         this.funciones=funciones;
+        crearIdSentencia();
 //        this.lstVariables=new lstValores(simbolo);
     }
     
-    
-    
-    
-    
+     
     
     /*
     |-------------------------------------------------------------------------------------------------------------------
@@ -109,7 +117,6 @@ public class elementoEntorno {
          }else{
              lstVariables._setValVariable(atribNombreVar, valor);
              return true;
-         } 
-         
+         }  
     }
 }

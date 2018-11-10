@@ -24,6 +24,7 @@ TIPO            ::= tEntero         0
                 |   tBooleano       3
                 |   tVacio          4
                 |   tCadena         5
+                |   valId           6
                 ;
  */
 public class _TIPO extends nodoModelo{
@@ -41,6 +42,8 @@ public class _TIPO extends nodoModelo{
        }else if(retorno.valor.equals("decimal")){
            retorno.valor="numero";
        }
+       
+       
        return retorno;
         
     }

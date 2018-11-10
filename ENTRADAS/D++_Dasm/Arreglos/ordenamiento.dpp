@@ -1,0 +1,92 @@
+/*
+  * ESTE ARCHIVO CONTIENE ALGORITMOS DE ORDENAMIENTO DE ARREGLOS
+  * SIRVE PARA PROBAR EL MANEJO DE ARREGLOS
+*/
+
+//METODO QUE LLAMA AL ORDENAMIENTO DE ARREGLOS
+vacio ordenaArreglos()
+{
+	entero tam = 6;
+  	entero arr[tam] = {23,31,1,21,36,72};
+  	imprimir("Burbuja de mayor a menor");
+  	ordenamientoBurbuja(arr, tam); // SALIDA: 72, 36, 31, 23, 21, 1  DE MAYOR A MENOR
+  	printArr(arr, tam);
+  	imprimir("Quick Sort de menor a mayor");
+  	quickSort(arr, tam, 0, tam-1); // SALIDA: 1, 21, 23, 31, 36, 72  DE MENOR A MAYOR
+  	printArr(arr, tam);
+}
+
+// METODO DE ORDENAMIENTO BURBUJA DE MAYOR A MENOR
+vacio ordenamientoBurbuja(entero arr[], entero size) /*ORDENA DE MAYOR A MENOR*/
+{
+    para(entero i = 0; i < size-1; i++)
+    {
+        para(entero j = 0; j < size-1; j++)
+        {
+        	si(arr[j] < arr[j+1])
+        	{
+        		entero temp = arr[j+1];
+        		arr[j+1] = arr[j];
+        		arr[j] = temp;
+        	}
+        }
+    }
+}
+
+/*METODO QUICKSORT RECURISVO*/
+vacio quickSort(entero arr[], entero size, entero startIdx, entero endIdx)
+{
+	entero idx = partition(arr, size, startIdx, endIdx);
+
+	// LLAMADA RECURSIVA POR LA IZQUIERDA
+	si(startIdx < idx -1)
+	{
+		quickSort(arr, size, startIdx, idx - 1);
+	}
+
+	// LLAMADA RECURSIVA POR LA DERECHA
+	si(endIdx > idx)
+	{
+		quickSort(arr, size, idx, endIdx);
+	}
+}
+/*FUNCION AUXILIAR PARA LA PARTICION*/
+entero partition(entero arr[], entero size, entero left, entero right)
+{
+	entero pivote = arr[left];
+	mientras(left <= right)
+	{
+		//BUSCANDO EL NUMERO QUE ES MAYOR AL PIVOTE
+		mientras(arr[left] < pivote)
+		{
+			left++;
+		}
+
+		//BUSCANDO EL NUMERO QUE ES MENOR AL PIVOTE
+		mientras(arr[right] > pivote)
+		{
+			right--;
+		}
+
+		// INTERCAMBIANDO VALORES
+		si(left <= right)
+		{
+			entero temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+			//INCREMENTANDO EL IZQUIERDO Y DECREMENTANDO EL DERECHO
+			left++;
+			right--;
+		}
+	}
+	retornar left;
+}
+
+
+vacio printArr(entero arr[], entero size) /*IMPRIME EL ARREGLO QUE SE LE MANDA COMO PARAMETRO*/
+{
+    para(entero x = 0; x < size; x++)
+    {
+        imprimir(arr[x]);
+    }
+}

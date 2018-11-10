@@ -1,11 +1,21 @@
 
 
+estructura Persona
+{
+    cadena nombre;
+    cadena apellido; 
+    entero edad;
+    caracter sexo; 
+}
+
 vacio principal(){ 
 	 
-	
-    para (entero cuenta = 0; cuenta <= 10; cuenta++) {
-        entero var1=0;
-    }
-    
+	Persona p;
+    /* p.nombre = nombre;
+    p.apellido = apellido;
+    p.edad = edad;
+    p.sexo = sexo; */
+ 
+    /* retornar p;  */
 }
  

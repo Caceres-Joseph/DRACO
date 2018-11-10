@@ -1,9 +1,21 @@
-vacio principal(){ 
-	 
-	booleano val1=verdadero;
-	booleano val2;
-  
-  	val2=val1;
-  
+vacio principal()
+{
+      //imprimir(akerman(3,4));
+      fibo(5);
+      //imprimir(fibo(5));
+      //imprimir(factorial(5));
 }
+
  
+
+entero fibo(entero n)
+{
+      si(n == 0 || n == 1)
+      {
+            retornar n;
+      }
+      sino
+      {
+            retornar fibo(n-1) + fibo(n -2);
+      }
+}

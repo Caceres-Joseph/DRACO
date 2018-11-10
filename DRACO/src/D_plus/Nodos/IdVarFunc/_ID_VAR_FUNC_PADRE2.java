@@ -6,6 +6,7 @@
 package D_plus.Nodos.IdVarFunc;
 
 import D_plus.Estructuras.Elementos.elementoEntorno;
+import D_plus.Estructuras.Items.itemEstructura;
 import D_plus.Estructuras.Items.itemValor;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
@@ -96,9 +97,30 @@ public class _ID_VAR_FUNC_PADRE2 extends nodoModelo{
      */ 
     public itemValor d_case_0(elementoEntorno entorno) {
         itemValor retorno = new itemValor(simbolo); 
-
+        _ID_VAR_FUNC nodoVarFun = (_ID_VAR_FUNC)listaHijos.lstHijos.get(0);
+       _LST_PUNTOSP nodoLstPuntos=(_LST_PUNTOSP)listaHijos.lstHijos.get(1);
        
-        return retorno;
+        //aqui se que estructura y la busco 
+        itemValor valIdVar= nodoVarFun.getDireccionVal(entorno);
+
+        
+        if(!entorno.funciones.listaEstructuras.listaEstructuras.containsKey(valIdVar.tipo)){
+            simbolo.tablaErrores.insertErrorSemantic(atributo,"No se encontró la estructura de tipo:"+valIdVar.tipo);
+            return retorno;   
+        }
+        
+        itemEstructura estructura=  entorno.funciones.listaEstructuras.listaEstructuras.get(valIdVar.tipo);
+        itemValor valPuntos=nodoLstPuntos.getValor(entorno, estructura);
+        
+        if(hayErrores())
+            return retorno;
+        
+        valPuntos.posRelativa=valIdVar.posRelativa;
+        valPuntos.nombreEntorno=valIdVar.nombreEntorno;
+        //println("[d_case_0]Se econtro la estructura prro");
+        
+       
+        return valPuntos;
     }
     
     

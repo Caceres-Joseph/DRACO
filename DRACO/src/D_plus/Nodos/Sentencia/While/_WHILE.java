@@ -56,6 +56,8 @@ public class _WHILE extends nodoModelo{
     
     public itemRetorno casos(elementoEntorno entorno) {
         itemRetorno retorno = new itemRetorno();
+         //creando el nuevo entorno
+        elementoEntorno entornoWhile=new elementoEntorno(entorno, "while", simbolo, entorno.nivel+1, entorno.funciones);
         
         
         //recuperar el valor de E
@@ -73,8 +75,8 @@ public class _WHILE extends nodoModelo{
         simbolo.salidaDasm.comentario("CONDICION:", entorno.nivel);
         
         
-        String etiquetaCondicion = "$e_while_condicion"+String.valueOf(entorno.nivel);
-        String etiquetaFalso="$e_while_falso"+String.valueOf(entorno.nivel);
+        String etiquetaCondicion = "$e_while_condicion"+entornoWhile.idSentencia;
+        String etiquetaFalso="$e_while_falso"+entornoWhile.idSentencia;
         //creando la condicion
         simbolo.salidaDasm.lineaComentada(etiquetaCondicion, "Etiqueta condicion", entorno.nivel);
         
@@ -85,8 +87,6 @@ public class _WHILE extends nodoModelo{
         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalso), "Etiqueta para salir del while", entorno.nivel);
         
         
-        //creando el nuevo entorno
-        elementoEntorno entornoWhile=new elementoEntorno(entorno, "while", simbolo, entorno.nivel+1, entorno.funciones);
         //pero sigo con el conteo de las posiciones de las variables
         entornoWhile.posRelativa=entorno.posRelativa;
         

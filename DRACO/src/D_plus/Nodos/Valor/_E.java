@@ -26,6 +26,7 @@ import D_plus.Nodos.Valor.OpeRelacional.menorIgual;
 import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
+import java.util.ArrayList;
 
 /**
  * Nodo para asignar el valor 
@@ -157,7 +158,10 @@ public class _E extends nodoModelo{
             case 16: 
                 return case_16(entorno);  
             case 17: 
-                return case_17(entorno);
+                
+                //aquí retorna valId(LStVALs);
+                retorno=case_17(entorno);
+                return retorno;
             case 18: 
                 return case_19(entorno); 
             case 19: 
@@ -221,8 +225,13 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno); 
     }
     
@@ -241,8 +250,13 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno);  
     }
     
@@ -261,8 +275,13 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno);      
     }
     
@@ -281,8 +300,14 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno);   
     }
     
@@ -303,8 +328,13 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno); 
     }
     
@@ -326,8 +356,13 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno);  
     }
     /**
@@ -346,8 +381,15 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno);   
     }
     
@@ -368,8 +410,15 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno);
     }
     
@@ -389,8 +438,15 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno);     
     }
     
@@ -410,8 +466,15 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno); 
     }
     
@@ -431,8 +494,15 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno);    
     }
     /**
@@ -451,8 +521,15 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
+        
         return sum.getValor(val1,val2, entorno);  
     } 
     /**
@@ -471,8 +548,14 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno);     
     } 
     /**
@@ -491,8 +574,13 @@ public class _E extends nodoModelo{
         
         _E e1 = (_E) listaHijos.lstHijos.get(0);
         _E e2 = (_E) listaHijos.lstHijos.get(1);
+        
         itemValor val1=e1.getValor(entorno);
+        ArrayList<String> tempCadenaDasm=val1.cadenaDasm;
         itemValor val2=e2.getValor(entorno);
+        
+        val1.cadenaDasm=tempCadenaDasm;
+        
         return sum.getValor(val1,val2, entorno);      
     } 
     /**
@@ -528,6 +616,7 @@ public class _E extends nodoModelo{
     
     public itemValor case_16(elementoEntorno entorno) {  
           
+         
         _E e1 = (_E) listaHijos.lstHijos.get(0); 
         
         return  e1.getValor(entorno);     
@@ -593,6 +682,8 @@ public class _E extends nodoModelo{
     public itemValor case_20(elementoEntorno entorno) { 
         itemValor retorno = new itemValor(simbolo);
         
+        
+        //obtengo el valor real de la cadena
         retorno.parseToCadena(listaAtributos.getAtributo(0));
         
         char [] charCadena= retorno.getCadena().toCharArray();

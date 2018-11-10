@@ -100,6 +100,8 @@ public class _SI extends nodoModelo{
             return retorno;
         }
         
+        //creando el nuevo entorno
+        elementoEntorno entornoIF=new elementoEntorno(entorno, "if", simbolo, entorno.nivel+1, entorno.funciones);
         
         simbolo.salidaDasm.comentarioPequeño("SI", "Sentencia si", entorno.nivel);
         simbolo.salidaDasm.comentario("CONDICION IF:", entorno.nivel);
@@ -108,20 +110,22 @@ public class _SI extends nodoModelo{
             simbolo.salidaDasm.linea(string, entorno.nivel);
         }
         
+        String etiquetaCondicion = "$e_if_condicion"+entornoIF.idSentencia;
+        String etiquetaFalso="$e_if_falso"+entornoIF.idSentencia;
+        
+        
         //creando la condicion
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf("$e_if_falso"+String.valueOf(entorno.nivel)), "Salto para etiqueta falsa", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalso), "Salto para etiqueta falsa", entorno.nivel);
         //cuerpo del if
         simbolo.salidaDasm.comentario("CUERPO IF VERDADERO:", entorno.nivel);
        
-        //creando el nuevo entorno
-        elementoEntorno entornoIF=new elementoEntorno(entorno, "if", simbolo, entorno.nivel+1, entorno.funciones);
         //pero sigo con el conteo de las posiciones de las variables
         entornoIF.posRelativa=entorno.posRelativa;
         
         _LST_CUERPO nodoCuerpo=(_LST_CUERPO)listaHijos.lstHijos.get(1);
         nodoCuerpo.ejecutar(entornoIF);
         //creando la etiqueta salida
-        simbolo.salidaDasm.lineaComentada(("$e_if_falso"+String.valueOf(entorno.nivel)), "Etiqueta de salida para el valor falso", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada((etiquetaFalso), "Etiqueta de salida para el valor falso", entorno.nivel);
         
         return retorno;
     }
@@ -156,28 +160,31 @@ public class _SI extends nodoModelo{
         for (String string : valE.cadenaDasm) {
             simbolo.salidaDasm.linea(string, entorno.nivel);
         }
+        //creando el nuevo entorno
+        elementoEntorno entornoIF=new elementoEntorno(entorno, "if", simbolo, entorno.nivel+1, entorno.funciones);
+        
+        String etiquetaSalida = "$e_if_salida"+entornoIF.idSentencia;
+        String etiquetaFalso="$e_if_falso"+entornoIF.idSentencia;
         
         //creando la condicion
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf("$e_if_falso"+String.valueOf(entorno.nivel)), "Salto para etiqueta falsa", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalso), "Salto para etiqueta falsa", entorno.nivel);
         //cuerpo del if
         simbolo.salidaDasm.comentario("CUERPO IF VERDADERO:", entorno.nivel);
        
-        //creando el nuevo entorno
-        elementoEntorno entornoIF=new elementoEntorno(entorno, "if", simbolo, entorno.nivel+1, entorno.funciones);
         //pero sigo con el conteo de las posiciones de las variables
         entornoIF.posRelativa=entorno.posRelativa;
         
         _LST_CUERPO nodoCuerpo=(_LST_CUERPO)listaHijos.lstHijos.get(1);
         nodoCuerpo.ejecutar(entornoIF);
         //crando la etiqueta de la salida del if
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr("$e_if_salida"+String.valueOf(entorno.nivel)), "Salto para el fin del if", entornoIF.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalida), "Salto para el fin del if", entornoIF.nivel);
         //creando la etiqueta de falso
-        simbolo.salidaDasm.lineaComentada(("$e_if_falso"+String.valueOf(entorno.nivel)), "Etiqueta de salida para el valor falso", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada((etiquetaFalso), "Etiqueta de salida para el valor falso", entorno.nivel);
         
         /*EJECUTANDO EL SINO*/
         _SINO_SI nodoSino=(_SINO_SI)listaHijos.lstHijos.get(2);
         nodoSino.ejecutar(entorno);
-        simbolo.salidaDasm.lineaComentada(("$e_if_salida"+String.valueOf(entorno.nivel)), "Etiqueta de salida para el valor falso", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada((etiquetaSalida), "Etiqueta de salida para el valor falso", entorno.nivel);
         
         
         return retorno;
@@ -213,28 +220,33 @@ public class _SI extends nodoModelo{
         for (String string : valE.cadenaDasm) {
             simbolo.salidaDasm.linea(string, entorno.nivel);
         }
+         //creando el nuevo entorno
+        elementoEntorno entornoIF=new elementoEntorno(entorno, "if", simbolo, entorno.nivel+1, entorno.funciones);
+        
+        String etiquetaSalida = "$e_if_salida"+entornoIF.idSentencia;
+        String etiquetaFalso="$e_if_falso"+entornoIF.idSentencia;
         
         //creando la condicion
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf("$e_if_falso"+String.valueOf(entorno.nivel)), "Salto para etiqueta falsa", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalso), "Salto para etiqueta falsa", entorno.nivel);
         //cuerpo del if
         simbolo.salidaDasm.comentario("CUERPO IF VERDADERO:", entorno.nivel);
        
-        //creando el nuevo entorno
-        elementoEntorno entornoIF=new elementoEntorno(entorno, "if", simbolo, entorno.nivel+1, entorno.funciones);
-        //pero sigo con el conteo de las posiciones de las variables
+       //pero sigo con el conteo de las posiciones de las variables
         entornoIF.posRelativa=entorno.posRelativa;
         
         _LST_CUERPO nodoCuerpo=(_LST_CUERPO)listaHijos.lstHijos.get(1);
         nodoCuerpo.ejecutar(entornoIF);
         //crando la etiqueta de la salida del if
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr("$e_if_salida"+String.valueOf(entorno.nivel)), "Salto para el fin del if", entornoIF.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalida), "Salto para el fin del if", entornoIF.nivel);
         //creando la etiqueta de falso
-        simbolo.salidaDasm.lineaComentada(("$e_if_falso"+String.valueOf(entorno.nivel)), "Etiqueta de salida para el valor falso", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada((etiquetaFalso), "Etiqueta de salida para el valor falso", entorno.nivel);
         
         /*EJECUTANDO EL SINO*/
         _SINO nodoSino=(_SINO)listaHijos.lstHijos.get(2);
+        //enviandole el id para que pueda salir del if
+        entorno.idSentencia2=entornoIF.idSentencia;
         nodoSino.ejecutar(entorno);
-        simbolo.salidaDasm.lineaComentada(("$e_if_salida"+String.valueOf(entorno.nivel)), "Etiqueta de salida para el valor falso", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada((etiquetaSalida), "Etiqueta de salida para el valor falso", entorno.nivel);
         
         
         return retorno;

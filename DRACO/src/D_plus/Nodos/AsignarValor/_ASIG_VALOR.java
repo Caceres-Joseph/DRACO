@@ -85,16 +85,90 @@ public class _ASIG_VALOR extends nodoModelo{
      * @param entorno Es el ambito que recibe
      * @return Retorna para revisión de break
      */
-    public itemRetorno case_0(elementoEntorno entorno) { 
+    public itemRetorno case_0(elementoEntorno entorno) {
 
+        itemRetorno reotorno = new itemRetorno();
         _ID_VAR_FUNC nodoVarFunc = (_ID_VAR_FUNC) listaHijos.lstHijos.get(0);
         _VAL nodoVal = (_VAL) listaHijos.lstHijos.get(1);
 
         itemValor valDestino = nodoVarFunc.getDireccionVal(entorno);
+//        println("Pos Relativa:"+String.valueOf(valDestino.posRelativa));
+//        println("Pos variable:"+String.valueOf(valDestino.posVarDpp));
+//        println("Tipo var:"+valDestino.tipo);
+
         itemValor valValor = nodoVal.getValor(entorno);
 
+//        if (valDestino.posVarDpp != -1) {
+////            println("Es un aestructura");
+//            if (valDestino.dimension == 0) {
+//                if (valDestino.isTypeCadena()) {
+//
+//                    agregandoValElementoEstructuraNumero(valDestino, valValor, entorno);
+//                    return reotorno;
+//                } else {
+//                    agregandoValElementoEstructuraNumero(valDestino, valValor, entorno);
+//                    return reotorno;
+//                }
+//
+//            } else {
+//                //es un arreglo
+//            }
+//            return reotorno;
+//        } else {
+//            
+//        }
+        if (valDestino.miembroEstructura) {
+            if (valDestino.dimension == 0) {
+                if (valDestino.isTypeCadena()) {
 
+                    agregandoValElementoEstructuraNumero(valDestino, valValor, entorno);
+                    return reotorno;
+                } else {
+                    agregandoValElementoEstructuraNumero(valDestino, valValor, entorno);
+                    return reotorno;
+                }
+
+            } else {
+                //es un arreglo
+            }
+        }
         return asignarValor(valDestino, valValor, entorno);
+ 
+    }
+    
+    public void agregandoValElementoEstructuraNumero(itemValor valDestino ,itemValor valValor, elementoEntorno entorno){
+        
+//        println(valDestino.nombreEntorno);
+        
+        
+        if(valDestino.nombreEntorno.equals("global")){
+            //pos del destino
+            simbolo.salidaDasm.lineaComentada(String.valueOf(valDestino.posRelativa), "Posicion del destino", entorno.nivel);
+            
+        }else{
+           
+            simbolo.salidaDasm.comentarioPequeño("Asignando valor a estructura", "Elemento estructura", entorno.nivel);
+            //puntero
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "Obteniendo puntero", entorno.nivel);
+            //pos del destino
+            simbolo.salidaDasm.lineaComentada(String.valueOf(valDestino.posRelativa), "Posicion del destino", entorno.nivel);
+            //sumando
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel); 
+        }
+        /*CODIGO DASM*/
+        //Obteniendo puntero
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_calc(), "Pos de puntero en heap", entorno.nivel);
+        //lugar del elemento
+        simbolo.salidaDasm.lineaComentada(String.valueOf(valDestino.posVarDpp), "pos de elemento en heap", entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel); 
+        
+        //Ubicndo todo lo que viene en E
+        simbolo.salidaDasm.comentario("Operaciones E", entorno.nivel);
+        for (String string : valValor.cadenaDasm) { 
+            simbolo.salidaDasm.linea(string,entorno.nivel);
+        }           
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_global_calc(), "Enviando el valor a la posicion", entorno.nivel);  
     }
     
     /**
@@ -167,8 +241,8 @@ public class _ASIG_VALOR extends nodoModelo{
             return retorno;
         }else {
             if (valDestino.esEstructura) {
-
-                        println("[case_0]es una estructura");
+                        parametroNumero(valDestino, valValor, entorno);
+////                        println("[case_0]es una estructura");
             } else {
                 switch (valDestino.tipoSupremo) {
                     case "numero": 
@@ -186,6 +260,7 @@ public class _ASIG_VALOR extends nodoModelo{
                     default:
                         println("[case_00]es una estructura");
                         //tiene que ser una estructura
+//                        parametroNumero(valDestino, valValor, entorno); 
                         break;
                 }
             } 
@@ -195,17 +270,26 @@ public class _ASIG_VALOR extends nodoModelo{
     
     private void parametroNumero(itemValor valDestino ,itemValor valValor, elementoEntorno entorno){
         
+//        println(valDestino.nombreEntorno);
         
+        
+        if(valDestino.nombreEntorno.equals("global")){
+            //pos del destino
+            simbolo.salidaDasm.lineaComentada(String.valueOf(valDestino.posRelativa), "Posicion del destino", entorno.nivel);
+            
+        }else{
+           
+            simbolo.salidaDasm.comentarioPequeño("Asignando valor a var", "", entorno.nivel);
+            //puntero
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "Obteniendo puntero", entorno.nivel);
+            //pos del destino
+            simbolo.salidaDasm.lineaComentada(String.valueOf(valDestino.posRelativa), "Posicion del destino", entorno.nivel);
+            //sumando
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel); 
+        }
         /*CODIGO DASM*/
         //Obteniendo puntero
         
-        simbolo.salidaDasm.comentarioPequeño("Asignando valor a var", "", entorno.nivel);
-        //puntero
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "Obteniendo puntero", entorno.nivel);
-        //pos del destino
-        simbolo.salidaDasm.lineaComentada(String.valueOf(valDestino.posRelativa), "Posicion del destino", entorno.nivel);
-        //sumando
-        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
         
         //Ubicndo todo lo que viene en E
         simbolo.salidaDasm.comentario("Operaciones E", entorno.nivel);

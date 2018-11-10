@@ -72,7 +72,7 @@ public class _ROMPER extends nodoModelo{
         
         //buscando un ciclo
         if(entorno.nombre.equals("while")|| entorno.nombre.equals("for")){
-            String etiquetaSalidaCiclo="$e_"+entorno.nombre+"_falso"+String.valueOf(entorno.nivel-1);
+            String etiquetaSalidaCiclo="$e_"+entorno.nombre+"_falso"+entorno.idSentencia;
             simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalidaCiclo), "BREAK:", nivelActual);
             
         }else{

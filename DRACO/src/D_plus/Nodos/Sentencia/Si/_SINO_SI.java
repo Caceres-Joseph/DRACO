@@ -107,9 +107,10 @@ public class _SINO_SI extends nodoModelo{
         }
         
         Random rand = new Random();
-        int indice_salto_falso=rand.nextInt(100);
+        int indice_salto_falso=rand.nextInt(1000);
         //creando la condicion
         String etiquetaFalsa= "$e_ifelse_falso"+String.valueOf(indice_salto_falso);
+        String etiquetaSalida = "$e_if_salida"+entorno.idSentencia2;
         
         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalsa), "Salto para etiqueta falsa", entorno.nivel);
         //cuerpo del if
@@ -123,7 +124,7 @@ public class _SINO_SI extends nodoModelo{
         _LST_CUERPO nodoCuerpo=(_LST_CUERPO)listaHijos.lstHijos.get(1);
         nodoCuerpo.ejecutar(entornoIF);
         //saltando a la salida del if
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr("$e_if_salida"+String.valueOf(entorno.nivel)), "Salto para el fin del if_else", entornoIF.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalida), "Salto para el fin del if_else", entornoIF.nivel);
         
         //creando la etiqueta salida
         simbolo.salidaDasm.lineaComentada(etiquetaFalsa, "Etiqueta de salida para el valor falso", entorno.nivel);
@@ -167,6 +168,7 @@ public class _SINO_SI extends nodoModelo{
         int indice_salto_falso=rand.nextInt(100);
         //creando la condicion
         String etiquetaFalsa= "$e_ifelse_falso"+String.valueOf(indice_salto_falso);
+        String etiquetaSalida = "$e_if_salida"+entorno.idSentencia2;
         
         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalsa), "Salto para etiqueta falsa", entorno.nivel);
         //cuerpo del if
@@ -180,7 +182,7 @@ public class _SINO_SI extends nodoModelo{
         _LST_CUERPO nodoCuerpo=(_LST_CUERPO)listaHijos.lstHijos.get(1);
         nodoCuerpo.ejecutar(entornoIF);
         //saltando a la salida del if
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr("$e_if_salida"+String.valueOf(entorno.nivel)), "Salto para el fin del if_else", entornoIF.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalida), "Salto para el fin del if_else", entornoIF.nivel);
         
         //creando la etiqueta falso
         simbolo.salidaDasm.lineaComentada(etiquetaFalsa, "Etiqueta de salida para el valor falso", entorno.nivel);
@@ -229,6 +231,8 @@ public class _SINO_SI extends nodoModelo{
         int indice_salto_falso=rand.nextInt(100);
         //creando la condicion
         String etiquetaFalsa= "$e_ifelse_falso"+String.valueOf(indice_salto_falso);
+        String etiquetaSalida = "$e_if_salida"+entorno.idSentencia2;
+        
         
         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBrIf(etiquetaFalsa), "Salto para etiqueta falsa", entorno.nivel);
         //cuerpo del if
@@ -242,7 +246,7 @@ public class _SINO_SI extends nodoModelo{
         _LST_CUERPO nodoCuerpo=(_LST_CUERPO)listaHijos.lstHijos.get(1);
         nodoCuerpo.ejecutar(entornoIF);
         //saltando a la salida del if
-        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr("$e_if_salida"+String.valueOf(entorno.nivel)), "Salto para el fin del if_else", entornoIF.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalida), "Salto para el fin del if_else", entornoIF.nivel);
         
         //creando la etiqueta falso
         simbolo.salidaDasm.lineaComentada(etiquetaFalsa, "Etiqueta de salida para el valor falso", entorno.nivel);

@@ -1,0 +1,78 @@
+/*
+    ARCHIVO QUE CONTIENE LAS PRUEBAS QUE SE MANDARON EN LA CARPETA COMPARTIDA
+    ESTE ARCHIVO TIENE LAS PRUEBAS A CICLOS Y SENTENCIAS DE TRANSFERENCIA
+*/
+
+vacio pruebasVarios()
+{
+    pruebaSinos();
+    If_Else();
+    CicloAnidado();
+    ConidicionSI();
+}
+
+vacio pruebaSinos(){
+    entero a = 0 + 'P';
+    si (a == 1){
+        imprimir ("Se introdujo NUMERO 1");
+        retornar;
+    } sino si (a == 2) {
+        imprimir ("Se introdujo NUMERO 2");
+        retornar;
+    } sino si (a == 3) {
+        imprimir ("Se introdujo NUMERO 3");
+        retornar;
+    } sino si (a == 4) {
+        imprimir ("Se introdujo NUMERO 4");
+        retornar;
+    } sino si (a == 5) {
+        imprimir ("Se introdujo NUMERO 5");
+        retornar;
+    } sino si (a == 67) {
+        imprimir ("Se introdujo letra C");
+        retornar;
+    } sino si (a == 70) {
+        imprimir ("Se introdujo letra F");
+        retornar;
+    } sino si (a == 80) {
+        imprimir ("Se introdujo letra P");
+        retornar;
+    } sino si (a == 96) {
+        imprimir ("Se introdujo letra a");
+        retornar;
+    } sino {    
+        imprimir ("ERROR...");
+        retornar;   
+    }
+}
+
+vacio If_Else(){
+    si (!(verdadero && falso) && (falso) && !(falso) && (falso || verdadero)){
+        imprimir ("ERROR...");
+    }
+    sino {
+        si (!(verdadero && falso) && (verdadero) && !(falso) && (falso || verdadero)){
+            imprimir ("Salida Verdadera...");
+        }
+        sino {
+            imprimir ("ERROR...");
+        }
+    }
+}
+
+vacio CicloAnidado(){
+    para (entero a = 0; a < 5; a++){
+        para (entero b = 0; b <= a; b++){
+            imprimir("Salida A: " + a + "---  B: " + b);
+        }
+    }
+}
+
+vacio ConidicionSI(){
+    si (!(falso || falso) && (verdadero || verdadero) && (falso || verdadero)){
+        imprimir("Salida Verdadera....");
+    }
+    sino {
+        imprimir("ERROR...");
+    }
+}

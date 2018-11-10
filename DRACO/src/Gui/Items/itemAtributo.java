@@ -10,6 +10,11 @@ package Gui.Items;
  * @author joseph
  */
 public class itemAtributo {
+    /*DASM*/
+    public boolean esEstructura=false;
+    
+    
+    /**/
     public int linea=-1;
     public int columna=-1;
     public String nombreToken="";

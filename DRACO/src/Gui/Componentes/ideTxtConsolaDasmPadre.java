@@ -131,8 +131,8 @@ public class ideTxtConsolaDasmPadre {
 //            writeAddWeb(tal);
 
             //enviando el scroll hast abajo
-            txtDasm.selectPositionCaret(txtDasm.getLength()); 
-            txtDasm.deselect();
+//            txtDasm.selectPositionCaret(txtDasm.getLength()); 
+//            txtDasm.deselect();
                   
         }); 
     }

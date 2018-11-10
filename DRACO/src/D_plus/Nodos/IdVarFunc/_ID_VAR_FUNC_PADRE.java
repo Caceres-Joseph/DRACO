@@ -103,9 +103,10 @@ public class _ID_VAR_FUNC_PADRE extends _ID_VAR_FUNC_PADRE2{
      * @return Retorna para revisión de break
      */
     public itemRetorno case_1(elementoEntorno entorno) {
-        itemRetorno retorno = new itemRetorno(); 
+        itemRetorno retorno = new itemRetorno();
 
        
+
         return retorno;
     }
     

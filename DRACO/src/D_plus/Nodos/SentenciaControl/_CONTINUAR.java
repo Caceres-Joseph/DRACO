@@ -72,11 +72,11 @@ public class _CONTINUAR extends nodoModelo {
         
         //buscando un ciclo
         if(entorno.nombre.equals("while")){ 
-            String etiquetaSalidaCiclo="$e_while_condicion"+String.valueOf(entorno.nivel-1);
+            String etiquetaSalidaCiclo="$e_while_condicion"+entorno.idSentencia;
             simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalidaCiclo), "CONTINUE:", nivelActual);
         
         }else if(entorno.nombre.equals("for")){
-            String etiquetaSalidaCiclo="$e_incremento_for"+String.valueOf(entorno.nivel-1);
+            String etiquetaSalidaCiclo="$e_incremento_for"+entorno.idSentencia;
             simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getBr(etiquetaSalidaCiclo), "CONTINUE:", nivelActual);
         
         }else{
@@ -84,7 +84,7 @@ public class _CONTINUAR extends nodoModelo {
              if(entorno.anterior!=null){
                  buscarEntorno(entorno.anterior, nivelActual);
              }else{ 
-                 simbolo.tablaErrores.insertErrorSemantic(atributo, "La sentencia denter solo puede venir dentro de un ciclo");
+                 simbolo.tablaErrores.insertErrorSemantic(atributo, "La sentencia continuar solo puede venir dentro de un ciclo");
                  //no se encontro dentro de un cilco erro prro
              }
         }

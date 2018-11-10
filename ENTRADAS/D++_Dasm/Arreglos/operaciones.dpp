@@ -1,0 +1,52 @@
+
+/*
+  * ARCHIVO QUE LLAMA A LAS FUNCIONDES DEL ARCHIVO DE CANO
+*/
+
+vacio pruebasCano()
+{
+    operaciones();
+    imprimir(OperacionLogica(verdadero, falso));
+    DivisionesRecursiva(5.0);
+    Impresiones();
+}
+
+/*PRUEBAS DE FUNCIONES CON NUMEROS*/
+vacio operaciones()
+{
+    entero a = 10 + 20 + 25 + 35 + 9 + (verdadero || falso) + 'd';
+    decimal d = (1.1 + 1.3 + 1.6) * 0.1013;
+    imprimir ("Operaciones Enteros --> " + a);
+    imprimir ("Salida Decimal ---> " + d);
+}
+
+
+// PARA EL MANEJO DE OPERACIONES BOOLEANAS
+booleano OperacionLogica(booleano x, booleano y) {
+    retornar (!x && y) || (x && !y) && !(x && y);
+}
+
+
+vacio DivisionesRecursiva(decimal x){
+    imprimir("Salida 17.71875 y salio ------> " + Salidas(x, 'd'));
+}
+
+decimal Salidas(decimal x, caracter y){
+    si (x < 1){
+        retornar 9.0;
+    }
+    retornar Salidas(-1 * (x - 1), y) / (y - 99) + Salidas((x - 1), y)/2;
+}
+
+vacio Impresiones(){
+    entero a = 10;
+    decimal d = 10.123456789;
+    booleano b = verdadero;
+    caracter c[7] = {'S','a','l','i','d','a',' '};
+    
+    imprimir ("Salida Entero ---> " + a + "ENTERO");
+    imprimir ("Salida Decimal ---> " + d + "DECIMAL");
+    imprimir ("Salida Booleano ---> " + b + "bOOLEANO");
+    imprimir ("Salida Cadena de caracteres ---> " + c[0] + c[1]  + c[2]  + c[3]  + c[4]  + c[5]  + c[6]);
+}
+

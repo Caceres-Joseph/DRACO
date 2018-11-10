@@ -21,6 +21,7 @@ public class valorPolimorfo {
     public int dimension;
     public lstParametro parametros;
     public nodoModelo cuerpo;
+    
     public itemValor retornoVal;
     elementoGlobal simbolo;
     
@@ -35,6 +36,7 @@ public class valorPolimorfo {
      */
     public valorPolimorfo(lstParametro parametros ,itemAtributo tipo, itemAtributo nombre, int dimension, nodoModelo nodoCuerpo, elementoGlobal simbolo) {
         retornoVal=new itemValor(simbolo);
+        retornoVal.tipo=tipo.valor;
         this.simbolo=simbolo;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -44,29 +46,29 @@ public class valorPolimorfo {
         
          
             
-        switch (tipo.valor) {
-            case "vacio":
-                retornoVal.setValorVacio();
-                break;
-            case "numero":
-                retornoVal.setValor(1.0);
-                break;
-            case "caracter": 
-                retornoVal.setValor('a');
-                break;
-            case "cadena": 
-                retornoVal.setValor("");
-                break;
-            case "booleano": 
-                retornoVal.setValor(true);
-                break;
-            default:
-                
-                println("[valorPolimorfo]es una estructura");
-                retornoVal.setValor();
-                //tiene que ser una estructura
-                break;
-            }
+//        switch (tipo.valor) {
+//            case "vacio":
+//                retornoVal.setValorVacio();
+//                break;
+//            case "numero":
+//                retornoVal.setValor(1.0);
+//                break;
+//            case "caracter": 
+//                retornoVal.setValor('a');
+//                break;
+//            case "cadena": 
+//                retornoVal.setValor("");
+//                break;
+//            case "booleano": 
+//                retornoVal.setValor(true);
+//                break;
+//            default:
+//                
+//                println("[valorPolimorfo]es una estructura");
+//                retornoVal.setValor();
+//                //tiene que ser una estructura
+//                break;
+//            }
     }
     
       

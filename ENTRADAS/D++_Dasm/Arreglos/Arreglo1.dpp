@@ -1,0 +1,140 @@
+/*ESTRUCTURA QUE ALMACENA LOS ARREGLOS*/
+estructura Arr1D
+{
+  entero arr[10];
+}
+
+vacio iniciarPruebas()
+{
+    Arr1D arr;
+    llenarArreglo(arr);
+    imprimir("Suma de datos del arreglo:");
+    imprimir(sumaDeArreglo(arr, 10)); // SALIDA: 506
+    imprimir("Promedio del arreglo:");
+    imprimir(promedioArreglo(arr, 10)); // SALIDA: 50.6
+    imprimir("Valor Maximo del arreglo:");
+    imprimir(max(arr, 10)); //SALIDA: 178
+    imprimir("Valor Minimo del arreglo: ");
+    imprimir(min(arr,10)); //SALIDA: 1
+    imprimir("Ordenamiento burbuja: ");
+    burbuja(arr,10);
+    recorre(arr,10); // SALIDA EL ARREGLO ORDENADO DE MAYOR A MENOR
+    imprimir("en que posicion esta el 100?");
+    imprimir(busquedadBinaria(arr, 10, 100)); // SALIDA: 4
+
+}
+
+//FUNCION QUE RECORRE UN ARRAY
+vacio recorre(Arr1D arr, entero size)
+{
+    para(entero x = 0; x < size; x++)
+    {
+        imprimir(arr.arr[x]);
+    }
+}
+
+// SOLO INICIALIZA EL ARREGLO QUE SE LE ENVIA
+// P1: estructura Arr1D
+vacio llenarArreglo(Arr1D arr)
+{
+  entero auxiliar [10] = {45, 90, 1, 34, 100, 3, 9,23, 178, 23};
+  arr.arr = auxiliar;
+}
+
+// FUNCION QUE SE ENCARGA DE SUMAR TODOS LOS ELEMENTOS DEL ARREGLO
+// P1: estructura Arr1D
+// P2: Tamanio del arrelgo de Arr1D
+entero sumaDeArreglo(Arr1D arr, entero size)
+{
+  entero total = 0;
+  para(entero x = 0; x < size; x++)
+  {
+    total = total + arr.arr[x];
+  }
+  retornar total;
+}
+
+// FUNCION QUE SE ENCARGA DE VER EL PROMEDIO DE UN ARREGLO
+// P1: estructura Arr1D
+// P2: tamanio del arreglo
+decimal promedioArreglo(Arr1D arr, entero size)
+{
+  entero total = sumaDeArreglo(arr, size);
+  retornar total/size;
+}
+
+// FUNCION QUE  SE ENCARGA DE ENCONTRAR EL MAXIMO VALOR DEL ARREGLO
+// P1: estructura Arr1D
+// P2: tamanio del arreglo
+entero max(Arr1D arr, entero size)
+{
+  entero maximo = 0;
+  entero x = 0;
+  mientras(x < size)
+  {
+    si(maximo < arr.arr[x])
+    {
+      maximo = arr.arr[x];
+    }
+    x++;
+  }
+  retornar maximo;
+}
+
+// FUNCION QUE  SE ENCARGA DE ENCONTRAR EL MINIMO VALOR DEL ARREGLO
+// P1: estructura Arr1D
+// P2: tamanio del arreglo
+entero min(Arr1D arr, entero size)
+{
+  entero minimo = arr.arr[0];//ASUMIENDO QUE EL PRIMER VALOR ES EL MINIMO
+  entero  x = 0;
+  mientras(x < size)
+  {
+    si(minimo > arr.arr[x])
+    {
+      minimo = arr.arr[x];
+    }
+    x++;
+  }
+  retornar minimo;
+}
+
+// METODO QUE APLICA EL ORDENAMIENTO BURBUJA AL ARREGLO DE LA ESTRUCTURA
+vacio burbuja(Arr1D arr, entero size)
+{
+    para(entero i = 0; i < size-1; i++){
+        para(entero j = 0; j < size -1; j++)
+        {
+            si(arr.arr[j] > arr.arr[j+1])
+            {
+              entero temp = arr.arr[j+1];
+              arr.arr[j+1] = arr.arr[j];
+              arr.arr[j] = temp;
+            }
+        }
+    }
+}
+
+// METODO QUE REALIZA LA BUSQUEDAD BINARA EN UN ARREGLO
+// RETORNA LA POSICION DEL ELEMENTO BUSCADO
+entero busquedadBinaria(Arr1D arr, entero size, entero dato)
+{
+    entero centro, inf = 0, sup = size -1;
+    mientras(inf <= sup)
+    {
+        centro = (sup+inf)/2;
+        si(arr.arr[centro] == dato)
+        {
+            retornar centro;
+        }
+        sino si(dato < arr.arr[centro])
+        {
+            sup = centro -1;
+        }
+        sino
+        {
+            inf = centro + 1;
+        }
+    }
+    retornar -1;// SI NO ENCUENTRA EL VALOR
+}

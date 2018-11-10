@@ -1,0 +1,16 @@
+//importar("ordenamiento.dpp");
+importar("operaciones.dpp");
+//importar("varios.dpp");
+importar("arreglos.dpp");
+
+vacio principal()
+{
+  // LLAMADA AL METODO QUE ORDENA LOS ARREGLOS EN: ordenamientos.dpp
+  //ordenaArreglos();
+  // LLAMADA A LAS PRUEBAS QUE SE MANDARON EN EL SEGUNDO ARCHIVO DE CANO (OPERACIONES Y CASTEOS): operaciones.dpp
+  pruebasCano();
+  // LLAMADA A LAS PRUEBAS QUE SE MANDARON EN EL SEGUNDO ARCHIVO DE CANO (CICLOS Y SENTENCIAS DE TRANSFERENCIA): varios.dpp;
+  //pruebasVarios();
+  // LLAMADA A LAS PRUEBAS QUE SE MANDARON EN EL SEGUNDO ARCHIVO DE CANO (ARREGLOS Y ESTRUCTURAS CON ARREGLOS): arreglos.dpp
+  pruebaArreglos();
+}

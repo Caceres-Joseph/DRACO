@@ -114,7 +114,9 @@ public class lstParametro {
                     numParams++;
                     break;
                 default:
-                    println("[getCodigoParametros]es una estructura");
+                    cadenaDasm.addAll(parametroNumero(key, val, entornoMain.posRelativa++, entornoMain));
+                    numParams++;
+//                    println("[getCodigoParametros]es una estructura");
                 //tiene que ser una estructura
                     break;
             }

@@ -114,12 +114,11 @@ public class _FOR extends nodoModelo{
             return retorno;
         }
         
-        
-        
+         
         /*ETIQUETAS*/
-        String etiquetaCondicion = "$e_for_condicion"+String.valueOf(entorno.nivel);
-        String etiquetaFalso="$e_for_falso"+String.valueOf(entorno.nivel);
-        String etiquetaIncremento="$e_incremento_for"+String.valueOf(entorno.nivel);
+        String etiquetaCondicion = "$e_for_condicion"+entornoFor.idSentencia;
+        String etiquetaFalso="$e_for_falso"+entornoFor.idSentencia;
+        String etiquetaIncremento="$e_incremento_for"+entornoFor.idSentencia;
         //creando la condicion
         simbolo.salidaDasm.lineaComentada(etiquetaCondicion, "Etiqueta condicion", entorno.nivel);
         
@@ -195,9 +194,9 @@ public class _FOR extends nodoModelo{
         
         
         /*ETIQUETAS*/
-        String etiquetaCondicion = "$e_for_condicion"+String.valueOf(entorno.nivel);
-        String etiquetaFalso="$e_for_falso"+String.valueOf(entorno.nivel);
-        String etiquetaIncremento="$e_incremento_for"+String.valueOf(entorno.nivel);
+        String etiquetaCondicion = "$e_for_condicion"+entornoFor.idSentencia;
+        String etiquetaFalso="$e_for_falso"+entornoFor.idSentencia;
+        String etiquetaIncremento="$e_incremento_for"+entornoFor.idSentencia; 
         //creando la condicion
         simbolo.salidaDasm.lineaComentada(etiquetaCondicion, "Etiqueta condicion", entorno.nivel);
         

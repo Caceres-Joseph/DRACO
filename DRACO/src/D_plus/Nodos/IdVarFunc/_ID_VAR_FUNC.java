@@ -6,6 +6,7 @@
 package D_plus.Nodos.IdVarFunc;
 
 import D_plus.Estructuras.Elementos.elementoEntorno;
+import D_plus.Estructuras.Items.itemEstructura;
 import D_plus.Estructuras.Items.itemValor;
 import D_plus.Estructuras.Listas.HashPolimorfa.clavePolimorfa;
 import D_plus.Estructuras.Listas.HashPolimorfa.itemClave;
@@ -37,10 +38,7 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
     public _ID_VAR_FUNC(itemAtributo atrib, elementoGlobal simbolo) {
         super(atrib, simbolo);
     }
-    
-    
-    
-    
+     
     /*
     |-------------------------------------------------------------------------------------------------------------------
     | RETORNAR EL VALOR
@@ -74,7 +72,8 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
             case 1:
                 return v_case_1(entorno);
             case 2:
-                return v_case_2(entorno);
+                retorno=v_case_2(entorno);
+                return retorno;
             case 3:
                 return v_case_3(entorno);
             case 4:
@@ -101,7 +100,61 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
      */ 
     public itemValor v_case_0(elementoEntorno entorno) {
         itemValor retorno = new itemValor(simbolo); 
+        
+//        println("Buscando de una estructura");
+        
+        _ID_VAR_FUNC nodoVarFun = (_ID_VAR_FUNC)listaHijos.lstHijos.get(0);
+       _LST_PUNTOSP nodoLstPuntos=(_LST_PUNTOSP)listaHijos.lstHijos.get(1);
+       
+        //aqui se que estructura y la busco 
+        itemValor valIdVar= nodoVarFun.getDireccionVal(entorno);
 
+        
+        if(!entorno.funciones.listaEstructuras.listaEstructuras.containsKey(valIdVar.tipo)){
+            simbolo.tablaErrores.insertErrorSemantic(atributo,"No se encontró la estructura de tipo:"+valIdVar.tipo);
+            return retorno;   
+        }
+        
+        itemEstructura estructura=  entorno.funciones.listaEstructuras.listaEstructuras.get(valIdVar.tipo);
+        itemValor valPuntos=nodoLstPuntos.getValor(entorno, estructura);
+        
+        if(hayErrores())
+            return retorno;
+        
+        valPuntos.posRelativa=valIdVar.posRelativa;
+        valPuntos.nombreEntorno=valIdVar.nombreEntorno;
+        //println("[d_case_0]Se econtro la estructura prro");
+        
+//        println("Pos Relativa:"+String.valueOf(valDestino.posRelativa));
+//        println("Pos variable:"+String.valueOf(valDestino.posVarDpp));
+//        println("Tipo var:"+valDestino.tipo);
+
+
+        retorno.tipo=valPuntos.tipo;
+        retorno.nombreEntorno=valPuntos.nombreEntorno;
+        retorno.posRelativa=valPuntos.posRelativa;
+        retorno.posVarDpp=valPuntos.posVarDpp;
+        retorno.miembroEstructura=valPuntos.miembroEstructura;
+        /*OBTENIENDO EL VALOR*/
+        retorno.cadenaDasm=new ArrayList<>();
+        retorno.cadenaDasm.add("//OBTENIENDO UN VALOR DE UNA ESTRUCTURA");
+        
+        if(retorno.nombreEntorno.equals("global")){
+            retorno.cadenaDasm.add(String.valueOf(retorno.posRelativa));
+        }else{
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_local_id("0"));
+            retorno.cadenaDasm.add(String.valueOf(retorno.posRelativa));
+            retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd()); 
+        }
+        
+        //obteniendo el puntero del heap
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
+        retorno.cadenaDasm.add(String.valueOf(retorno.posVarDpp));
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+        retorno.cadenaDasm.add(simbolo.salidaDasm.getGet_global_calc());
+        
+        //estoy accediendo a una estructura
+        //hay que darle su ubicacion
        
         return retorno;
     }
@@ -121,6 +174,9 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
         //verifico si existe la varaible
         itemAtributo nombreVariable=listaAtributos.getAtributo(0);
         itemValor val= entorno.getValVariable(nombreVariable);
+        
+        
+        
         if(hayErrores())
             return new itemValor(simbolo);
         //inicializando la lista
@@ -176,7 +232,10 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
             return retorno;
         }
         valorPolimorfo retornoFunc= entorno.funciones.listaMetodoFuncion.listaMetodoFuncion.getValorPolimorfo(clave);
-        if(retornoFunc.retornoVal.isTypeVacio()){
+         
+        itemValor retVal =new itemValor(simbolo);
+        retVal.tipo=retornoFunc.tipo.valor;
+        if(retVal.isTypeVacio()){
             simbolo.tablaErrores.insertErrorSemantic(atributo, "La funcion:"+nombreFuncion.valor+" es de tipo vacio, y no retorna valores");
             return retorno;
         }
@@ -184,12 +243,12 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
         
         
         //ahora coloco el codigo de los parametros y el llamado a la funcion
-        retornoFunc.retornoVal.cadenaDasm.addAll(cadenaDasm_case2(entorno));
-        retornoFunc.retornoVal.cadenaDasm.add(("//Obteniendo el retorno de la funcion"));
+        retVal.cadenaDasm.addAll(cadenaDasm_case2(entorno));
+        retVal.cadenaDasm.add(("//Obteniendo el retorno de la funcion"));
         //colocando el retorno en la pila
-        retornoFunc.retornoVal.cadenaDasm.add(simbolo.salidaDasm.getGet_local_ret());
+        retVal.cadenaDasm.add(simbolo.salidaDasm.getGet_local_ret());
         
-        return retornoFunc.retornoVal;
+        return retVal;
     }
     
     /**
@@ -215,7 +274,10 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
             return retorno;
         }
         valorPolimorfo retornoFunc= entorno.funciones.listaMetodoFuncion.listaMetodoFuncion.getValorPolimorfo(clave);
-        if(retornoFunc.retornoVal.isTypeVacio()){
+        
+        itemValor retVal =new itemValor(simbolo);
+        retVal.tipo=retornoFunc.tipo.valor;
+        if(retVal.isTypeVacio()){
             simbolo.tablaErrores.insertErrorSemantic(atributo, "La funcion:"+nombreFuncion.valor+" es de tipo vacio, y no retorna valores");
             return retorno;
         }
@@ -223,12 +285,12 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
         
         
         //ahora coloco el codigo de los parametros y el llamado a la funcion
-        retornoFunc.retornoVal.cadenaDasm.addAll(cadenaDasm_case3(entorno));
+       retVal.cadenaDasm.addAll(cadenaDasm_case3(entorno));
         //colocando el retorno en la pila
-        retornoFunc.retornoVal.cadenaDasm.add(("//Obteniendo el retorno de la funcion"));
-        retornoFunc.retornoVal.cadenaDasm.add(simbolo.salidaDasm.getGet_local_ret());
+        retVal.cadenaDasm.add(("//Obteniendo el retorno de la funcion"));
+        retVal.cadenaDasm.add(simbolo.salidaDasm.getGet_local_ret());
         
-        return retornoFunc.retornoVal;
+        return retVal;
     }
     
     
@@ -284,6 +346,5 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
  
         return retorno;
     }
-    
      
 }

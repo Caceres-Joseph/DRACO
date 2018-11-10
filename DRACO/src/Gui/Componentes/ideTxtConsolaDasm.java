@@ -56,6 +56,14 @@ public class ideTxtConsolaDasm extends ideTxtConsolaDasmPadre {
     private final String tRet = "$ret";
     private final String tEtiquetaRetornar="$dasm_retora";
 
+    private final String tPrintEntero="\"%d\"";
+    private final String tPrintDecimal="\"%f\"";
+    private final String tPrintCaracter="\"%c\"";
+
+    
+    
+    
+    
     /*
     +------------------------------------------------+
     |   COMANDOS DASM
@@ -199,6 +207,18 @@ public class ideTxtConsolaDasm extends ideTxtConsolaDasmPadre {
 
     public String gettEtiquetaRetornar() {
         return tEtiquetaRetornar;
+    }
+    
+    public String getPrintEntero() {
+        return tPrintEntero;
+    }
+
+    public String getPrintDecimal() {
+        return tPrintDecimal;
+    }
+
+    public String getPrintCaracter() {
+        return tPrintCaracter;
     }
     
 }

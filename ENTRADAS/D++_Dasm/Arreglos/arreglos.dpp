@@ -1,0 +1,100 @@
+/*
+    * ARCHIVO QUE MUESTRA LA FUNCIONALIDAD DE LOS ARREGLOS
+    * ESTO SE TOMO DE LA ENTRADA DE CANO
+*/
+
+vacio pruebaArreglos()
+{
+    pruebaArr();
+    SumaFilasZ();
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+estructura Arreglo
+{
+    entero arreglo[10]; // LOSA RREGLOS NO SE INICIALIZAN EN LA DEFINICION DE LA ESTRUCTURA
+}
+
+vacio pruebaArr()
+{
+    Arreglo arr;
+    entero aux[10] = {1,2,3,4,5,6,7,8,9,0};
+    arr.arreglo = aux; //INICIALIZANDO EL ARREGLO
+
+    arr = RecorridoArr(arr);
+}
+
+Arreglo RecorridoArr(Arreglo arr)
+{
+    para (entero a = 9; a > 0; a --){
+        imprimir ("Suma de Pos-In-Pre" + (( (a + 1 > 9)? 0 : arr.arreglo [a])  + arr.arreglo [a] + ( (a - 1 < 0)? 0 : arr.arreglo [a])) );
+    }
+    entero aux[10] = {9,8,7,6,5,4,3,2,1,0}; // YA QUE EXPRESION NO DEVUELVE DEFINICION DE UN ARREGLO :(
+    arr.arreglo = aux;
+    retornar arr;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+decimal arreglo[6][3][6]
+            = {
+                {
+                    {12.5, 22.58, 35.87, 4.68, 54.87, 8.987},
+                    {52.987, 51.987, 13.987, 14.987, 15.987, 18.987},
+                    {1.852, 4.852, 3.852, 2.852, 5.852, 8.852}
+                },
+                {
+                    {5.852, 4.852, 3.852, 2.852, 1.852, 3.852},
+                    {3.741, 4.741, 2.741, 5.741, 1.741, 3.741},
+                    {1789.0, 5.5, 4.741, 285.546, 312.156, 332.58}
+                },
+                {
+                    {1.741, 0.1232, 0.1563, 0.284, -0.255, 0.25897},
+                    {2.951, 1.951, 3.951, 4.951, -5.951, 7.951},
+                    {1.951, 4.951, 3.951, 2.951, -5.951, 7.951}
+                },
+                {
+                    {5.852, 4.852, 3.852, 2.852, 1.852, 3.852},
+                    {2.951, 1.951, 3.951, 4.951, -5.951, 7.951},
+                    {1.852, 4.852, 3.852, 2.852, 5.852, 8.852}
+                },
+                {
+                    {5.852, 4.852, 3.852, 2.852, 1.852, 3.852},
+                    {3.741, 4.741, 2.741, 5.741, 1.741, 3.741},
+                    {1789.0, 5.5, 4.741, 285.546, 312.156, 332.58}
+                },
+                {
+                    {1.741, 0.1232, 0.1563, 0.284, -0.255, 0.25897},
+                    {2.951, 1.951, 3.951, 4.951, -5.951, 7.951},
+                    {1.951, 4.951, 3.951, 2.951, -5.951, 7.951}
+                }
+            };
+
+vacio SumaFilasZ() {
+    imprimir ("Sumatoria de filas en Z");
+    entero z, y, x = 0;
+    decimal sumaZ = 0;
+    cadena resultado = "";
+    mientras (x < 6){
+        y = 0;
+        mientras (y < 3) {
+            z = 0;
+            mientras (z < 5) {
+                sumaZ = sumaZ + arreglo[x][y][z];
+                si (z < 4) {
+                    resultado = resultado + arreglo[x][y][z] + " + ";
+                } sino {
+                    resultado = resultado + arreglo[x][y][z] + " = ";
+                }
+                z++;
+            }
+            y++;
+            resultado = resultado + sumaZ;
+            imprimir (resultado);
+            resultado = "";
+            sumaZ = 0;
+        }
+        x++;
+        imprimir ("");
+    }   
+}
+

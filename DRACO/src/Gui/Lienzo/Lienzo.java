@@ -70,7 +70,7 @@ public class Lienzo implements Initializable {
 
             Circle punto = new Circle();
 
-            punto.setCenterX(posY);
+            punto.setCenterX(posx);
             punto.setCenterY(posY);
             punto.setRadius(diametro / 2);
 
@@ -114,10 +114,14 @@ public class Lienzo implements Initializable {
     public void pintarOvalo(int posX, int posY, String color, int ancho, int alto) {
         Platform.runLater(() -> {
             Ellipse elipse = new Ellipse();
-            elipse.setCenterX(posX + (ancho / 2));
-            elipse.setCenterY(posY + (alto / 2));
-            elipse.setRadiusX(ancho / 2);
-            elipse.setRadiusY(alto / 2);
+//            elipse.setCenterX(posX + (ancho / 2));
+//            elipse.setCenterY(posY + (alto / 2));
+
+            elipse.setCenterX(posX);
+            elipse.setCenterY(posY);
+
+            elipse.setRadiusX(ancho/2);
+            elipse.setRadiusY(alto/2);
 
             elipse.setStyle("-fx-fill: " + color + "; -fx-stroke:" + color + ";");
             apLienzo.getChildren().add(elipse);

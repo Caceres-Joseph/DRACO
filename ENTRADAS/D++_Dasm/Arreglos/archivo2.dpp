@@ -1,0 +1,13 @@
+/*
+  * APROXIMADO DE LO QUE PUEDE SER EL ARCHIVO 2
+*/
+importar("Arreglo1.dpp");
+importar("Paises.dpp");
+importar("Persona.dpp");
+
+vacio principal()
+{
+    //iniciarPruebas();// INICIA LAS PRUEBAS EN EL ARCHIVO DE Arreglo1.dpp
+    //pruebaPaises(); // INICIA LAS PRUEBAS DEL ARCHIVO Paises.dpp
+    //personasPrueba(); // INICIA LAS PRUEBAS DEL ARCHIVO DE Persona.dpp
+}

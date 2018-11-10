@@ -22,6 +22,8 @@ public class nodoModelo {
     public lstNodosHijos listaHijos;
     public itemAtributo atributo;
     
+    
+    
     /**
      * constructor de _ASGIN_VAR 
      * @param atrib Atributo que contiene el nombre y la linea del nodo

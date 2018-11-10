@@ -1,0 +1,52 @@
+estructura Pais
+{
+    cadena nombre;
+    cadena ciudades[3];
+}
+
+vacio agregarCiudad(entero index, cadena ciudad, Pais pais)
+{
+    pais.ciudades[index] = ciudad;
+}
+
+Pais nuevoPais(cadena nombre)
+{
+  Pais p;
+  p.nombre = nombre;
+  retornar p;
+}
+
+vacio verCiudades(Pais p)
+{
+    imprimir("Ciudades de: "+p.nombre);
+    para(entero x = 0; x < 3; x++)
+    {
+        imprimir(p.ciudades[x]);
+    }
+}
+
+vacio pruebaPaises()
+{
+    ////////////////////////////////////////////////////////////////////////////
+    Pais guate = nuevoPais("Guatemala");
+    agregarCiudad(0, "Xela", guate);
+    agregarCiudad(1, "Guatemala", guate);
+    agregarCiudad(2, "Mixco", guate);
+    ////////////////////////////////////////////////////////////////////////////
+    Pais mexico = nuevoPais("Mexico");
+    agregarCiudad(0, "Mexico DF", mexico);
+    agregarCiudad(1, "Monterrey", mexico);
+    agregarCiudad(2, "Tijuana", mexico);
+    ////////////////////////////////////////////////////////////////////////////
+    Pais usa = nuevoPais("USA");
+    agregarCiudad(0, "Washington", usa);
+    agregarCiudad(1, "Texas", usa);
+    agregarCiudad(2, "Los Angeles", usa);
+    ////////////////////////////////////////////////////////////////////////////
+    Pais paises[3] = {guate, usa, mexico};
+    para(entero x = 0; x < 3; x++)
+    {
+      verCiudades(paises[x]);
+    }
+    ////////////////////////////////////////////////////////////////////////////
+}

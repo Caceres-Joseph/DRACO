@@ -20,6 +20,7 @@ public class lstVariables {
     public Map<String, nodTipo> lstVariablesTipo ;
     public elementoGlobal simbolo;
     
+    public int numVar=0;
     public lstVariables(elementoGlobal simbolo){
         lstVariables=new LinkedHashMap<>(); 
         lstVariablesTipo=new LinkedHashMap<>();
@@ -66,6 +67,7 @@ public class lstVariables {
         //tiene que coincidir los tipos para guardarlos
         var.nombreEntorno=nombreEtorno;
         var.posRelativa=posRelativa;
+        var.posVarDpp=numVar++;
         
         if(dimension!=var.dimension){
             simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de dimension: "+String.valueOf(dimension)+", pero se esta recibiendo una valor de tipo:"+String.valueOf(var.dimension));
@@ -154,10 +156,24 @@ public class lstVariables {
     }
     
     
+    public void imprimir(){
+          //llenando la tabla 
+        for (String key : lstVariables.keySet()) {
+//            System.out.println("Clave: " + key + " -> Valor: " + Heap.listaNodoStack.get(key));
+            itemValor val = lstVariables.get(key);
+            nodTipo tipo=lstVariablesTipo.get(key);
+            println("tipo:"+tipo.tipo+" dim:"+val.dimension+" nombre"+key);
+        }
+    }
+    
+    public void println(String mensaje){
+        System.out.println("[Dpp][lstVariabels]"+mensaje);
+    }
+    
     
     public class nodTipo{
-        String tipo;
-        int posRelativa;
+        public String tipo;
+        public int posRelativa;
         
         public nodTipo(String tipo, int posRelativa){
             this.tipo=tipo;

@@ -5,6 +5,7 @@
  */
 package D_plus.Estructuras.Elementos;
 
+import D_plus.Estructuras.Listas.lstEstructura;
 import D_plus.Estructuras.Listas.lstMetodoFuncion;
 import D_plus.Estructuras.Listas.lstPrincipal;
 import Gui.Elementos.elementoGlobal;
@@ -17,13 +18,17 @@ public class elementoClase {
     
     public lstMetodoFuncion listaMetodoFuncion;
     public lstPrincipal listaPrincipal;
+    public lstEstructura listaEstructuras;
+    
     public elementoGlobal simbolo;
+    
     
     
     public elementoClase(elementoGlobal simbolo){
         this.simbolo=simbolo;
         this.listaPrincipal=new lstPrincipal(simbolo);
         this.listaMetodoFuncion=new lstMetodoFuncion(simbolo); 
+        this.listaEstructuras=new lstEstructura(simbolo);
     }
      
     public void imprimir(){

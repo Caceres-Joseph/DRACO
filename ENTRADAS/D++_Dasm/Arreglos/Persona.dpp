@@ -1,0 +1,63 @@
+estructura Persona
+{
+    cadena nombre;
+    cadena apellido;
+    entero edad;
+    caracter sexo;
+}
+
+
+vacio personasPrueba()
+{
+    agregarPersona(nuevoPersona("Ricardo", "Cutz", 22, 'M'), 0);
+    agregarPersona(nuevoPersona("Jorge", "Say", 19, 'M'), 1);
+    agregarPersona(nuevoPersona("Uziel", "Esquite", 19, 'M'), 2);
+    agregarPersona(nuevoPersona("Kristel", "Merida", 23, 'F'), 3);
+    agregarPersona(nuevoPersona("no valido", "NAN", 0, 'M'), 10); //ESTE PRODUCE ERROR
+    verInformacionPersonas();
+}
+
+Persona personas[4];
+
+Persona nuevoPersona(cadena nombre, cadena apellido, entero edad, caracter sexo)
+{
+    Persona p;
+    p.nombre = nombre;
+    p.apellido = apellido;
+    p.edad = edad;
+    p.sexo = sexo;
+
+    retornar p;
+}
+
+
+vacio verInformacion(Persona p)
+{
+    imprimir("Informacion de Persona: "+p.nombre);
+    imprimir(p.apellido);
+    imprimir(p.edad);
+    imprimir(p.sexo);
+}
+
+
+vacio agregarPersona(Persona p, entero index)
+{
+    si(index >= 4)
+    {
+        imprimir("Indice no valido");
+    }
+    sino
+    {
+        personas[index] = p;
+    }
+}
+
+vacio verInformacionPersonas()
+{
+    entero x = 0;
+    mientras(x < 4)
+    {
+        verInformacion(personas[x]);
+        x++;
+    }
+}

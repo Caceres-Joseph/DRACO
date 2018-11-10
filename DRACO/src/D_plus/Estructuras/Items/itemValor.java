@@ -15,7 +15,10 @@ import java.util.ArrayList;
  */
 public class itemValor {
     
+    /*DASM*/
     
+    public int posVarDpp=-1;
+    public boolean miembroEstructura=false;
     /**
      * Tipos que soporta el lenguaje
      * <br>
@@ -42,7 +45,7 @@ public class itemValor {
     //Me sirve extra
     public String tipoSupremo="nulo";
     
-    
+    public boolean esNulaSuprema=false;
     /**
      * Constructor que recibe la tabla de errores
      * @param simbolo Se usa para la tabla de errores

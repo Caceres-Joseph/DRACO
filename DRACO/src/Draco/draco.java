@@ -18,10 +18,11 @@ public class draco {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) { 
+    public static void main(String[] args) {
 //        pruebaHash();
         iniciarInterfaz(args);
 //        int_hexa();
+//        hex_int();
     }
     
     public static void int_hexa() {
@@ -37,6 +38,18 @@ public class draco {
             }
         }
         System.out.println("#" + cadena + al.toUpperCase());
+    }
+    
+    public static void hex_int(){
+        String hexNumber = "#F44000";
+        //quitando el numeral
+        hexNumber= hexNumber.replace("#",""); 
+        int decimal = Integer.parseInt(hexNumber, 16);
+        
+        
+        System.out.println(decimal);
+
+
     }
     
     /**
