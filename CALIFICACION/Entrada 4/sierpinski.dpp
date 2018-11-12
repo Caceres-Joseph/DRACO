@@ -1,0 +1,53 @@
+estructura Point {
+	entero x;
+	entero y;
+}
+
+Point between(Point a, Point b) {
+	Point result;
+	result.x = (a.x + b.x) / 2;
+	result.y = (a.y + b.y) / 2;
+    retornar result;
+}
+
+private void drawTriangle(Graphics2D g, Point a, Point b, Point c) {
+    linea(a.x, a.y, b.x, b.y, "#FFFFFF", 2);
+    linea(b.x, b.y, c.x, c.y, "#FFFFFF", 2);
+    linea(c.x, c.y, a.x, a.y, "#FFFFFF", 2);
+
+    si(distance(a,b) < 2.0) {
+        retornar;
+    }
+
+    Point ab = between(a, b);
+    Point bc = between(b, c);
+    Point ca = between(c, a);
+
+    drawTriangle(g, a, ab, ca);
+    drawTriangle(g, ab, b, bc);
+    drawTriangle(g, c, ca, bc);
+}
+
+decimal distance(Point a, Point b) {
+    entero bx=b.x;
+    bx = bx - a.x;
+    entero by = b.y;
+    by = by - a.y;
+    retornar (bx * bx + by*by)^0.5;
+}
+vacio principal(){
+	Point aux1;
+	Point aux2;
+	aux2.x = 500;
+	Point a = between(aux1, aux2);
+	
+	Point aux3;
+	aux3.x = 500;
+	aux3.y = 500;
+    Point b = aux3;
+
+    Point aux4;
+    aux4.y = 500;
+    Point c = aux4;
+	drawTriangle(a, b, c);
+}

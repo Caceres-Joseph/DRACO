@@ -69,10 +69,10 @@ public class lstVariables {
         var.posRelativa=posRelativa;
         var.posVarDpp=numVar++;
         
-        if(dimension!=var.dimension){
-            simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de dimension: "+String.valueOf(dimension)+", pero se esta recibiendo una valor de tipo:"+String.valueOf(var.dimension));
-            return;
-        }
+//        if(dimension!=var.dimension){
+//            simbolo.tablaErrores.insertErrorSemantic(nombreVar, "La variable "+ nombreVar.valor +" es de dimension: "+String.valueOf(dimension)+", pero se esta recibiendo una valor de tipo:"+String.valueOf(var.dimension));
+//            return;
+//        }
         
         if(var.isTypeNulo()){
             

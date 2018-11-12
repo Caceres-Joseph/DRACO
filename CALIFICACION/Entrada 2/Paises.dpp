@@ -1,0 +1,29 @@
+vacio principal(){
+    Paises();
+}
+
+
+
+vacio Paises () {
+
+    //@@@@@@@cadena [4][5] arrMulti = 
+    cadena  arrMulti[4][5] = 
+    {
+        {"Agentina", "Buenos Aires", "Cordoba", "La Plata"},
+        {"Colombia", "Bogota", "Cali", "Medellin"},
+        {"Chile", "Concepción", "Santiago", "Valparaiso"},
+        {"Mexico", "Ciudad Juárez", "León", "Monterrey"},
+        {"Guatemala", "Ciudad Capital", "Peten", "Antigua Guatemala"}
+    };
+
+    cadena ax = "";
+    para (entero i = 0; i < 4; i++) {
+        para (entero j = 0; j < 4; j++) {
+            ax = ax + arrMulti[i][j] + "        ";
+        }
+        //ax+="\n";
+        imprimir (ax);
+        ax = "";
+    }
+    //JOptionPane.showMessageDialog(null, ax);
+}

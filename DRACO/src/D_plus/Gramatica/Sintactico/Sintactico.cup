@@ -611,7 +611,7 @@ VAL                 ::=sIgual VALOR:h1
 
                             RESULT= padre;
                         :}
-                    |  sIgual LST_LLAVES_VAL:h1
+                    |  sIgual LLAVES_VAL_P:h1
                         {:
                             itemAtributo atrib1=new itemAtributo("VAL", parser.nombreArchivo, 1); 
                             _VAL padre =new _VAL(atrib1 , parser.simbolo);
@@ -639,34 +639,27 @@ VAL                 ::=sIgual VALOR:h1
 
 LST_LLAVES_VAL      ::= LST_LLAVES_VAL:h1 sComa LLAVES_VAL_P:h2
                         {:
-                            itemAtributo atrib1=new itemAtributo("LST_LLAVES_VAL", parser.nombreArchivo, 0); 
-                            _LST_LLAVES_VAL padre =new _LST_LLAVES_VAL(atrib1 , parser.simbolo);
-                            
-                                padre.listaHijos.insertar(h1,h1left, h1right);
-                                padre.listaHijos.insertar(h2,h2left, h2right);
+                        
+                                //debe ser el hijo
+                                for (nodoModelo lstHijo : h2.listaHijos.lstHijos) {
+                                    h1.listaHijos.insertar(lstHijo,h2left, h2right);
+                                }
+                                
 
-                            RESULT= padre;
+                            RESULT= h1;
                         :}
                     |   LLAVES_VAL_P:h1
                         {:
-                            itemAtributo atrib1=new itemAtributo("LST_LLAVES_VAL", parser.nombreArchivo, 1); 
-                            _LST_LLAVES_VAL padre =new _LST_LLAVES_VAL(atrib1 , parser.simbolo);
-                            
-                                padre.listaHijos.insertar(h1,h1left, h1right); 
-
-                            RESULT= padre;
+                         
+                            RESULT= h1;
                         :}
                     ;
 
 
 LLAVES_VAL_P        ::=  sAbreLlave LST_LLAVES_VAL:h1 sCierraLlave
                         {:
-                            itemAtributo atrib1=new itemAtributo("LLAVES_VAL_P", parser.nombreArchivo, 0); 
-                            _LLAVES_VAL_P padre =new _LLAVES_VAL_P(atrib1 , parser.simbolo);
                             
-                                padre.listaHijos.insertar(h1,h1left, h1right); 
-
-                            RESULT= padre;
+                            RESULT= h1;
                         :}
                     |   sAbreLlave LST_VAL:h1 sCierraLlave
                         {:
@@ -712,13 +705,10 @@ VAR_ARREGLO         ::= valId:d1
 
 LST_CORCHETES_VAL   ::= LST_CORCHETES_VAL:h1 PAR_CORCHETES_VAL:h2
                         {:
-                            itemAtributo atrib1=new itemAtributo("LST_CORCHETES_VAL", parser.nombreArchivo, 0); 
-                            _LST_CORCHETES_VAL padre =new _LST_CORCHETES_VAL(atrib1 , parser.simbolo);
-                            
-                                padre.listaHijos.insertar(h1,h1left, h1right);
-                                padre.listaHijos.insertar(h2,h2left, h2right);
+                       
+                                h1.listaHijos.insertar(h2,h2left, h2right);
 
-                            RESULT= padre;
+                            RESULT= h1;
                         :}
                     |   PAR_CORCHETES_VAL:h1
                         {:

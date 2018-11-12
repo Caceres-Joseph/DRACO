@@ -1,0 +1,118 @@
+vacio principal(){
+    Diagonal();
+}
+
+
+
+estructura valores{
+    entero matriz [4][4];
+}
+
+vacio Diagonal () {
+    //Matriz cuadrada de 4x4
+    valores matriz;
+
+    //@@@@@@@@@@@@ eso ya fue declarado en la estructura  matriz.matriz[4][4] = 
+    matriz.matriz = 
+        {
+            {1,2,3,4},
+            {5,6,7,8},
+            {9,10,11,12},
+            {13,14,15,16}
+        };
+
+    //Variables utilizadas
+    booleano salir = falso;
+    entero opcion, fila, columna;
+
+    //Utilizado para indicar si hemos entrado en la 1ª opcion
+    booleano rellenado = falso;
+
+    //Menu
+    //el numero es la fila o la columna
+
+    imprimir ("La suma de los valores de la fila " + (2) + " es: " + sumaFila(matriz, 2));
+
+    imprimir ("La suma de los valores de la columna " + 2 + " es: " + sumaColumna(matriz, 2));
+
+    imprimir ("La suma y promedio de la diagonal principal es: " + sumaDiagonalPrinc(matriz) + " Promedio: " + sumaDiagonalPrinc(matriz)/4);
+    imprimir ("La suma y promedio de la diagonal inversa es: " + sumaDiagonalInversa(matriz) + " Promedio: " + sumaDiagonalInversa(matriz)/4);
+    imprimir ("La media de los valores de la " + "matriz es de " + media(matriz));
+
+    imprimir ("= = = = = = FIN = = = = = =");
+
+}
+
+/*
+  Suma los valores de una determinada fila
+  @param matriz
+  @param fila
+  @return
+*/
+entero sumaFila(valores matriz, entero fila) {
+    entero suma = 0;
+    para (entero j = 0; j < 4; j++) {
+        suma = suma + matriz.matriz[fila][j];
+    }
+    retornar suma;
+}
+
+/*
+  Suma los valores de una determinada columna 
+  @param matriz
+  @param columna
+  @return
+*/
+entero sumaColumna(valores matriz, entero columna) {
+    entero suma = 0;
+    para (entero i = 0; i < 4; i++) {
+        suma = suma + matriz.matriz[i][columna];
+    }
+    retornar suma;
+}
+
+/*
+  Suma los valores de la diagonal principal de la matriz
+ 
+  @param matriz
+  @return
+*/
+entero sumaDiagonalPrinc(valores matriz) {
+    entero suma = 0;
+    para (entero i = 0; i < 4; i++) {
+        suma = suma + matriz.matriz[i][i];
+    }
+    retornar suma;
+}
+
+/*
+  Suma los valores de la diagonal inversa de la matriz 
+  @param matriz
+  @return
+*/
+entero sumaDiagonalInversa(valores matriz) {
+    entero suma = 0;
+    entero j = 3;
+    para (entero i = 0; i < 4; i++) {
+        suma = suma + matriz.matriz[i][j];
+        j--;
+    }
+    retornar suma;
+}
+
+/*
+  Media de todos los elementos de la matriz 
+  @param matriz
+  @return
+*/
+decimal media(valores matriz) {
+    decimal suma = 0, media;
+    para (entero i = 0; i < 4; i++) {
+        //@@@@@@@@@@@@@@para (entero j = 0; j < matriz[0].length; j++) {
+        para (entero j = 0; j < 4; j++) {
+            suma = suma + matriz.matriz[i][j];
+        }
+    }
+    media = suma / (4 * 4);
+    retornar media;
+}

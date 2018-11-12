@@ -1,0 +1,32 @@
+print ("Se inicia con DracoScript");
+print ("Este es un contador");
+
+var x :=: 0;
+var y :=: 0;
+print("Desea - Salir Presion 0");
+
+var xx :=: -1;
+var xxx :=: 0;
+var xxxx :=: 1;
+
+if (xxx == 1){
+	var fact :=: 1; 
+    for (var i :=: 2; i <= 5; i ++){
+    	fact :=: fact * i; 
+    }
+    print ("El factorial es: " + fact);
+}
+elif (xx == -1){
+	RunMultDasm ("ArrUnaDimesion.dasm", "CalcDNI.dasm", "Diagonal.dasm");
+	RunMultDasm ("MultiDimension.dasm", "OrderBusDes.dasm", "Paises.dasm");
+	RunMultDasm ("Persona.dasm", "SumDim.dasm")
+}
+elif (xxxx == -1){
+	print("Este es un error...");
+}
+if not{
+	print("Este es un error...");
+}
+
+
+

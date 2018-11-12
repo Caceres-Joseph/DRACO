@@ -1,0 +1,95 @@
+vacio principal(){
+    Vectores();
+}
+
+vacio Vectores() {
+    decimal promedio = 0.0;
+    decimal suma = 0.0;
+    entero mayor = 0;
+    entero menor = 0;
+
+    entero ix = 15;
+    entero miArreglo [ix]; // arreglo a llenar
+    
+    //valores negatidos Unarios
+    promedio = -1;
+    entero x = 0;
+    si ( -1 <> promedio){
+        imprimir ("Error no funciono nada... NO CALIFICAR....");
+        retornar;
+    }
+    sino {
+        imprimir ("Inicio de almacemacenamiento de arreglos ...");
+    }
+    
+    //Llenado de arreglo
+
+    miArreglo[x] = 20;
+    x++;
+    miArreglo[x] = 15;
+    x++;
+    miArreglo[x] = 11;
+    x++;
+    miArreglo[x] = 8;
+    x++;
+    miArreglo[x] = 99;
+    x++;
+    miArreglo[x] = -3;
+    x++;
+    miArreglo[x] = 0;
+    x++;
+    miArreglo[x] = 5;
+    x++;
+    miArreglo[x] = 33;
+    x++;
+    miArreglo[x] = 88;
+    x++;
+    miArreglo[x] = 99;
+    x++;
+    miArreglo[x] = 88;
+    x++;
+    miArreglo[x] = 57;
+    x++;
+    miArreglo[x] = 47;
+    x++;
+    miArreglo[x] = 99;
+    x++;
+
+    // realizar la suma, promedio y el mayor
+    para (entero i = 0; i < 15; i++) {
+        suma = suma + miArreglo[i];
+        si (mayor < miArreglo[i]) {
+            mayor = miArreglo[i];
+        }
+        imprimir ("Posicion [ " + i + " ] Elemento: " + miArreglo[i]);
+    }
+    menor = mayor;
+    
+    // buscar el menor
+    para (entero i = 0; i < 15; i++) {
+        si (menor > miArreglo[i]) {
+            menor = miArreglo[i];
+        }
+    }
+    //promedio
+    promedio = suma / 15;
+    imprimir ("***              Salida              ***");
+    // contar las veces que se repite cada número
+    
+    entero cont;
+    para (entero i = 0; i < 15; i++) {
+        cont = 0;
+        para (entero j = i; j < 15; j++) {
+            si (miArreglo[i] == miArreglo[j]) {
+                cont++;
+            }
+        }
+	   imprimir("El numero " + miArreglo[i] + " se repite " + cont + " veces");
+    }
+
+    imprimir (" - La suma es: " + suma);
+    imprimir (" - El promedio es: " + (promedio + 0.00587));
+    imprimir (" - El numero mayor es: " + mayor);
+    imprimir (" - El numero menor es: " + menor);
+}
+

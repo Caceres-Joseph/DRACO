@@ -1,0 +1,34 @@
+decimal toRadians(decimal angle){
+    retornar angle*3.141592653589793/180;
+}
+
+decimal sine(decimal x){
+    decimal sin=0.0;
+    entero fact;
+    para(entero i=1; i<=10; i++){
+        fact=1;
+        para(entero j=1; j<=2*i-1; j++){
+             fact=fact*j;
+        }
+        sin=sin+(x^(2*i-1)/fact);
+        
+    }
+    retornar sin;
+}
+
+
+
+vacio drawTree(decimal x1, decimal y1, decimal angle, entero depth) {
+	si (depth == 0) {
+        retornar;
+    }
+    decimal x2 = x1 + (sine(3.141592653589793 / 2 + toRadians(angle)) * depth * 10.0);
+    decimal y2 = y1 + (sine(toRadians(angle)) * depth * 10.0);
+    System.out.println(x1 + " " + y1 + " " + x2 + " " + y2 + "\n");
+    drawTree(x2, y2, angle - 20, depth - 1);
+    drawTree(x2, y2, angle + 20, depth - 1);
+}
+
+vacio principal(){
+	drawTree(250, 500, -90, 9);
+}

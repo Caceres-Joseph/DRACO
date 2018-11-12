@@ -1,0 +1,257 @@
+decimal numero = 10.123789;
+entero NUMero;
+decimal NUMERO = 55.556987;
+
+cadena salida;
+cadena SALIDA;
+
+vacio principal() {
+    caseSensitive();
+}
+
+vacio caseSensitive() {
+
+	
+	
+    decimal NUMERO = 10.123789;
+    
+    //se imprimira operaciones aritmeticas
+    si (numero == NUMERO) {
+        OperacionesAritmeticas();
+    } sino si (numero > 10) {
+        imprimir("ERROR--> ERROR---> ERROR");
+    } sino {
+        imprimir("ERROR ARITMETICAS: Se encontro error.... No calificar");
+    }
+
+    //se imprimiran operaciones logicas y sentencia IF
+    
+    si (verdadero && verdadero && !(falso || verdadero && falso || !verdadero)) { //operaciones realcionales
+        OperacionesLogicas();
+    } sino {
+        imprimir("ERROR LOGICAS: Se encontro error.... No calificar");
+    }
+
+    //Sentencia ciclica
+    si (-1 == -1) {
+        While_Anidado();
+    }
+    SentenciaSI();
+
+    //se imprimira dibujo
+    Cuerpo();
+    Rostro();
+    
+}
+
+/*
+Cuerpo de la persona
+*/
+
+vacio Cuerpo (){
+    entero cara[3] = {230, 80, 100};
+    entero cuerpo [4] = {160, 130, 160, 200};
+    entero brazoIzq [5]= {150, 180, 80, 180, 15};
+    entero brazoDer [5]= {325, 180, 400, 180, 15};
+
+    entero piernaIzq [5] = {185, 340, 185, 450, 15};
+    entero piernaDer [5] = {285, 340, 285, 450, 15};
+    
+    //@@@@@@@@@@@@@@@@@Cuerpo CUERPO;
+    
+    punto (cara[0],cara[1], "#E8B35D", cara[2]);
+    cuadrado (cuerpo[0], cuerpo[1], "#2429FF", cuerpo[2], cuerpo[3]);
+    linea (brazoIzq[0], brazoIzq[1], brazoIzq[2], brazoIzq[3], "#E8B35D", brazoIzq[4]);
+    linea (brazoDer[0], brazoDer[1], brazoDer[2], brazoDer[3], "#E8B35D", brazoDer[4]);
+    linea (piernaIzq[0], piernaIzq[1], piernaIzq[2], piernaIzq[3], "#E8B35D", piernaIzq[4]);
+    linea (piernaDer[0], piernaDer[1], piernaDer[2], piernaDer[3], "#E8B35D", piernaDer[4]);
+
+}
+
+estructura Rostro{
+    entero ojos[6];
+    entero mid[6];
+    cadena info[2];
+}
+
+vacio Rostro(){
+    Rostro ROSTRO;
+    ROSTRO.ojos = {210, 75, 15, 250, 75, 15};
+    ROSTRO.mid = {210, 75, 8, 250, 75, 8};
+    ROSTRO.info = {"Calificacion", " " + 24 + ". "};
+    
+    punto (ROSTRO.ojos[0],ROSTRO.ojos[1], "#FFFFFF", ROSTRO.ojos[2]);
+    punto (ROSTRO.ojos[3],ROSTRO.ojos[4], "#FFFFFF", ROSTRO.ojos[5]);
+
+    punto (ROSTRO.mid[0],ROSTRO.mid[1], "#000000", ROSTRO.mid[2]);
+    punto (ROSTRO.mid[3],ROSTRO.mid[4], "#000000", ROSTRO.mid[5]);
+
+    //informacion
+    cadena (350, 350, "#539900", ROSTRO.info[0]);
+    cadena (350, 400, "#539900", ROSTRO.info[1]);
+}
+/*
+Operaciones Logicas
+ */
+vacio OperacionesLogicas() {
+    imprimir("Operadores Logicos Or: ");
+    imprimir(O(verdadero, falso));
+    
+    imprimir("Operadores Logicos And: ");
+    imprimir(Y(verdadero, falso));
+    
+    imprimir("Operadores Logicos And: ");
+    imprimir(Y(verdadero, verdadero));
+    
+    imprimir("Operadores Logicos Not: ");
+    imprimir(No(verdadero));
+    
+    imprimir("Operadores Logicos Not: ");
+    imprimir(No(falso));
+    
+    imprimir("Operadores Logicos Nor: ");
+    imprimir(OExclusivo(falso, falso));
+    
+    imprimir("Operadores Logicos Nor: ");
+    imprimir(OExclusivo(falso, verdadero));
+    
+    imprimir("Operadores Logicos Nor: ");
+    imprimir(OExclusivo(verdadero, verdadero));
+    
+    imprimir("Operadores Logicos Nor: ");
+    imprimir(OExclusivo(verdadero, falso));
+    
+    imprimir("Operadores Logicos NoY: ");
+    imprimir(NoY(verdadero, verdadero));
+    
+    imprimir("Operadores Logicos NoY: ");
+    imprimir(NoY(falso, falso));
+    
+    imprimir("Operadores Logicos NoY: ");
+    imprimir(NoY(verdadero, falso));
+    
+    imprimir("Operadores Logicos NoY: ");
+    imprimir(NoY(falso, verdadero));
+
+    imprimir("Realizar Operacion Debera salir verdadero ----->");
+    imprimir(O(NoY(falso, falso), OExclusivo(No(falso), Y(verdadero, O(No(verdadero), OExclusivo(verdadero, OExclusivo(falso, OExclusivo(falso, NoY(falso, falso)))))))));
+    
+    imprimir("Realizar Operacion Debera salir falso ----->");
+    imprimir(Y(No(No(No(O(NoY(falso, falso), OExclusivo(No(falso), Y(verdadero, O(No(verdadero), OExclusivo(verdadero, OExclusivo(falso, OExclusivo(falso, NoY(falso, falso))))))))))), verdadero));
+}
+
+booleano O(booleano x, booleano y) {
+    retornar x || y;
+}
+
+booleano Y(booleano x, booleano y) {
+    retornar x && y;
+}
+
+booleano No(booleano x) {
+    retornar !x;
+}
+
+booleano OExclusivo(booleano x, booleano y) {
+    retornar (!x && y) || (x && !y);
+}
+
+booleano NoY(booleano x, booleano y) {
+    retornar !(x && y);
+}
+
+/*
+Operaciones Aritmeticas
+*/
+vacio OperacionesAritmeticas() {
+    imprimir("Salida: " + Cadenas("Calificacion", "Compiladores", 2, 50.123456, 'A'));
+    imprimir("Division 0: " + Division(10.0, 10.0, 0));
+    imprimir("Multiplicacion: " + Multiplicar(10.59, 10.41, 10));
+    imprimir("Multiplicacion con Recursividad: " + MultiplicarRecursivo(5.0, 'd'));
+    imprimir("Suma: " + Suma(123.123485, 10.101010, 10));
+    imprimir("Resta: " + Resta(123.12358, 124.12498, 247));
+}
+
+decimal MultiplicarRecursivo(decimal x, caracter y) {
+    si (x < 1) {
+        retornar 9.0;
+    }
+    retornar MultiplicarRecursivo((x - 1), y) * (y - 99) + MultiplicarRecursivo((x - 1), y);
+}
+
+cadena Cadenas(cadena X, cadena Y, entero N, decimal D, caracter C) {
+    retornar X + " " + Y + " " + N + " " + (D + C);
+}
+
+decimal Multiplicar(decimal x, decimal y, entero z) {
+    retornar x * y * z;
+}
+
+decimal Division(decimal x, decimal y, entero z) {
+    retornar (x + y) / z;
+}
+
+decimal Suma(decimal x, decimal y, entero z) {
+    retornar (x + y) + z;
+}
+
+decimal Resta(decimal x, decimal y, entero z) {
+    retornar (x + y) - z;
+}
+
+/*
+Operaciones relacionales e IF
+ */
+vacio SentenciaSI() {
+    entero x_1 = 15;
+    booleano b_1 = verdadero;
+    booleano b_2 = falso;
+    caracter s [4] = {'H', 'o', 'l', 'a'}; //@@@@@@@@@@@@@@@@@@@@@@@@@@regresar - caracter s [4] = {'H', 'o', 'l', 'a'};
+    decimal d = 25.123456788;
+
+    si (verdadero) {
+        si ((b_1 == verdadero && b_2 == falso) || (b_1 == verdadero && b_2 == verdadero)) {
+            //imprimir("si 1 -- Verdadero...");
+            si (x_1 >= 10 && x_1 <= 25) {
+                //imprimir("si 2 -- Verdadero...");
+                si (d > 25.1233879 && d < 25.1237899) {
+                    //imprimir("si 2 -- Verdadero...");  
+                    si (s[2] == 'l') {
+                        //imprimir("si 3 -- Verdadero...");
+                        imprimir("Salida Correcta -- Verdadero...");
+                    } sino {
+                        imprimir("ERROR...");
+                    }
+                } sino {
+                    imprimir("ERROR...");
+                }
+            } sino {
+                imprimir("ERROR...");
+            }
+        } sino {
+            imprimir("ERROR...");
+        }
+    } sino {
+        imprimir("ERROR...");
+    }
+}
+
+/*
+Operacion Ciclica WHILE
+ */
+vacio While_Anidado() {
+    entero x = 0;
+    decimal d = 5.1256789;
+
+    mientras(verdadero) {
+        mientras(x < 5) {
+            mientras(d > 0) {
+                imprimir("Salida X: " + x + "---  D: " + d);
+                d--;
+            }
+            d = 5.123456789;
+            x++;
+        }
+        detener;
+    }
+}

@@ -166,7 +166,34 @@ public class nodoTabClase {
             }
         });
     }
+    String salida = "";
+    public String ejecutar2() {
 
+        System.out.println("+------------------------------------------------+");
+        System.out.println("| [nodoTabClase]Iniciando Análisis               |");
+        System.out.println("+------------------------------------------------+");
+
+//        simbolo.ctrlLienzo.limpiarLienzo();
+//        simbolo.clearConsola();
+        
+        Platform.runLater(() -> {
+        salida = (String) areaWeb.getEngine().executeScript("editor.getValue();");
+        
+        });
+        
+        
+        try {
+            Thread.sleep(2000);
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(nodoTabClase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return salida;
+    }
+
+    
+    
     public void ejecutar() {
         
         if(simbolo.debug!=null){

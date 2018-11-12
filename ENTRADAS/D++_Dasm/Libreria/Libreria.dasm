@@ -1,6 +1,145 @@
- 
+ /*
+|-------------------------------------------------
+| Convertir entero a  cadena
+|-------------------------------------------------
+| FUNCION AUXILIAR PARA LLENAR POSICIONES DEL HEAP
+| PARAM 1: NUMERO DE ELEMENTOS A LLENAR EN EL HEAP
+*/
+
+Function $DASM_LLENANDO 
+  get_local 0
+  1
+  ADD
+  0
+  set_local $calc 
+  set_local $calc 
+  get_local 0
+  2
+  ADD
+  0
+  set_local $calc 
+  $CONDICION
+  get_local 0
+  2
+  ADD
+  get_local $calc 
+  get_local 0
+  1
+  ADD
+  get_local $calc 
+  LT 
+  BR_IF $SALIR 
+    get_global 0
+    0
+    set_global $calc  
+    get_global 0
+    1
+    ADD
+    set_global 0 
+    get_local 0
+    2
+    ADD 
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    1 
+    ADD 
+    set_local $calc 
+    BR $CONDICION
+  $SALIR
+End
 
 
+/*
+|-------------------------------------------------
+| Convertir entero a  cadena
+|-------------------------------------------------
+| FUNCION AUXILIAR PARA CALCULAR POSICIONES QUE SE DEBEN DE LLENAR
+| PARAM 1: PUNTERO DONDE INICIA EL ARREGLO
+| PARAM 2: NUMERO DE DIMENSIONES
+*/
+
+Function $DASM_CALC_CANT  
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    1
+    set_local $calc 
+    get_local 0
+    4
+    ADD
+    0
+    set_local $calc 
+    $CONDICION
+
+    get_local 0
+    4
+    ADD
+    get_local $calc
+
+    get_local 0
+    2
+    ADD
+    get_local $calc
+
+    LT
+
+    BR_IF $SALIDA 
+    get_local 0
+    3
+    ADD 
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    get_global $calc  
+    MULT  
+    set_local $calc 
+    get_local 0
+    1
+    ADD 
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    1 
+    ADD 
+    set_local $calc 
+    get_local 0
+    4
+    ADD 
+    get_local 0
+    4
+    ADD
+    get_local $calc 
+    1 
+    ADD 
+    set_local $calc 
+    BR $CONDICION 
+    $SALIDA
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    set_local $ret  
+End
 
 /*
 |-------------------------------------------------
@@ -303,12 +442,6 @@ Function $DASM_DECIMAL_A_CADENA
 	set_local $ret  
 End
 
-/*
-|-------------------------------------------------------------------------------------------------------------------
-| IGUALACION CADENAS
-|-------------------------------------------------------------------------------------------------------------------
-|
-*/
 
 /*
 |-------------------------------------------------

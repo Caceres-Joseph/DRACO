@@ -1,0 +1,27 @@
+void pintar(){
+	entero x = 0;
+    mientras (x <= 400) {
+        linea(200, 200, x, 0, "#FFFFFF", 2);
+        x = x + 10;
+    }
+    entero y = 0;
+    mientras (y <= 400) {
+        linea(200, 200, 0, y, "#FFFFFF", 2);
+        y = y + 10;
+    }
+    entero x1 = 0;
+    mientras (x1 <= 400) {
+        linea(200, 200, x1, 400, "#FFFFFF", 2);
+        x1 = x1 + 10;
+    }
+    entero y1 = 0;
+    mientras (y1 <= 400) {
+        linea(200, 200, 400, y1, "#FFFFFF", 2);
+        y1 = y1 + 10;
+    }
+}
+
+vacio principal(){
+	imprimir("Regalito de navidad anticipado")
+	pintar();
+}

@@ -1,0 +1,24 @@
+vacio principal(){
+	entero width = 500, height = 500, max = 1000;
+
+    para (entero row = 0; row < height; row++) {
+        para (entero col = 0; col < width; col++) {
+            decimal c_re = (col - width / 2) * 4.0 / width;
+            decimal c_im = (row - height / 2) * 4.0 / width;
+            decimal x = 0, y = 0;
+            entero iterations = 0;
+            mientras (x * x + y * y < 4 && iterations < max) {
+                decimal x_new = x * x - y * y + c_re;
+                y = 2 * x * y + c_im;
+                x = x_new;
+                iterations++;
+            }
+            si (iterations < max) {
+                ovalo(col, row,"#000000", 1, 1);
+            } sino {
+                ovalo(col, row,"#FFFFFF", 1, 1);
+            }
+            
+        }
+    }
+}

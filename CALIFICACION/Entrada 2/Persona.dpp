@@ -1,0 +1,60 @@
+vacio principal(){
+    Personas();
+}
+
+
+Persona lista [6]; // lista = new Persona[6];
+vacio Personas(){
+    lista[0].edad = 100;
+    lista[0].nombre = "Cien";
+    lista[0].letras = {'a','b','c','d','e'};
+    
+    lista[2].edad = 25;
+    lista[2].nombre = "Veiticinco";
+    lista[2].letras = {'f','g','h','i','j'};
+    
+    lista[5].edad = 80;
+    lista[5].nombre = "Ochenta";
+    lista[5].letras = {'k','l','m','n','ñ'};
+    
+    lista[1].edad = 10;
+    lista[1].nombre = "Diez";
+    lista[1].letras = {'o','p','q','r','s'};
+    
+    lista[4].edad = 1000 + 50;
+    lista[4].nombre = "mil mas cincuenta";
+    lista[4].letras = {'t','u','v','w','x'};
+    
+    lista[3].edad = 1;
+    lista[3].nombre = "Solo Uno";
+    lista[3].letras = {'y','z','1','ñ','3'};
+    
+    busqueda = {'y','z','1','ñ','3'};
+    BuscarPersona("Solo Uno");
+    BuscarPersona("Veiticinco");
+}
+
+caracter busqueda[5];
+
+vacio BuscarPersona(cadena nombre){
+    para (entero i = 0; i < 6; i ++){
+        si (nombre == (lista[i].nombre) 
+            && busqueda[0] == 'y' 
+            && busqueda[1] == 'z' 
+            && busqueda[2] == '1' 
+            && busqueda[3] == 'ñ' 
+            && busqueda[4] == '3'){
+
+            imprimir ("Se encontro  a la persona y sus datos son:");
+            imprimir ("Nombre: " + lista[i].nombre);
+            imprimir ("Edad: " + lista[i].edad);
+            retornar;
+        }
+    }
+    imprimir ("Si salio Esto es un ERROR ...  Esta malo todo");
+}
+estructura Persona{
+    entero edad;
+    cadena nombre;
+    caracter letras[5];
+}

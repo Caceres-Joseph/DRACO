@@ -1,0 +1,294 @@
+
+
+principal() {
+	init();
+	imprimir("hola mundo");
+}
+
+vacio init(){
+	
+	imprimir("inicio de la ejecucion");
+	imprimir("antes de iniciar con valores tiene la mitad de sus puntos en manejo de estructuras");
+	crearPersona(p, 0, "", 0, 0); //llenar con datos del estudiante edad, nombre, carnet, 100
+	imprimirPersona(p); //imprime los atributos de p con los valores por defecto de cada atributo.
+	crearPersona(p, 20, "Sebastian", 201603014, 100); //llenar con datos del estudiante edad, nombre, carnet, 100
+	imprimirPersona(p);
+	imprimir("ha impreso los datos del estudiante tiene el resto de puntos en manejo de esturcturas");
+
+	imprimir("*******************************************************************");
+	imprimir("test 1 " + adjacentElementsProduct() + " debe de ser 21");
+	imprimir("test 1 " + makeArrayConsecutive2() + " debe de ser 3");
+	imprimir("test 1 " + shapeArea(5) + " debe de ser 41");
+	imprimir("test 2 " + shapeArea(1) + " debe de ser 1");
+	imprimir("test 3 " + shapeArea(3) + " debe de ser 13");
+	imprimir("test 1 " + matrixElementSum() + " debe de ser 18");
+	imprimir("*******************************************************************");
+	alllongestString(); //it is ok XD6
+	reverse(); //it is ok XD104 miketalavera8 miketalaveramiketalavera
+	sort(); //it is ok XD9
+	islucky(); //it is ok XD8
+	common(); //it is ok XD7
+	dibujarBandera(4, 7, "#FF5733", 20, 20);
+
+	//retornar 10;
+}
+
+entero  getSize(entero end)
+{
+	entero init = 0;
+	para(init = 2; init <= 10; init++)
+	{
+		si(init == end)
+		{
+			retornar init;
+		}
+	}
+	retornar 10;
+}
+
+entero array [6] = {3, 6, -2, -5, 7, 3}; //este imprime 21
+//entero array [2] = {-1, -2}; //este imprime 2
+//entero array [6] = {4, 1, 2, 3, 1, 5}; //este imprime 6
+
+entero adjacentElementsProduct()
+{
+	entero size = getSize(6);
+	entero max = 0;
+	para(entero i = 0; i < size; i++)
+	{
+		entero next = 0;
+		si(i+1 < size)
+		{
+			next = i+1;
+		}
+		sino {
+			next = -1;
+		}
+		si(i == 0)
+		{
+			max = array[i] * array[next];
+		}
+		sino
+		{
+			si(next <> -1)
+			{
+				entero temp = array[i] * array[next];
+				si(temp > max)
+				{
+					max = temp;
+				}
+			}
+		}		
+	}
+	retornar max;
+}
+
+//entero array1 [4] = {6, 2, 3, 8}; //este imprime 3
+entero array1 [2] = {0, 3};  //este imprime 2
+//entero array1 [2] = {6, 3}; este imprime 2
+
+entero getMax(entero size)
+{
+	entero max = -100000;
+	para(entero i = 0; i < size; i++)
+	{	
+		si(max < array1[i])
+		{
+			max = array1[i];
+		}
+	}
+	retornar max;
+}
+
+entero getMin(entero size)
+{
+	entero min = 100000;
+	para(entero i = 0; i < size; i++)
+	{	
+		si(min > array1[i])
+		{
+			min = array1[i];
+		}
+	}
+	retornar min;	
+}
+
+entero makeArrayConsecutive2()
+{
+	retornar (getMax(2) - getMin(2)) - (2 - 1);	
+}
+
+
+
+
+entero shapeArea(entero n)
+{
+	si(n == 1)
+	{
+		retornar 1;
+	}
+	retornar shapeArea(n-1) + 4*(n-1);
+}
+
+
+
+entero matrix[3][3] = {{1,1,1}, 
+					 {2,2,2}, 
+					 {3,3,3}};
+
+        			
+
+entero matrixElementSum()
+{
+	entero s1 = 3; entero s2 = 3;
+	entero fila = -1;
+	entero col [10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+	entero sum = 0;
+	para(entero i = 0; i < s1; i++)
+	{
+		para(entero j = 0; j < s2; j++)
+		{
+			si(col[j] == -1)
+			{
+				sum = sum + matrix[i][j];
+			}
+			si(matrix[i][j] == 0 && col[j] == -1)
+			{
+				col[j] = j;
+			}
+		}
+	}
+	retornar sum;
+}
+
+
+vacio alllongestString()
+{
+	entero a = 0;
+	mientras(verdadero){
+		
+		si(a == 6)
+		{
+			imprimir("it is ok XD" + a);
+			detener;
+		}
+		a++;
+	}
+}
+
+
+vacio common()
+{
+	entero a = 0;
+	mientras (verdadero){
+		
+		si(a == 7)
+		{
+			imprimir("it is ok XD" + a);
+			detener;
+		}
+		a++;
+	}
+}
+
+
+vacio islucky()
+{
+	entero a = 0;
+	mientras(verdadero){
+		
+		si(a == 8)
+		{
+			imprimir("it is ok XD" + a);
+			detener;
+		}
+		a++;
+	}
+}
+
+
+vacio sort()
+{
+	entero a = 0;
+	mientras (verdadero){
+		
+		si(a == 9)
+		{
+			imprimir("it is ok XD" + a);
+			detener;
+		}
+		a++;
+	}
+}
+
+vacio reverse()
+{
+	entero a = 0;
+	mientras (verdadero){		
+		si(a == 10)
+		{
+			imprimir("it is ok XD" + a);
+			detener;
+		}
+		a++;
+	}
+	imprimir(num1(pruebaEntero(2, 2), pruebaCadena("mike", "talavera")));
+}
+
+entero pruebaEntero(entero a, entero b)
+{
+	retornar a + b;
+}
+
+cadena pruebaCadena(cadena a, cadena b)
+{
+	retornar a + b;	
+}
+
+estructura persona{
+	entero edad;
+	cadena nombre;
+	entero carnet;
+	entero puntuacion;	
+}
+
+persona p;
+
+vacio crearPersona(persona p, entero edad, cadena nombre, entero carnet, entero puntacion)
+{
+	p.edad = edad;
+	p.nombre = nombre;
+	p.carnet = carnet;
+	p.puntuacion = puntacion;
+}
+
+vacio imprimirPersona(persona p)
+{
+	imprimir(p.edad);
+	imprimir(p.nombre);
+	imprimir(p.carnet);
+	imprimir(p.puntuacion);
+}
+
+
+cadena num1(entero a, cadena b)
+{
+	retornar num2(a, b) + " "  + num3(a*2,  b+b);
+}
+
+
+cadena num2(entero a, cadena b)
+{
+	retornar a + " " + b;	
+}
+
+cadena num3(entero a, cadena b)
+{
+	retornar a + " " + b;
+}
+
+
+vacio dibujarBandera(entero x, entero y, cadena color, entero alto, entero ancho)
+{
+	cuadrado(x, y, color, alto, ancho);
+}

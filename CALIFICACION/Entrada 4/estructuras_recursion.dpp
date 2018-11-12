@@ -1,0 +1,235 @@
+estructura Estudiante {
+	cadena nombre;
+	cadena apellido;
+}
+
+estructura PortaArreglos {
+	entero arreglo[5];
+}
+
+/**
+ * *************************************************************************
+ * SECCION TIPOS DE RECURSION.
+ * **************************************************************************
+ */
+
+/**
+ * RECURSION SIMPLE.
+ */
+
+entero factorial(entero n) {
+    retornar n == 0 ? 1 : n * factorial(n - 1);
+}
+
+entero potencia(entero base, entero exp) {
+    retornar exp == 0 ? 1 : (base * potencia(base, exp - 1));
+}
+
+/**
+ * RECURSION MULTIPLE.
+ */
+vacio Hanoi(entero discos, entero origen, entero auxiliar, entero destino) {
+    if (discos == 1) {
+        imprimir("\t\t\tmover disco de " + origen + " a " + destino +"\n");
+    } else {
+        Hanoi(discos - 1, origen, destino, auxiliar);
+        imprimir("\t\t\tmover disco de " + origen + " a " + destino+"\n");
+        Hanoi(discos - 1, auxiliar, origen, destino);
+    }
+}
+
+entero particion(PortaArreglos pa, entero bajo, entero alto) {
+    entero pivote = pa.arreglo[alto];
+    entero i = (bajo - 1);
+    para (entero j = bajo; j < alto; j++) {
+        if (pa.arreglo[j] <= pivote) {
+            i++;
+            entero temp = pa.arreglo[i];
+            pa.arreglo[i] = pa.arreglo[j];
+            pa.arreglo[j] = temp;
+        }
+    }
+    entero temp = pa.arreglo[i + 1];
+    pa.arreglo[i + 1] = pa.arreglo[alto];
+    pa.arreglo[alto] = temp;
+    retornar i + 1;
+}
+
+vacio quickSort(PortaArreglos pa, entero bajo, entero alto) {
+    if (bajo < alto) {
+        entero pi = particion(pa, bajo, alto);
+        quickSort(pa, bajo, pi - 1);
+        quickSort(pa, pi + 1, alto);
+    }
+}
+
+/**
+ * Funcion que imprime un arreglo dada su longitud.
+ */
+vacio imprimirArreglo(PortaArreglos pa, entero length) {
+    para (entero i = 0; i < length; i++) {
+        imprimir(pa.arreglo[i] + " ");
+    }
+    imprimir("\n");
+}
+
+/**
+ * RECURSION CRUZADA.
+ */
+entero hofstaderFemenina(entero n) {
+    if (n < 0) {
+        retornar 0;
+    } else {
+        retornar (n == 0) ? 1 : n - hofstaderFemenina(n - 1);
+    }
+}
+
+entero hofstaderMasculino(entero n) {
+    if (n < 0) {
+        retornar 0;
+    } else {
+        retornar n == 0 ? 0 : n - hofstaderMasculino(n - 1);
+    }
+}
+
+entero par(entero nump) {
+    if (nump == 0) {
+        retornar 1;
+    }
+    retornar impar(nump - 1);
+}
+
+entero impar(entero numi) {
+    if (numi == 0) {
+        retornar 0;
+    }
+    retornar par(numi - 1);
+}
+
+/**
+ * RECURSION ANIDADA.
+ */
+entero ackermann(entero m, entero n) {
+    if (m == 0) {
+        retornar (n + 1);
+    } else if (m > 0 && n == 0) {
+        retornar ackermann(m - 1, 1);
+    } else {
+        retornar ackermann(m - 1, ackermann(m, n - 1));
+    }
+}
+
+Estudiante graduo(Estudiante e) {
+    Estudiante result = e;
+    result.nombre = "Ing. " + e.nombre;
+    retornar result;
+}
+
+principal(){
+	/**
+     * Estructuras.
+     */
+    imprimir("-------ARCHIVO DE FUNCIONALIDADES AVANZADAS--------\n");
+    imprimir("ESTRUCTURAS\n");
+    imprimir("\tMANEJO ADECUADO DE REFERENCIAS\n");
+    Estudiante e1;
+    Estudiante e2;
+    e1.nombre = "Javier";
+    e2.nombre = "Erick";
+    e1.apellido = "Aycinena";
+    e2.apellido = "Botran";
+    e2.apellido = e1.apellido;
+    e1.apellido = "Navarro";
+    imprimir("\t\tHermanos Navarro (Navarro y Aycinena):\n");
+    imprimir("\t\t\t" + e1.nombre + " " + e1.apellido+"\n");
+    imprimir("\t\t\t" + e2.nombre + " " + e2.apellido+"\n");
+    imprimir("\tFUNCIONALIDAD AVANZADA UTILIZANDO ESTRUCTURAS\n");
+    if (e1.apellido != e2.apellido) {
+        Estudiante g1 = graduo(e2);
+        imprimir("\t\t"+g1.nombre + " " + g1.apellido+"\n");
+        imprimir("TIPOS DE RECURSION\n");
+        imprimir("\tRECURSIVIDAD SIMPLE\n");
+        /**
+         * Funcion factorial Entrada: n = 12.
+         */
+        entero factorial = factorial(12);
+        imprimir("\t\tEl factorial de 12 es: " + factorial+"\n");
+
+        /**
+         * Funcion potencia: Entrada: base = 2, exponente = 5.
+         */
+        entero base = 2;
+        entero exponente = 5;
+        imprimir("\t\tEl numero " + base + " elevado a la " + exponente + " potencia es: " + potencia(base, exponente)+"\n");
+        imprimir("\tRECURSIVIDAD MULTIPLE\n");
+        /**
+         * Funcion Hanoi, resuelve el problema de La Torres de Hanoi.
+         */
+        entero discos = 3;
+        entero origen = 1;
+        entero auxiliar = 2;
+        entero destino = 3;
+        imprimir("\t\tSolucion al problema de torres de Hanoi para n = " + discos+"\n");
+        Hanoi(discos, origen, auxiliar, destino);
+
+        /**
+         * Funcion QuickSort, ordena un arreglo.
+         */
+        imprimir("\t\tOrdenar un arreglo con el algoritmo QuickSort\n");
+        PortaArreglos pa = new PortaArreglos();
+        pa.arreglo[0] = 2;
+        pa.arreglo[1] = 1;
+        pa.arreglo[2] = 3;
+        pa.arreglo[3] = 5;
+        pa.arreglo[4] = 4;
+        imprimir("\t\t\tArreglo desordenado: ");
+        imprimirArreglo(pa, 5);
+        quickSort(pa, 0, 4);
+        imprimir("\t\t\tArreglo ordenado: ");
+        imprimirArreglo(pa, 5);
+
+        /**
+         * Funcion Hoftadter.
+         */
+        imprimir("\tRECURSIVIDAD CRUZADA\n");
+        imprimir("\t\tGenerar funciones Hoftadter\n");
+
+        entero i;
+        imprimir("\t\t\tFemenina: ");
+        para (i = 0; i < 10; i++) {
+            imprimir(hofstaderFemenina(i) + " ");
+        }
+        imprimir("\n");
+        imprimir("\t\t\tMasculina: ");
+        para (i = 0; i < 10; i++) {
+            imprimir(hofstaderMasculino(i) + " ");
+        }
+        imprimir("\n");
+        /**
+         * Funciones Par e Impar.
+         */
+        imprimir("\t\tDeterminar la paridad de dos numeros\n");
+        entero a = 17;
+        entero b = 68;
+        imprimir("\t\t\tEl numero " + a + " es: " + (par(a) == 1 ? "Par" : "Impar")+"\n");
+        imprimir("\t\t\tEl numero " + b + " es: " + (impar(b) == 0 ? "Par" : "Impar")+"\n");
+        imprimir("\tRECURSIVIDAD ANIDADA\n");
+        entero m = 3;
+        entero n = 12;
+        imprimir("\t\tFuncion de Ackermann (" + m + "," + n + ") = " + ackermann(m, n)+"\n");
+
+    } else {
+        imprimir("No se manejo correctamente las referencias\n");
+        imprimir("Pero si valido los errores, si tendra acceso a esos puntos.\n");
+    }
+    imprimir("Es permitido descomentar uno a uno los siguientes errores:\n");
+    /**
+     * Errores en tiempo de ejecucion, descomentar uno a uno.
+     */
+    //entero error1 = factorial(13);
+    //entero error2 = (((m == 3) ? 'Y' : 'N') == 'Y') ? a / (4 * m - n) : 0;
+    //entero error3 = pa.arreglo[10 - m + factorial(3)];
+    //entero error4 = "cadena"+m;
+    //imprimir("No deberia de imprimir esto.." + (error1 + error2 + error3) + " Si lo imprime cero en toda la seccion.\n");
+
+}

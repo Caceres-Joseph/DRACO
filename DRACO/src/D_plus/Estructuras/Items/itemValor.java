@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class itemValor {
     
     /*DASM*/
-    
+    public boolean dasmAccediendoElemArreglo=false;
     public int posVarDpp=-1;
     public boolean miembroEstructura=false;
     /**

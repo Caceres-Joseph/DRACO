@@ -90,13 +90,54 @@ public class _ASIG_VALOR extends nodoModelo{
         itemRetorno reotorno = new itemRetorno();
         _ID_VAR_FUNC nodoVarFunc = (_ID_VAR_FUNC) listaHijos.lstHijos.get(0);
         _VAL nodoVal = (_VAL) listaHijos.lstHijos.get(1);
+        itemValor valValor = nodoVal.getValor(entorno);
 
         itemValor valDestino = nodoVarFunc.getDireccionVal(entorno);
+        
+        if (valDestino.dasmAccediendoElemArreglo) {
+
+            itemValor id = nodoVarFunc.getValor(entorno);
+
+            if (id.dasmAccediendoElemArreglo) {
+                println("removiendo el ultimo valor");
+                id.cadenaDasm.remove(id.cadenaDasm.size() - 1);
+            }
+
+            if (valDestino.nombreEntorno.equals("global")) {
+                for (String string : id.cadenaDasm) {
+                    simbolo.salidaDasm.lineaComentada(string, "Posicion del destino", entorno.nivel);
+
+                }
+                //pos del destino
+                
+            } else {
+
+                simbolo.salidaDasm.comentarioPequeño("Asignando valor a var", "", entorno.nivel);
+                //puntero
+                 for (String string : id.cadenaDasm) {
+                    simbolo.salidaDasm.lineaComentada(string, "Posicion del destino", entorno.nivel);
+
+                }
+            }
+            /*CODIGO DASM*/
+            //Obteniendo puntero
+
+            //Ubicndo todo lo que viene en E
+            simbolo.salidaDasm.comentario("Operaciones E", entorno.nivel);
+            for (String string : valValor.cadenaDasm) {
+                simbolo.salidaDasm.linea(string, entorno.nivel);
+            }
+
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_local_calc(), "Enviando el valor a la posicion", entorno.nivel);
+
+            //hay que quitarle la ultima sentencia
+            return reotorno;
+        }
 //        println("Pos Relativa:"+String.valueOf(valDestino.posRelativa));
 //        println("Pos variable:"+String.valueOf(valDestino.posVarDpp));
 //        println("Tipo var:"+valDestino.tipo);
 
-        itemValor valValor = nodoVal.getValor(entorno);
+        
 
 //        if (valDestino.posVarDpp != -1) {
 ////            println("Es un aestructura");
@@ -134,7 +175,7 @@ public class _ASIG_VALOR extends nodoModelo{
         }
         return asignarValor(valDestino, valValor, entorno);
  
-    }
+    }   
     
     public void agregandoValElementoEstructuraNumero(itemValor valDestino ,itemValor valValor, elementoEntorno entorno){
         

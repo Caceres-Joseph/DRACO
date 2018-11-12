@@ -11,6 +11,7 @@ import D_plus.Estructuras.Items.itemValor;
 import D_plus.Estructuras.Listas.HashPolimorfa.clavePolimorfa;
 import D_plus.Estructuras.Listas.HashPolimorfa.itemClave;
 import D_plus.Estructuras.Listas.HashPolimorfa.valorPolimorfo;
+import D_plus.Nodos.Arreglo._LST_CORCHETES_VAL;
 import D_plus.Nodos.Parametros._LST_VAL;
 import Gui.Items.itemAtributo;
 import Gui.Elementos.elementoGlobal;  
@@ -304,10 +305,60 @@ public class _ID_VAR_FUNC extends _ID_VAR_FUNC_PADRE {
      * @return Retorna para revisión de break
      */
     public itemValor v_case_4(elementoEntorno entorno) {
+//        println("[v_case_4]Recuperando");
         itemValor retorno = new itemValor(simbolo); 
-
-             
-        return retorno;
+        
+        _LST_CORCHETES_VAL nodoCorchetes=(_LST_CORCHETES_VAL)listaHijos.lstHijos.get(0);
+        ArrayList<itemValor> lstValores=   nodoCorchetes.indicesDimension(entorno);
+        
+        
+        //verifico si existe la varaible
+        itemAtributo nombreVariable=listaAtributos.getAtributo(0);
+        itemValor val= entorno.getValVariable(nombreVariable);
+        val.cadenaDasm.add("//recuperando posicion de arreglo");
+        val.cadenaDasm=new ArrayList<>();
+        //verificando si no es una variable global
+        if(val.nombreEntorno.equals("global")){
+            //posicion relativa de la variable
+            val.cadenaDasm.add(String.valueOf(val.posRelativa));
+            //obteniendo el valor de esa posicion
+            val.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
+            
+        }else{
+            //obtengo el puntero
+            val.cadenaDasm.add(simbolo.salidaDasm.getGet_local_id("0"));
+            //posicion relativa de la variable
+            val.cadenaDasm.add(String.valueOf(val.posRelativa));
+            //sumando
+            val.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+            //obteniendo el valor de esa posicion
+            val.cadenaDasm.add(simbolo.salidaDasm.getGet_local_calc());
+        }
+        
+        //colocando el tamanio de la dimension       
+        val.cadenaDasm.add(String.valueOf(lstValores.size()));
+        //sumo
+        val.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+        //pos de la variable
+        int i=0;
+        for (itemValor indice : lstValores) {
+            if(i==0){
+                val.cadenaDasm.add("//ope E");
+                for (String string : indice.cadenaDasm) {
+                    val.cadenaDasm.add(string);
+                }
+            }else{
+                //lo multiplico por el tamaño
+                
+            }
+            i++;
+        }
+        
+        //coloco el valor en ele fondo de la pila
+        val.cadenaDasm.add(simbolo.salidaDasm.getAdd());
+        val.cadenaDasm.add(simbolo.salidaDasm.getGet_global_calc());
+             val.dasmAccediendoElemArreglo=true;
+        return val;
     }
     
     

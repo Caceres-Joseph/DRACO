@@ -11,10 +11,10 @@ import D_plus.Estructuras.Items.itemRetorno;
 import D_plus.Estructuras.Items.itemValor;
 import D_plus.Estructuras.Listas.lstVariables.nodTipo;
 import D_plus.Nodos.Arreglo._VAR_ARREGLO;
-import D_plus.Nodos.Inicio._TIPO;
-import D_plus.Nodos.nodoModelo;
+import D_plus.Nodos.Inicio._TIPO; 
 import Gui.Items.itemAtributo; 
 import Gui.Elementos.elementoGlobal;  
+import java.util.ArrayList;
 
 /**
  * Nodo para asignar el valor 
@@ -133,8 +133,14 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
         
         _TIPO nodTipo = (_TIPO) listaHijos.lstHijos.get(0); 
         _VAR_ARREGLO varArreglo = (_VAR_ARREGLO) listaHijos.lstHijos.get(2);
-        declararNulos(nodTipo, varArreglo, entorno);
         
+        int dimension = varArreglo.getDimension();
+//        declararNulos(nodTipo, varArreglo, entorno);
+        if(dimension > 0){
+            declararArregloNulos(nodTipo, varArreglo, entorno);
+        }else{
+            declararNulos(nodTipo, varArreglo, entorno); 
+        }
 //        return  e1.getValor(entorno);  
         return retorno;
     }
@@ -156,7 +162,16 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
         _VAR_ARREGLO varArreglo = (_VAR_ARREGLO) listaHijos.lstHijos.get(1); 
         _VAL nodVal = (_VAL) listaHijos.lstHijos.get(2); 
         
-        declararConValor(nodTipo, varArreglo, nodVal, entorno);
+        
+        int dimension = varArreglo.getDimension();
+//        declararNulos(nodTipo, varArreglo, entorno);
+        if(dimension > 0){
+            declararArregloConValor(nodTipo, varArreglo,nodVal, entorno);
+        }else{
+            declararConValor(nodTipo, varArreglo, nodVal, entorno);
+        }
+        
+        
         
         return retorno;
          
@@ -180,9 +195,55 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
         _TIPO nodTipo = (_TIPO) listaHijos.lstHijos.get(0); 
         _VAR_ARREGLO varArreglo = (_VAR_ARREGLO) listaHijos.lstHijos.get(1);
         
-        declararNulos(nodTipo, varArreglo, entorno);
-        
+        int dimension = varArreglo.getDimension();
+        //es un arreglo prro
+        if(dimension > 0){
+            declararArregloNulos(nodTipo, varArreglo, entorno);
+        }else{
+            declararNulos(nodTipo, varArreglo, entorno); 
+        }
+         
          return retorno;
+    }
+    
+    
+    public void declararArregloConValor(_TIPO nodTipo, _VAR_ARREGLO varArreglo, _VAL nodVal, elementoEntorno entorno) {
+//        println("[declararArregloNulosConValor]");
+        //reservando espacio
+        declararArregloNulos(nodTipo, varArreglo, entorno);
+
+        simbolo.salidaDasm.comentarioPequeño("Valores del Arreglo", "el arreglo contiene valores", entorno.nivel);
+        //el nodo val me tiene que dar el listado de nodos
+        int valor = 1;
+        ArrayList<itemValor> lstValores = nodVal.getLstValores(entorno);
+        for (itemValor lstValore : lstValores) {
+//            println(lstValore.tipo);
+            if (!nodTipo.getTipo().valor.equals(lstValore.tipo)) {
+                simbolo.tablaErrores.insertErrorSemantic(atributo, "Se esta intentando guardar un valor de tipo:" + lstValore.tipo + " en un arreglo de tipo" + nodTipo.getTipo().valor);
+                return;
+            }
+
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "ELEMENTO:" + String.valueOf(valor), entorno.nivel);
+            //tamaño del ambito
+            simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_calc(), "Enviando var a la posicion", entorno.nivel);
+            simbolo.salidaDasm.linea("0", entorno.nivel);
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+            //posicion de la variable
+            simbolo.salidaDasm.linea(String.valueOf(valor), entorno.nivel);
+            //sumando
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+            //valor
+            simbolo.salidaDasm.comentario("Operacioens E", entorno.nivel);
+            for (String string : lstValore.cadenaDasm) {
+                simbolo.salidaDasm.linea(string, entorno.nivel);
+            }
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_global_calc(), entorno.nivel);
+            
+
+            valor++;
+        }
     }
     
     public void declararConValor(_TIPO nodTipo,_VAR_ARREGLO varArreglo,_VAL nodVal, elementoEntorno entorno){
@@ -270,6 +331,183 @@ public class _DECLARAR_VARIABLE extends _DECLARAR_VARIABLE_1{
         simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_local_calc(), "Enviando var a la posicion", entorno.nivel);
          
     }
+    
+    
+    public void declararArregloNulos(_TIPO nodTipo,_VAR_ARREGLO varArreglo, elementoEntorno entorno){
+        
+        
+        
+        itemAtributo tipo = nodTipo.getTipo();
+        
+        
+        
+        if(tipo.esEstructura){
+            println("[declararArregloNulos]Estructura de arreglos nula");
+//            declararEstructuraNula(nodTipo, varArreglo, entorno);
+            return;
+        }
+        
+        
+        itemAtributo idVar = varArreglo.getId();
+        
+        ArrayList<itemValor> listaDimensiones=varArreglo.indicesDimension(entorno);
+//        int dimension = varArreglo.getDimension();
+
+//        _VAL nodVal = (_VAL) listaHijos.lstHijos.get(2);
+        itemValor val=new itemValor(simbolo);
+        val.esNulaSuprema=true;
+        val.tipo=tipo.valor;
+        
+        
+        
+        /*INICIO CODIGO*/
+        simbolo.salidaDasm.comentarioPequeño("Declarando variable Arreglo", idVar.valor+"="+tipo.valor, entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_local_id("0"), "Obteniendo el puntero", entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(String.valueOf(entorno.posRelativa), "Pos relativa de la variable", entorno.nivel);
+        entorno.posRelativa++;
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_global_id("0"), entorno.nivel);
+        simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getSet_local_calc(), "Enviando var a la posicion", entorno.nivel);
+         
+        
+        //colocando las dimensiones
+        for (itemValor listaDimensione : listaDimensiones) {
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_global_id("0"), "DIMENSION:", entorno.nivel);
+            //colocando el valor
+            simbolo.salidaDasm.comentario("valores E", entorno.nivel);
+            for (String string : listaDimensione.cadenaDasm) {
+                simbolo.salidaDasm.linea(string, entorno.nivel);
+            }
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_global_calc(), entorno.nivel);
+            
+            //aumentando puntero
+            
+            simbolo.salidaDasm.lineaComentada(simbolo.salidaDasm.getGet_global_id("0"),"Aumentando el puntero", entorno.nivel);
+            simbolo.salidaDasm.linea("1", entorno.nivel);
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+            simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_global_id("0"), entorno.nivel);
+        }
+        
+        
+        /**
+         * FUNCION $DASM_CALC_CANT
+         */
+        
+        simbolo.salidaDasm.comentarioPequeño("$DASM_CALC_CANT", "llenando espacios", entorno.nivel);
+        /*PARAM 1*/
+        simbolo.salidaDasm.linea("//PARAMETRO 1:", entorno.nivel);
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+        //tamaño del ambito
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //sumanodo
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //Num parametro
+        simbolo.salidaDasm.linea("1", entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //operaciones E
+        //simbolo.salidaDasm.linea("//Operaciones E", entorno.nivel);
+        simbolo.salidaDasm.comentario("Operacion E, retorno de func ", entorno.nivel);
+                
+        /**
+         * FUNCION DASM CANTIDAD
+         */
+        
+        simbolo.salidaDasm.comentarioPequeño("DASM_CALC_CANT", "calculando dimensiones", entorno.nivel);
+        /*PARAM 1*/
+        simbolo.salidaDasm.linea("//PARAMETRO 1:", entorno.nivel);
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+        //tamaño del ambito
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //sumanodo
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //Num parametro
+        simbolo.salidaDasm.linea("1", entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //operaciones E
+        simbolo.salidaDasm.linea("//Operaciones E", entorno.nivel);
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+        /*aqui va un nuemero puede ser la pos relativa*/
+        //tamaño del ambito
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_calc(), entorno.nivel);
+
+        /*PARAM 2*/
+        simbolo.salidaDasm.linea("//PARAMETRO 2:", entorno.nivel);
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+        //tamaño del ambito
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //sumanodo
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //Num parametro
+        simbolo.salidaDasm.linea("2", entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //operaciones E
+        simbolo.salidaDasm.linea("//Operaciones E", entorno.nivel);
+        //dimensiones
+        simbolo.salidaDasm.linea(String.valueOf(listaDimensiones.size()), entorno.nivel);
+
+        //comentarios 
+        simbolo.salidaDasm.linea("//Iniciando llamado", entorno.nivel);
+        //obtengo el puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+        //tamanio del ambito para avanzar
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //actualizando puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_local_id("0"), entorno.nivel);
+        //llamando a la funcion prro
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getCall("$DASM_CALC_CANT"), entorno.nivel);
+        //obtengo el puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+
+        //tamanio del ambito para regresar
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //resto
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getDiff(), entorno.nivel);
+        //actualizando puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_local_id("0"), entorno.nivel);
+
+        simbolo.salidaDasm.linea(("//Obteniendo el retorno de la funcion"), entorno.nivel);
+        //colocando el retorno en la pila
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_ret(), entorno.nivel);
+ 
+        //guardando la variable en la tabla de simbolos
+        entorno.lstVariables.insertarVariable(idVar, val, tipo.valor, listaDimensiones.size(), entorno.posRelativa-1, entorno.nombre);
+         
+          
+        /**
+         * FUNCION PARA LLENAR
+         */
+        //comentarios 
+        simbolo.salidaDasm.linea("//Iniciando llamado", entorno.nivel);
+        //obtengo el puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+        //tamanio del ambito para avanzar
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //sumando
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getAdd(), entorno.nivel);
+        //actualizando puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_local_id("0"), entorno.nivel);
+        //llamando a la funcion prro
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getCall("$DASM_LLENANDO "), entorno.nivel);
+        //obtengo el puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getGet_local_id("0"), entorno.nivel);
+
+        //tamanio del ambito para regresar
+        simbolo.salidaDasm.linea(String.valueOf(entorno.posRelativa - 1), entorno.nivel);
+        //resto
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getDiff(), entorno.nivel);
+        //actualizando puntero
+        simbolo.salidaDasm.linea(simbolo.salidaDasm.getSet_local_id("0"), entorno.nivel);
+        
+    }
+    
     
     public void declararEstructuraNula(_TIPO nodTipo,_VAR_ARREGLO varArreglo, elementoEntorno entorno){
         itemAtributo tipo = nodTipo.getTipo();

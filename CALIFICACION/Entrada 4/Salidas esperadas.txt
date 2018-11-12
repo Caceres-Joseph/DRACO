@@ -1,0 +1,35 @@
+-------ARCHIVO DE FUNCIONALIDADES AVANZADAS--------
+ESTRUCTURAS
+	MANEJO ADECUADO DE REFERENCIAS
+		Hermanos Navarro (No Navarro y Aycinena):
+			Javier Navarro
+			Erick Aycinena
+	FUNCIONALIDAD AVANZADA UTILIZANDO ESTRUCTURAS
+		Ing. Erick Aycinena
+TIPOS DE RECURSION
+	RECURSIVIDAD SIMPLE
+		El factorial de 12 es: 479001600
+		El numero 2 elevado a la 5 potencia es: 32
+	RECURSIVIDAD MULTIPLE
+		Solucion al problema de torres de Hanoi para n = 3
+			mover disco de 1 a 3
+			mover disco de 1 a 2
+			mover disco de 3 a 2
+			mover disco de 1 a 3
+			mover disco de 2 a 1
+			mover disco de 2 a 3
+			mover disco de 1 a 3
+		Ordenar un arreglo con el algoritmo QuickSort
+			Arreglo desordenado: 2 1 3 5 4 
+			Arreglo ordenado: 1 2 3 4 5 
+	RECURSIVIDAD CRUZADA
+		Generar funciones Hoftadter
+			Femenina: 1 0 2 1 3 2 4 3 5 4 
+			Masculina: 0 1 1 2 2 3 3 4 4 5 
+		Determinar la paridad de dos numeros
+			El numero 17 es: Impar
+			El numero 68 es: Par
+	RECURSIVIDAD ANIDADA
+		Funcion de Ackermann (3,12) = 32765
+
+SALIDAS ESPERADAS DE GRAFICOS (VER HOJA DE CALIFICACION)

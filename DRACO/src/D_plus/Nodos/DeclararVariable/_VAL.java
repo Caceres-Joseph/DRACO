@@ -7,10 +7,13 @@ package D_plus.Nodos.DeclararVariable;
 
 import D_plus.Estructuras.Elementos.elementoEntorno;
 import D_plus.Estructuras.Items.itemValor; 
+import D_plus.Nodos.Arreglo._LLAVES_VAL_P;
+import D_plus.Nodos.Parametros._LST_VAL;
 import D_plus.Nodos.Valor._VALOR;
 import Gui.Items.itemAtributo;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;  
+import java.util.ArrayList;
 
 /**
  * Nodo para asignar el valor 
@@ -21,7 +24,7 @@ import Gui.Elementos.elementoGlobal;
  * +----------------------
  * 
 VAL                 ::=sIgual VALOR
-                    |  sIgual LST_LLAVES_VAL 
+                    |  sIgual _LLAVES_VAL_P 
                     ;
  */
 public class _VAL extends nodoModelo{
@@ -51,6 +54,26 @@ public class _VAL extends nodoModelo{
         } 
         _VALOR nod = (_VALOR) listaHijos.lstHijos.get(0);
         return nod.getValor(entorno); 
+    }
+    
+    
+    public ArrayList<itemValor> getLstValores(elementoEntorno entorno){
+        
+        ArrayList<itemValor> retorno=new ArrayList<>();
+        if(atributo.nivelProduccion==1){
+            _LLAVES_VAL_P nodoLlaves= (_LLAVES_VAL_P)listaHijos.lstHijos.get(0);
+            
+            //recorriendo sus hijos que tiene que ser 
+            
+            for (nodoModelo lstHijo : nodoLlaves.listaHijos.lstHijos) {
+                _LST_VAL nodoVals=(_LST_VAL)lstHijo;
+                ArrayList<itemValor> lsta=nodoVals.getLstValores(entorno);
+                retorno.addAll(lsta); 
+            }
+            
+        }
+        
+        return retorno;
     }
     
 }

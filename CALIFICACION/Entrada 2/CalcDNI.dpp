@@ -1,0 +1,43 @@
+vacio principal(){
+    DNI();
+}
+
+
+vacio DNI() {
+
+    //Declaramos como constante por lo que dividir
+    entero DIVISOR=23;
+
+    //Insertamos el DNI
+    imprimir ("/         CALCULO DE DNI          /");
+    cadena texto = ("142536");
+    entero dni = 142536;
+
+    //Sacamos el resto
+    //@@@@@@@@@@@@@@@@@@@@@@entero res =  dni - (dni / DIVISOR * DIVISOR); //dni % DIVISOR;
+    entero res =  dni - (dni - DIVISOR *8) - 180; //dni % DIVISOR;
+
+    //Invocamos el metodo
+    caracter letra = letraNIF(res);
+
+    //Mostramos el DNI completo
+    imprimir("Tu DNI es " + dni + letra + res); //142536M5 //@@@@@@@@@@@@@@@@ahora es 142536T0
+    GraficaDNI("" + dni + letra + res);
+
+}
+caracter letraNIF(decimal res){
+
+    //Definimos el array de caracter
+    caracter letrasNIF[23];
+    letrasNIF = {'T', 'R', 'W', 'A', 'G', 'M', 'Y',
+                      'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z',
+                      'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+
+    //Devolvemos el valor en la posicion del array
+    retornar letrasNIF[res];
+}
+
+vacio GraficaDNI(cadena texto){
+    cuadrado (0, 0, "#FEFE00", 500, 500);
+    cadena (230, 245, "#000FFE", texto);
+}

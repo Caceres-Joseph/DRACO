@@ -1,0 +1,8033 @@
+
+/*
++----------------------
+| Declarando estructura
++----------------------
+| p=persona
+*/
+//Obteniendo el puntero
+get_local 0
+//Pos relativa de la variable
+1
+ADD
+get_global 0
+//Enviando var a la posicion
+set_local $calc
+//ELEMENTO STRUCT:edad :numero
+get_global 0
+//Num Elemento
+0
+ADD
+//Valor nulo
+0
+//Colocando en posicion
+set_global $calc
+//ELEMENTO STRUCT:nombre :cadena
+get_global 0
+//Num Elemento
+1
+ADD
+//Valor nulo
+0
+//Colocando en posicion
+set_global $calc
+//ELEMENTO STRUCT:carnet :numero
+get_global 0
+//Num Elemento
+2
+ADD
+//Valor nulo
+0
+//Colocando en posicion
+set_global $calc
+//ELEMENTO STRUCT:puntuacion :numero
+get_global 0
+//Num Elemento
+3
+ADD
+//Valor nulo
+0
+//Colocando en posicion
+set_global $calc
+//ACTUALIZANDO PUNTERO: heap
+get_global 0
+4
+ADD
+set_global 0
+/*
++----------------------
+| Declarando variable Arreglo
++----------------------
+| array1=numero
+*/
+//Obteniendo el puntero
+get_local 0
+//Pos relativa de la variable
+2
+ADD
+get_global 0
+//Enviando var a la posicion
+set_local $calc
+//DIMENSION:
+get_global 0
+//valores E
+2
+set_global $calc
+//Aumentando el puntero
+get_global 0
+1
+ADD
+set_global 0
+/*
++----------------------
+| $DASM_CALC_CANT
++----------------------
+| llenando espacios
+*/
+//PARAMETRO 1:
+get_local 0
+2
+ADD
+1
+ADD
+//Operacion E, retorno de func 
+/*
++----------------------
+| DASM_CALC_CANT
++----------------------
+| calculando dimensiones
+*/
+//PARAMETRO 1:
+get_local 0
+2
+ADD
+1
+ADD
+//Operaciones E
+get_local 0
+2
+ADD
+get_local $calc
+//PARAMETRO 2:
+get_local 0
+2
+ADD
+2
+ADD
+//Operaciones E
+1
+//Iniciando llamado
+get_local 0
+2
+ADD
+set_local 0
+Call $DASM_CALC_CANT
+get_local 0
+2
+DIFF
+set_local 0
+//Obteniendo el retorno de la funcion
+get_local $ret
+//Iniciando llamado
+get_local 0
+2
+ADD
+set_local 0
+Call $DASM_LLENANDO 
+get_local 0
+2
+DIFF
+set_local 0
+/*
++----------------------
+| Valores del Arreglo
++----------------------
+| el arreglo contiene valores
+*/
+//ELEMENTO:1
+get_local 0
+2
+ADD
+//Enviando var a la posicion
+get_local $calc
+0
+ADD
+1
+ADD
+//Operacioens E
+0
+set_global $calc
+//ELEMENTO:2
+get_local 0
+2
+ADD
+//Enviando var a la posicion
+get_local $calc
+0
+ADD
+2
+ADD
+//Operacioens E
+3
+set_global $calc
+/*
++----------------------
+| Llamado a principal
++----------------------
+| 
+*/
+//Cambiando de ambito
+get_local 0
+//Tam de ambito
+2
+ADD
+//actualizando puntero
+set_local 0
+//Llamado main
+Call $principal
+/*
+|-------------------------------------------------
+| Principal
+*/
+Function $principal
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	get_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	106.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	get_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	118.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	109.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	112.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	109.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	106.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| imprimirPersona(persona0)
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Colocando parametro:persona
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//crearPersona(persona0, numero0, cadena0, numero0, numero0)
+	//Llamado a metodo
+	//Colocando parametro:persona
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	1
+	get_local $calc
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	1
+	//Colocando parametro:cadena
+	get_local 0
+	0
+	ADD
+	3
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	76.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	4
+	ADD
+	//Operaciones E
+	3
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	5
+	ADD
+	//Operaciones E
+	1
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $crearPersona_persona0_numero0_cadena0_numero0_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+		
+	//Iniciando llamado
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $imprimirPersona_persona0
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	/*
+	+----------------------
+	| imprimirPersona(persona0)
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Colocando parametro:persona
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//crearPersona(persona0, numero0, cadena0, numero0, numero0)
+	//Llamado a metodo
+	//Colocando parametro:persona
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	1
+	get_local $calc
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	20
+	//Colocando parametro:cadena
+	get_local 0
+	0
+	ADD
+	3
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	83.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	98.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	4
+	ADD
+	//Operaciones E
+	201603014
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	5
+	ADD
+	//Operaciones E
+	100
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $crearPersona_persona0_numero0_cadena0_numero0_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+		
+	//Iniciando llamado
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $imprimirPersona_persona0
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	get_global 0
+	get_global 0
+	104.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	109.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	112.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	112.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	109.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	110.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	106.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	111.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	99.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	117.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	get_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	49.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_DECIMAL_A_CADENA
+	*/
+	//PARAMETRO 1:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//Llamado a metodo
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $makeArrayConsecutive2
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_DECIMAL_A_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	98.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	51.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	49.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_DECIMAL_A_CADENA
+	*/
+	//PARAMETRO 1:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//shapeArea(numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	5
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $shapeArea_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_DECIMAL_A_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	98.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	52.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	49.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	50.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_DECIMAL_A_CADENA
+	*/
+	//PARAMETRO 1:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//shapeArea(numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	1
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $shapeArea_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_DECIMAL_A_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	98.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	49.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	51.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_DECIMAL_A_CADENA
+	*/
+	//PARAMETRO 1:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//shapeArea(numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	3
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $shapeArea_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_DECIMAL_A_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	0
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	98.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	100.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	115.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	49.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	51.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//operacionesE
+	get_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	42.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| alllongestString()
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $alllongestString
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	/*
+	+----------------------
+	| reverse()
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $reverse
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	/*
+	+----------------------
+	| sort()
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $sort
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	/*
+	+----------------------
+	| islucky()
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $islucky
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	/*
+	+----------------------
+	| common()
+	+----------------------
+	| Llamado a metodo
+	*/
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	ADD
+	//actualizando puntero
+	set_local 0
+	//Llamado al metodo
+	Call $common
+	//Cambiando de ambito
+	get_local 0
+	//Tam de ambito
+	0
+	DIFF
+	//actualizando puntero
+	set_local 0
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| crearPersona(persona p,numero edad,cadena nombre,numero carnet,numero puntacion)
+*/
+Function $crearPersona_persona0_numero0_cadena0_numero0_numero0
+	//PARAMETRO: persona p
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: numero edad
+	get_local 0
+	2
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: cadena nombre
+	get_local 0
+	3
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: numero carnet
+	get_local 0
+	4
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: numero puntacion
+	get_local 0
+	5
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	set_local $calc
+	set_local $calc
+	set_local $calc
+	set_local $calc
+	/*
+	+----------------------
+	| Declarando estructura
+	+----------------------
+	| p2=persona
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	6
+	ADD
+	get_global 0
+	//Enviando var a la posicion
+	set_local $calc
+	//ELEMENTO STRUCT:edad :numero
+	get_global 0
+	//Num Elemento
+	0
+	ADD
+	//Valor nulo
+	0
+	//Colocando en posicion
+	set_global $calc
+	//ELEMENTO STRUCT:nombre :cadena
+	get_global 0
+	//Num Elemento
+	1
+	ADD
+	//Valor nulo
+	0
+	//Colocando en posicion
+	set_global $calc
+	//ELEMENTO STRUCT:carnet :numero
+	get_global 0
+	//Num Elemento
+	2
+	ADD
+	//Valor nulo
+	0
+	//Colocando en posicion
+	set_global $calc
+	//ELEMENTO STRUCT:puntuacion :numero
+	get_global 0
+	//Num Elemento
+	3
+	ADD
+	//Valor nulo
+	0
+	//Colocando en posicion
+	set_global $calc
+	//ACTUALIZANDO PUNTERO: heap
+	get_global 0
+	4
+	ADD
+	set_global 0
+	/*
+	+----------------------
+	| Asignando valor a estructura
+	+----------------------
+	| Elemento estructura
+	*/
+	//Obteniendo puntero
+	get_local 0
+	//Posicion del destino
+	6
+	ADD
+	//Pos de puntero en heap
+	get_local $calc
+	//pos de elemento en heap
+	0
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Enviando el valor a la posicion
+	set_global $calc
+	/*
+	+----------------------
+	| Asignando valor a estructura
+	+----------------------
+	| Elemento estructura
+	*/
+	//Obteniendo puntero
+	get_local 0
+	//Posicion del destino
+	6
+	ADD
+	//Pos de puntero en heap
+	get_local $calc
+	//pos de elemento en heap
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	3
+	ADD
+	get_local $calc
+	//Enviando el valor a la posicion
+	set_global $calc
+	/*
+	+----------------------
+	| Asignando valor a estructura
+	+----------------------
+	| Elemento estructura
+	*/
+	//Obteniendo puntero
+	get_local 0
+	//Posicion del destino
+	6
+	ADD
+	//Pos de puntero en heap
+	get_local $calc
+	//pos de elemento en heap
+	2
+	ADD
+	//Operaciones E
+	get_local 0
+	4
+	ADD
+	get_local $calc
+	//Enviando el valor a la posicion
+	set_global $calc
+	/*
+	+----------------------
+	| Asignando valor a estructura
+	+----------------------
+	| Elemento estructura
+	*/
+	//Obteniendo puntero
+	get_local 0
+	//Posicion del destino
+	6
+	ADD
+	//Pos de puntero en heap
+	get_local $calc
+	//pos de elemento en heap
+	3
+	ADD
+	//Operaciones E
+	get_local 0
+	5
+	ADD
+	get_local $calc
+	//Enviando el valor a la posicion
+	set_global $calc
+	//RETORNO VAL:
+	get_local 0
+	6
+	ADD
+	get_local $calc
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| imprimirPersona(persona p)
+*/
+Function $imprimirPersona_persona0
+	//PARAMETRO: persona p
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	/*
+	+----------------------
+	| Imprimir
+	+----------------------
+	| Imprimiendo numero
+	*/
+	//Imprimiendo caracter
+	"%c"
+	//salto ln
+	10
+	//Imprimiendo
+	PRINT
+	//Imprimiendo numero
+	"%f"
+	//operacionesE
+	//OBTENIENDO UN VALOR DE UNA ESTRUCTURA
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	0
+	ADD
+	get_global $calc
+	//Imprimiendo
+	PRINT
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	1
+	ADD
+	1
+	ADD
+	//operacionesE
+	//OBTENIENDO UN VALOR DE UNA ESTRUCTURA
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	1
+	ADD
+	get_global $calc
+	//Iniciando llamado
+	get_local 0
+	1
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	1
+	DIFF
+	set_local 0
+	/*
+	+----------------------
+	| Imprimir
+	+----------------------
+	| Imprimiendo numero
+	*/
+	//Imprimiendo caracter
+	"%c"
+	//salto ln
+	10
+	//Imprimiendo
+	PRINT
+	//Imprimiendo numero
+	"%f"
+	//operacionesE
+	//OBTENIENDO UN VALOR DE UNA ESTRUCTURA
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	2
+	ADD
+	get_global $calc
+	//Imprimiendo
+	PRINT
+	/*
+	+----------------------
+	| Imprimir
+	+----------------------
+	| Imprimiendo numero
+	*/
+	//Imprimiendo caracter
+	"%c"
+	//salto ln
+	10
+	//Imprimiendo
+	PRINT
+	//Imprimiendo numero
+	"%f"
+	//operacionesE
+	//OBTENIENDO UN VALOR DE UNA ESTRUCTURA
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	3
+	ADD
+	get_global $calc
+	//Imprimiendo
+	PRINT
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| getMax(numero size)
+*/
+Function $getMax_numero0
+	//PARAMETRO: numero size
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| max=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	2
+	ADD
+	//Operaciones E
+	100000
+	0
+	100000
+	DIFF
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Para
+	+----------------------
+	| Declarando var
+	*/
+	//DECLARANDO VAR EN FOR:
+		/*
+		+----------------------
+		| Declarando variable
+		+----------------------
+		| i=numero
+		*/
+		//Obteniendo el puntero
+		get_local 0
+		//Pos relativa de la variable
+		3
+		ADD
+		//Operaciones E
+		0
+		//Enviando var a la posicion
+		set_local $calc
+	//Etiqueta condicion
+	$e_for_condicion214
+	get_local 0
+	3
+	ADD
+	get_local $calc
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	DIFF
+	EQZ
+	get_local 0
+	3
+	ADD
+	get_local $calc
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	GT
+	OR
+	EQZ
+	//Etiqueta para salir del for
+	BR_IF $e_for_falso214
+	//CUERPO FOR:
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		2
+		ADD
+		get_local $calc
+		2
+		get_local $calc
+		1
+		ADD
+		//ope E
+		get_local 0
+		3
+		ADD
+		get_local $calc
+		ADD
+		get_global $calc
+		DIFF
+		EQZ
+		get_local 0
+		2
+		ADD
+		get_local $calc
+		2
+		get_local $calc
+		1
+		ADD
+		//ope E
+		get_local 0
+		3
+		ADD
+		get_local $calc
+		ADD
+		get_global $calc
+		GT
+		OR
+		EQZ
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso1718
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| Asignando valor a var
+			+----------------------
+			| 
+			*/
+			//Obteniendo puntero
+			get_local 0
+			//Posicion del destino
+			2
+			ADD
+			//Operaciones E
+			2
+			get_local $calc
+			1
+			ADD
+			//ope E
+			get_local 0
+			3
+			ADD
+			get_local $calc
+			ADD
+			get_global $calc
+			//Enviando el valor a la posicion
+			set_local $calc
+		//Etiqueta de salida para el valor falso
+		$e_if_falso1718
+	//INCREMENTO FOR:
+		//Etiqueta incrmento para el continue
+		$e_incremento_for214
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		3
+		ADD
+		//Operaciones E
+		get_local 0
+		3
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_for_condicion214
+	//Etiqueta de salida para el valor falso
+	$e_for_falso214
+	//RETORNO VAL:
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| getMin(numero size)
+*/
+Function $getMin_numero0
+	//PARAMETRO: numero size
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| min=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	2
+	ADD
+	//Operaciones E
+	100000
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Para
+	+----------------------
+	| Declarando var
+	*/
+	//DECLARANDO VAR EN FOR:
+		/*
+		+----------------------
+		| Declarando variable
+		+----------------------
+		| i=numero
+		*/
+		//Obteniendo el puntero
+		get_local 0
+		//Pos relativa de la variable
+		3
+		ADD
+		//Operaciones E
+		0
+		//Enviando var a la posicion
+		set_local $calc
+	//Etiqueta condicion
+	$e_for_condicion1938
+	get_local 0
+	3
+	ADD
+	get_local $calc
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	DIFF
+	EQZ
+	get_local 0
+	3
+	ADD
+	get_local $calc
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	GT
+	OR
+	EQZ
+	//Etiqueta para salir del for
+	BR_IF $e_for_falso1938
+	//CUERPO FOR:
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		2
+		ADD
+		get_local $calc
+		2
+		get_local $calc
+		1
+		ADD
+		//ope E
+		get_local 0
+		3
+		ADD
+		get_local $calc
+		ADD
+		get_global $calc
+		GT
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso748
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| Asignando valor a var
+			+----------------------
+			| 
+			*/
+			//Obteniendo puntero
+			get_local 0
+			//Posicion del destino
+			2
+			ADD
+			//Operaciones E
+			2
+			get_local $calc
+			1
+			ADD
+			//ope E
+			get_local 0
+			3
+			ADD
+			get_local $calc
+			ADD
+			get_global $calc
+			//Enviando el valor a la posicion
+			set_local $calc
+		//Etiqueta de salida para el valor falso
+		$e_if_falso748
+	//INCREMENTO FOR:
+		//Etiqueta incrmento para el continue
+		$e_incremento_for1938
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		3
+		ADD
+		//Operaciones E
+		get_local 0
+		3
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_for_condicion1938
+	//Etiqueta de salida para el valor falso
+	$e_for_falso1938
+	//RETORNO VAL:
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| makeArrayConsecutive2()
+*/
+Function $makeArrayConsecutive2
+	
+	//RETORNO VAL:
+	//getMax(numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	2
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $getMax_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//getMin(numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	0
+	ADD
+	1
+	ADD
+	//Operaciones E
+	2
+	
+	//Iniciando llamado
+	get_local 0
+	0
+	ADD
+	set_local 0
+	Call $getMin_numero0
+	get_local 0
+	0
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	DIFF
+	2
+	1
+	DIFF
+	DIFF
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| shapeArea(numero n)
+*/
+Function $shapeArea_numero0
+	//PARAMETRO: numero n
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	/*
+	+----------------------
+	| SI
+	+----------------------
+	| Sentencia si
+	*/
+	//CONDICION IF:
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	1
+	DIFF
+	EQZ
+	//Salto para etiqueta falsa
+	BR_IF $e_if_falso106
+	//CUERPO IF VERDADERO:
+		//RETORNO VAL:
+		1
+		//Colocando el valor del retorno
+		set_local $ret
+		//saliendo del metodo
+		BR $dasm_retora
+	//Etiqueta de salida para el valor falso
+	$e_if_falso106
+	//RETORNO VAL:
+	//shapeArea(numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	1
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	1
+	DIFF
+	
+	//Iniciando llamado
+	get_local 0
+	1
+	ADD
+	set_local 0
+	Call $shapeArea_numero0
+	get_local 0
+	1
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	4
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	1
+	DIFF
+	MULT
+	ADD
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| alllongestString()
+*/
+Function $alllongestString
+	
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| a=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	1
+	ADD
+	//Operaciones E
+	0
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Mientras
+	+----------------------
+	| Sentencia mientras
+	*/
+	//CONDICION:
+	//Etiqueta condicion
+	$e_while_condicion180
+	1
+	//Etiqueta para salir del while
+	BR_IF $e_while_falso180
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		6
+		DIFF
+		EQZ
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso1184
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| DASM_IMPRIMIR_CADENA
+			+----------------------
+			| Imprimiendo cadena
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//operacionesE
+			/*
+			+-----------------------
+			| DASM_CONCATENAR_CADENAS
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			116.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			115.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			111.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			107.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			88.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			68.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			//PARAMETRO 2:cadena
+			get_local 0
+			1
+			ADD
+			2
+			ADD
+			//Operaciones E
+			/*
+			+-----------------------
+			| DASM_DECIMAL_A_CADENA
+			*/
+			//PARAMETRO 1:numero
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_local 0
+			1
+			ADD
+			get_local $calc
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_DECIMAL_A_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_CONCATENAR_CADENAS
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_IMPRIMIR_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//BREAK:
+			BR $e_while_falso180
+		//Etiqueta de salida para el valor falso
+		$e_if_falso1184
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		1
+		ADD
+		//Operaciones E
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_while_condicion180
+	//Etiqueta de salida para el valor falso
+	$e_while_falso180
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| reverse()
+*/
+Function $reverse
+	
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| a=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	1
+	ADD
+	//Operaciones E
+	0
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Mientras
+	+----------------------
+	| Sentencia mientras
+	*/
+	//CONDICION:
+	//Etiqueta condicion
+	$e_while_condicion486
+	1
+	//Etiqueta para salir del while
+	BR_IF $e_while_falso486
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		10
+		DIFF
+		EQZ
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso1070
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| DASM_IMPRIMIR_CADENA
+			+----------------------
+			| Imprimiendo cadena
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//operacionesE
+			/*
+			+-----------------------
+			| DASM_CONCATENAR_CADENAS
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			116.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			115.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			111.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			107.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			88.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			68.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			//PARAMETRO 2:cadena
+			get_local 0
+			1
+			ADD
+			2
+			ADD
+			//Operaciones E
+			/*
+			+-----------------------
+			| DASM_DECIMAL_A_CADENA
+			*/
+			//PARAMETRO 1:numero
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_local 0
+			1
+			ADD
+			get_local $calc
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_DECIMAL_A_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_CONCATENAR_CADENAS
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_IMPRIMIR_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//BREAK:
+			BR $e_while_falso486
+		//Etiqueta de salida para el valor falso
+		$e_if_falso1070
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		1
+		ADD
+		//Operaciones E
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_while_condicion486
+	//Etiqueta de salida para el valor falso
+	$e_while_falso486
+	/*
+	+----------------------
+	| DASM_IMPRIMIR_CADENA
+	+----------------------
+	| Imprimiendo cadena
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	1
+	ADD
+	1
+	ADD
+	//operacionesE
+	//num1(numero0, cadena0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	1
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//pruebaEntero(numero0, numero0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	1
+	ADD
+	1
+	ADD
+	//Operaciones E
+	2
+	//Colocando parametro:numero
+	get_local 0
+	1
+	ADD
+	2
+	ADD
+	//Operaciones E
+	2
+	
+	//Iniciando llamado
+	get_local 0
+	1
+	ADD
+	set_local 0
+	Call $pruebaEntero_numero0_numero0
+	get_local 0
+	1
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Colocando parametro:cadena
+	get_local 0
+	1
+	ADD
+	2
+	ADD
+	//Operaciones E
+	//pruebaCadena(cadena0, cadena0)
+	//Llamado a metodo
+	//Colocando parametro:cadena
+	get_local 0
+	1
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	109.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	105.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	107.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Colocando parametro:cadena
+	get_local 0
+	1
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	116.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	108.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	118.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	101.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	114.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	97.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	
+	//Iniciando llamado
+	get_local 0
+	1
+	ADD
+	set_local 0
+	Call $pruebaCadena_cadena0_cadena0
+	get_local 0
+	1
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	
+	//Iniciando llamado
+	get_local 0
+	1
+	ADD
+	set_local 0
+	Call $num1_numero0_cadena0
+	get_local 0
+	1
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	1
+	ADD
+	set_local 0
+	Call $DASM_IMPRIMIR_CADENA
+	get_local 0
+	1
+	DIFF
+	set_local 0
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| pruebaEntero(numero a,numero b)
+*/
+Function $pruebaEntero_numero0_numero0
+	//PARAMETRO: numero a
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: numero b
+	get_local 0
+	2
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	set_local $calc
+	//RETORNO VAL:
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	ADD
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| pruebaCadena(cadena a,cadena b)
+*/
+Function $pruebaCadena_cadena0_cadena0
+	//PARAMETRO: cadena a
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: cadena b
+	get_local 0
+	2
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	set_local $calc
+	//RETORNO VAL:
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| num1(numero a,cadena b)
+*/
+Function $num1_numero0_cadena0
+	//PARAMETRO: numero a
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: cadena b
+	get_local 0
+	2
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	set_local $calc
+	//RETORNO VAL:
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	//num2(numero0, cadena0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	//Colocando parametro:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $num2_numero0_cadena0
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	//num3(numero0, cadena0)
+	//Llamado a metodo
+	//Colocando parametro:numero
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	2
+	MULT
+	//Colocando parametro:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $num3_numero0_cadena0
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| num2(numero a,cadena b)
+*/
+Function $num2_numero0_cadena0
+	//PARAMETRO: numero a
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: cadena b
+	get_local 0
+	2
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	set_local $calc
+	//RETORNO VAL:
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_DECIMAL_A_CADENA
+	*/
+	//PARAMETRO 1:numero
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_DECIMAL_A_CADENA
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| num3(numero a,cadena b)
+*/
+Function $num3_numero0_cadena0
+	//PARAMETRO: numero a
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc
+	//PARAMETRO: cadena b
+	get_local 0
+	2
+	ADD
+	0
+	set_local $calc
+	
+	set_local $calc
+	set_local $calc
+	//RETORNO VAL:
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_CONCATENAR_CADENAS
+	*/
+	//PARAMETRO 1:cadena
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	/*
+	+-----------------------
+	| DASM_DECIMAL_A_CADENA
+	*/
+	//PARAMETRO 1:numero
+	get_local 0
+	2
+	ADD
+	1
+	ADD
+	//Operaciones E
+	get_local 0
+	1
+	ADD
+	get_local $calc
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_DECIMAL_A_CADENA
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_global 0
+	get_global 0
+	32.0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	get_global 0
+	0
+	set_global $calc
+	get_global 0
+	1
+	ADD
+	set_global 0
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//PARAMETRO 2:cadena
+	get_local 0
+	2
+	ADD
+	2
+	ADD
+	//Operaciones E
+	get_local 0
+	2
+	ADD
+	get_local $calc
+	//Iniciando llamado
+	get_local 0
+	2
+	ADD
+	set_local 0
+	Call $DASM_CONCATENAR_CADENAS
+	get_local 0
+	2
+	DIFF
+	set_local 0
+	//Obteniendo el retorno de la funcion
+	get_local $ret
+	//Colocando el valor del retorno
+	set_local $ret
+	//saliendo del metodo
+	BR $dasm_retora
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| sort()
+*/
+Function $sort
+	
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| a=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	1
+	ADD
+	//Operaciones E
+	0
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Mientras
+	+----------------------
+	| Sentencia mientras
+	*/
+	//CONDICION:
+	//Etiqueta condicion
+	$e_while_condicion160
+	1
+	//Etiqueta para salir del while
+	BR_IF $e_while_falso160
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		9
+		DIFF
+		EQZ
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso1560
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| DASM_IMPRIMIR_CADENA
+			+----------------------
+			| Imprimiendo cadena
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//operacionesE
+			/*
+			+-----------------------
+			| DASM_CONCATENAR_CADENAS
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			116.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			115.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			111.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			107.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			88.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			68.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			//PARAMETRO 2:cadena
+			get_local 0
+			1
+			ADD
+			2
+			ADD
+			//Operaciones E
+			/*
+			+-----------------------
+			| DASM_DECIMAL_A_CADENA
+			*/
+			//PARAMETRO 1:numero
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_local 0
+			1
+			ADD
+			get_local $calc
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_DECIMAL_A_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_CONCATENAR_CADENAS
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_IMPRIMIR_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//BREAK:
+			BR $e_while_falso160
+		//Etiqueta de salida para el valor falso
+		$e_if_falso1560
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		1
+		ADD
+		//Operaciones E
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_while_condicion160
+	//Etiqueta de salida para el valor falso
+	$e_while_falso160
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| islucky()
+*/
+Function $islucky
+	
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| a=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	1
+	ADD
+	//Operaciones E
+	0
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Mientras
+	+----------------------
+	| Sentencia mientras
+	*/
+	//CONDICION:
+	//Etiqueta condicion
+	$e_while_condicion224
+	1
+	//Etiqueta para salir del while
+	BR_IF $e_while_falso224
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		8
+		DIFF
+		EQZ
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso18
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| DASM_IMPRIMIR_CADENA
+			+----------------------
+			| Imprimiendo cadena
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//operacionesE
+			/*
+			+-----------------------
+			| DASM_CONCATENAR_CADENAS
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			116.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			115.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			111.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			107.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			88.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			68.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			//PARAMETRO 2:cadena
+			get_local 0
+			1
+			ADD
+			2
+			ADD
+			//Operaciones E
+			/*
+			+-----------------------
+			| DASM_DECIMAL_A_CADENA
+			*/
+			//PARAMETRO 1:numero
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_local 0
+			1
+			ADD
+			get_local $calc
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_DECIMAL_A_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_CONCATENAR_CADENAS
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_IMPRIMIR_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//BREAK:
+			BR $e_while_falso224
+		//Etiqueta de salida para el valor falso
+		$e_if_falso18
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		1
+		ADD
+		//Operaciones E
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_while_condicion224
+	//Etiqueta de salida para el valor falso
+	$e_while_falso224
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| common()
+*/
+Function $common
+	
+	/*
+	+----------------------
+	| Declarando variable
+	+----------------------
+	| a=numero
+	*/
+	//Obteniendo el puntero
+	get_local 0
+	//Pos relativa de la variable
+	1
+	ADD
+	//Operaciones E
+	0
+	//Enviando var a la posicion
+	set_local $calc
+	/*
+	+----------------------
+	| Mientras
+	+----------------------
+	| Sentencia mientras
+	*/
+	//CONDICION:
+	//Etiqueta condicion
+	$e_while_condicion1266
+	1
+	//Etiqueta para salir del while
+	BR_IF $e_while_falso1266
+		/*
+		+----------------------
+		| SI
+		+----------------------
+		| Sentencia si
+		*/
+		//CONDICION IF:
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		7
+		DIFF
+		EQZ
+		//Salto para etiqueta falsa
+		BR_IF $e_if_falso770
+		//CUERPO IF VERDADERO:
+			/*
+			+----------------------
+			| DASM_IMPRIMIR_CADENA
+			+----------------------
+			| Imprimiendo cadena
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//operacionesE
+			/*
+			+-----------------------
+			| DASM_CONCATENAR_CADENAS
+			*/
+			//PARAMETRO 1:cadena
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			116.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			105.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			115.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			111.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			107.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			32.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			88.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			68.0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			get_global 0
+			0
+			set_global $calc
+			get_global 0
+			1
+			ADD
+			set_global 0
+			//PARAMETRO 2:cadena
+			get_local 0
+			1
+			ADD
+			2
+			ADD
+			//Operaciones E
+			/*
+			+-----------------------
+			| DASM_DECIMAL_A_CADENA
+			*/
+			//PARAMETRO 1:numero
+			get_local 0
+			1
+			ADD
+			1
+			ADD
+			//Operaciones E
+			get_local 0
+			1
+			ADD
+			get_local $calc
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_DECIMAL_A_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_CONCATENAR_CADENAS
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//Obteniendo el retorno de la funcion
+			get_local $ret
+			//Iniciando llamado
+			get_local 0
+			1
+			ADD
+			set_local 0
+			Call $DASM_IMPRIMIR_CADENA
+			get_local 0
+			1
+			DIFF
+			set_local 0
+			//BREAK:
+			BR $e_while_falso1266
+		//Etiqueta de salida para el valor falso
+		$e_if_falso770
+		/*
+		+----------------------
+		| Asignando valor a var
+		+----------------------
+		| 
+		*/
+		//Obteniendo puntero
+		get_local 0
+		//Posicion del destino
+		1
+		ADD
+		//Operaciones E
+		get_local 0
+		1
+		ADD
+		get_local $calc
+		1
+		ADD
+		//Enviando el valor a la posicion
+		set_local $calc
+		//Evaluando nuevamente la condicion
+		BR $e_while_condicion1266
+	//Etiqueta de salida para el valor falso
+	$e_while_falso1266
+	$dasm_retora
+END
+
+ /*
+|-------------------------------------------------
+| Convertir entero a  cadena
+|-------------------------------------------------
+| FUNCION AUXILIAR PARA LLENAR POSICIONES DEL HEAP
+| PARAM 1: NUMERO DE ELEMENTOS A LLENAR EN EL HEAP
+*/
+
+Function $DASM_LLENANDO 
+  get_local 0
+  1
+  ADD
+  0
+  set_local $calc 
+  set_local $calc 
+  get_local 0
+  2
+  ADD
+  0
+  set_local $calc 
+  $CONDICION
+  get_local 0
+  2
+  ADD
+  get_local $calc 
+  get_local 0
+  1
+  ADD
+  get_local $calc 
+  LT 
+  BR_IF $SALIR 
+    get_global 0
+    0
+    set_global $calc  
+    get_global 0
+    1
+    ADD
+    set_global 0 
+    get_local 0
+    2
+    ADD 
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    1 
+    ADD 
+    set_local $calc 
+    BR $CONDICION
+  $SALIR
+End
+
+
+/*
+|-------------------------------------------------
+| Convertir entero a  cadena
+|-------------------------------------------------
+| FUNCION AUXILIAR PARA CALCULAR POSICIONES QUE SE DEBEN DE LLENAR
+| PARAM 1: PUNTERO DONDE INICIA EL ARREGLO
+| PARAM 2: NUMERO DE DIMENSIONES
+*/
+
+Function $DASM_CALC_CANT  
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    1
+    set_local $calc 
+    get_local 0
+    4
+    ADD
+    0
+    set_local $calc 
+    $CONDICION
+
+    get_local 0
+    4
+    ADD
+    get_local $calc
+
+    get_local 0
+    2
+    ADD
+    get_local $calc
+
+    LT
+
+    BR_IF $SALIDA 
+    get_local 0
+    3
+    ADD 
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    get_global $calc  
+    MULT  
+    set_local $calc 
+    get_local 0
+    1
+    ADD 
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    1 
+    ADD 
+    set_local $calc 
+    get_local 0
+    4
+    ADD 
+    get_local 0
+    4
+    ADD
+    get_local $calc 
+    1 
+    ADD 
+    set_local $calc 
+    BR $CONDICION 
+    $SALIDA
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    set_local $ret  
+End
+
+/*
+|-------------------------------------------------
+| Convertir entero a  cadena
+|-------------------------------------------------
+| FUNCION QUE CONVERTIRA UN NUMERO ENTERO A STRING
+| PARAM 1: NUMERO ENTERO A CONVERTIR
+*/
+
+
+Function $DASM_ENTERO_A_CADENA
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc get_local 0
+    3
+    ADD
+    1
+    set_local $calc 
+    get_local 0
+    4
+    ADD
+    0
+    set_local $calc 
+    $INICIO
+    get_local 0
+    1
+    ADD
+    get_local $calc  
+    10
+    GT  
+    BR_IF $TERMINAR 
+    get_local 0
+    2
+    ADD
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    10
+    MOD
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    get_local 0
+    3
+    ADD
+    get_local $calc
+    1
+    ADD
+    set_local $calc
+    get_local 0
+    1
+    ADD 
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    DIFF
+    set_local $calc 
+    get_local 0
+    1
+    ADD
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    10
+    DIV
+    set_local $calc
+    get_local 0
+    2
+    ADD
+    get_local 0
+    2
+    ADD
+    get_local $calc
+    48
+    ADD 
+    BR $INICIO 
+    $TERMINAR
+    get_local 0
+    2
+    ADD
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    48
+    ADD
+    get_local 0
+    5
+    ADD
+    get_global 0
+    set_local $calc 
+    $SIGUIENTE 
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    get_local 0
+    4
+    ADD
+    get_local $calc 
+    DIFF  
+    BR_IF $SALIR  
+    set_local $calc   
+    get_global 0 
+    get_local 0
+    2
+    ADD
+    get_local $calc  
+    set_global $calc  
+    get_global 0
+    1
+    ADD
+    set_global 0
+    get_local 0
+    4
+    ADD
+    get_local 0
+    4
+    ADD
+    get_local $calc
+    1
+    ADD
+    set_local $calc
+    BR $SIGUIENTE
+    $SALIR
+    get_global 0
+    0
+    set_global $calc
+    get_global 0
+    1
+    ADD
+    set_global 0
+    get_local 0
+    5
+    ADD
+    get_local $calc
+    set_local $ret  
+End
+
+
+
+/*
+|-------------------------------------------------
+| Convertir decimal a  cadenas
+|-------------------------------------------------
+| FUNCION QUE CONVERTIRA EL NUMERO DECIMAL DADO A CADENA PARA PODER MOSTRARLO E IMPRIMIRLO
+| PARAM 1: NUMERO DECIMAL A CONVERTIR
+*/
+Function $DASM_DECIMAL_A_CADENA 
+	get_local 0
+	1
+	ADD
+	0
+	set_local $calc 
+	set_local $calc 
+	get_local 0
+	2
+	ADD 
+	get_local 0
+	1
+	ADD
+	get_local $calc 
+	get_local 0
+	1
+	ADD
+	get_local $calc 
+	1 
+	MOD 
+	DIFF 
+	set_local $calc 
+	get_local 0
+	3
+	ADD 
+	get_local 0
+	1
+	ADD
+	get_local $calc 
+	1 
+	MOD 
+	100 
+	MULT 
+	set_local $calc 
+	get_local 0 
+	4 
+	ADD  
+	get_local 0  
+	3 
+	ADD  
+	1  
+	ADD 
+	get_local 0 
+	3 
+	ADD  
+	1  
+	ADD 
+	get_local 0 
+	3 
+	ADD  
+	1  
+	ADD  
+	get_local 0  
+	2  
+	ADD  
+	get_local $calc 
+    get_local 0  
+	3 
+	ADD  
+	set_local 0  
+	Call $DASM_ENTERO_A_CADENA 
+	get_local 0 
+	3 
+	DIFF 
+	set_local 0  
+	get_local $ret 
+	get_local 0 
+	3 
+	ADD  
+	2 
+	ADD  
+	get_global 0 
+	get_global 0  
+	46 
+	set_global $calc  
+	get_global 0  
+	1  
+	ADD  
+	set_global 0 
+	get_global 0 
+	0 
+	set_global $calc  
+	get_global 0  
+	1  
+	ADD  
+	set_global 0  
+	get_local 0  
+	3  
+	ADD  
+	set_local 0 
+	Call $DASM_CONCATENAR_CADENAS 
+	get_local 0  
+	3  
+	DIFF  
+	set_local 0  
+	get_local $ret  
+	get_local 0 
+	3
+	ADD 
+	2 
+	ADD 
+	get_local 0  
+	3 
+	ADD  
+	1  
+	ADD 
+	get_local 0  
+	3  
+	ADD  
+	get_local $calc
+    get_local 0 
+	3 
+	ADD  
+	set_local 0  
+	Call $DASM_ENTERO_A_CADENA 
+	get_local 0  
+	3  
+	DIFF  
+	set_local 0  
+	get_local $ret  
+	get_local 0  
+	3  
+	ADD 
+	set_local 0  
+	Call $DASM_CONCATENAR_CADENAS 
+	get_local 0  
+	3 
+	DIFF 
+	set_local 0  
+	get_local $ret 
+	set_local $calc  
+	get_local 0  
+	4 
+	ADD  
+	get_local $calc 
+	set_local $ret  
+End
+
+
+/*
+|-------------------------------------------------
+| Comparando cadenas
+|-------------------------------------------------
+| FUNCION ENCARGADA DE TRAER LA COMPARACION ENTRE CADENAS 
+| PARAM 1: PUNTERO DE LA CADENA 1
+| PARAM 2: PUNTERO DE LA CADENA 2
+*/
+
+Function $DASM_COMPARAR_CADENAS 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    4
+    ADD
+    0
+    set_local $calc  
+    get_local 0
+    3
+    ADD  
+    get_local 0
+    4
+    ADD
+    1
+    ADD              
+
+    get_local 0
+    1
+    ADD
+    get_local $calc  
+    get_local 0
+    4
+    ADD
+    set_local 0
+    Call $DASM_SUMA_CADENA
+    get_local 0
+    4
+    DIFF
+    set_local 0
+    get_local $ret  
+    set_local $calc 
+    get_local 0
+    4
+    ADD  
+    get_local 0
+    4
+    ADD
+    1
+    ADD   
+
+    get_local 0
+    2
+    ADD 
+    get_local $calc   
+    get_local 0
+    4
+    ADD
+    set_local 0
+    Call $DASM_SUMA_CADENA
+    get_local 0
+    4
+    DIFF
+    set_local 0
+    get_local $ret 
+    set_local $calc 
+    get_local 0
+    3
+    ADD
+    get_local $calc  
+
+    get_local 0
+    4
+    ADD
+    get_local $calc  
+
+    DIFF
+
+    EQZ  
+    BR_IF $MAYOR
+    0
+    set_local $ret 
+    BR $e_retornar
+
+    $MAYOR
+    get_local 0
+    3
+    ADD
+    get_local $calc  
+
+    get_local 0
+    4
+    ADD
+    get_local $calc  
+
+    GT
+
+    BR_IF $MENOR
+    1
+    set_local $ret
+    BR $e_retornar
+
+    $MENOR
+    2
+    set_local $ret
+
+    $e_retornar
+
+End
+
+
+/*
+|-------------------------------------------------
+| Igualacion cadenas
+|-------------------------------------------------
+| FUNCION QUE HACE EL IGUAL EN CADENAS
+| PARAM 1: PUNTERO CADENA 1
+| PARAM 2: PUNTERO CADENA 2
+*/
+ 
+Function $DASM_IGUALACION_CADENAS 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD  
+    get_local 0
+    2
+    ADD
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+
+    get_local 0
+    2
+    ADD
+    2
+    ADD
+
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    get_local 0
+    2
+    ADD
+    set_local 0
+    Call $DASM_COMPARAR_CADENAS
+    get_local 0
+    2
+    DIFF
+    set_local 0
+
+    get_local $ret 
+    set_local $calc  
+    get_local 0
+    3
+    ADD
+    get_local $calc
+
+    BR_IF $ES_IGUAL
+    0
+    set_local $ret
+    BR $e_retornar
+    $ES_IGUAL
+    1
+    set_local $ret
+    $e_retornar
+End
+
+/*
+|-------------------------------------------------
+| Igualacion cadenas
+|-------------------------------------------------
+| FUNCION AUXILIAR QUE HARA LA SUMA DE UNA CADENA DADA RETORNARA EL TOTAL DE LA SUMA
+| PARAM 1: PUNTERO DE LA CADENA
+*/
+
+Function $DASM_SUMA_CADENA
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    set_local $calc 
+    get_local 0
+    2
+    ADD 
+    0
+    set_local $calc 
+    get_local 0
+    1
+    ADD
+    get_local $calc     
+
+    BR_IF $TERMINAR      
+    $INICIO 
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    get_global $calc  
+    BR_IF $TERMINAR  
+    get_local 0
+    2
+    ADD  
+
+    get_local 0
+    2
+    ADD
+    get_local $calc  
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    get_global $calc  
+
+    ADD  
+
+    set_local $calc  
+    get_local 0
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+
+    1
+
+    ADD
+
+    set_local $calc 
+    BR $INICIO
+    $TERMINAR 
+    get_local 0
+    2
+    ADD
+    get_local $calc  
+
+    set_local $ret 
+End
+
+
+/*
+|-------------------------------------------------
+| Mayor que cadenas
+|-------------------------------------------------
+| FUNCION QUE ESTABLECE SI ES MAYOR
+| PARAM 1: PUNTERO CADENA 1
+| PARAM 2: PUNTERO CADENA 2
+*/
+ 
+Function $DASM_MAYOR_CADENA 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc 
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc 
+    set_local $calc
+    set_local $calc 
+    get_local 0
+    3
+    ADD  
+    get_local 0
+    2
+    ADD
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc
+
+    get_local 0
+    2
+    ADD
+    2
+    ADD
+
+    get_local 0
+    2
+    ADD
+    get_local $calc 
+    get_local 0
+    2
+    ADD
+    set_local 0
+    Call $DASM_COMPARAR_CADENAS
+    get_local 0
+    2
+    DIFF
+    set_local 0 
+    get_local $ret 
+    set_local $calc  
+    get_local 0
+    3
+    ADD
+    get_local $calc 
+    1 
+    DIFF 
+    EQZ 
+    BR_IF $NO_MAYOR
+    1
+    set_local $ret
+    BR $e_retornar
+    $NO_MAYOR
+    0
+    set_local $ret
+    $e_retornar
+End
+
+
+/*
+|-------------------------------------------------
+| Imprimiendo cadena
+|------------------------------------------------- 
+| PARAM 1: PUNTERO CADENA 1 
+*/
+Function $DASM_IMPRIMIR_CADENA 
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc
+    set_local $calc  
+    "%c"
+    //\n
+    10 
+    PRINT
+ 
+ 
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+
+    BR_IF $NULO  
+
+    $INICIO
+    get_local 0
+    1
+    ADD
+    get_local $calc  
+    get_global $calc  
+    BR_IF $SALIR  
+    "%c"     
+    get_local 0
+    1
+    ADD
+    get_local $calc  
+
+    get_global $calc  
+
+    PRINT  
+    get_local 0
+    1
+    ADD
+
+    get_local 0
+    1
+    ADD
+    get_local $calc 
+    1
+    ADD
+    set_local $calc 
+    BR $INICIO 
+    $NULO
+    "%c"
+    //N
+    78 
+    PRINT
+    //U
+    "%c"
+    85 
+    PRINT
+    //L
+    "%c"
+    76 
+    PRINT
+    //O
+    "%c"
+    79 
+    PRINT
+
+    $SALIR 
+
+End
+/*
+|-------------------------------------------------
+| Imprimiendo nulo en consola
+|-------------------------------------------------
+*/
+Function $DASM_IMPRIMIR_NULO
+	//Imprimiendo caracter
+	"%c" 
+	10.0 
+	PRINT  
+	"%c" 
+	110.0 
+	PRINT  
+	"%c" 
+	117.0 
+	PRINT  
+	"%c" 
+	108.0 
+	PRINT  
+	"%c" 
+	111.0 
+	PRINT 
+	$dasm_retora
+END
+/*
+|-------------------------------------------------
+| Imprimiendo object en consola
+|-------------------------------------------------
+*/
+Function $DASM_IMPRIMIR_OBJECT 
+	"%c" 
+	10.0 
+	PRINT  
+	"%c" 
+	111.0 
+	PRINT 
+	"%c" 
+	98.0 
+	PRINT 
+	"%c" 
+	106.0 
+	PRINT 
+	"%c" 
+	101.0 
+	PRINT 
+	"%c" 
+	99.0 
+	PRINT 
+	"%c" 
+	116.0 
+	PRINT
+	$dasm_retora
+END
+
+
+/*
+|-------------------------------------------------
+| Concatena cadenas
+|-------------------------------------------------
+| CONCATENAR STRING UTILIZANDO DOS PUNTEROS Y EL PUNTERO LIBRE DEL HEAP:
+| PARAM 1: PUNTERO STRING 1
+| PARAM 2: PUNTERO STRING 2
+| RETORNAR EL PUNTERO DE LA CADENA RESULTANTE
+*/
+ 
+
+Function $DASM_CONCATENAR_CADENAS
+    get_local 0
+    1
+    ADD
+    0
+    set_local $calc
+    get_local 0
+    2
+    ADD
+    0
+    set_local $calc
+    set_local $calc 
+    set_local $calc 
+    get_global 0 
+    $CADENA1
+    get_local 0 
+    1  
+    ADD 
+    get_local $calc
+    get_global $calc 
+
+    BR_IF $CADENA2 
+
+    get_global 0 
+    get_local 0
+    1
+    ADD 
+    get_local $calc 
+    get_global $calc 
+    set_global $calc 
+    get_global 0
+    1
+    ADD
+    set_global 0
+    get_local 0
+    1
+    ADD
+    get_local 0
+    1
+    ADD
+    get_local $calc
+    1
+    ADD
+    set_local $calc
+    BR $CADENA1
+
+    $CADENA2
+    get_local 0
+    2   
+    ADD  
+    get_local $calc 
+    get_global $calc
+
+    BR_IF $FIN_CONCAT 
+
+    get_global 0 
+    get_local 0 
+    2
+    ADD
+    get_local $calc 
+    get_global $calc 
+    set_global $calc 
+    get_global 0
+    1
+    ADD
+    set_global 0
+    get_local 0
+    2
+    ADD
+    get_local 0
+    2
+    ADD
+    get_local $calc
+    1
+    ADD
+    set_local $calc
+    BR $CADENA2
+    $FIN_CONCAT
+    get_global 0 
+    0 
+    set_global $calc 
+    get_global 0
+    1
+    ADD
+    set_global 0 
+    set_local $ret
+
+End
+

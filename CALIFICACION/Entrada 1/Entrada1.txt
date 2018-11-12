@@ -1,0 +1,52 @@
+Salida: Calificacion Compiladores 2 115.123456
+Division 0: Infinity
+Multiplicacion: 1102.419
+Multiplicacion con Recursividad: 288.0
+Suma: 143.224495
+Resta: 0.24855999999999767
+Operadores Logicos Or: true
+Operadores Logicos And: false
+Operadores Logicos And: true
+Operadores Logicos Not: false
+Operadores Logicos Not: true
+Operadores Logicos Nor: false
+Operadores Logicos Nor: true
+Operadores Logicos Nor: false
+Operadores Logicos Nor: true
+Operadores Logicos NoY: false
+ERROR...
+Operadores Logicos NoY: true
+Operadores Logicos NoY: true
+Operadores Logicos NoY: true
+Realizar Operacion Debera salir True ----->true
+Realizar Operacion Debera salir False ----->false
+Salida X: 0---  D: 5.123456789
+Salida X: 0---  D: 4.123456789
+Salida X: 0---  D: 3.1234567889999996
+Salida X: 0---  D: 2.1234567889999996
+Salida X: 0---  D: 1.1234567889999996
+Salida X: 0---  D: 0.12345678899999957
+Salida X: 1---  D: 5.123456789
+Salida X: 1---  D: 4.123456789
+Salida X: 1---  D: 3.1234567889999996
+Salida X: 1---  D: 2.1234567889999996
+Salida X: 1---  D: 1.1234567889999996
+Salida X: 1---  D: 0.12345678899999957
+Salida X: 2---  D: 5.123456789
+Salida X: 2---  D: 4.123456789
+Salida X: 2---  D: 3.1234567889999996
+Salida X: 2---  D: 2.1234567889999996
+Salida X: 2---  D: 1.1234567889999996
+Salida X: 2---  D: 0.12345678899999957
+Salida X: 3---  D: 5.123456789
+Salida X: 3---  D: 4.123456789
+Salida X: 3---  D: 3.1234567889999996
+Salida X: 3---  D: 2.1234567889999996
+Salida X: 3---  D: 1.1234567889999996
+Salida X: 3---  D: 0.12345678899999957
+Salida X: 4---  D: 5.123456789
+Salida X: 4---  D: 4.123456789
+Salida X: 4---  D: 3.1234567889999996
+Salida X: 4---  D: 2.1234567889999996
+Salida X: 4---  D: 1.1234567889999996
+Salida X: 4---  D: 0.12345678899999957

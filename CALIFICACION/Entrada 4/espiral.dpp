@@ -1,0 +1,32 @@
+
+entero fibonacci(entero num) {
+	return (num == 1 || num == 2)? 1 : fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+
+
+vacio principal(){
+	entero width = 500;
+    entero height = 500;
+
+    entero widthCenter = width / 2;
+    entero heightCenter = height / 2;
+
+    para (entero i = 0; i < 11 ; i++)
+    {
+        linea(widthCenter + (20 * i), heightCenter - (20 * i), widthCenter + (20 * i), heightCenter + 20 + (20 * i), "#FFFFFF", 2);
+        linea(widthCenter + (20 * i), heightCenter + 20 + (20 * i), widthCenter - 20 - (20 * i), heightCenter + 20 + (20 * i), "#FFFFFF", 2);
+        linea(widthCenter - 20 - (20 * i), heightCenter + 20 + (20 * i), widthCenter - 20 - (20 * i), heightCenter - 20 - (20 * i), "#FFFFFF", 2);
+        linea(widthCenter - 20 - (20 * i), heightCenter - 20 - (20 * i), widthCenter + 20 + (20 * i), heightCenter - 20 - (20 * i), "#FFFFFF", 2);
+    }
+    entero num = 10;
+    entero nums[num];
+
+    para (entero i = 1; i <= num; i++) {
+        entero currentNum = fibonacci(i);
+        nums[i - 1] = currentNum;
+    }
+
+    imprimir("El numero fibonacci 6 (debe ser 13) es: "+nums[6]);
+
+}

@@ -1,0 +1,46 @@
+vacio principal(){
+    Multidimensiones();
+}
+
+
+vacio Multidimensiones() {
+    //@@@@@@@entero matriz[3][3] = 
+    entero matriz[3][3] = 
+        {
+            {10,6,8},
+            {15,7,9},
+            {-5,-8,-2}
+        };
+    decimal sumaFila = 0;
+    cadena juntos = "";
+    para (entero i = 0; i < 3; i++) {
+        sumaFila = 0;
+        para (entero j = 0; j < 3; j++) {
+            sumaFila = sumaFila + matriz[i][j];
+            juntos = juntos + " " + matriz[i][j];
+        }
+        imprimir (juntos + " SumaFila: " + sumaFila + " PromedioFila: " + (sumaFila / 3));
+    }
+
+    DibujarCubo();
+}
+
+vacio DibujarCubo(){
+	//negro
+	cuadrado (0, 0, "#000000", 500, 500);
+	//rojo
+	cuadrado (200, 100, "#FE0000", 75*2, 75*2);
+	//azul
+	cuadrado (160, 150, "#000FFE", 15*10, 10*15);
+	
+	//amarillo
+	linea (160, 150, 200, 100, "#FEFE00", 2);
+	linea (160 + 150, 150, 200 + 75 * 2, 100, "#FEFE00", 2);
+	linea (160 + 150, 150 + 150, 200 + 150, 100 + 150, "#FEFE00", 2);
+	linea (160, 150 + 150, 200, 100 + 150, "#FEFE00", 2);
+
+	//blanco
+	linea (200, 250, 200, 150, "#FFFFFF", 2);
+	linea (200, 250, 160 + 150, 250, "#FFFFFF", 2);
+
+}

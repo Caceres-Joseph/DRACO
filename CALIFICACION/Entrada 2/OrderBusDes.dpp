@@ -1,0 +1,140 @@
+vacio principal(){
+    main();
+}
+
+
+estructura array {
+    entero numeros [16];
+}
+
+vacio main ( ) {
+    //@@@@@@@entero numeros[16] = {5, 6, 2, 27, 10, -8, 1, 6, -1, -2, 7, 8, 0, -5, 36, 34};
+    entero numeros[16] = {5, 6, 2, 27, 10, -8, 1, 6, -1, -2, 7, 8, 0, -5, 36, 34};
+
+    //llamada funcion
+    imprimir ("~~ ''''          *******         CONTENIDO ARREGLO       ***** ```` @!");
+    para (entero i = 0; i < 16; i++) {
+        imprimir ("Numero: " + numeros[i]);
+    }
+
+    //array a ordenar
+    array arreglo;
+    arreglo.numeros = numeros;
+    imprimir ("~~ ''''          *******         CONTENIDO ORDENADO       ***** ```` @!");
+    arreglo.numeros = ordenacionBurbuja(arreglo).numeros;
+
+    //mostrar el contenido    
+    para (entero i = 0; i < 16; i++) {
+        imprimir ("Numero: " + arreglo.numeros[i]);
+    }
+
+    imprimir ("Busqueda Binaria ...");
+    imprimir ("El numero -1 esta en la posicion  " + buscarBin(-1, arreglo));
+    
+    ParEImpar(arreglo);
+
+    imprimir ("~~ ''''          *******         CONTENIDO GRAFICO       ***** ```` @!");
+    CrearGrafico(arreglo);
+}
+
+/*
+  Ordena un array de enteros por el metodo de la burbuja
+  @ @ @ @ @ @ @ ~ ~ ` ' ; = !@#$%^&()_+}{":?> '
+  @param lista
+*/
+array ordenacionBurbuja(array arreglo) {
+    //entero lista [2][16] = { {arreglo.numeros}, {arreglo.numeros} };
+
+    entero cuentaintercambios = 0;  //Variable que cuenta los intercambios que hacemos
+    //para (boolean ordenado = falso; !ordenado;) { //hasta que no haya mas intercambios no sales
+    booleano ordenado = falso;
+    mientras (!ordenado){
+        para (entero i = 0; i < 16 - 1; i++) {
+            si (arreglo.numeros[i] > arreglo.numeros[i + 1]) {
+                //intercambio
+                entero variableauxiliar = arreglo.numeros[i];
+                arreglo.numeros[i] = arreglo.numeros[i + 1];
+                arreglo.numeros[i + 1] = variableauxiliar;
+                //indico que ha habido un intercambio mas
+                cuentaintercambios++;
+            }
+        }
+        //Si no hay intercambios, el array esta ordenado
+        si (cuentaintercambios == 0) {
+            ordenado = verdadero;
+        }
+        cuentaintercambios = 0; //Reinicio la variable
+    }
+    retornar arreglo;
+}
+
+decimal buscarBin(entero numerobuscado, array arreglo) {
+    //@@@@@@entero arrayX [16] = {arreglo.numeros};
+	entero arrayX [16] = arreglo.numeros;
+    
+    decimal izq = 0;
+    decimal der = 16;
+    booleano encontrado = falso;
+    decimal pos = -1;
+
+    para (entero i = 0; !encontrado && i < 16; i++) {
+        entero central = arrayX[ (izq + der) / 2 ]; //elegimos la casilla central
+        si (central <= numerobuscado) {
+            si (central == numerobuscado) { //encontrado
+                encontrado = verdadero;
+                pos = (izq + der) / 2;
+            } sino {
+                izq = (izq + der) / 2; //modificamos izq
+            }
+        } sino {
+            der = (izq + der) / 2; //modificamos der
+        }
+    }
+    retornar pos;
+}
+
+
+vacio ParEImpar(array arreglo){
+    //@@@@@@entero origen [16] = {arreglo.numeros};
+	entero origen [16] = arreglo.numeros;
+    
+    entero destino[16]; // = new int[16];
+
+    //Creamos un contador que nos servira de indice en el array de destino
+    entero contador = 0;
+    //Rellenamos el array de destino con la condicion indicada n1 - (n1 / n2 * n2)
+    //para (entero i = 0; i < origen.length; i++) { if (origen[i] % 2 == 0 && origen[i] > 25) {
+    
+    para (entero i = 0; i < 16; i++) { 
+        si (origen[i] - (origen[i]/2 * 2) == 0 && origen[i] > 25) {
+            destino [contador] = origen[i]; //usamos contador como indice
+            contador++; //aumentamos el contador
+        }
+    }
+
+    //Muestra el vector de origen
+    imprimir ("Mostrar vector origen");
+    para (entero i = 0; i < 16; i++) {
+        imprimir ("Posicion: " + i + " Valor: " + origen[i] );
+    }
+
+    imprimir ("Mostrar Vector destino");
+    si (contador == 0) { //Si no hay elementos, mostrara un elemento
+        imprimir ("No hay numeros que cumplan la condicion");
+    } sino {
+
+        //Mostrar el vector de origen
+        para (entero i = 0; i < contador; i++) {
+            imprimir ("Posicion: " + i + " Valor: " + destino[i]);
+        }
+    }
+}
+
+
+
+
+vacio CrearGrafico(array arreglo){
+    para (entero i = 0; i < 16; i++) { 
+        linea (i * 30 , 0, i * 30, ( ((arreglo.numeros[i] * 10) < 0) ? (arreglo.numeros[i] * 10) * -1 : (arreglo.numeros[i] * 10) ), "#000000", 5);
+    }
+}

@@ -8,6 +8,7 @@ package D_plus.Nodos.IdVarFunc;
 import D_plus.Estructuras.Elementos.elementoEntorno;
 import D_plus.Estructuras.Items.itemEstructura;
 import D_plus.Estructuras.Items.itemValor;
+import D_plus.Nodos.Arreglo._LST_CORCHETES_VAL;
 import D_plus.Nodos.nodoModelo;
 import Gui.Elementos.elementoGlobal;
 import Gui.Items.itemAtributo;
@@ -195,7 +196,9 @@ public class _ID_VAR_FUNC_PADRE2 extends nodoModelo{
      */ 
     public itemValor d_case_4(elementoEntorno entorno) {
         itemValor retorno = new itemValor(simbolo); 
-
+        retorno.dasmAccediendoElemArreglo=true;
+        
+        
        
         return retorno;
     }
